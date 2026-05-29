@@ -1,5 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 
 const products = [
   { id: 1, name: 'Băng dính 2 mặt 1 cm (20 cuộn/cây)', unit: 'Cuộn', price: 4000, vat: '8%', image: 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=500&h=500&fit=crop' },
@@ -142,140 +144,208 @@ const productLink = 'https://mily.vn/W7mTGxXM';
 ---
 
 <Layout title="Sản Phẩm | Long Hùng">
-  <div class="products-container">
-    <h1>Danh Mục Sản Phẩm</h1>
-    <p class="total-products">Tổng số sản phẩm: {products.length}</p>
-    
-    <div class="products-grid">
-      {products.map((product) => (
-        <div class="product-card">
-          <div class="product-image">
-            <img src={product.image} alt={product.name} />
-          </div>
-          <div class="product-info">
-            <h2>{product.name}</h2>
-            <div class="product-details">
-              <p><strong>Đơn vị:</strong> {product.unit}</p>
-              <p><strong>Giá:</strong> {product.price.toLocaleString('vi-VN')} đ</p>
-              <p><strong>VAT:</strong> {product.vat}</p>
-            </div>
-            <a href={productLink} class="product-link" target="_blank" rel="noopener noreferrer">
-              Xem chi tiết
-            </a>
-          </div>
-        </div>
-      ))}
+  <Header currentPage="/san-pham" />
+
+  <!-- Hero Section -->
+  <section class="products-hero">
+    <div class="container">
+      <h1>Danh Mục Sản Phẩm</h1>
+      <p>Tổng cộng {products.length} sản phẩm</p>
     </div>
-  </div>
+  </section>
+
+  <!-- Products Section -->
+  <section class="products-section">
+    <div class="container">
+      <div class="products-grid">
+        {products.map((product) => (
+          <div class="product-card">
+            <div class="product-image">
+              <img src={product.image} alt={product.name} loading="lazy" />
+            </div>
+            <div class="product-info">
+              <h3>{product.name}</h3>
+              <div class="product-details">
+                <p><strong>Đơn vị:</strong> <span>{product.unit}</span></p>
+                <p><strong>Giá:</strong> <span class="price">{product.price.toLocaleString('vi-VN')} đ</span></p>
+                <p><strong>VAT:</strong> <span>{product.vat}</span></p>
+              </div>
+              <a href={productLink} class="btn btn-product" target="_blank" rel="noopener noreferrer">
+                Xem chi tiết
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Footer />
 </Layout>
 
 <style>
-  .products-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem;
+  .products-hero {
+    background: linear-gradient(135deg, rgba(102, 0, 17, 0.05) 0%, rgba(171, 106, 36, 0.05) 100%);
+    padding: var(--spacing-2xl) 0;
+    text-align: center;
+    border-bottom: 1px solid var(--color-gray-light);
   }
 
-  h1 {
-    text-align: center;
-    margin-bottom: 1rem;
+  .products-hero h1 {
     font-size: 2.5rem;
-    color: #333;
+    color: var(--color-brown);
+    margin-bottom: var(--spacing-md);
   }
 
-  .total-products {
-    text-align: center;
-    color: #666;
-    margin-bottom: 2rem;
+  .products-hero p {
     font-size: 1.1rem;
+    color: var(--color-gray);
+    margin: 0;
+  }
+
+  .products-section {
+    padding: var(--spacing-2xl) 0;
+    background-color: var(--color-white);
   }
 
   .products-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--spacing-xl);
   }
 
   .product-card {
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
+    border: 1px solid var(--color-gray-light);
+    border-radius: var(--radius-lg);
     overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: all var(--transition-normal);
     display: flex;
     flex-direction: column;
     height: 100%;
+    background-color: var(--color-white);
   }
 
   .product-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
   }
 
   .product-image {
     width: 100%;
     height: 200px;
     overflow: hidden;
-    background-color: #f5f5f5;
+    background-color: var(--color-bg);
   }
 
   .product-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform var(--transition-normal);
+  }
+
+  .product-card:hover .product-image img {
+    transform: scale(1.05);
   }
 
   .product-info {
-    padding: 1.5rem;
+    padding: var(--spacing-lg);
     display: flex;
     flex-direction: column;
     flex-grow: 1;
   }
 
-  .product-info h2 {
-    font-size: 1.1rem;
-    margin: 0 0 1rem 0;
-    color: #333;
+  .product-info h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-brown);
+    margin: 0 0 var(--spacing-md) 0;
     line-height: 1.4;
     min-height: 2.8em;
   }
 
   .product-details {
-    margin: 1rem 0;
+    margin: var(--spacing-md) 0;
     flex-grow: 1;
   }
 
   .product-details p {
-    margin: 0.5rem 0;
-    font-size: 0.95rem;
-    color: #555;
+    margin: var(--spacing-sm) 0;
+    font-size: 0.9rem;
+    color: var(--color-text);
   }
 
-  .product-link {
-    display: inline-block;
-    margin-top: auto;
-    padding: 0.75rem 1.5rem;
-    background-color: #0066cc;
-    color: white;
-    text-decoration: none;
-    border-radius: 4px;
-    text-align: center;
-    transition: background-color 0.3s ease;
+  .product-details strong {
+    color: var(--color-brown);
     font-weight: 600;
   }
 
-  .product-link:hover {
-    background-color: #0052a3;
+  .product-details span {
+    color: var(--color-gray);
   }
 
+  .price {
+    color: var(--color-primary) !important;
+    font-weight: 600;
+    font-size: 1.05rem;
+  }
+
+  .btn-product {
+    margin-top: auto;
+    padding: var(--spacing-md) var(--spacing-lg);
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    text-decoration: none;
+    border-radius: var(--radius-md);
+    text-align: center;
+    transition: all var(--transition-fast);
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+
+  .btn-product:hover {
+    background-color: var(--color-primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 0, 17, 0.25);
+  }
+
+  /* Responsive */
   @media (max-width: 768px) {
-    .products-grid {
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 1.5rem;
+    .products-hero h1 {
+      font-size: 2rem;
     }
 
-    h1 {
-      font-size: 2rem;
+    .products-grid {
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: var(--spacing-lg);
+    }
+
+    .product-details {
+      font-size: 0.85rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .products-hero {
+      padding: var(--spacing-xl) 0;
+    }
+
+    .products-hero h1 {
+      font-size: 1.75rem;
+    }
+
+    .products-grid {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-md);
+    }
+
+    .product-image {
+      height: 150px;
+    }
+
+    .product-info {
+      padding: var(--spacing-md);
     }
   }
 </style>
