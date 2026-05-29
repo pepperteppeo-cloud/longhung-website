@@ -1,20 +1,20 @@
 ---
-// src/pages/index.astro - Page 1: VPP B2B Home
+// src/pages/nha-sach.astro - Page 2: Nhà sách
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import ContactForm from '../components/ContactForm.astro';
 ---
 
-<Layout title="Văng Phòng Phẩm Long Hưng — Cung ứng VPP B2B" description="Cung ứng văn phòng phẩm chuyên nghiệp, minh bạch, tối ưu, an toàn cho doanh nghiệp.">
-  <Header currentPage="/" />
+<Layout title="Nhà Sách Long Hưng — Mua Hàng Giao Hàng Tận Nơi" description="Nhà sách bán lẻ Long Hưng - Mua hàng online, giao hàng tận nơi mọi lúc.">
+  <Header currentPage="/nha-sach" />
 
   <!-- Hero Section -->
-  <section class="hero" style="background-image: url('/images/hero-vpp.jpg')">
+  <section class="hero" style="background-image: url('/images/hero-nhasach.jpg')">
     <div class="hero-content">
-      <h1>Cung ứng Văn Phòng Phẩm</h1>
-      <p class="hero-subtitle">Chuyên Nghiệp • Minh Bạch • Tối Ưu • An Toàn</p>
-      <a href="#contact-section" class="btn mt-3">Tư vấn Ngay</a>
+      <h1>Nhà Sách Long Hưng</h1>
+      <p class="hero-subtitle">Mua Hàng • Giao Hàng Tận Nơi • Mọi Lúc</p>
+      <a href="#contact-section" class="btn mt-3">Đặt Hàng Ngay</a>
     </div>
   </section>
 
@@ -23,24 +23,24 @@ import ContactForm from '../components/ContactForm.astro';
     <div class="container">
       <div class="grid grid-4">
         <div class="feature-item">
-          <div class="feature-icon">⚡</div>
-          <h3>Siêu Tốc</h3>
-          <p>Giao hàng nhanh chóng, đúng hạn</p>
+          <div class="feature-icon">🚚</div>
+          <h3>Giao Tận Nơi</h3>
+          <p>Vận chuyển an toàn đến tận nhà bạn</p>
         </div>
         <div class="feature-item">
-          <div class="feature-icon">📋</div>
-          <h3>Minh Bạch</h3>
-          <p>Báo giá rõ ràng, không phụ phí</p>
+          <div class="feature-icon">💻</div>
+          <h3>Mua Online</h3>
+          <p>Dễ dàng đặt hàng qua điện thoại/email</p>
         </div>
         <div class="feature-item">
-          <div class="feature-icon">💰</div>
-          <h3>Tối Ưu</h3>
-          <p>Giá tốt nhất, dịch vụ tốt nhất</p>
+          <div class="feature-icon">⏰</div>
+          <h3>Mọi Lúc</h3>
+          <p>Phục vụ linh hoạt, hỗ trợ 7 ngày/tuần</p>
         </div>
         <div class="feature-item">
-          <div class="feature-icon">🛡️</div>
-          <h3>An Toàn</h3>
-          <p>Hàng chính hãng, bảo hành đầy đủ</p>
+          <div class="feature-icon">✨</div>
+          <h3>Chất Lượng</h3>
+          <p>Hàng chính hãng, giá cạnh tranh nhất</p>
         </div>
       </div>
     </div>
@@ -53,8 +53,8 @@ import ContactForm from '../components/ContactForm.astro';
         <h2 class="section-subtitle">Cam kết và Giải Pháp</h2>
         <h2 class="section-title">Nhanh — Gọn — Đúng — Trúng</h2>
         <p class="commitment-text">
-          Chúng tôi cam kết cung cấp giải pháp văn phòng phẩm toàn diện cho doanh
-          nghiệp của bạn, từ tư vấn, lựa chọn hàng, đến giao hàng và hỗ trợ sau bán.
+          Chúng tôi cam kết cung cấp trải nghiệm mua sắm tuyệt vời, từ chọn hàng,
+          đến giao hàng nhanh chóng, và hỗ trợ sau mua bán chuyên nghiệp.
         </p>
       </div>
     </div>
@@ -96,7 +96,7 @@ import ContactForm from '../components/ContactForm.astro';
 
   <!-- Contact Section -->
   <section id="contact-section">
-    <ContactForm title="Tư vấn Ngay" subtitle="Liên hệ với chúng tôi để nhận tư vấn miễn phí" />
+    <ContactForm title="Đặt Hàng Ngay" subtitle="Liên hệ để đặt hàng hoặc tư vấn về sản phẩm" />
   </section>
 
   <Footer />

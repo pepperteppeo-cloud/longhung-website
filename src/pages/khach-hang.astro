@@ -1,0 +1,209 @@
+---
+// src/pages/khach-hang.astro - Page 3: Khách hàng doanh nghiệp
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ContactForm from '../components/ContactForm.astro';
+---
+
+<Layout title="Khách Hàng Doanh Nghiệp — Long Hưng" description="Phòng kinh doanh Long Hưng - Giải pháp văn phòng phẩm cho doanh nghiệp.">
+  <Header currentPage="/khach-hang" />
+
+  <!-- Hero Section -->
+  <section class="hero" style="background-image: url('/images/hero-vpp.jpg')">
+    <div class="hero-content">
+      <h1>Phòng Kinh Doanh</h1>
+      <p class="hero-subtitle">Chào Mừng Bạn</p>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="team-section">
+    <div class="container">
+      <h2 class="section-title text-center mb-4">Đội Ngũ Chuyên Nghiệp</h2>
+      <div class="grid grid-2 team-grid">
+        <div class="team-card">
+          <div class="team-image">
+            <img src="/images/team-huy.jpg" alt="Mr. Trương Mạnh Huy" />
+          </div>
+          <div class="team-info">
+            <h3>Mr. Trương Mạnh Huy</h3>
+            <p class="team-position">Giám Đốc & Trưởng Phòng Kinh Doanh</p>
+            <p class="team-bio">
+              Hơn 10 năm kinh nghiệm trong lĩnh vực cung ứng văn phòng phẩm. Đam mê phục vụ khách hàng với chất lượng tốt nhất.
+            </p>
+            <a href="tel:+84389023720" class="btn btn-secondary mt-3">Gọi Mr. Huy</a>
+          </div>
+        </div>
+
+        <div class="team-card">
+          <div class="team-image">
+            <img src="/images/team-vinh.jpg" alt="Ms. Tiêu Phúc Vinh" />
+          </div>
+          <div class="team-info">
+            <h3>Ms. Tiêu Phúc Vinh</h3>
+            <p class="team-position">Trưởng Phòng Vận Hành</p>
+            <p class="team-bio">
+              Chuyên trách tổ chức, điều phối và quản lý hoạt động để đảm bảo chất lượng dịch vụ tốt nhất.
+            </p>
+            <a href="tel:+84353839500" class="btn btn-secondary mt-3">Gọi Ms. Vinh</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Categories -->
+  <section class="product-section">
+    <div class="container">
+      <h2 class="section-title text-center mb-4">Danh Mục Sản Phẩm</h2>
+      <div class="grid grid-3">
+        <div class="product-card">
+          <div class="product-icon">📦</div>
+          <h3>Văn Phòng Phẩm</h3>
+          <p>
+            Bút, bút chì, giấy note, kẹp giấy, sơ đồ, ghim, dây buộc, lưu trữ tài liệu và nhiều sản phẩm khác.
+          </p>
+        </div>
+        <div class="product-card">
+          <div class="product-icon">📄</div>
+          <h3>Sản Phẩm Về Giấy</h3>
+          <p>
+            Giấy in, giấy bìa, giấy A4, giấy in màu, giấy kraft, giấy thương mại và các loại giấy chuyên dụng.
+          </p>
+        </div>
+        <div class="product-card">
+          <div class="product-icon">🎒</div>
+          <h3>Học Đường</h3>
+          <p>
+            Sách vở, bút viết, tập vẽ, balo, túi học tập, dụng cụ học tập và các nhu cầu học tập khác.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact-section">
+    <ContactForm title="Liên Hệ Phòng Kinh Doanh" subtitle="Để tìm hiểu thêm về giải pháp văn phòng phẩm cho doanh nghiệp" />
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  .hero-content {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .hero-subtitle {
+    font-size: 1.5rem;
+    font-family: var(--font-script);
+    color: var(--color-gold-light);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .team-section {
+    background-color: var(--color-bg);
+    padding: var(--spacing-2xl) 0;
+  }
+
+  .team-grid {
+    gap: var(--spacing-2xl);
+  }
+
+  .team-card {
+    background-color: var(--color-white);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    transition: all var(--transition-normal);
+  }
+
+  .team-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+  }
+
+  .team-image {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    background-color: var(--color-gray-light);
+  }
+
+  .team-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .team-info {
+    padding: var(--spacing-xl);
+  }
+
+  .team-info h3 {
+    color: var(--color-brown);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .team-position {
+    color: var(--color-gold);
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .team-bio {
+    color: var(--color-gray);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin: var(--spacing-md) 0;
+  }
+
+  .product-section {
+    padding: var(--spacing-2xl) 0;
+  }
+
+  .product-card {
+    background-color: var(--color-gold-light);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    text-align: center;
+    transition: all var(--transition-normal);
+  }
+
+  .product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  }
+
+  .product-icon {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .product-card h3 {
+    color: var(--color-brown);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .product-card p {
+    color: var(--color-text);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .team-image {
+      height: 250px;
+    }
+
+    .team-card {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+</style>
