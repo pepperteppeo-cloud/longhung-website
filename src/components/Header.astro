@@ -1,0 +1,63 @@
+---
+// src/components/Header.astro
+const navItems = [
+  { path: '/', label: 'Trang chủ' },
+  { path: '/nha-sach', label: 'Nhà sách' },
+  { path: '/khach-hang', label: 'Khách hàng B2B' },
+  { path: '/ve-chung-toi', label: 'Về chúng tôi' },
+  { path: '/lien-he', label: 'Liên hệ' },
+];
+---
+
+<header class="site-header">
+  <div class="container header-content">
+    <a href="/" class="logo">
+      <strong>VPP Long Hưng</strong>
+    </a>
+    <nav>
+      <ul class="nav-links">
+        {navItems.map((item) => (
+          <li><a href={item.path}>{item.label}</a></li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    background-color: var(--color-bg);
+    border-bottom: 1px solid #eaeaea;
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .logo {
+    font-size: 1.5rem;
+    color: var(--color-primary);
+  }
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+  }
+  .nav-links a {
+    font-weight: 500;
+    transition: color 0.2s ease;
+  }
+  .nav-links a:hover {
+    color: var(--color-primary);
+  }
+  
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none; /* Mobile menu logic can be added later if needed */
+    }
+  }
+</style>

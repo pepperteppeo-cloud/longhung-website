@@ -1,11 +1,63 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Trang chủ | VPP Long Hưng">
+  <section class="hero">
+    <div class="container hero-content">
+      <h1>Giải pháp Văn phòng phẩm Toàn diện</h1>
+      <p>Giao hàng siêu tốc 2.5H - Tối ưu chi phí - Dịch vụ chuyên nghiệp</p>
+      <a href="/nha-sach" class="cta-button">Xem Sản Phẩm</a>
+    </div>
+  </section>
+
+  <section class="features container">
+    <h2>Tại sao chọn Long Hưng?</h2>
+    <p style="text-align: center; color: var(--color-text);">Nội dung giới thiệu chi tiết đang được cập nhật...</p>
+  </section>
 </Layout>
+
+<style>
+  .hero {
+    background-image: url('/images/hero-vpp.png');
+    background-size: cover;
+    background-position: center;
+    background-color: var(--color-light-bg);
+    padding: 6rem 0;
+    text-align: center;
+    color: white;
+  }
+  .hero-content {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 2rem;
+    border-radius: 8px;
+    display: inline-block;
+  }
+  .hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: white;
+  }
+  .hero p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+  }
+  .cta-button {
+    display: inline-block;
+    background-color: var(--color-primary);
+    color: white;
+    padding: 0.75rem 2rem;
+    border-radius: 4px;
+    font-weight: bold;
+  }
+  .cta-button:hover {
+    background-color: #800015;
+  }
+  .features {
+    padding: 4rem 1.5rem;
+  }
+  .features h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+</style>
