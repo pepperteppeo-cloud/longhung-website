@@ -1,0 +1,281 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const products = [
+  { id: 1, name: 'Băng dính 2 mặt 1 cm (20 cuộn/cây)', unit: 'Cuộn', price: 4000, vat: '8%', image: 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=500&h=500&fit=crop' },
+  { id: 2, name: 'Băng dính 2 mặt 2cm (15 cuộn/cây)', unit: 'Cuộn', price: 5000, vat: '8%', image: 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=500&h=500&fit=crop' },
+  { id: 3, name: 'Băng dính 2 mặt 5cm (6 cuộn/cây)', unit: 'Cuộn', price: 8500, vat: '8%', image: 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=500&h=500&fit=crop' },
+  { id: 4, name: 'Băng dính dán gáy Simili 3cm', unit: 'Cuộn', price: 8000, vat: '8%', image: 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=500&h=500&fit=crop' },
+  { id: 5, name: 'Băng dính dán gáy Simili 5cm', unit: 'Cuộn', price: 10000, vat: '8%', image: 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=500&h=500&fit=crop' },
+  { id: 6, name: 'Băng dính giấy 1 cm', unit: 'Cuộn', price: 4000, vat: '8%', image: 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=500&h=500&fit=crop' },
+  { id: 7, name: 'Băng dính giấy 2 cm', unit: 'Cuộn', price: 6000, vat: '8%', image: 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=500&h=500&fit=crop' },
+  { id: 8, name: 'Băng dính trong 2 cm', unit: 'Cuộn', price: 3500, vat: '8%', image: 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=500&h=500&fit=crop' },
+  { id: 9, name: 'Băng dính trong 5cm-100Y', unit: 'Cuộn', price: 16000, vat: '8%', image: 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=500&h=500&fit=crop' },
+  { id: 10, name: 'Băng dính trong 5cm-200Y', unit: 'Cuộn', price: 27000, vat: '8%', image: 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=500&h=500&fit=crop' },
+  { id: 11, name: 'Băng dính trong 5cm-60Y', unit: 'Cuộn', price: 12000, vat: '8%', image: 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=500&h=500&fit=crop' },
+  { id: 12, name: 'Băng xoá khô Plus WH 12mm', unit: 'Chiếc', price: 24000, vat: '8%', image: 'https://images.unsplash.com/photo-1599581423571-bedf4c5db813?w=500&h=500&fit=crop' },
+  { id: 13, name: 'Băng xoá khô Plus WH 7mm', unit: 'Chiếc', price: 16000, vat: '8%', image: 'https://images.unsplash.com/photo-1599581423571-bedf4c5db813?w=500&h=500&fit=crop' },
+  { id: 14, name: 'Bút bi Double A Tri 0.7', unit: 'Chiếc', price: 4500, vat: '8%', image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=500&h=500&fit=crop' },
+  { id: 15, name: 'Bút bi Thiên Long 025 xanh, đỏ, đen', unit: 'Chiếc', price: 4800, vat: '8%', image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=500&h=500&fit=crop' },
+  { id: 16, name: 'Bút bi Thiên Long 027 xanh, đen, đỏ', unit: 'Chiếc', price: 4500, vat: '8%', image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=500&h=500&fit=crop' },
+  { id: 17, name: 'Bút bi Thiên Long F024', unit: 'Chiếc', price: 4500, vat: '8%', image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=500&h=500&fit=crop' },
+  { id: 18, name: 'Bút chì Deli', unit: 'Chiếc', price: 4000, vat: '8%', image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=500&h=500&fit=crop' },
+  { id: 19, name: 'Bút chì Đức Steadler 134-2B', unit: 'Chiếc', price: 4500, vat: '8%', image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=500&h=500&fit=crop' },
+  { id: 20, name: 'Bút dạ dầu TL PM-09', unit: 'Chiếc', price: 9000, vat: '8%', image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=500&h=500&fit=crop' },
+  { id: 21, name: 'Bút dạ kính TL PM-04', unit: 'Chiếc', price: 8000, vat: '8%', image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=500&h=500&fit=crop' },
+  { id: 22, name: 'Bút dạ nét nhỏ 2 đầu', unit: 'Chiếc', price: 6000, vat: '8%', image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=500&h=500&fit=crop' },
+  { id: 23, name: 'Bút dính bàn đôi Thiên Long/ Bến Nghé', unit: 'Đôi', price: 18000, vat: '8%', image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=500&h=500&fit=crop' },
+  { id: 24, name: 'Bút ký BK', unit: 'Chiếc', price: 12000, vat: '8%', image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=500&h=500&fit=crop' },
+  { id: 25, name: 'Bút ký Pentel BL57C', unit: 'Chiếc', price: 45000, vat: '8%', image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=500&h=500&fit=crop' },
+  { id: 26, name: 'Bút nhớ dòng Leaderart HL101', unit: 'Chiếc', price: 8500, vat: '8%', image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=500&h=500&fit=crop' },
+  { id: 27, name: 'Bút nhớ dòng Thiên Long HL-03', unit: 'Chiếc', price: 9000, vat: '8%', image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=500&h=500&fit=crop' },
+  { id: 28, name: 'Bút nhớ dòng Today', unit: 'Chiếc', price: 9000, vat: '8%', image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=500&h=500&fit=crop' },
+  { id: 29, name: 'Bút viết bảng Thiên Long WB03 các màu', unit: 'Chiếc', price: 8500, vat: '8%', image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=500&h=500&fit=crop' },
+  { id: 30, name: 'Bút xoá nước TL CP-02', unit: 'Chiếc', price: 23000, vat: '8%', image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=500&h=500&fit=crop' },
+  { id: 31, name: 'Cặp 3 dây giấy 10F', unit: 'Chiếc', price: 15000, vat: '8%', image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500&h=500&fit=crop' },
+  { id: 32, name: 'Cặp 3 dây giấy 15F', unit: 'Chiếc', price: 16000, vat: '8%', image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500&h=500&fit=crop' },
+  { id: 33, name: 'Cặp 3 dây giấy 20F', unit: 'Chiếc', price: 17000, vat: '8%', image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500&h=500&fit=crop' },
+  { id: 34, name: 'Cặp trình ký da', unit: 'Chiếc', price: 90000, vat: '8%', image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500&h=500&fit=crop' },
+  { id: 35, name: 'Cặp trình ký si A4 đơn', unit: 'Chiếc', price: 14500, vat: '8%', image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500&h=500&fit=crop' },
+  { id: 36, name: 'Cắt băng dính nhỏ Deli 811', unit: 'Chiếc', price: 28000, vat: '8%', image: 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=500&h=500&fit=crop' },
+  { id: 37, name: 'Căt băng dính to', unit: 'Chiếc', price: 35000, vat: '8%', image: 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=500&h=500&fit=crop' },
+  { id: 38, name: 'Chia file 12 màu nhựa TM', unit: 'Tập', price: 9000, vat: '8%', image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500&h=500&fit=crop' },
+  { id: 39, name: 'Chia file giấy nhiều màu (nhỏ)', unit: 'Tập', price: 14500, vat: '8%', image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500&h=500&fit=crop' },
+  { id: 40, name: 'Chia file nhựa nhiều màu Pronoti/DK/SW', unit: 'Tập', price: 13000, vat: '8%', image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500&h=500&fit=crop' },
+  { id: 41, name: 'Chun vòng to 0,5kg', unit: 'Túi', price: 32000, vat: '8%', image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500&h=500&fit=crop' },
+  { id: 42, name: 'Chuột máy tính không dây', unit: 'Cái', price: 190000, vat: '8%', image: 'https://images.unsplash.com/photo-1527814050087-3793815479db?w=500&h=500&fit=crop' },
+  { id: 43, name: 'Cốc giấy cỡ nhỏ', unit: 'Chiếc', price: 500, vat: '8%', image: 'https://images.unsplash.com/photo-1572365992253-3cb3e56dd362?w=500&h=500&fit=crop' },
+  { id: 44, name: 'Cốc giấy cỡ to', unit: 'Chiếc', price: 1200, vat: '8%', image: 'https://images.unsplash.com/photo-1572365992253-3cb3e56dd362?w=500&h=500&fit=crop' },
+  { id: 45, name: 'Dao chuôi vàng loại 1', unit: 'Chiếc', price: 15000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 46, name: 'Dao rọc giấy nhỏ SDI 0404', unit: 'Chiếc', price: 17000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 47, name: 'Dao rọc giấy to SDI 0423', unit: 'Chiếc', price: 25000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 48, name: 'Dập ghim nhỏ Plus PS 10E', unit: 'Chiếc', price: 34000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 49, name: 'Dấu tên 853', unit: 'Chiếc', price: 105000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 50, name: 'Dây đeo thẻ', unit: 'Cái', price: 2000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 51, name: 'Đục lỗ 15 tờ', unit: 'Cái', price: 91500, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 52, name: 'File càng cua 5cm/ 7cm TM, EKE', unit: 'Chiếc', price: 27000, vat: '8%', image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500&h=500&fit=crop' },
+  { id: 53, name: 'File càng cua 9cm KingJim', unit: 'Chiếc', price: 64000, vat: '8%', image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500&h=500&fit=crop' },
+  { id: 54, name: 'File càng cua 9cm TM, EKE', unit: 'Chiếc', price: 35000, vat: '8%', image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500&h=500&fit=crop' },
+  { id: 55, name: 'File góc A4', unit: 'Chiếc', price: 3000, vat: '8%', image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500&h=500&fit=crop' },
+  { id: 56, name: 'File nan 3 ngăn TCT', unit: 'Chiếc', price: 39500, vat: '8%', image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500&h=500&fit=crop' },
+  { id: 57, name: 'Ghim cài nhỏ C62', unit: 'Hộp', price: 3000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 58, name: 'Ghim dập nhỏ N10 Plus( mầu xanh)', unit: 'Hộp', price: 3500, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 59, name: 'Giấy ăn Hộp', unit: 'Gói', price: 20000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 60, name: 'Giấy bìa (xanh ,hồng ,vàng) A4 (100 tờ/tập)', unit: 'Tập', price: 35000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 61, name: 'Giấy bó tiền', unit: 'Cuộn', price: 40000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 62, name: 'Giấy dính Tomy 6-8-10 miếng/ tập', unit: 'Tập', price: 12000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 63, name: 'Giấy in Accura Plus', unit: 'Ram', price: 67000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 64, name: 'Giấy in Double A A4 70', unit: 'Ram', price: 81000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 65, name: 'Giấy in Double A A4 80', unit: 'Ram', price: 90000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 66, name: 'Giấy in Double A A5', unit: 'Ram', price: 40000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 67, name: 'Giấy in IK Plus A4', unit: 'Ram', price: 75000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 68, name: 'Giấy in Pagi A4 70', unit: 'Ram', price: 62000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 69, name: 'Giấy in Pagi A5 70', unit: 'Ram', price: 31000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 70, name: 'Giấy in Paperone A470', unit: 'Ram', price: 72000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 71, name: 'Giấy in vi tính A4 1 liên 2 giao Liên Sơn', unit: 'Thùng', price: 340000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 72, name: 'Giấy in vi tính A4 3 liên 2 giao Liên Sơn', unit: 'Thùng', price: 450000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 73, name: 'Giấy lau tay đa năng', unit: 'Túi', price: 16000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 74, name: 'Giấy nhắn 2"x 3" vàng - Wintex/ Pronoti', unit: 'Tập', price: 7000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 75, name: 'Giấy nhắn 3"x 3" vàng - Wintex/ Pronoti', unit: 'Tập', price: 8000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 76, name: 'Giấy nhắn 3"x 4" vàng - Wintex/ Pronoti', unit: 'Tập', price: 9000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 77, name: 'Giấy nhắn 3"x 5" vàng - Wintex/ Pronoti', unit: 'Tập', price: 10000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 78, name: 'Giấy than (100 tờ/ tập)', unit: 'Tập', price: 75000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 79, name: 'Giấy vệ sinh Posy 4 lớp', unit: 'Bịch', price: 75000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 80, name: 'Gọt chì Deli', unit: 'Chiếc', price: 4500, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 81, name: 'Hồ dán khô Deli', unit: 'Thỏi', price: 5000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 82, name: 'Hồ khô Staedtler 8g', unit: 'Lọ', price: 14000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 83, name: 'Hồ nước Thiên Long', unit: 'Lọ', price: 4000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 84, name: 'Kéo văn phòng F200 (210mm)', unit: 'Chiếc', price: 18000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 85, name: 'Kéo văn phòng S008 (180mm)', unit: 'Chiếc', price: 14000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 86, name: 'Kẹp sắt đen 15mm (12cái/hộp)', unit: 'Hộp', price: 4200, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 87, name: 'Kẹp sắt đen 19mm (12cái/hộp)', unit: 'Hộp', price: 4500, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 88, name: 'Kẹp sắt đen 25mm (12cái/hộp)', unit: 'Hộp', price: 7000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 89, name: 'Kẹp sắt đen 32mm (12cái/hộp)', unit: 'Hộp', price: 10000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 90, name: 'Kẹp sắt đen 41mm (12cái/hộp)', unit: 'Hộp', price: 15000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 91, name: 'Kẹp sắt đen 51mm (12cái/hộp)', unit: 'Hộp', price: 23500, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 92, name: 'Khay cắm bút xoay', unit: 'Chiếc', price: 39000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 93, name: 'Khay tài liệu 3 tầng nhựa Deli', unit: 'Chiếc', price: 175000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 94, name: 'Khay tài liệu 3 tầng nhựa TCT', unit: 'Chiếc', price: 95000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 95, name: 'Mặt thẻ', unit: 'Cái', price: 2500, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 96, name: 'Miếng kê chuột', unit: 'Chiếc', price: 15000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 97, name: 'Mực dấu Shinny (xanh, đỏ)', unit: 'Hộp', price: 44000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 98, name: 'Mực dấu Trodat', unit: 'Hộp', price: 62000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 99, name: 'Nhổ ghim nhỏ Sunwood', unit: 'Chiếc', price: 9000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 100, name: 'Nước lau sàn Gift 1000ml', unit: 'Chai', price: 35000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 101, name: 'Nước rửa tay Lifebouy 180ml', unit: 'Chai', price: 31500, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 102, name: 'Nước rửa tay Lifebouy 4000ml', unit: 'Can', price: 300000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 103, name: 'Nước rửa tay Lifebouy 450ml', unit: 'Chai', price: 68000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 104, name: 'Pin tiểu con thỏ', unit: 'Vỉ', price: 8000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 105, name: 'Pin tiểu Maxel', unit: 'Đôi', price: 27000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 106, name: 'Sáp đếm tiền', unit: 'Chiếc', price: 8000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 107, name: 'Sổ A4 bìa bóng - bằng đầu 240T HT, BK', unit: 'Quyển', price: 46000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 108, name: 'Sổ A4 bìa bóng - thừa đầu 240T HT, BK', unit: 'Quyển', price: 48000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 109, name: 'Sổ bìa cứng A5 HT', unit: 'Quyển', price: 25000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 110, name: 'Sổ công văn đi / đến A4', unit: 'Quyển', price: 36000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 111, name: 'Sổ lò so A4 200 T HT/BK', unit: 'Quyển', price: 30000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 112, name: 'Sổ lò so A5 200 trang HT, BK', unit: 'Quyển', price: 20000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 113, name: 'Tẩy chì Deli', unit: 'Viên', price: 4000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 114, name: 'Thước kẻ mica 30cm', unit: 'Chiếc', price: 4500, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 115, name: 'Túi 11 lỗ TCT3C (100cái/tập)', unit: 'Tập', price: 36000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 116, name: 'Túi 11 lỗ Plus (10cái/tập)', unit: 'Tập', price: 15000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 117, name: 'Túi clear bag khổ A4', unit: 'Chiếc', price: 2200, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 118, name: 'Túi clear bag khổ F', unit: 'Chiếc', price: 3200, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 119, name: 'Túi giấy xi măng 5kg', unit: 'Kg', price: 1500, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 120, name: 'Túi nilon đựng rác đen (mỏng)', unit: 'Kg', price: 36000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 121, name: 'Túi nilon đựng rác đen (dày)', unit: 'Kg', price: 45000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 122, name: 'Ổ lioa 3 ổ 3m', unit: 'Chiếc', price: 95000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 123, name: 'Ổ lioa 4 ổ 3m', unit: 'Chiếc', price: 140000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 124, name: 'Ổ lioa 6 ổ 3m', unit: 'Chiếc', price: 180000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 125, name: 'Sọt rác Hiro 5L', unit: 'Chiếc', price: 30000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 126, name: 'Giấy lau tay Silkwell 280 tờ', unit: 'Gói', price: 20000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 127, name: 'Trình ký nhựa 2 mặt', unit: 'Chiếc', price: 45000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 128, name: 'Nước rửa tay Lifebuoy 450g', unit: 'Chai', price: 69000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 129, name: 'Nước rửa tay Lifebuoy Vitamin 4kg', unit: 'Can', price: 295000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 130, name: 'Lau sàn Gift 1000ml', unit: 'Chai', price: 38000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 131, name: 'Lau sàn Gift 3,8 kg', unit: 'Can', price: 88000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 132, name: 'Tẩy toilet Gift 600ml', unit: 'Chai', price: 30000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 133, name: 'Tẩy toilet Gift 900ml', unit: 'Chai', price: 38000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 134, name: 'Nước rửa chén Sunlight 750ml', unit: 'Chai', price: 35000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+];
+
+const productLink = 'https://mily.vn/W7mTGxXM';
+---
+
+<Layout title="Sản Phẩm | Long Hùng">
+  <div class="products-container">
+    <h1>Danh Mục Sản Phẩm</h1>
+    <p class="total-products">Tổng số sản phẩm: {products.length}</p>
+    
+    <div class="products-grid">
+      {products.map((product) => (
+        <div class="product-card">
+          <div class="product-image">
+            <img src={product.image} alt={product.name} />
+          </div>
+          <div class="product-info">
+            <h2>{product.name}</h2>
+            <div class="product-details">
+              <p><strong>Đơn vị:</strong> {product.unit}</p>
+              <p><strong>Giá:</strong> {product.price.toLocaleString('vi-VN')} đ</p>
+              <p><strong>VAT:</strong> {product.vat}</p>
+            </div>
+            <a href={productLink} class="product-link" target="_blank" rel="noopener noreferrer">
+              Xem chi tiết
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .products-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  h1 {
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 2.5rem;
+    color: #333;
+  }
+
+  .total-products {
+    text-align: center;
+    color: #666;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+  }
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .product-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  .product-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    background-color: #f5f5f5;
+  }
+
+  .product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .product-info {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .product-info h2 {
+    font-size: 1.1rem;
+    margin: 0 0 1rem 0;
+    color: #333;
+    line-height: 1.4;
+    min-height: 2.8em;
+  }
+
+  .product-details {
+    margin: 1rem 0;
+    flex-grow: 1;
+  }
+
+  .product-details p {
+    margin: 0.5rem 0;
+    font-size: 0.95rem;
+    color: #555;
+  }
+
+  .product-link {
+    display: inline-block;
+    margin-top: auto;
+    padding: 0.75rem 1.5rem;
+    background-color: #0066cc;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    font-weight: 600;
+  }
+
+  .product-link:hover {
+    background-color: #0052a3;
+  }
+
+  @media (max-width: 768px) {
+    .products-grid {
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+    }
+  }
+</style>
