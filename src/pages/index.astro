@@ -6,39 +6,38 @@ import Footer from '../components/Footer.astro';
 import ContactForm from '../components/ContactForm.astro';
 ---
 
-<Layout title="Văng Phòng Phẩm Long Hưng — Cung ứng VPP B2B" description="Cung ứng văn phòng phẩm chuyên nghiệp, minh bạch, tối ưu, an toàn cho doanh nghiệp.">
+<Layout title="Văn Phòng Phẩm Long Hưng — Cung ứng VPP B2B" description="Cung ứng văn phòng phẩm chuyên nghiệp, minh bạch, tối ưu, an toàn cho doanh nghiệp.">
   <Header currentPage="/" />
 
   <!-- Hero Section -->
   <section class="hero" style="background-image: url('/images/hero-vpp.png')">
-    <div class="hero-content">
-      <h1>Cung ứng Văn Phòng Phẩm</h1>
-      <p class="hero-subtitle">Chuyên Nghiệp • Minh Bạch • Tối Ưu • An Toàn</p>
-      <a href="#contact-section" class="btn mt-3">Tư vấn Ngay</a>
+    <div class="hero-subtitle">
+      <h1>Open the Door <br> Open the Books <br> Open the Mind <br> Open the Heart</h1>
+  
     </div>
+  
   </section>
-
   <!-- Feature Strip -->
   <section class="feature-strip">
     <div class="container">
       <div class="grid grid-4">
         <div class="feature-item">
-          <div class="feature-icon">⚡</div>
+          <div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#000000"><path d="M207.04-212.73q-29.88-32.73-26.42-77.89H86L95.92-336h101.23q12.31-22.23 34.97-35.81 22.65-13.58 50.57-13.58 27.93 0 50.58 13.58T368.62-336H567l91.62-398.61H206l1.85-7.62q3.84-16.77 16.57-27.27t29.89-10.5h461.23l-36.31 157.31h106.15l109.77 146.61-36.69 185.46h-63.08q3.47 45.16-26.73 77.89Q738.46-180 692.69-180q-45.77 0-75.65-32.73-29.89-32.73-26.42-77.89H385.39q3.46 45.16-26.74 77.89Q328.46-180 282.69-180q-45.77 0-75.65-32.73ZM634-427.69h205.77l6.77-37.23-83.85-112.39h-94.38L634-427.69Zm13.69-261.46 10.93-45.46L567-336l10.31-44.85 32.85-142.92 37.53-165.38ZM45.08-440.85l11.15-45.38h199.62l-11.16 45.38H45.08Zm80-142.92 11.15-45.38h239.62l-11.16 45.38H125.08Zm157.61 358.38q24.08 0 40.7-17.11Q340-259.62 340-282.69q0-24.08-16.61-40.7Q306.77-340 282.69-340q-23.07 0-40.19 16.61-17.11 16.62-17.11 40.7 0 23.07 17.11 40.19 17.12 17.11 40.19 17.11Zm410 0q24.08 0 40.7-17.11Q750-259.62 750-282.69q0-24.08-16.61-40.7Q716.77-340 692.69-340q-23.07 0-40.19 16.61-17.12 16.62-17.12 40.7 0 23.07 17.12 40.19 17.12 17.11 40.19 17.11Z"/></svg></div>
           <h3>Siêu Tốc</h3>
           <p>Giao hàng nhanh chóng, đúng hạn</p>
         </div>
         <div class="feature-item">
-          <div class="feature-icon">📋</div>
+          <div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#000000"><path d="M238.93-251.39v-343.23h45.38v343.23h-45.38Zm221.22 0v-343.23h45.39v343.23h-45.39ZM110.77-660v-37.23L480-898.31l369.23 201.08V-660H110.77Zm109.77-45.39h519.31L480-846.23 220.54-705.39ZM110.77-140.62V-186h476.15q1.23 10.92 2.54 21.77 1.31 10.84 5.39 23.61H110.77Zm564.92-255.99v-198.01h45.38v175.31l-45.38 22.7ZM800-15.39q-64-15.84-105.85-73.34-41.84-57.5-41.84-127.73v-94.31L800-384.61l147.69 73.84v94.31q0 70.23-41.84 127.73Q864-31.23 800-15.39Zm-23.31-113.07 132.39-132.39-23-23.38-109.39 109.38-53.61-53.61-23 23 76.61 77ZM220.54-705.39h519.31-519.31Z"/></svg></div>
           <h3>Minh Bạch</h3>
           <p>Báo giá rõ ràng, không phụ phí</p>
         </div>
         <div class="feature-item">
-          <div class="feature-icon">💰</div>
+          <div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#000000"><path d="M620-174.39 471.15-323.23l32.62-32.62L620-239.61l236.31-236.31 32.61 32.61L620-174.39Zm200-395.15h-45.39v-192.77q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84h-73.08v82.69H270.77v-82.69h-73.08q-4.61 0-8.46 3.84-3.84 3.85-3.84 8.46v564.62q0 4.61 3.84 8.46 3.85 3.84 8.46 3.84h235.62V-140H197.69q-24.84 0-41.27-16.42Q140-172.85 140-197.69v-564.62q0-24.84 16.42-41.27Q172.85-820 197.69-820h202q5.08-29.23 27.58-48.46T480-887.69q30.42 0 52.83 19.23 22.4 19.23 27.48 48.46h202q24.84 0 41.27 16.42Q820-787.15 820-762.31v192.77ZM505.81-780.35q10.34-10.34 10.34-25.8t-10.34-25.81q-10.35-10.35-25.81-10.35-15.46 0-25.81 10.35-10.34 10.35-10.34 25.81 0 15.46 10.34 25.8Q464.54-770 480-770q15.46 0 25.81-10.35Z"/></svg></div>
           <h3>Tối Ưu</h3>
           <p>Giá tốt nhất, dịch vụ tốt nhất</p>
         </div>
         <div class="feature-item">
-          <div class="feature-icon">🛡️</div>
+          <div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#000000"><path d="M436.31-370h87.38l-23.84-138.08q18.84-7.46 30.65-23.42 11.81-15.96 11.81-35.81 0-25.92-18.2-44.11-18.19-18.19-44.11-18.19-25.92 0-44.11 18.19-18.2 18.19-18.2 44.11 0 19.85 11.81 35.81t30.65 23.42L436.31-370ZM480-101.39q-130.38-35.77-215.19-155.19Q180-376 180-521.08v-225.69l300-112.31 300 112.31v225.69q0 145.08-84.81 264.5Q610.38-137.16 480-101.39Zm0-47.38Q591.92-185.23 663.27-289q71.34-103.77 71.34-232.08v-194.07L480-810.85l-254.61 95.7v194.07q0 128.31 71.34 232.08Q368.08-185.23 480-148.77Zm0-330.85Z"/></svg></div>
           <h3>An Toàn</h3>
           <p>Hàng chính hãng, bảo hành đầy đủ</p>
         </div>
@@ -119,7 +118,7 @@ import ContactForm from '../components/ContactForm.astro';
 <style>
   .hero-content {
     max-width: 700px;
-    margin: 0 auto;
+    margin: 3rem auto;
   }
 
   .hero-subtitle {
