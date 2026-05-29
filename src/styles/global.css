@@ -160,7 +160,7 @@ section {
 section.hero {
   padding: 5rem var(--spacing-lg);
   background-size: cover;
-  background-position: center;
+  background-position: center 30%;
   background-attachment: fixed;
   position: relative;
   display: flex;
@@ -178,7 +178,11 @@ section.hero::before {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(102, 0, 17, 0.5);
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.25) 0%,
+    rgba(102, 0, 17, 0.15) 100%
+  );
   z-index: 1;
 }
 
@@ -191,6 +195,7 @@ section.hero h1 {
   color: var(--color-white);
   font-size: 3.5rem;
   margin-bottom: var(--spacing-lg);
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
 }
 
 section.hero p {
@@ -198,6 +203,7 @@ section.hero p {
   font-size: 1.25rem;
   max-width: 600px;
   margin: 0 auto var(--spacing-lg);
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
 }
 
 /* -------- Cards & Grids -------- */
