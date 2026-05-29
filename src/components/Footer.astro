@@ -1,50 +1,288 @@
 ---
-// src/components/Footer.astro
-const currentYear = new Date().getFullYear();
+// Footer.astro - Legal info, social icons, contact details
 ---
 
-<footer class="site-footer">
-  <div class="container footer-content">
-    <div class="brand-info">
-      <h3>Văn Phòng Phẩm Long Hưng</h3>
-      <p>Giao Nhanh 2.5H - Chuyên cung cấp giải pháp toàn diện cho doanh nghiệp.</p>
+<footer class="footer">
+  <div class="container">
+    <!-- Footer Content -->
+    <div class="footer-grid">
+      <!-- About Section -->
+      <div class="footer-section">
+        <h3 class="footer-title">Về Long Hưng</h3>
+        <p class="footer-text">
+          Chúng tôi cung cấp văn phòng phẩm chuyên nghiệp, tối ưu và an toàn cho
+          doanh nghiệp và khách hàng bán lẻ.
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-section">
+        <h3 class="footer-title">Liên kết nhanh</h3>
+        <ul class="footer-links">
+          <li><a href="/">Trang chủ</a></li>
+          <li><a href="/nha-sach">Nhà sách</a></li>
+          <li><a href="/khach-hang">Khách hàng</a></li>
+          <li><a href="/ve-chung-toi">Về chúng tôi</a></li>
+          <li><a href="/lien-he">Liên hệ</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="footer-section">
+        <h3 class="footer-title">Liên hệ</h3>
+        <div class="contact-info">
+          <p>
+            <strong>Địa chỉ:</strong><br />
+            LK03-07, Roman Plaza, Đại Mỗ, Hà Nội
+          </p>
+          <p>
+            <strong>Điện thoại:</strong><br />
+            <a href="tel:+84389023720">0389.023.720</a> (Mr. Huy)<br />
+            <a href="tel:+84353839500">0353.839.500</a> (Nhà sách)
+          </p>
+          <p>
+            <strong>Email:</strong><br />
+            <a href="mailto:kinhdoanh@vpplonghung.com">kinhdoanh@vpplonghung.com</a><br />
+            <a href="mailto:hotro@vpplonghung.com">hotro@vpplonghung.com</a>
+          </p>
+        </div>
+      </div>
+
+      <!-- Social Media -->
+      <div class="footer-section">
+        <h3 class="footer-title">Theo dõi</h3>
+        <div class="social-links">
+          <a
+            href="https://web.facebook.com/profile.php?id=61580711382370"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Facebook"
+          >
+            <i class="icon">f</i>
+          </a>
+          <a
+            href="https://www.instagram.com/longhung.quantri/"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Instagram"
+          >
+            <i class="icon">📷</i>
+          </a>
+          <a
+            href="https://zalo.me/403362719590961487"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Zalo"
+          >
+            <i class="icon">Z</i>
+          </a>
+          <a
+            href="https://www.tiktok.com/@nhasachlonglung"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="TikTok"
+          >
+            <i class="icon">🎵</i>
+          </a>
+        </div>
+      </div>
     </div>
-    <div class="contact-info">
-      <p>Email: <a href="mailto:kinhdoanh@vpplonghung.com">kinhdoanh@vpplonghung.com</a></p>
+
+    <!-- Divider -->
+    <div class="footer-divider"></div>
+
+    <!-- Legal & Copyright -->
+    <div class="footer-bottom">
+      <div class="legal-text">
+        <p class="text-small">
+          <strong>MST/MSDN:</strong> 0109448311 do Sở Tài chính TP Hà Nội cấp lần
+          đầu ngày 09/12/2020
+        </p>
+        <p class="text-small">
+          <strong>Địa chỉ đăng ký:</strong> Số nhà LK03-07, Khu đô thị thấp tầng
+          Roman Plaza Hải Phát, đường Tố Hữu, Phường Đại Mỗ, Thành phố Hà Nội,
+          Việt Nam
+        </p>
+        <p class="text-small">
+          <strong>Người đại diện:</strong> Ông Đinh Quang Dương — Chức vụ: Giám
+          đốc
+        </p>
+      </div>
+
+      <div class="copyright">
+        <p class="text-small">
+          &copy; 2024 Văng Phòng Phẩm Long Hưng. All rights reserved.
+        </p>
+      </div>
     </div>
-  </div>
-  <div class="bottom-bar">
-    <p>&copy; {currentYear} Văn Phòng Phẩm Long Hưng. All rights reserved.</p>
   </div>
 </footer>
 
 <style>
-  .site-footer {
-    background-color: var(--color-light-bg);
-    color: var(--color-brown);
-    padding-top: 3rem;
-    border-top: 1px solid #eaeaea;
+  .footer {
+    background-color: var(--color-brown);
+    color: var(--color-white);
+    padding: var(--spacing-2xl) 0 var(--spacing-lg);
+    margin-top: var(--spacing-2xl);
   }
-  .footer-content {
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .footer-section {
     display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 2rem;
-    margin-bottom: 2rem;
+    flex-direction: column;
   }
-  .brand-info h3 {
-    margin-bottom: 0.5rem;
-    color: var(--color-primary);
+
+  .footer-title {
+    color: var(--color-gold);
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-md);
   }
+
+  .footer-text {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+  .footer-links a {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+    font-size: 0.95rem;
+  }
+
+  .footer-links a:hover {
+    color: var(--color-gold);
+  }
+
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  .contact-info p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
   .contact-info a {
-    color: var(--color-primary);
-    font-weight: bold;
+    color: var(--color-gold-light);
+    text-decoration: none;
   }
-  .bottom-bar {
-    text-align: center;
-    padding: 1rem;
-    background-color: var(--color-primary);
-    color: white;
-    font-size: 0.875rem;
+
+  .contact-info a:hover {
+    color: var(--color-gold);
+  }
+
+  .social-links {
+    display: flex;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+  }
+
+  .social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    color: var(--color-white);
+    text-decoration: none;
+    transition: all var(--transition-normal);
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
+
+  .social-links a:hover {
+    background-color: var(--color-gold);
+    color: var(--color-brown);
+    transform: translateY(-3px);
+  }
+
+  .footer-divider {
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.1);
+    margin: var(--spacing-xl) 0;
+  }
+
+  .footer-bottom {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--spacing-lg);
+    align-items: center;
+  }
+
+  .legal-text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+  .text-small {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .copyright {
+    text-align: right;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .footer {
+      padding: var(--spacing-xl) 0 var(--spacing-lg);
+    }
+
+    .footer-grid {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: var(--spacing-lg);
+    }
+
+    .footer-bottom {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-md);
+    }
+
+    .copyright {
+      text-align: left;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .footer-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .footer-title {
+      font-size: 1rem;
+    }
+
+    .text-small {
+      font-size: 0.8rem;
+    }
   }
 </style>
