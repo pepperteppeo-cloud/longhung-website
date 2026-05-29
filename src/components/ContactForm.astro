@@ -1,63 +1,285 @@
 ---
-// src/components/ContactForm.astro
+// ContactForm.astro - Formspree contact form component
+// Endpoint: https://formspree.io/f/xeednnap
+
+interface Props {
+  title?: string;
+  subtitle?: string;
+  buttonText?: string;
+}
+
+const {
+  title = "Tư vấn Ngay",
+  subtitle = "Liên hệ với chúng tôi để nhận tư vấn miễn phí",
+  buttonText = "Gửi yêu cầu"
+} = Astro.props;
+
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xeednnap";
 ---
 
-<form action="https://formspree.io/f/xeednnap" method="POST" class="contact-form">
-  <div class="form-group">
-    <label for="name">Họ và tên</label>
-    <input type="text" id="name" name="name" required placeholder="Nhập họ tên của bạn" />
+<section class="contact-form-section">
+  <div class="container">
+    <div class="form-wrapper">
+      <div class="form-header text-center">
+        <h2 class="section-title">{title}</h2>
+        <p class="section-subtitle-text">{subtitle}</p>
+      </div>
+
+      <form method="POST" action={FORMSPREE_ENDPOINT} class="contact-form" id="contactForm">
+        <!-- Name Field -->
+        <div class="form-group">
+          <label for="name">Họ tên <span class="required">*</span></label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Nhập họ tên của bạn"
+            required
+            aria-label="Họ tên"
+          />
+        </div>
+
+        <!-- Phone Field -->
+        <div class="form-group">
+          <label for="phone">Số điện thoại <span class="required">*</span></label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            placeholder="0xxx.xxx.xxx"
+            pattern="[0-9\s\-\.()\+]+"
+            required
+            aria-label="Số điện thoại"
+          />
+        </div>
+
+        <!-- Email Field -->
+        <div class="form-group">
+          <label for="email">Email <span class="required">*</span></label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="your.email@example.com"
+            required
+            aria-label="Email"
+          />
+        </div>
+
+        <!-- Message Field -->
+        <div class="form-group">
+          <label for="message">Nội dung yêu cầu <span class="required">*</span></label>
+          <textarea
+            id="message"
+            name="message"
+            placeholder="Mô tả chi tiết yêu cầu của bạn..."
+            rows="5"
+            required
+            aria-label="Nội dung yêu cầu"
+          ></textarea>
+        </div>
+
+        <!-- Hidden field for Formspree (optional subject) -->
+        <input type="hidden" name="_subject" value="Yêu cầu tư vấn từ Long Hưng" />
+        <input type="hidden" name="_captcha" value="false" />
+
+        <!-- Submit Button -->
+        <div class="form-submit">
+          <button type="submit" class="btn btn-submit">
+            {buttonText}
+          </button>
+          <p class="form-note">Chúng tôi sẽ phản hồi trong vòng 24 giờ</p>
+        </div>
+      </form>
+
+      <!-- Success Message (shown via JS) -->
+      <div class="form-success" id="successMessage" style="display: none;">
+        <div class="success-icon">✓</div>
+        <h3>Gửi thành công!</h3>
+        <p>Cảm ơn bạn đã liên hệ. Chúng tôi sẽ phản hồi sớm nhất.</p>
+      </div>
+    </div>
   </div>
-  
-  <div class="form-group">
-    <label for="email">Email liên hệ</label>
-    <input type="email" id="email" name="email" required placeholder="email@congty.com" />
-  </div>
-  
-  <div class="form-group">
-    <label for="message">Nội dung yêu cầu</label>
-    <textarea id="message" name="message" rows="5" required placeholder="Bạn cần hỗ trợ gì?"></textarea>
-  </div>
-  
-  <button type="submit" class="submit-btn">Gửi Yêu Cầu</button>
-</form>
+</section>
 
 <style>
+  .contact-form-section {
+    background: linear-gradient(135deg, rgba(102, 0, 17, 0.05) 0%, rgba(171, 106, 36, 0.05) 100%);
+    padding: var(--spacing-2xl) 0;
+  }
+
+  .form-wrapper {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: var(--color-white);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-2xl);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  }
+
+  .form-header {
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .section-title {
+    color: var(--color-brown);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .section-subtitle-text {
+    color: var(--color-gray);
+    font-size: 1rem;
+    margin: 0;
+  }
+
   .contact-form {
     display: flex;
     flex-direction: column;
-    gap: 1.25rem;
-    max-width: 500px;
+    gap: var(--spacing-lg);
   }
+
   .form-group {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: var(--spacing-sm);
   }
+
   label {
     font-weight: 600;
     color: var(--color-brown);
+    font-size: 0.95rem;
   }
-  input, textarea {
-    padding: 0.75rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-family: inherit;
+
+  .required {
+    color: var(--color-primary);
+    font-weight: 700;
   }
-  input:focus, textarea:focus {
+
+  input,
+  textarea {
+    padding: var(--spacing-sm);
+    border: 1px solid var(--color-gray-light);
+    border-radius: var(--radius-md);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--color-text);
+    transition: all var(--transition-normal);
+    background-color: var(--color-white);
+  }
+
+  input:focus,
+  textarea:focus {
     outline: none;
     border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(102, 0, 17, 0.1);
   }
-  .submit-btn {
-    background-color: var(--color-primary);
-    color: white;
-    border: none;
-    padding: 0.75rem 1.5rem;
-    border-radius: 4px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.2s;
+
+  input::placeholder,
+  textarea::placeholder {
+    color: var(--color-gray);
   }
-  .submit-btn:hover {
-    background-color: #800015;
+
+  textarea {
+    resize: vertical;
+    min-height: 120px;
+    font-family: var(--font-body);
+  }
+
+  .form-submit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+  }
+
+  .btn-submit {
+    width: 100%;
+    padding: var(--spacing-md) var(--spacing-lg);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+
+  .btn-submit:hover {
+    transform: translateY(-2px);
+  }
+
+  .form-note {
+    font-size: 0.85rem;
+    color: var(--color-gray);
+    margin: 0;
+    text-align: center;
+  }
+
+  /* Success Message */
+  .form-success {
+    text-align: center;
+    padding: var(--spacing-2xl);
+  }
+
+  .success-icon {
+    font-size: 3rem;
+    color: #4caf50;
+    margin-bottom: var(--spacing-md);
+    font-weight: 900;
+  }
+
+  .form-success h3 {
+    color: var(--color-brown);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .form-success p {
+    color: var(--color-gray);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .form-wrapper {
+      padding: var(--spacing-xl);
+    }
+
+    .btn-submit {
+      padding: var(--spacing-md) var(--spacing-lg);
+      font-size: 0.95rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .contact-form-section {
+      padding: var(--spacing-xl) 0;
+    }
+
+    .form-wrapper {
+      border-radius: var(--radius-md);
+      padding: var(--spacing-lg);
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+    }
   }
 </style>
+
+<script>
+  const form = document.getElementById("contactForm");
+  const successMessage = document.getElementById("successMessage");
+
+  if (form && successMessage) {
+    form.addEventListener("submit", function (e) {
+      // Formspree will handle submission, but we can add custom behavior here
+      setTimeout(() => {
+        // This will be called after Formspree redirects/handles
+      }, 100);
+    });
+
+    // Check if coming back from Formspree success
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get("success") === "true") {
+      form.style.display = "none";
+      successMessage.style.display = "block";
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }
+</script>
