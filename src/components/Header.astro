@@ -26,7 +26,7 @@ const navLinks = [
         <a href="/">
           <img src="/images/logo.png" alt="VPP Long Hưng" class="logo-img" />
          <span class="logo-text">Văn phòng phẩm <br> Long Hưng</span>
-                  
+                   
         </a>
       </div>
 
@@ -126,17 +126,42 @@ const navLinks = [
     font-family: var(--font-display);
     font-weight: 500;
     color: var(--color-text);
-    text-decoration: none;
-    transition: color var(--transition-fast);
+    text-decoration: none !important;
+    transition: color 0.3s ease-in-out;
     padding: var(--spacing-sm) 0;
-    border-bottom: 2px solid transparent;
-    transition: all var(--transition-fast);
+    border-bottom: none;
+    position: relative;
+    display: inline-block;
   }
 
-  .nav-link:hover,
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-gold);
+    transition: width 0.3s ease-in-out;
+  }
+
+  .nav-link:hover {
+    color: var(--color-primary);
+    text-decoration: none !important;
+  }
+
+  .nav-link:hover::after {
+    width: 100%;
+  }
+
   .nav-link.active {
     color: var(--color-primary);
-    border-bottom-color: var(--color-gold);
+    text-decoration: none !important;
+  }
+
+  .nav-link.active::after {
+    width: 100%;
+    background-color: var(--color-gold);
   }
 
   .header-cta {
