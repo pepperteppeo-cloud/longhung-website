@@ -10,8 +10,15 @@ import ContactForm from '../components/ContactForm.astro';
   <Header currentPage="/lien-he" />
 
   <!-- Hero Section -->
+<<<<<<< HEAD
   <section class="hero hero-map" style="background-image: url('/images/hero-vpp.png')">
   
+=======
+  <section class="hero hero-map" style="background-image: url('/images/hero-vpp.jpg')">
+    <div class="hero-content page-enter">
+      <h1>Liên Hệ Với Chúng Tôi</h1>
+      <p class="hero-subtitle">Chúng tôi sẵn sàng phục vụ bạn</p>
+>>>>>>> ed835e3fcdd563c76e02361f66fb8d326a78d824
     </div>
   </section>
 
@@ -20,45 +27,45 @@ import ContactForm from '../components/ContactForm.astro';
     <div class="container">
       <div class="grid grid-2 contact-grid">
         <!-- Address -->
-        <div class="info-card">
+        <div class="info-card card-enter">
           <div class="info-icon">📍</div>
           <h3>Địa Chỉ</h3>
           <p>
-          <a href="https://maps.app.goo.gl/SiMsFZXzmaTaW9W1A" target="_blank" style="text-decoration: none; color: inherit;">
+          <a href="https://maps.app.goo.gl/SiMsFZXzmaTaW9W1A" target="_blank" style="text-decoration: none !important; color: inherit;">
             LK03-07, Roman Plaza, Đại Mỗ, Hà Nội, Việt Nam
         </a>
           </p>
         </div>
 
         <!-- Phone -->
-        <div class="info-card">
+        <div class="info-card card-enter">
           <div class="info-icon">📞</div>
           <h3>Điện Thoại</h3>
           <p>
-            <a href="tel:+84389023720">0389.023.720</a> (Mr. Huy)
+            <a href="tel:+84389023720" style="text-decoration: none !important;">0389.023.720</a> (Mr. Huy)
             <br />
-            <a href="tel:+84353839500">0353.839.500</a> (Nhà sách)
+            <a href="tel:+84353839500" style="text-decoration: none !important;">0353.839.500</a> (Nhà sách)
           </p>
         </div>
 
         <!-- Email -->
-        <div class="info-card">
+        <div class="info-card card-enter">
           <div class="info-icon">✉️</div>
           <h3>Email</h3>
           <p>
-            <a href="mailto:kinhdoanh@vpplonghung.com">kinhdoanh@vpplonghung.com</a>
+            <a href="mailto:kinhdoanh@vpplonghung.com" style="text-decoration: none !important;">kinhdoanh@vpplonghung.com</a>
             <br />
-            <a href="mailto:hotro@vpplonghung.com">hotro@vpplonghung.com</a>
+            <a href="mailto:hotro@vpplonghung.com" style="text-decoration: none !important;">hotro@vpplonghung.com</a>
           </p> 
         </div>
 
         <!-- Hours -->
-        <div class="info-card">
+        <div class="info-card card-enter">
           <div class="info-icon">🕐</div>
           <h3>Giờ Làm Việc</h3>
           <p>
             Thứ 2 - Chủ Nhật: 8:00 - 22:00
-      
+       
           </p>
         </div>
       </div>
@@ -69,7 +76,7 @@ import ContactForm from '../components/ContactForm.astro';
   <section class="map-section">
     <div class="map-container">
       <iframe 
-  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4457.595646593065!2d105.7779734!3d20.9857244!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313453a56e4f1e1b%3A0xc8a647e05f3fabd7!2zSGnhu4d1IHPDoWNoIExvbmcgSMawbmc!5e1!3m2!1svi!2s!4v1780030444520!5m2!1svi!2s" 
+  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4457.595646593065!2d105.7779734!3d20.9857244!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313453a56e4f1e1b%3A0xc8a647e05f3fabd7![...]"
   width="100%" 
   height="450" 
   style="border:0;" 
@@ -82,7 +89,7 @@ import ContactForm from '../components/ContactForm.astro';
   </section>
 
   <!-- Contact Form -->
-  <section id="contact-section">
+  <section id="contact-section" class="section-enter">
     <ContactForm title="Gửi Tin Nhắn" subtitle="Để lại tin nhắn và chúng tôi sẽ liên hệ lại bạn trong 24 giờ" />
   </section>
 
@@ -91,22 +98,22 @@ import ContactForm from '../components/ContactForm.astro';
     <div class="container">
       <h2 class="section-title text-center mb-4">Theo Dõi Chúng Tôi</h2>
       <div class="social-grid">
-        <a href="https://web.facebook.com/profile.php?id=61580711382370" target="_blank" rel="noopener noreferrer" class="social-card">
+        <a href="https://web.facebook.com/profile.php?id=61580711382370" target="_blank" rel="noopener noreferrer" class="social-card card-enter">
           <div class="social-icon">f</div>
           <h3>Facebook</h3>
           <p>Theo dõi cập nhật hàng ngày</p>
         </a>
-        <a href="https://www.instagram.com/longhung.quantri/" target="_blank" rel="noopener noreferrer" class="social-card">
+        <a href="https://www.instagram.com/longhung.quantri/" target="_blank" rel="noopener noreferrer" class="social-card card-enter">
           <div class="social-icon">📷</div>
           <h3>Instagram</h3>
           <p>Xem ảnh sản phẩm và khuyến mãi</p>
         </a>
-        <a href="https://zalo.me/403362719590961487" target="_blank" rel="noopener noreferrer" class="social-card">
+        <a href="https://zalo.me/403362719590961487" target="_blank" rel="noopener noreferrer" class="social-card card-enter">
           <div class="social-icon">Z</div>
           <h3>Zalo</h3>
           <p>Liên hệ qua Zalo</p>
         </a>
-        <a href="https://www.tiktok.com/@nhasachlonglung" target="_blank" rel="noopener noreferrer" class="social-card">
+        <a href="https://www.tiktok.com/@nhasachlonglung" target="_blank" rel="noopener noreferrer" class="social-card card-enter">
           <div class="social-icon">🎵</div>
           <h3>TikTok</h3>
           <p>Xem video hàng ngày</p>
@@ -173,7 +180,7 @@ import ContactForm from '../components/ContactForm.astro';
 
   .info-card a {
     color: var(--color-primary);
-    text-decoration: none;
+    text-decoration: none !important;
     font-weight: 600;
   }
 
@@ -216,7 +223,7 @@ import ContactForm from '../components/ContactForm.astro';
     padding: var(--spacing-xl);
     text-align: center;
     color: var(--color-white);
-    text-decoration: none;
+    text-decoration: none !important;
     transition: all var(--transition-normal);
     display: block;
   }
