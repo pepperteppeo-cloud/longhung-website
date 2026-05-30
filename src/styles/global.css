@@ -93,7 +93,7 @@ p {
 
 a {
   color: var(--color-primary);
-  text-decoration: none;
+  text-decoration: none !important;
   transition: color var(--transition-fast);
 }
 
@@ -115,6 +115,7 @@ a:hover {
   cursor: pointer;
   transition: all var(--transition-normal);
   text-align: center;
+  text-decoration: none !important;
 }
 
 .btn:hover {
