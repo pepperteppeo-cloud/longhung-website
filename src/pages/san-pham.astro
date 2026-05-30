@@ -113,7 +113,7 @@ const products = [
   { id: 107, name: 'Sổ A4 bìa bóng - bằng đầu 240T HT, BK', unit: 'Quyển', price: 46000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
   { id: 108, name: 'Sổ A4 bìa bóng - thừa đầu 240T HT, BK', unit: 'Quyển', price: 48000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
   { id: 109, name: 'Sổ bìa cứng A5 HT', unit: 'Quyển', price: 25000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 110, name: 'Sổ công văn đi / đến A4', unit: 'Quyển', price: 36000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
+  { id: 110, name: 'Sổ công văn đi / đến A4', unit: 'Quy���n', price: 36000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
   { id: 111, name: 'Sổ lò so A4 200 T HT/BK', unit: 'Quyển', price: 30000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
   { id: 112, name: 'Sổ lò so A5 200 trang HT, BK', unit: 'Quyển', price: 20000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
   { id: 113, name: 'Tẩy chì Deli', unit: 'Viên', price: 4000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
@@ -149,8 +149,8 @@ const productLink = 'https://mily.vn/W7mTGxXM';
   <!-- Hero Section -->
   <section class="products-hero">
     <div class="container">
-      <h1>Danh Mục Sản Phẩm</h1>
-      <p>Tổng cộng {products.length} sản phẩm</p>
+      <h1 class="hero-title">Danh Mục Sản Phẩm</h1>
+      <p class="hero-subtitle">Tổng cộng {products.length} sản phẩm</p>
     </div>
   </section>
 
@@ -158,20 +158,31 @@ const productLink = 'https://mily.vn/W7mTGxXM';
   <section class="products-section">
     <div class="container">
       <div class="products-grid">
-        {products.map((product) => (
-          <div class="product-card">
-            <div class="product-image">
-              <img src={product.image} alt={product.name} loading="lazy" />
+        {products.map((product, index) => (
+          <div class="product-card" style={`--card-delay: ${index * 50}ms`}>
+            <div class="product-image-wrapper">
+              <img src={product.image} alt={product.name} loading="lazy" class="product-image" />
+              <div class="image-overlay"></div>
             </div>
             <div class="product-info">
-              <h3>{product.name}</h3>
+              <h3 class="product-name">{product.name}</h3>
               <div class="product-details">
-                <p><strong>Đơn vị:</strong> <span>{product.unit}</span></p>
-                <p><strong>Giá:</strong> <span class="price">{product.price.toLocaleString('vi-VN')} đ</span></p>
-                <p><strong>VAT:</strong> <span>{product.vat}</span></p>
+                <div class="detail-row">
+                  <span class="detail-label">Đơn vị:</span>
+                  <span class="detail-value">{product.unit}</span>
+                </div>
+                <div class="detail-row">
+                  <span class="detail-label">Giá:</span>
+                  <span class="price">{product.price.toLocaleString('vi-VN')} đ</span>
+                </div>
+                <div class="detail-row">
+                  <span class="detail-label">VAT:</span>
+                  <span class="detail-value">{product.vat}</span>
+                </div>
               </div>
               <a href={productLink} class="btn btn-product" target="_blank" rel="noopener noreferrer">
-                Xem chi tiết
+                <span class="btn-text">Xem chi tiết</span>
+                <span class="btn-icon">→</span>
               </a>
             </div>
           </div>
@@ -184,23 +195,72 @@ const productLink = 'https://mily.vn/W7mTGxXM';
 </Layout>
 
 <style>
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes heroSlideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes shimmer {
+    0%, 100% {
+      transform: translateX(-100%);
+    }
+    50% {
+      transform: translateX(100%);
+    }
+  }
+
+  @keyframes imageZoom {
+    to {
+      transform: scale(1.08);
+    }
+  }
+
+  @keyframes buttonPulse {
+    0%, 100% {
+      box-shadow: 0 4px 12px rgba(102, 0, 17, 0.25);
+    }
+    50% {
+      box-shadow: 0 6px 20px rgba(102, 0, 17, 0.35);
+    }
+  }
+
   .products-hero {
     background: linear-gradient(135deg, rgba(102, 0, 17, 0.05) 0%, rgba(171, 106, 36, 0.05) 100%);
     padding: var(--spacing-2xl) 0;
     text-align: center;
     border-bottom: 1px solid var(--color-gray-light);
+    overflow: hidden;
   }
 
-  .products-hero h1 {
+  .hero-title {
     font-size: 2.5rem;
     color: var(--color-brown);
     margin-bottom: var(--spacing-md);
+    animation: heroSlideDown 0.8s ease-out;
   }
 
-  .products-hero p {
+  .hero-subtitle {
     font-size: 1.1rem;
     color: var(--color-gray);
     margin: 0;
+    animation: heroSlideDown 0.8s ease-out 0.2s both;
   }
 
   .products-section {
@@ -224,29 +284,49 @@ const productLink = 'https://mily.vn/W7mTGxXM';
     flex-direction: column;
     height: 100%;
     background-color: var(--color-white);
+    animation: fadeInUp 0.6s ease-out var(--card-delay);
+    opacity: 0;
+    animation-fill-mode: forwards;
   }
 
   .product-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
   }
 
-  .product-image {
+  .product-image-wrapper {
     width: 100%;
     height: 200px;
     overflow: hidden;
     background-color: var(--color-bg);
+    position: relative;
   }
 
-  .product-image img {
+  .product-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform var(--transition-normal);
+    transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    display: block;
   }
 
-  .product-card:hover .product-image img {
-    transform: scale(1.05);
+  .image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .product-card:hover .product-image {
+    transform: scale(1.08) rotate(1deg);
+  }
+
+  .product-card:hover .image-overlay {
+    opacity: 1;
   }
 
   .product-info {
@@ -256,39 +336,46 @@ const productLink = 'https://mily.vn/W7mTGxXM';
     flex-grow: 1;
   }
 
-  .product-info h3 {
+  .product-name {
     font-size: 1rem;
     font-weight: 600;
     color: var(--color-brown);
     margin: 0 0 var(--spacing-md) 0;
-    line-height: 1.4;
-    min-height: 2.8em;
+    line-height: 1.5;
+    min-height: auto;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
   }
 
   .product-details {
     margin: var(--spacing-md) 0;
     flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
   }
 
-  .product-details p {
-    margin: var(--spacing-sm) 0;
+  .detail-row {
+    display: flex;
+    justify-content: space-between;
     font-size: 0.9rem;
     color: var(--color-text);
+    animation: fadeInUp 0.6s ease-out var(--card-delay);
   }
 
-  .product-details strong {
+  .detail-label {
     color: var(--color-brown);
     font-weight: 600;
   }
 
-  .product-details span {
+  .detail-value {
     color: var(--color-gray);
   }
 
   .price {
     color: var(--color-primary) !important;
-    font-weight: 600;
-    font-size: 1.05rem;
+    font-weight: 700;
+    font-size: 1.1rem;
   }
 
   .btn-product {
@@ -302,17 +389,42 @@ const productLink = 'https://mily.vn/W7mTGxXM';
     transition: all var(--transition-fast);
     font-weight: 600;
     font-size: 0.95rem;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-text {
+    position: relative;
+    z-index: 1;
+  }
+
+  .btn-icon {
+    transition: transform 0.3s ease;
   }
 
   .btn-product:hover {
     background-color: var(--color-primary-dark);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(102, 0, 17, 0.25);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(102, 0, 17, 0.35);
+  }
+
+  .btn-product:hover .btn-icon {
+    transform: translateX(4px);
+  }
+
+  .btn-product:active {
+    transform: translateY(-1px);
   }
 
   /* Responsive */
   @media (max-width: 768px) {
-    .products-hero h1 {
+    .hero-title {
       font-size: 2rem;
     }
 
@@ -321,7 +433,11 @@ const productLink = 'https://mily.vn/W7mTGxXM';
       gap: var(--spacing-lg);
     }
 
-    .product-details {
+    .product-name {
+      font-size: 0.95rem;
+    }
+
+    .detail-row {
       font-size: 0.85rem;
     }
   }
@@ -331,7 +447,7 @@ const productLink = 'https://mily.vn/W7mTGxXM';
       padding: var(--spacing-xl) 0;
     }
 
-    .products-hero h1 {
+    .hero-title {
       font-size: 1.75rem;
     }
 
@@ -340,12 +456,17 @@ const productLink = 'https://mily.vn/W7mTGxXM';
       gap: var(--spacing-md);
     }
 
-    .product-image {
+    .product-image-wrapper {
       height: 150px;
     }
 
     .product-info {
       padding: var(--spacing-md);
+    }
+
+    .btn-product {
+      padding: var(--spacing-md);
+      font-size: 0.9rem;
     }
   }
 </style>
