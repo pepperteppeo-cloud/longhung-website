@@ -1,0 +1,69 @@
+/* ============================================
+   NAVIGATION LINKS - Underline Removal
+   ============================================ */
+
+/* Remove underline from nav links */
+nav a,
+.nav-link {
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  display: inline-block;
+  outline: none;
+}
+
+/* Remove underline on active state */
+nav a.active,
+.nav-link.active {
+  text-decoration: none;
+}
+
+/* Hover state - no underline */
+nav a:hover,
+.nav-link:hover {
+  text-decoration: none;
+}
+
+/* Creative underline animation on hover */
+nav a::after,
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: currentColor;
+  transition: width 0.3s ease-in-out;
+}
+
+nav a:hover::after,
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* For active/current page indicator */
+nav a.active::after,
+.nav-link.active::after {
+  width: 100%;
+  background-color: var(--color-gold, currentColor);
+}
+
+/* Footer links - no underline */
+.footer-links a {
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  text-decoration: none;
+}
+
+/* General link styles - override underline defaults */
+a[href] {
+  text-decoration: none;
+}
+
+a[href]:hover {
+  text-decoration: none;
+}
