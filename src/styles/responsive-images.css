@@ -1,0 +1,114 @@
+/* ============================================
+   RESPONSIVE IMAGES - Aspect Ratio Preservation
+   ============================================ */
+
+/* Image container with aspect ratio preservation */
+.image-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+}
+
+/* Aspect ratio classes */
+.image-container--16-9 {
+  aspect-ratio: 16 / 9;
+}
+
+.image-container--4-3 {
+  aspect-ratio: 4 / 3;
+}
+
+.image-container--1-1 {
+  aspect-ratio: 1 / 1;
+}
+
+.image-container--3-2 {
+  aspect-ratio: 3 / 2;
+}
+
+.image-container--2-1 {
+  aspect-ratio: 2 / 1;
+}
+
+/* Image styling */
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Hover effect for images */
+.image-container:hover img {
+  transform: scale(1.05);
+}
+
+/* Product images with fixed aspect ratio */
+.product-image {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background-color: var(--color-gray-light);
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  padding: var(--spacing-sm);
+}
+
+/* Client logo images */
+.client-image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Hero images */
+.hero img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Responsive max-width containers */
+@media (max-width: 1200px) {
+  .image-container {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .image-container {
+    max-width: 100%;
+  }
+  
+  .product-image {
+    aspect-ratio: 1 / 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .image-container {
+    max-width: 100%;
+  }
+  
+  .product-image {
+    aspect-ratio: 1 / 1;
+  }
+}
+
+/* Ensure all images are responsive */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
