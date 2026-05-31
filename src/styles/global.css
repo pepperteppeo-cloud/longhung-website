@@ -1195,7 +1195,7 @@ body[data-page^="/san-pham"] .products-hero {
       rgba(0, 0, 0, 0.16) 42%,
       rgba(0, 0, 0, 0.04) 78%
     ),
-    var(--products-hero-image, url('/images/hero-vpp.png')) !important;
+    var(--products-hero-image, url('/images/hero-vpp.webp')) !important;
 
   background-size: cover !important;
   background-repeat: no-repeat !important;
