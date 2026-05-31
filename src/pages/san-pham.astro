@@ -147,12 +147,14 @@ const productLink = 'https://mily.vn/W7mTGxXM';
   <Header currentPage="/san-pham" />
 
   <!-- Hero Section -->
-  <section class="products-hero">
-    <div class="container">
+  <section class="products-hero" style="--products-hero-image: url('/images/hero-vpp.png')">
+  <div class="container products-hero-inner">
+    <div class="products-hero-content">
       <h1 class="hero-title">Danh Mục Sản Phẩm</h1>
-      <p class="hero-subtitle">Tổng cộng {products.length} sản phẩm</p>
+      <p class="hero-subtitle">{products.length} sản phẩm nổi bật nhất</p>
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- Products Section -->
   <section class="products-section">
@@ -242,26 +244,59 @@ const productLink = 'https://mily.vn/W7mTGxXM';
   }
 
   .products-hero {
-    background: linear-gradient(135deg, rgba(102, 0, 17, 0.05) 0%, rgba(171, 106, 36, 0.05) 100%);
-    padding: var(--spacing-2xl) 0;
-    text-align: center;
-    border-bottom: 1px solid var(--color-gray-light);
-    overflow: hidden;
-  }
+  position: relative;
+  width: 100%;
+  min-height: 52svh;
+  height: min(56vh, 620px);
+  padding: 0;
 
-  .hero-title {
-    font-size: 2.5rem;
-    color: var(--color-brown);
-    margin-bottom: var(--spacing-md);
-    animation: heroSlideDown 0.8s ease-out;
-  }
+  display: flex;
+  align-items: center;
 
-  .hero-subtitle {
-    font-size: 1.1rem;
-    color: var(--color-gray);
-    margin: 0;
-    animation: heroSlideDown 0.8s ease-out 0.2s both;
-  }
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.34) 0%,
+      rgba(0, 0, 0, 0.16) 42%,
+      rgba(0, 0, 0, 0.04) 78%
+    ),
+    var(--products-hero-image);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center 45%;
+
+  text-align: left;
+  border-bottom: 1px solid var(--color-gray-light);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.products-hero-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.products-hero-content {
+  max-width: 680px;
+}
+
+.products-hero .hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 4vw, 4.2rem);
+  color: var(--color-gold-light);
+  margin-bottom: var(--spacing-md);
+  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.38);
+  animation: heroSlideDown 0.8s ease-out;
+}
+
+.products-hero .hero-subtitle {
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 1.4vw, 1.25rem);
+  color: rgba(255, 255, 255, 0.92);
+  margin: 0;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  animation: heroSlideDown 0.8s ease-out 0.2s both;
+}
 
   .products-section {
     padding: var(--spacing-2xl) 0;
@@ -284,9 +319,9 @@ const productLink = 'https://mily.vn/W7mTGxXM';
     flex-direction: column;
     height: 100%;
     background-color: var(--color-white);
-    animation: fadeInUp 0.6s ease-out var(--card-delay);
-    opacity: 0;
-    animation-fill-mode: forwards;
+    animation: fadeInUp 0.45s ease-out var(--card-delay);
+    opacity: 1;
+    animation-fill-mode: both;
   }
 
   .product-card:hover {
@@ -442,31 +477,46 @@ const productLink = 'https://mily.vn/W7mTGxXM';
     }
   }
 
-  @media (max-width: 480px) {
-    .products-hero {
-      padding: var(--spacing-xl) 0;
-    }
-
-    .hero-title {
-      font-size: 1.75rem;
-    }
-
-    .products-grid {
-      grid-template-columns: 1fr;
-      gap: var(--spacing-md);
-    }
-
-    .product-image-wrapper {
-      height: 150px;
-    }
-
-    .product-info {
-      padding: var(--spacing-md);
-    }
-
-    .btn-product {
-      padding: var(--spacing-md);
-      font-size: 0.9rem;
-    }
+ @media (max-width: 480px) {
+  .products-hero {
+    min-height: 420px;
+    height: auto;
+    padding: 0;
+    background-position: 58% center;
   }
+
+  .hero-title {
+    font-size: 1.75rem;
+  }
+
+  .products-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+
+  .product-image-wrapper {
+    height: 150px;
+  }
+
+  .product-info {
+    padding: var(--spacing-md);
+  }
+
+  .btn-product {
+    padding: var(--spacing-md);
+    font-size: 0.9rem;
+  }
+}
+
+  /* FINAL SAFETY — never hide product cards because of animation conflict */
+  .products-section .product-card {
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  .products-section .product-card.is-visible,
+  .products-section .product-card[data-lh-reveal] {
+    opacity: 1 !important;
+  }
+
 </style>

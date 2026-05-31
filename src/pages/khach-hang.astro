@@ -4,50 +4,125 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import ContactForm from '../components/ContactForm.astro';
+
+const teamMembers = [
+  {
+    image: '/images/team-huy.png',
+    name: 'Mr. Trương Mạnh Huy',
+    position: 'Quản lý & Trưởng Phòng Kinh Doanh',
+    bio: 'Phụ trách tư vấn giải pháp cung ứng văn phòng phẩm cho doanh nghiệp, tối ưu quy trình đặt hàng và chăm sóc khách hàng.',
+    phone: '+84389023720',
+    button: 'Gọi Mr. Huy'
+  },
+  {
+    image: '/images/team-vinh.png',
+    name: 'Mr. Tiêu Phúc Vinh',
+    position: 'Trưởng Phòng Vận Hành',
+    bio: 'Phụ trách tổ chức vận hành, điều phối giao hàng và đảm bảo chất lượng dịch vụ trong quá trình phục vụ khách hàng.',
+    phone: '+84353839500',
+    button: 'Gọi Mr. Vinh'
+  }
+];
+
+const productCategories = [
+  {
+    icon: '📦',
+    title: 'Văn Phòng Phẩm',
+    text: 'Bút, giấy note, kẹp giấy, ghim, bìa hồ sơ, dụng cụ lưu trữ và nhiều sản phẩm văn phòng khác.'
+  },
+  {
+    icon: '📄',
+    title: 'Sản Phẩm Về Giấy',
+    text: 'Giấy in, giấy A4, giấy bìa, giấy màu, giấy chuyên dụng và các sản phẩm giấy phục vụ vận hành.'
+  },
+  {
+    icon: '🎒',
+    title: 'Bách Hóa Văn Phòng',
+    text: 'Nhu yếu phẩm văn phòng, sản phẩm vệ sinh, vật tư tiêu hao và các mặt hàng hỗ trợ môi trường làm việc.'
+  }
+];
+
+const b2bValues = [
+  {
+    number: '01',
+    title: 'Báo giá rõ ràng',
+    text: 'Dễ so sánh, dễ duyệt nội bộ, hạn chế phát sinh ngoài kế hoạch.'
+  },
+  {
+    number: '02',
+    title: 'Đặt hàng linh hoạt',
+    text: 'Hỗ trợ theo nhu cầu định kỳ, phát sinh hoặc đơn hàng riêng của từng phòng ban.'
+  },
+  {
+    number: '03',
+    title: 'Giao nhận có kiểm soát',
+    text: 'Quy trình bàn giao rõ ràng, hỗ trợ theo dõi và đối soát thuận tiện.'
+  }
+];
 ---
 
-<Layout title="Khách Hàng Doanh Nghiệp — Long Hưng" description="Phòng kinh doanh Long Hưng - Giải pháp văn phòng phẩm cho doanh nghiệp.">
+<Layout
+  title="Khách Hàng Doanh Nghiệp — Long Hưng"
+  description="Phòng kinh doanh Long Hưng - Giải pháp cung ứng văn phòng phẩm cho doanh nghiệp."
+>
   <Header currentPage="/khach-hang" />
 
   <!-- Hero Section -->
-  <section class="hero" style="background-image: url('/images/hero-vpp.png')">
-  
+  <section
+    class="hero hero-page hero-business"
+    style="background-image: url('/images/hero-vpp.png')"
+  >
+    <div class="hero-inner">
+      <div class="page-hero-content">
+        <p class="eyebrow">Giải pháp B2B</p>
+        <h1>Đồng hành cùng vận hành văn phòng của doanh nghiệp</h1>
+        <p>
+          Long Hưng hỗ trợ doanh nghiệp mua sắm văn phòng phẩm theo cách minh bạch,
+          tối ưu và dễ kiểm soát hơn.
+        </p>
+      </div>
     </div>
-  
+  </section>
+
+  <!-- B2B Values -->
+  <section class="b2b-value-section">
+    <div class="container">
+      <div class="grid grid-3 reveal-stagger">
+        {b2bValues.map((item) => (
+          <div class="feature-card b2b-value-card" data-number={item.number}>
+            <h3>{item.title}</h3>
+            <p>{item.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
   </section>
 
   <!-- Team Section -->
   <section class="team-section">
     <div class="container">
-      <h2 class="section-title text-center mb-4">Đội Ngũ Chuyên Nghiệp</h2>
-      <div class="grid grid-2 team-grid">
-        <div class="team-card">
-          <div class="team-image">
-            <img src="/images/team-huy.png" alt="Mr. Trương Mạnh Huy" />
-          </div>
-          <div class="team-info">
-            <h3>Mr. Trương Mạnh Huy</h3>
-            <p class="team-position">Quản lý & Trưởng Phòng Kinh Doanh</p>
-            <p class="team-bio">
-              Hơn 10 năm kinh nghiệm trong lĩnh vực cung ứng văn phòng phẩm. Đam mê phục vụ khách hàng với chất lượng tốt nhất.
-            </p>
-            <a href="tel:+84389023720" class="btn btn-secondary mt-3">Gọi Mr. Huy</a>
-          </div>
-        </div>
+      <div class="section-heading text-center" data-reveal>
+        <p class="section-subtitle">Phụ trách khách hàng doanh nghiệp</p>
+        <h2 class="section-title">Phòng kinh doanh kính chào mừng bạn!</h2>
+      </div>
 
-        <div class="team-card">
-          <div class="team-image">
-            <img src="/images/team-vinh.png" alt="Mr. Tiêu Phúc Vinh" />
+      <div class="grid grid-2 team-grid reveal-stagger">
+        {teamMembers.map((member) => (
+          <div class="team-card">
+            <div class="team-image">
+              <img src={member.image} alt={member.name} />
+            </div>
+
+            <div class="team-info">
+              <h3>{member.name}</h3>
+              <p class="team-position">{member.position}</p>
+              <p class="team-bio">{member.bio}</p>
+              <a href={`tel:${member.phone}`} class="btn btn-secondary mt-3">
+                {member.button}
+              </a>
+            </div>
           </div>
-          <div class="team-info">
-            <h3>Mr. Tiêu Phúc Vinh</h3>
-            <p class="team-position">Trưởng Phòng Vận Hành</p>
-            <p class="team-bio">
-              Chuyên trách tổ chức, điều phối và quản lý hoạt động để đảm bảo chất lượng dịch vụ tốt nhất.
-            </p>
-            <a href="tel:+84353839500" class="btn btn-secondary mt-3">Gọi Mr. Vinh</a>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   </section>
@@ -57,7 +132,11 @@ import ContactForm from '../components/ContactForm.astro';
     <div class="container">
       <h2 class="section-title text-center mb-4">Khách Hàng Tiêu Biểu</h2>
       <div class="client-strip">
-        <img src="/images/client-strip.png" alt="Khách hàng tiêu biểu" class="client-image" />
+        <img
+          src="/images/client-strip.png"
+          alt="Khách hàng tiêu biểu của Long Hưng"
+          class="client-image"
+        />
       </div>
     </div>
   </section>
@@ -65,154 +144,30 @@ import ContactForm from '../components/ContactForm.astro';
   <!-- Product Categories -->
   <section class="product-section">
     <div class="container">
-      <h2 class="section-title text-center mb-4">Danh Mục Sản Phẩm</h2>
-      <div class="grid grid-3">
-        <div class="product-card">
-          <div class="product-icon">📦</div>
-          <h3>Văn Phòng Phẩm</h3>
-          <p>
-            Bút, bút chì, giấy note, kẹp giấy, sơ đồ, ghim, dây buộc, lưu trữ tài liệu và nhiều sản phẩm khác.
-          </p>
-        </div>
-        <div class="product-card">
-          <div class="product-icon">📄</div>
-          <h3>Sản Phẩm Về Giấy</h3>
-          <p>
-            Giấy in, giấy bìa, giấy A4, giấy in màu, giấy kraft, giấy thương mại và các loại giấy chuyên dụng.
-          </p>
-        </div>
-        <div class="product-card">
-          <div class="product-icon">🎒</div>
-          <h3>Bách hóa văn phòng</h3>
-          <p>
-            Nước rửa tay, dung dịch vệ sinh, giấy lau chùi và các sản phẩm vệ sinh khác.
-          </p>
-        </div>
+      <div class="section-heading text-center" data-reveal>
+        <p class="section-subtitle">Danh mục cung ứng</p>
+        <h2 class="section-title">Danh Mục Sản Phẩm</h2>
+      </div>
+
+      <div class="grid grid-3 reveal-stagger">
+        {productCategories.map((category) => (
+          <div class="product-card">
+            <div class="product-icon">{category.icon}</div>
+            <h3>{category.title}</h3>
+            <p>{category.text}</p>
+          </div>
+        ))}
       </div>
     </div>
   </section>
 
   <!-- Contact Section -->
   <section id="contact-section">
-    <ContactForm title="Liên Hệ Phòng Kinh Doanh" subtitle="Để tìm hiểu thêm về giải pháp văn phòng phẩm cho doanh nghiệp" />
+    <ContactForm
+      title="Liên Hệ Phòng Kinh Doanh"
+      subtitle="Để tìm hiểu thêm về giải pháp văn phòng phẩm cho doanh nghiệp"
+    />
   </section>
 
   <Footer />
 </Layout>
-
-<style>
-  .hero-content {
-    max-width: 700px;
-    margin: 0 auto;
-  }
-
-  .hero-subtitle {
-    font-size: 1.5rem;
-    font-family: var(--font-script);
-    color: var(--color-gold-light);
-    margin-bottom: var(--spacing-lg);
-  }
-
-  .team-section {
-    background-color: var(--color-bg);
-    padding: var(--spacing-2xl) 0;
-  }
-
-  .team-grid {
-    gap: var(--spacing-2xl);
-  }
-
-  .team-card {
-    background-color: var(--color-white);
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-    transition: all var(--transition-normal);
-  }
-
-  .team-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
-  }
-
-  .team-image {
-    width: 100%;
-    height: 300px;
-    overflow: hidden;
-    background-color: var(--color-gray-light);
-  }
-
-  .team-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .team-info {
-    padding: var(--spacing-xl);
-  }
-
-  .team-info h3 {
-    color: var(--color-brown);
-    margin-bottom: var(--spacing-sm);
-  }
-
-  .team-position {
-    color: var(--color-gold);
-    font-weight: 600;
-    font-size: 0.95rem;
-    margin-bottom: var(--spacing-md);
-  }
-
-  .team-bio {
-    color: var(--color-gray);
-    font-size: 0.95rem;
-    line-height: 1.7;
-    margin: var(--spacing-md) 0;
-  }
-
-  .product-section {
-    padding: var(--spacing-2xl) 0;
-  }
-
-  .product-card {
-    background-color: var(--color-gold-light);
-    border-radius: var(--radius-lg);
-    padding: var(--spacing-xl);
-    text-align: center;
-    transition: all var(--transition-normal);
-  }
-
-  .product-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-  }
-
-  .product-icon {
-    font-size: 2.5rem;
-    margin-bottom: var(--spacing-md);
-  }
-
-  .product-card h3 {
-    color: var(--color-brown);
-    margin-bottom: var(--spacing-md);
-  }
-
-  .product-card p {
-    color: var(--color-text);
-    font-size: 0.95rem;
-    line-height: 1.6;
-    margin: 0;
-  }
-
-  @media (max-width: 768px) {
-    .team-image {
-      height: 250px;
-    }
-
-    .team-card {
-      display: flex;
-      flex-direction: column;
-    }
-  }
-</style>

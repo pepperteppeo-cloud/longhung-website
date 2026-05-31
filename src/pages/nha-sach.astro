@@ -4,40 +4,87 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import ContactForm from '../components/ContactForm.astro';
+
+const retailFeatures = [
+  {
+    icon: '🚚',
+    title: 'Giao Tận Nơi',
+    text: 'Hỗ trợ giao hàng linh hoạt, phù hợp với nhu cầu mua sắm cá nhân và gia đình.'
+  },
+  {
+    icon: '💻',
+    title: 'Mua Online',
+    text: 'Dễ dàng đặt hàng qua điện thoại, email hoặc các kênh liên hệ của Long Hưng.'
+  },
+  {
+    icon: '⏰',
+    title: 'Mọi Lúc',
+    text: 'Phục vụ đều đặn, hỗ trợ khách hàng trong khung giờ rộng và thuận tiện.'
+  },
+  {
+    icon: '✨',
+    title: 'Chất Lượng',
+    text: 'Sản phẩm chọn lọc, rõ nguồn hàng, giá cả phù hợp với nhu cầu sử dụng.'
+  }
+];
+
+const commitments = [
+  {
+    number: '01',
+    title: 'Nhanh Chóng',
+    text: 'Tiếp nhận và xử lý đơn hàng gọn gàng, hạn chế thời gian chờ đợi.'
+  },
+  {
+    number: '02',
+    title: 'Dễ Mua',
+    text: 'Quy trình đặt hàng đơn giản, dễ trao đổi, dễ xác nhận và dễ nhận hàng.'
+  },
+  {
+    number: '03',
+    title: 'Tận Tâm',
+    text: 'Tư vấn đúng nhu cầu, không ép mua, ưu tiên trải nghiệm thực tế của khách hàng.'
+  },
+  {
+    number: '04',
+    title: 'Đúng Hàng',
+    text: 'Sản phẩm được kiểm tra trước khi bàn giao để đảm bảo sự yên tâm khi sử dụng.'
+  }
+];
 ---
 
-<Layout title="Nhà Sách Long Hưng — Mua Hàng Giao Hàng Tận Nơi" description="Nhà sách bán lẻ Long Hưng - Mua hàng online, giao hàng tận nơi mọi lúc.">
+<Layout
+  title="Nhà Sách Long Hưng — Mua Hàng Giao Hàng Tận Nơi"
+  description="Nhà sách bán lẻ Long Hưng - Mua hàng online, giao hàng tận nơi, phục vụ linh hoạt và tận tâm."
+>
   <Header currentPage="/nha-sach" />
 
   <!-- Hero Section -->
-  <section class="hero" style="background-image: url('/images/hero-nhasach.png')">
+  <section
+    class="hero hero-page hero-bookstore"
+    style="background-image: url('/images/hero-nhasach.png')"
+  >
+    <div class="hero-inner">
+      <div class="page-hero-content">
+        <p class="eyebrow">Nhà sách Long Hưng</p>
+        <h1>Mua sắm văn phòng phẩm dễ dàng hơn mỗi ngày</h1>
+        <p>
+          Từ đồ dùng học tập, văn phòng phẩm cá nhân đến nhu yếu phẩm văn phòng,
+          Long Hưng hỗ trợ bạn chọn đúng sản phẩm và nhận hàng thuận tiện.
+        </p>
       </div>
+    </div>
   </section>
 
   <!-- Feature Strip -->
   <section class="feature-strip">
     <div class="container">
-      <div class="grid grid-4">
-        <div class="feature-item">
-          <div class="feature-icon">🚚</div>
-          <h3>Giao Tận Nơi</h3>
-          <p>Vận chuyển an toàn đến tận nhà bạn</p>
-        </div>
-        <div class="feature-item">
-          <div class="feature-icon">💻</div>
-          <h3>Mua Online</h3>
-          <p>Dễ dàng đặt hàng qua điện thoại/email</p>
-        </div>
-        <div class="feature-item">
-          <div class="feature-icon">⏰</div>
-          <h3>Mọi Lúc</h3>
-          <p>Phục vụ linh hoạt, hỗ trợ 7 ngày/tuần</p>
-        </div>
-        <div class="feature-item">
-          <div class="feature-icon">✨</div>
-          <h3>Chất Lượng</h3>
-          <p>Hàng chính hãng, giá cạnh tranh nhất</p>
-        </div>
+      <div class="grid grid-4 reveal-stagger">
+        {retailFeatures.map((feature) => (
+          <div class="feature-item retail-feature" data-number={feature.icon}>
+            <h3>{feature.title}</h3>
+            <p>{feature.text}</p>
+          </div>
+        ))}
       </div>
     </div>
   </section>
@@ -45,12 +92,12 @@ import ContactForm from '../components/ContactForm.astro';
   <!-- Commitment Section -->
   <section class="commitment-section">
     <div class="container">
-      <div class="commitment-header text-center">
-        <h2 class="section-subtitle">Cam kết và Giải Pháp</h2>
+      <div class="commitment-header text-center" data-reveal>
+        <p class="section-subtitle">Cam kết và Giải Pháp</p>
         <h2 class="section-title">Nhanh — Gọn — Đúng — Trúng</h2>
         <p class="commitment-text">
-          Chúng tôi cam kết cung cấp trải nghiệm mua sắm tuyệt vời, từ chọn hàng,
-          đến giao hàng nhanh chóng, và hỗ trợ sau mua bán chuyên nghiệp.
+          Chúng tôi hướng tới trải nghiệm mua sắm gần gũi, rõ ràng và thuận tiện:
+          từ chọn hàng, xác nhận đơn, giao hàng đến hỗ trợ sau mua.
         </p>
       </div>
     </div>
@@ -59,140 +106,38 @@ import ContactForm from '../components/ContactForm.astro';
   <!-- Four Numbered Cards -->
   <section class="commitment-grid">
     <div class="container">
-      <div class="grid grid-4">
-        <div class="feature-card" data-number="01">
-          <h3>Nhanh Chóng</h3>
-          <p>Xử lý đơn hàng trong 24 giờ, giao hàng trong 3 ngày</p>
-        </div>
-        <div class="feature-card" data-number="02">
-          <h3>Chất Lượng</h3>
-          <p>Hàng hóa chính hãng, kiểm tra kỹ trước khi giao</p>
-        </div>
-        <div class="feature-card" data-number="03">
-          <h3>Tận Tâm</h3>
-          <p>Tư vấn miễn phí, hỗ trợ 24/7 cho khách hàng</p>
-        </div>
-        <div class="feature-card" data-number="04">
-          <h3>Chuyên Nghiệp</h3>
-          <p>Đội ngũ kinh nghiệm, quy trình hoạt động chuyên chuẩn</p>
-        </div>
+      <div class="grid grid-4 reveal-stagger">
+        {commitments.map((item) => (
+          <div class="feature-card" data-number={item.number}>
+            <h3>{item.title}</h3>
+            <p>{item.text}</p>
+          </div>
+        ))}
       </div>
     </div>
   </section>
 
   <!-- Clients Strip -->
-  <section class="clients-section">
+  <section class="client-section">
     <div class="container">
       <h2 class="section-title text-center mb-4">Khách Hàng Tiêu Biểu</h2>
-      <div class="clients-strip">
-        <img src="/images/clients-strip.png" alt="Khách hàng tiêu biểu" class="clients-image" />
+      <div class="client-strip">
+        <img
+          src="/images/client-strip.png"
+          alt="Khách hàng tiêu biểu của Long Hưng"
+          class="client-image"
+        />
       </div>
     </div>
   </section>
 
   <!-- Contact Section -->
   <section id="contact-section">
-    <ContactForm title="Đặt Hàng Ngay" subtitle="Liên hệ để đặt hàng hoặc tư vấn về sản phẩm" />
+    <ContactForm
+      title="Đặt Hàng Ngay"
+      subtitle="Liên hệ để đặt hàng hoặc tư vấn về sản phẩm phù hợp"
+    />
   </section>
 
   <Footer />
 </Layout>
-
-<style>
-  .hero-content {
-    max-width: 700px;
-    margin: 0 auto;
-  }
-
-  .hero-subtitle {
-    font-size: 1.5rem;
-    font-family: var(--font-script);
-    color: var(--color-gold-light);
-    margin-bottom: var(--spacing-lg);
-  }
-
-  .feature-strip {
-    background-color: var(--color-bg);
-    padding: var(--spacing-2xl) 0;
-  }
-
-  .feature-item {
-    text-align: center;
-    padding: var(--spacing-lg);
-  }
-
-  .feature-icon {
-    font-size: 2.5rem;
-    margin-bottom: var(--spacing-md);
-  }
-
-  .feature-item h3 {
-    color: var(--color-brown);
-    margin-bottom: var(--spacing-sm);
-  }
-
-  .feature-item p {
-    color: var(--color-gray);
-    margin: 0;
-  }
-
-  .commitment-section {
-    background: linear-gradient(135deg, rgba(102, 0, 17, 0.05) 0%, rgba(171, 106, 36, 0.05) 100%);
-    padding: var(--spacing-2xl) 0;
-  }
-
-  .commitment-header {
-    max-width: 600px;
-    margin: 0 auto;
-  }
-
-  .section-subtitle {
-    font-family: var(--font-script);
-    color: var(--color-gold);
-    font-size: 1.5rem;
-    margin-bottom: var(--spacing-md);
-  }
-
-  .commitment-text {
-    color: var(--color-gray);
-    font-size: 1rem;
-    line-height: 1.8;
-  }
-
-  .commitment-grid {
-    padding: var(--spacing-2xl) 0;
-  }
-
-  .clients-section {
-    background-color: var(--color-white);
-    padding: var(--spacing-2xl) 0;
-    border-top: 1px solid var(--color-gray-light);
-  }
-
-  .clients-strip {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--color-bg);
-    border-radius: var(--radius-lg);
-    padding: var(--spacing-2xl);
-    min-height: 200px;
-  }
-
-  .clients-image {
-    max-width: 100%;
-    height: auto;
-    max-height: 150px;
-  }
-
-  @media (max-width: 768px) {
-    .hero-subtitle {
-      font-size: 1.25rem;
-    }
-
-    .clients-strip {
-      padding: var(--spacing-xl);
-      min-height: 150px;
-    }
-  }
-</style>
