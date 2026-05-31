@@ -39,14 +39,15 @@ const websiteStructuredData = {
 <!DOCTYPE html>
 <html lang="vi">
   <head>
-    <script src="https://cdn.cookiehub.eu/c2/b251dc2a.js"></script>
-<script type="text/javascript">
-document.addEventListener("DOMContentLoaded", function(event) {
-var cpm = {};
-window.cookiehub.load(cpm);
-});
+   <!-- CookieHub -->
+<script is:inline src="https://cdn.cookiehub.eu/c2/b251dc2a.js"></script>
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", function () {
+    if (window.cookiehub && typeof window.cookiehub.load === "function") {
+      window.cookiehub.load({});
+    }
+  });
 </script>
-   </script>
 
 <!-- Google tag (gtag.js) -->
 <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-M8CNP88TRZ"></script>
