@@ -17,6 +17,23 @@ const {
 } = Astro.props;
 
 const currentUrl = Astro.url.pathname;
+
+const siteName = "Văn Phòng Phẩm Long Hưng";
+const siteUrl = "https://vpplonghung.com";
+const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
+const absoluteOgImage = new URL(ogImage, siteUrl).toString();
+
+const websiteStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: siteName,
+  alternateName: [
+    "VPP Long Hưng",
+    "Long Hưng Stationery",
+    "vpplonghung.com"
+  ],
+  url: `${siteUrl}/`
+};
 ---
 
 <!DOCTYPE html>
@@ -24,16 +41,26 @@ const currentUrl = Astro.url.pathname;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>{title}</title>
+<meta name="description" content={description} />
 
-    <meta name="description" content={description} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:image" content={ogImage} />
-    <meta property="og:type" content="website" />
-    <meta name="theme-color" content="#660011" />
+<link rel="canonical" href={canonicalUrl} />
 
-    <title>{title}</title>
-    <link rel="icon" type="image/png" href="/images/favicon.png" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content={siteName} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonicalUrl} />
+<meta property="og:image" content={absoluteOgImage} />
+
+<meta name="theme-color" content="#660011" />
+
+<script
+  type="application/ld+json"
+  set:html={JSON.stringify(websiteStructuredData)}
+/>
+
+<link rel="icon" type="image/png" href="/images/favicon.png" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
