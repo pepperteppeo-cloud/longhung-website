@@ -9,26 +9,54 @@ const contactCards = [
   {
     icon: '/images/icon-contact-location.webp',
     title: 'Địa Chỉ',
-    content: 'LK03-07, Roman Plaza, Đại Mỗ, Hà Nội, Việt Nam',
-    href: 'https://maps.app.goo.gl/rm11siBErfPbpHrq8'
+    items: [
+      {
+        content: 'LK03-07, Roman Plaza, Đại Mỗ, Hà Nội, Việt Nam',
+        href: 'https://maps.app.goo.gl/rm11siBErfPbpHrq8'
+      }
+    ]
   },
   {
     icon: '/images/icon-contact-phone.webp',
     title: 'Điện Thoại',
-    content: '0389.023.720 — Mr. Huy / 0353.839.500 — Nhà sách',
-    href: 'tel:+84389023720'
+    items: [
+      {
+        content: '0389.023.720 — Mr. Huy',
+        href: 'tel:+84389023720'
+      },
+      {
+        content: '0353.839.500 — Nhà sách',
+        href: 'tel:+84353839500'
+      }
+    ]
   },
   {
     icon: '/images/icon-contact-email.webp',
     title: 'Email',
-    content: 'kinhdoanh@vpplonghung.com / hotro@vpplonghung.com',
-    href: 'mailto:kinhdoanh@vpplonghung.com'
+    items: [
+      {
+        content: 'kinhdoanh@vpplonghung.com',
+        href: 'mailto:kinhdoanh@vpplonghung.com'
+      },
+      {
+        content: 'hotro@vpplonghung.com',
+        href: 'mailto:hotro@vpplonghung.com'
+      }
+    ]
   },
   {
     icon: '/images/icon-contact-time.webp',
     title: 'Giờ Làm Việc',
-    content: 'Thứ 2 - Chủ Nhật: 8:00 - 22:00',
-    href: ''
+    items: [
+      {
+        content: 'Thứ 2 - Chủ Nhật',
+        href: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ&list=RDdQw4w9WgXcQ&start_radio=1'
+      }, 
+      {
+        content: '8:00 - 22:00',
+        href: 'https://www.youtube.com/watch?v=BbeeuzU5Qc8'
+      }
+    ]
   }
 ];
 
@@ -75,35 +103,43 @@ const mapEmbedSrc =
     <div class="hero-inner">
       <div class="page-hero-content">
         <h1>Liên Hệ Với Chúng Tôi</h1>
-        <p class="page-hero-description">Long Hưng luôn sẵn sàng tư vấn, báo giá và hỗ trợ nhu cầu văn phòng phẩm của bạn.</p>
+        <p class="page-hero-description">Long Hưng luôn sẵn sàng tư vấn, báo giá và hỗ trợ mọi nhu cầu văn phòng phẩm của bạn.</p>
       </div>
     </div>
   </section>
 
   <!-- Contact Info Panel -->
-  <section class="contact-info-section">
-    <div class="container">
-      <div class="grid grid-4 contact-grid reveal-stagger">
-        {contactCards.map((card) => (
-          <div class="info-card">
-            <div class="info-icon" aria-hidden="true">
-              <img src={card.icon} alt="" loading="lazy" decoding="async" />
-            </div>
-            <h3>{card.title}</h3>
-            {card.href ? (
+<section class="contact-info-section">
+  <div class="container">
+    <div class="grid grid-4 contact-grid reveal-stagger">
+      {contactCards.map((card) => (
+        <div class="info-card">
+          <div class="info-icon" aria-hidden="true">
+            <img src={card.icon} alt="" loading="lazy" decoding="async" />
+          </div>
+
+          <h3>{card.title}</h3>
+
+          {card.items.map((item) =>
+            item.href ? (
               <p>
-                <a href={card.href} target={card.href.startsWith('http') ? '_blank' : undefined} rel={card.href.startsWith('http') ? 'noopener noreferrer' : undefined}>
-                  {card.content}
+                <a
+                  href={item.href}
+                  target={item.href.startsWith('http') ? '_blank' : undefined}
+                  rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                >
+                  {item.content}
                 </a>
               </p>
             ) : (
-              <p>{card.content}</p>
-            )}
-          </div>
-        ))}
-      </div>
+              <p>{item.content}</p>
+            )
+          )}
+        </div>
+      ))}
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- Social Links -->
   <section class="social-section reveal" data-reveal>
