@@ -94,7 +94,9 @@ const FORMSPREE_ENDPOINT = "https://formspree.io/f/xeednnap";
 
       <!-- Success Message (shown via JS) -->
       <div class="form-success" id="successMessage" style="display: none;">
-        <div class="success-icon">✓</div>
+        <div class="success-icon" aria-hidden="true">
+          <img src="/images/icon-success-check.webp" alt="" loading="lazy" decoding="async" />
+        </div>
         <h3>Gửi thành công!</h3>
         <p>Cảm ơn bạn đã liên hệ. Chúng tôi sẽ phản hồi sớm nhất.</p>
       </div>
@@ -219,10 +221,19 @@ const FORMSPREE_ENDPOINT = "https://formspree.io/f/xeednnap";
   }
 
   .success-icon {
-    font-size: 3rem;
-    color: #4caf50;
-    margin-bottom: var(--spacing-md);
-    font-weight: 900;
+    width: 72px;
+    height: 72px;
+    margin: 0 auto var(--spacing-md);
+    display: grid;
+    place-items: center;
+    border-radius: 999px;
+    background: rgba(76, 175, 80, 0.12);
+  }
+
+  .success-icon img {
+    width: 38px;
+    height: 38px;
+    object-fit: contain;
   }
 
   .form-success h3 {

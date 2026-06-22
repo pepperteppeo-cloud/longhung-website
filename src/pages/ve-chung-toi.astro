@@ -26,17 +26,17 @@ const stats = [
 
 const services = [
   {
-    icon: '🏢',
+    icon: '/images/icon-service-b2b.webp',
     title: 'Cung Ứng B2B',
     text: 'Giải pháp văn phòng phẩm toàn diện cho doanh nghiệp, công ty và tổ chức.'
   },
   {
-    icon: '🏪',
+    icon: '/images/icon-service-retail.webp',
     title: 'Bán Lẻ',
     text: 'Nhà sách Long Hưng cung cấp sản phẩm chất lượng cho khách hàng cá nhân và gia đình.'
   },
   {
-    icon: '🛵',
+    icon: '/images/icon-service-delivery.webp',
     title: 'Giao Hàng',
     text: 'Vận chuyển an toàn, linh hoạt và phù hợp với nhu cầu sử dụng thực tế.'
   }
@@ -67,13 +67,13 @@ const values = [
   <!-- Hero Section -->
   <section
     class="hero hero-page hero-about"
-    style="background-image: url('/images/about-bg.webp')"
+    style="background-image: url('/images/hero-vpp.webp')"
   >
     <div class="hero-inner">
       <div class="page-hero-content">
         <p class="eyebrow">Về Long Hưng</p>
         <h1>Một đối tác văn phòng phẩm đáng tin cậy</h1>
-        <p>
+        <p class="page-hero-description">
           Long Hưng được xây dựng với tinh thần phục vụ bền bỉ:
           rõ ràng trong báo giá, tận tâm trong tư vấn và trách nhiệm trong từng đơn hàng.
         </p>
@@ -142,10 +142,20 @@ const values = [
 
       <div class="grid grid-3 reveal-stagger">
         {services.map((service) => (
-          <div class="service-card">
-            <div class="service-icon">{service.icon}</div>
-            <h3>{service.title}</h3>
-            <p>{service.text}</p>
+          <div class="service-card service-card--illustrated">
+            <img
+              src={service.icon}
+              alt=""
+              class="card-bg-photo"
+              style="position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover;object-position:center;transform:scale(1.08);opacity:0.9;pointer-events:none;z-index:0;"
+              loading="lazy"
+              decoding="async"
+              aria-hidden="true"
+            />
+            <div class="card-copy" style="position:relative;z-index:1;">
+              <h3>{service.title}</h3>
+              <p>{service.text}</p>
+            </div>
           </div>
         ))}
       </div>

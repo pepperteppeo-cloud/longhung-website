@@ -1,27 +1,23 @@
 ---
 // Header.astro - Responsive navigation with hamburger menu
-import { Image } from 'astro:assets';
-
 interface Props {
   currentPage?: string;
 }
 
 const { currentPage = '/' } = Astro.props;
 
-const primaryNavLinks = [
+const navLinks = [
   { title: 'Trang chủ', href: '/', slug: '/' },
   { title: 'Nhà sách', href: '/nha-sach', slug: '/nha-sach' },
-  { title: 'Khách hàng doanh nghiệp', href: '/khach-hang', slug: '/khach-hang' },
-  { title: 'Sản phẩm', href: '/san-pham', slug: '/san-pham' }
+  { title: 'Khách hàng doanh nghiệp', href: '/khach-hang', slug: '/khach-hang', hideAt: '768' },
+  { title: 'Sản phẩm', href: '/san-pham', slug: '/san-pham', hideAt: '992' }
 ];
 
-const secondaryNavLinks = [
-  { title: 'Về chúng tôi', href: '/ve-chung-toi', slug: '/ve-chung-toi' },
-  { title: 'Chính sách', href: '/chinh-sach', slug: '/chinh-sach' },
-  { title: 'Liên hệ', href: '/lien-he', slug: '/lien-he' }
+const dropdownLinks = [
+  { title: 'Về chúng tôi', href: '/ve-chung-toi', slug: '/ve-chung-toi', showAt: 'always' },
+  { title: 'Chính sách', href: '/chinh-sach', slug: '/chinh-sach', showAt: 'always' },
+  { title: 'Liên hệ', href: '/lien-he', slug: '/lien-he', showAt: 'always' },
 ];
-
-const allNavLinks = [...primaryNavLinks, ...secondaryNavLinks];
 
 ---
 
@@ -42,8 +38,8 @@ const allNavLinks = [...primaryNavLinks, ...secondaryNavLinks];
       </button>
 
       <ul class="nav-menu" id="navMenu">
-        {allNavLinks.map(link => (
-          <li class="nav-item" data-nav-item>
+        {navLinks.map(link => (
+          <li class={`nav-item ${link.hideAt ? `hide-at-${link.hideAt}` : ''}`} data-nav-item>
             <a
               href={link.href}
               class={`nav-link ${currentPage === link.slug || (link.slug !== '/' && currentPage.startsWith(link.slug)) ? 'active' : ''}`}
@@ -52,6 +48,28 @@ const allNavLinks = [...primaryNavLinks, ...secondaryNavLinks];
             </a>
           </li>
         ))}
+
+        <li class="nav-item nav-dropdown" data-dropdown>
+          <button type="button" class="dropdown-toggle" aria-expanded="false" aria-label="Thông tin">
+            <span class="dropdown-label">Thông tin</span>
+            <span class="dropdown-icon" aria-hidden="true">
+              <span class="dropdown-icon-line dropdown-icon-line--left"></span>
+              <span class="dropdown-icon-line dropdown-icon-line--right"></span>
+            </span>
+          </button>
+          <ul class="dropdown-menu">
+            {dropdownLinks.map(link => (
+              <li class={`dropdown-item ${link.showAt !== 'always' ? `show-at-${link.showAt}` : ''}`}>
+                <a
+                  href={link.href}
+                  class={`nav-link ${currentPage === link.slug || (link.slug !== '/' && currentPage.startsWith(link.slug)) ? 'active' : ''}`}
+                >
+                  {link.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </li>
         
         <li class="nav-item mobile-cta">
           <a href="/lien-he" class="btn btn-cta">Tư vấn Ngay</a>
@@ -72,6 +90,11 @@ const allNavLinks = [...primaryNavLinks, ...secondaryNavLinks];
     position: sticky;
     top: 0;
     z-index: 1000;
+    --mobile-nav-offset: 76px;
+  }
+
+  body.nav-open {
+    overflow: hidden;
   }
 
   .navbar {
@@ -83,8 +106,8 @@ const allNavLinks = [...primaryNavLinks, ...secondaryNavLinks];
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    padding: var(--spacing-md) var(--spacing-lg);
-    gap: var(--spacing-lg);
+    padding: 1rem 1.5rem;
+    gap: 1rem;
   }
 
   .logo {
@@ -104,8 +127,8 @@ const allNavLinks = [...primaryNavLinks, ...secondaryNavLinks];
   }
 
   .logo-img {
-    width: 60px;
-    height: 60px;
+    width: 44px;
+    height: 44px;
     object-fit: contain;
     flex-shrink: 0;
   }
@@ -113,7 +136,7 @@ const allNavLinks = [...primaryNavLinks, ...secondaryNavLinks];
   .logo-text {
     font-family: var(--font-display);
     font-weight: 700;
-    font-size: 1.15rem;
+    font-size: 0.95rem;
     color: var(--color-brown);
     line-height: 1.2;
     white-space: normal;
@@ -123,11 +146,11 @@ const allNavLinks = [...primaryNavLinks, ...secondaryNavLinks];
     display: flex;
     list-style: none;
     gap: 1rem;
-    align-items: center;
+    align-items: flex-end;
     margin: 0;
     padding: 0;
     flex: 1 1 500px;
-    justify-content: center;
+    justify-content: flex-end;
     flex-wrap: wrap;
     min-width: 0;
     max-width: 100%;
@@ -145,7 +168,7 @@ const allNavLinks = [...primaryNavLinks, ...secondaryNavLinks];
     color: var(--color-text);
     text-decoration: none !important;
     transition: color 0.3s ease-in-out;
-    padding: var(--spacing-sm) 0;
+    padding: 0.45rem 0;
     border-bottom: none;
     position: relative;
     display: inline-flex;
@@ -157,7 +180,41 @@ const allNavLinks = [...primaryNavLinks, ...secondaryNavLinks];
   }
 
   .dropdown-toggle {
-    padding: var(--spacing-sm) 0;
+    padding: 0.25rem 0.25rem;
+    min-width: 40px;
+    min-height: 40px;
+  }
+
+  .dropdown-label {
+    display: none;
+  }
+
+  .dropdown-icon {
+    display: inline-flex;
+    position: relative;
+    width: 18px;
+    height: 18px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .dropdown-icon-line {
+    position: absolute;
+    width: 8px;
+    height: 2px;
+    border-radius: 999px;
+    background-color: currentColor;
+    top: 50%;
+    left: 50%;
+    transform-origin: center;
+  }
+
+  .dropdown-icon-line--left {
+    transform: translate(-7px, -1px) rotate(45deg);
+  }
+
+  .dropdown-icon-line--right {
+    transform: translate(-1px, -1px) rotate(-45deg);
   }
 
   .nav-link:hover,
@@ -208,7 +265,7 @@ const allNavLinks = [...primaryNavLinks, ...secondaryNavLinks];
   .dropdown-menu {
     position: absolute;
     top: calc(100% + 0.45rem);
-    left: 0;
+    left: 50%;
     min-width: 200px;
     background-color: var(--color-white);
     border: 1px solid var(--color-gray-light);
@@ -217,7 +274,7 @@ const allNavLinks = [...primaryNavLinks, ...secondaryNavLinks];
     box-shadow: 0 16px 32px rgba(0, 0, 0, 0.12);
     opacity: 0;
     visibility: hidden;
-    transform: translateY(6px);
+    transform: translate(-50%, 6px);
     transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
     z-index: 200;
   }
@@ -225,11 +282,12 @@ const allNavLinks = [...primaryNavLinks, ...secondaryNavLinks];
   .nav-dropdown.open .dropdown-menu {
     opacity: 1;
     visibility: visible;
-    transform: translateY(0);
+    transform: translate(-50%, 0);
   }
 
   .dropdown-menu li {
     min-width: 100%;
+    display: block;
   }
 
   .dropdown-menu a {
@@ -238,6 +296,7 @@ const allNavLinks = [...primaryNavLinks, ...secondaryNavLinks];
     color: var(--color-text);
     font-size: 0.95rem;
     line-height: 1.4;
+    white-space: normal;
   }
 
   .dropdown-menu a:hover {
@@ -251,13 +310,35 @@ const allNavLinks = [...primaryNavLinks, ...secondaryNavLinks];
   }
 
   .btn-cta {
-    padding: var(--spacing-sm) var(--spacing-lg);
+    padding: 0.8rem 1.25rem;
     font-size: 0.95rem;
     white-space: nowrap;
   }
 
   /* Ẩn nút CTA mobile khi đang ở trên PC */
   .mobile-cta {
+    display: none;
+  }
+
+  .hide-at-992 {
+    display: list-item;
+  }
+
+  .hide-at-768 {
+    display: list-item;
+  }
+
+  .show-at-992,
+  .show-at-768 {
+    display: none;
+  }
+
+  .dropdown-item {
+    display: block;
+  }
+
+  .dropdown-item.show-at-992,
+  .dropdown-item.show-at-768 {
     display: none;
   }
 
@@ -309,26 +390,28 @@ const allNavLinks = [...primaryNavLinks, ...secondaryNavLinks];
     }
 
     .nav-menu {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      right: 0;
+      position: fixed;
+      inset: 0;
       background-color: var(--color-white);
       flex-direction: column;
-      gap: var(--spacing-md);
-      padding: 0 var(--spacing-lg);
+      gap: 0.25rem;
+      padding: calc(var(--mobile-nav-offset) + 0.85rem) 0.85rem calc(1rem + env(safe-area-inset-bottom));
       justify-content: flex-start;
-      max-height: 0;
-      overflow: hidden;
+      height: 100dvh;
+      max-height: 100dvh;
+      overflow-x: hidden;
+      overflow-y: auto;
+      overscroll-behavior: contain;
       visibility: hidden;
       opacity: 0;
       transition: all 0.4s ease-in-out;
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+      border-radius: 0;
     }
 
     .nav-menu.active {
-      max-height: 100vh;
-      padding: var(--spacing-lg);
+      max-height: none;
+      padding: calc(var(--mobile-nav-offset) + 0.85rem) 0.85rem calc(1rem + env(safe-area-inset-bottom));
       visibility: visible;
       opacity: 1;
     }
@@ -336,36 +419,84 @@ const allNavLinks = [...primaryNavLinks, ...secondaryNavLinks];
     .nav-link,
     .dropdown-toggle {
       width: 100%;
-      padding: var(--spacing-sm) 0;
-      display: block;
+      padding: 0.9rem 0.15rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       text-align: left;
+      gap: 0.75rem;
     }
 
     .nav-dropdown {
       width: 100%;
     }
 
+    .nav-item {
+      width: 100%;
+      white-space: normal;
+    }
+
+    .nav-menu .hide-at-992,
+    .nav-menu .hide-at-768 {
+      display: block;
+    }
+
+    .nav-menu .show-at-992,
+    .nav-menu .show-at-768 {
+      display: block;
+    }
+
+    .dropdown-toggle {
+      width: 100%;
+      min-height: auto;
+      pointer-events: none;
+      padding-bottom: 0.45rem;
+      border-bottom: 1px solid rgba(81, 33, 11, 0.12);
+    }
+
+    .dropdown-label {
+      display: inline-flex;
+      align-items: center;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .dropdown-icon {
+      display: none;
+    }
+
     .dropdown-menu {
+      display: block;
       position: static;
       transform: none;
-      opacity: 0;
-      visibility: hidden;
-      max-height: 0;
-      overflow: hidden;
+      opacity: 1;
+      visibility: visible;
+      max-height: none;
+      overflow: visible;
       border: none;
       box-shadow: none;
-      padding: 0;
-      transition: opacity 0.2s ease, max-height 0.2s ease, visibility 0.2s ease;
+      padding: 0.2rem 0 0.1rem 0.95rem;
+      transition: none;
+      width: 100%;
     }
 
     .nav-dropdown.open .dropdown-menu {
-      opacity: 1;
-      visibility: visible;
-      max-height: 400px;
+      display: block;
+    }
+
+    .dropdown-menu li {
+      width: 100%;
+    }
+
+    .dropdown-menu li + li {
+      border-top: 1px solid rgba(81, 33, 11, 0.08);
+      margin-top: 0.15rem;
+      padding-top: 0.15rem;
     }
 
     .dropdown-menu a {
-      padding-left: 1rem;
+      padding: 0.7rem 0.35rem 0.7rem 0.75rem;
+      border-radius: 8px;
     }
 
     .mobile-cta {
@@ -389,12 +520,55 @@ const allNavLinks = [...primaryNavLinks, ...secondaryNavLinks];
     }
 
     .nav-menu {
-      gap: var(--spacing-md);
+      gap: 0.75rem;
+    }
+
+    .show-at-992,
+    .show-at-768 {
+      display: block;
+    }
+  }
+
+  @media (max-width: 992px) {
+    .dropdown-item.show-at-992 {
+      display: block;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .dropdown-item.show-at-768 {
+      display: block;
+    }
+  }
+
+  @media (max-width: 992px) {
+    .hide-at-992 {
+      display: none;
+    }
+    .show-at-992 {
+      display: block;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hide-at-768 {
+      display: none;
+    }
+    .show-at-768 {
+      display: block;
     }
   }
 </style>
 
 <script>
+  const closeAllDropdowns = () => {
+    document.querySelectorAll('[data-dropdown].open').forEach((item) => {
+      item.classList.remove('open');
+      const toggle = item.querySelector('.dropdown-toggle');
+      toggle?.setAttribute('aria-expanded', 'false');
+    });
+  };
+
   const initMenu = () => {
     const hamburger = document.getElementById('hamburger');
     const navMenu = document.getElementById('navMenu');
@@ -414,6 +588,10 @@ const allNavLinks = [...primaryNavLinks, ...secondaryNavLinks];
       btn?.addEventListener('click', () => {
         btn.classList.toggle('active');
         navMenu.classList.toggle('active');
+        document.body.classList.toggle('nav-open', navMenu.classList.contains('active'));
+        if (!navMenu.classList.contains('active')) {
+          closeAllDropdowns();
+        }
       });
 
       // 4. Đóng menu khi người dùng bấm vào một link bất kỳ
@@ -422,6 +600,8 @@ const allNavLinks = [...primaryNavLinks, ...secondaryNavLinks];
         link.addEventListener('click', () => {
           btn?.classList.remove('active');
           navMenu.classList.remove('active');
+          document.body.classList.remove('nav-open');
+          closeAllDropdowns();
         });
       });
     }
@@ -434,20 +614,57 @@ const allNavLinks = [...primaryNavLinks, ...secondaryNavLinks];
   document.addEventListener('astro:after-swap', initMenu);
 
   const initDropdowns = () => {
+    const navMenu = document.getElementById('navMenu');
     const dropdownToggles = document.querySelectorAll('[data-dropdown] .dropdown-toggle');
 
     dropdownToggles.forEach((toggle) => {
+      if (toggle.dataset.bound === 'true') return;
+      toggle.dataset.bound = 'true';
+
       const dropdownItem = toggle.closest('[data-dropdown]');
       const dropdownMenu = dropdownItem?.querySelector('.dropdown-menu');
 
       if (!dropdownItem || !dropdownMenu) return;
 
-      toggle.addEventListener('click', () => {
-        const isOpen = dropdownItem.classList.toggle('open');
+      toggle.addEventListener('click', (event) => {
+        event.stopPropagation();
+        const shouldOpen = !dropdownItem.classList.contains('open');
+        closeAllDropdowns();
+        if (shouldOpen) {
+          dropdownItem.classList.add('open');
+        }
+        const isOpen = dropdownItem.classList.contains('open');
         toggle.setAttribute('aria-expanded', String(isOpen));
+        if (isOpen) {
+          navMenu?.scrollTo({ top: navMenu.scrollHeight, behavior: 'smooth' });
+        }
+      });
+
+      dropdownMenu.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => {
+          closeAllDropdowns();
+        });
       });
     });
+
+    if (!document.body.dataset.dropdownBound) {
+      document.body.dataset.dropdownBound = 'true';
+
+      document.addEventListener('click', (event) => {
+        if (!(event.target instanceof Element)) return;
+        if (!event.target.closest('[data-dropdown]')) {
+          closeAllDropdowns();
+        }
+      });
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+          closeAllDropdowns();
+        }
+      });
+    }
   };
 
   initDropdowns();
+  document.addEventListener('astro:after-swap', initDropdowns);
 </script>

@@ -50,11 +50,11 @@
 
 /* Page transition khi chuyển trang */
 ::view-transition-old(root) {
-  animation: lhPageOut 220ms ease-out both;
+  animation: lhPageOut 180ms ease-out both;
 }
 
 ::view-transition-new(root) {
-  animation: lhPageIn 420ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: lhPageIn 360ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 /* Hero animation khi mở page */
@@ -65,7 +65,7 @@
 
 .lh-page-ready .hero,
 .lh-page-ready .products-hero {
-  animation: lhHeroBlockIn 900ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: lhHeroBlockIn 760ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .hero > .hero-subtitle,
@@ -84,7 +84,7 @@
 .lh-page-ready .hero .brand-slogan,
 .lh-page-ready .hero .page-hero-content,
 .lh-page-ready .products-hero .container {
-  animation: lhHeroTextIn 780ms cubic-bezier(0.22, 1, 0.36, 1) 160ms both;
+  animation: lhHeroTextIn 680ms cubic-bezier(0.22, 1, 0.36, 1) 120ms both;
 }
 
 /* Scroll reveal */
@@ -105,10 +105,10 @@
 .form-wrapper,
 .map-container {
   opacity: 0;
-  transform: translateY(38px);
+  transform: translateY(30px);
   transition:
-    opacity 760ms cubic-bezier(0.22, 1, 0.36, 1),
-    transform 760ms cubic-bezier(0.22, 1, 0.36, 1);
+    opacity 680ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 680ms cubic-bezier(0.22, 1, 0.36, 1);
   transition-delay: var(--reveal-delay, 0ms);
   will-change: opacity, transform;
 }

@@ -22,12 +22,14 @@ const {
   <Header currentPage={currentPage} />
 
   <main class="policy-page">
-    <section class="hero policy-hero">
-      <div class="container">
-        <p class="section-subtitle">Chính sách</p>
-        <h1 class="section-title">{pageTitle}</h1>
-        {description ? <p class="policy-summary">{description}</p> : null}
-        <p class="policy-updated">Cập nhật lần cuối: {lastUpdated}</p>
+    <section class="hero hero-page policy-hero" style="background-image: url('/images/about-bg.webp')">
+      <div class="hero-inner">
+        <div class="page-hero-content policy-hero-content">
+          <p class="policy-kicker">Trung tâm chính sách</p>
+          <h1 class="policy-title">{pageTitle}</h1>
+          {description ? <p class="policy-summary">{description}</p> : null}
+          <p class="policy-updated">Cập nhật lần cuối: {lastUpdated}</p>
+        </div>
       </div>
     </section>
 
@@ -72,21 +74,73 @@ const {
   }
 
   .policy-hero {
-    background-color: #fbf5ea;
-    padding: var(--spacing-3xl) 0;
+    --hero-position: center 42%;
+    min-height: 430px;
+    height: min(52vh, 560px);
+  }
+
+  .policy-hero::before {
+    background:
+      radial-gradient(
+        circle at 14% 32%,
+        rgba(0, 0, 0, 0.26) 0%,
+        rgba(0, 0, 0, 0) 54%
+      ),
+      linear-gradient(
+        92deg,
+        rgba(0, 0, 0, 0.4) 0%,
+        rgba(0, 0, 0, 0.24) 40%,
+        rgba(0, 0, 0, 0.08) 76%
+      );
+  }
+
+  .policy-hero-content {
+    max-width: 760px;
+    padding: clamp(1rem, 2vw, 1.4rem) clamp(1rem, 2.2vw, 1.5rem);
+  }
+
+  .policy-kicker {
+    display: inline-flex;
+    align-items: center;
+    margin: 0 0 0.75rem;
+    padding: 0.38rem 0.72rem;
+    border-radius: 999px;
+    border: 1px solid rgba(245, 232, 198, 0.42);
+    background: rgba(245, 232, 198, 0.18);
+    color: rgba(255, 244, 221, 0.96);
+    font-family: var(--font-display);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .policy-title {
+    margin: 0 0 0.7rem;
+    color: var(--color-gold-light);
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 3.4vw, 3.2rem);
+    line-height: 1.12;
+    text-shadow:
+      0 4px 18px rgba(0, 0, 0, 0.38),
+      0 1px 3px rgba(0, 0, 0, 0.3);
   }
 
   .policy-summary {
-    max-width: 760px;
-    margin: 0 auto var(--spacing-md);
-    color: var(--color-gray-dark);
-    font-size: 1rem;
-    line-height: 1.9;
+    max-width: 62ch;
+    margin: 0 0 var(--spacing-sm);
+    color: rgba(255, 248, 233, 0.94);
+    font-size: clamp(0.98rem, 1.2vw, 1.1rem);
+    line-height: 1.55;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
   }
 
   .policy-updated {
-    color: var(--color-gray);
-    font-size: 0.95rem;
+    margin: 0;
+    color: rgba(255, 244, 221, 0.9);
+    font-size: 0.9rem;
+    font-family: var(--font-display);
+    letter-spacing: 0.03em;
   }
 
   .policy-wrapper {
@@ -185,7 +239,23 @@ const {
 
   @media (max-width: 640px) {
     .policy-hero {
-      padding: var(--spacing-2xl) 0;
+      min-height: 360px;
+      height: min(48vh, 450px);
+      --hero-position: 58% center;
+    }
+
+    .policy-kicker {
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+    }
+
+    .policy-title {
+      font-size: clamp(1.55rem, 6.5vw, 2.2rem);
+    }
+
+    .policy-summary {
+      font-size: 0.95rem;
+      line-height: 1.45;
     }
 
     .policy-toc-card {

@@ -7,25 +7,25 @@ import ContactForm from '../components/ContactForm.astro';
 
 const contactCards = [
   {
-    icon: '📍',
+    icon: '/images/icon-contact-location.webp',
     title: 'Địa Chỉ',
     content: 'LK03-07, Roman Plaza, Đại Mỗ, Hà Nội, Việt Nam',
-    href: 'https://maps.app.goo.gl/SiMsFZXzmaTaW9W1A'
+    href: 'https://maps.app.goo.gl/rm11siBErfPbpHrq8'
   },
   {
-    icon: '📞',
+    icon: '/images/icon-contact-phone.webp',
     title: 'Điện Thoại',
     content: '0389.023.720 — Mr. Huy / 0353.839.500 — Nhà sách',
     href: 'tel:+84389023720'
   },
   {
-    icon: '✉️',
+    icon: '/images/icon-contact-email.webp',
     title: 'Email',
     content: 'kinhdoanh@vpplonghung.com / hotro@vpplonghung.com',
     href: 'mailto:kinhdoanh@vpplonghung.com'
   },
   {
-    icon: '🕐',
+    icon: '/images/icon-contact-time.webp',
     title: 'Giờ Làm Việc',
     content: 'Thứ 2 - Chủ Nhật: 8:00 - 22:00',
     href: ''
@@ -34,25 +34,25 @@ const contactCards = [
 
 const socialLinks = [
   {
-    icon: 'f',
+    icon: '/images/icon-social-facebook.webp',
     title: 'Facebook',
     text: 'Theo dõi cập nhật hàng ngày',
     href: 'https://web.facebook.com/profile.php?id=61580711382370'
   },
   {
-    icon: '📷',
+    icon: '/images/icon-social-instagram.webp',
     title: 'Instagram',
     text: 'Xem ảnh sản phẩm và khuyến mãi',
     href: 'https://www.instagram.com/longhung.quantri/'
   },
   {
-    icon: 'Z',
+    icon: '/images/icon-social-zalo.webp',
     title: 'Zalo',
     text: 'Liên hệ nhanh qua Zalo',
     href: 'https://zalo.me/403362719590961487'
   },
   {
-    icon: '🎵',
+    icon: '/images/icon-social-tiktok.webp',
     title: 'TikTok',
     text: 'Xem video và hoạt động mới',
     href: 'https://www.tiktok.com/@nhasachlonglung'
@@ -75,7 +75,7 @@ const mapEmbedSrc =
     <div class="hero-inner">
       <div class="page-hero-content">
         <h1>Liên Hệ Với Chúng Tôi</h1>
-        <p>Long Hưng luôn sẵn sàng tư vấn, báo giá và hỗ trợ nhu cầu văn phòng phẩm của bạn.</p>
+        <p class="page-hero-description">Long Hưng luôn sẵn sàng tư vấn, báo giá và hỗ trợ nhu cầu văn phòng phẩm của bạn.</p>
       </div>
     </div>
   </section>
@@ -86,7 +86,9 @@ const mapEmbedSrc =
       <div class="grid grid-4 contact-grid reveal-stagger">
         {contactCards.map((card) => (
           <div class="info-card">
-            <div class="info-icon">{card.icon}</div>
+            <div class="info-icon" aria-hidden="true">
+              <img src={card.icon} alt="" loading="lazy" decoding="async" />
+            </div>
             <h3>{card.title}</h3>
             {card.href ? (
               <p>
@@ -140,7 +142,9 @@ const mapEmbedSrc =
             rel="noopener noreferrer"
             class="social-card"
           >
-            <div class="social-icon">{social.icon}</div>
+            <div class="social-icon" aria-hidden="true">
+              <img src={social.icon} alt="" loading="lazy" decoding="async" />
+            </div>
             <h3>{social.title}</h3>
             <p>{social.text}</p>
           </a>
