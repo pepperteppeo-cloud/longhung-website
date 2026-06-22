@@ -1,0 +1,117 @@
+---
+import PolicyPage from '../../components/PolicyPage.astro';
+
+const tocLinks = [
+  { title: 'Nguyên tắc chung', href: '#nguyen-tac-chung' },
+  { title: 'Đổi trả với khách hàng doanh nghiệp', href: '#doi-tra-doanh-nghiep' },
+  { title: 'Đổi trả với khách hàng cá nhân', href: '#doi-tra-ca-nhan' },
+  { title: 'Quy trình yêu cầu đổi trả', href: '#quy-trinh-yeu-cau-doi-tra' },
+  { title: 'Hoàn tiền', href: '#hoan-tien' },
+  { title: 'Quyền từ chối yêu cầu', href: '#quyen-tu-choi' }
+];
+---
+
+<PolicyPage
+  title="Chính sách đổi trả và hoàn tiền"
+  pageTitle="Chính sách đổi trả và hoàn tiền"
+  description="Quy trình đổi trả, hoàn tiền và điều kiện xử lý đối với khách hàng tại Long Hưng."
+  currentPage="/chinh-sach/doi-tra-hoan-tien"
+  tocLinks={tocLinks}
+>
+  <section id="nguyen-tac-chung">
+    <h2>1. Nguyên tắc chung</h2>
+    <p>
+      Long Hưng cam kết cung cấp sản phẩm đúng chủng loại, quy cách, số lượng, chất lượng và tiêu chuẩn công bố của nhà sản xuất hoặc thỏa thuận giữa các bên.
+      Các yêu cầu đổi trả được xem xét dựa trên chứng từ giao dịch, tình trạng sản phẩm, lỗi thực tế và chính sách đã công bố.
+    </p>
+  </section>
+
+  <section id="doi-tra-doanh-nghiep">
+    <h2>2. Đổi trả đối với khách hàng doanh nghiệp (B2B)</h2>
+    <p>Các trường hợp được hỗ trợ:</p>
+    <ul>
+      <li>Giao sai sản phẩm, sai quy cách hoặc thông số kỹ thuật đã xác nhận.</li>
+      <li>Giao thiếu số lượng so với chứng từ giao nhận.</li>
+      <li>Hàng hóa hư hỏng hoặc bao bì biến dạng trong quá trình vận chuyển, ảnh hưởng đến chất lượng sản phẩm.</li>
+      <li>Sản phẩm có lỗi từ nhà sản xuất.</li>
+      <li>Sản phẩm không đáp ứng tiêu chuẩn chất lượng đã được hai bên thống nhất bằng văn bản.</li>
+    </ul>
+    <p>
+      Thời hạn thông báo đổi trả tính từ ngày nhận hàng:
+    </p>
+    <ul>
+      <li>03 ngày làm việc đối với sai sót về số lượng hoặc chủng loại.</li>
+      <li>07 ngày làm việc đối với lỗi chất lượng hoặc lỗi sản xuất.</li>
+    </ul>
+    <p>
+      Sau thời hạn trên, Long Hưng có thể xem xét hỗ trợ tùy trường hợp nhưng không mặc nhiên có nghĩa vụ chấp thuận.
+    </p>
+    <p>
+      Phương án xử lý có thể là đổi sản phẩm tương đương, bù hàng trong đơn tiếp theo, thu hồi hàng, hoàn tiền một phần/toàn bộ, khấu trừ công nợ hoặc phương án khác theo thỏa thuận.
+    </p>
+    <p>
+      Khi lỗi được Long Hưng xác nhận là do Long Hưng, nhà sản xuất hoặc quá trình vận chuyển thuộc trách nhiệm của Long Hưng, Long Hưng chịu chi phí vận chuyển đổi trả hợp lý.
+      Chi phí phát sinh do lỗi khách hàng hoặc thay đổi nhu cầu sử dụng do khách hàng chịu, trừ khi có thỏa thuận khác.
+    </p>
+  </section>
+
+  <section id="doi-tra-ca-nhan">
+    <h2>3. Đổi trả đối với khách hàng cá nhân (B2C)</h2>
+    <p><strong>Điều kiện đổi trả:</strong></p>
+    <ul>
+      <li>Sản phẩm có lỗi từ nhà sản xuất.</li>
+      <li>Sản phẩm hư hỏng do vận chuyển.</li>
+      <li>Giao sai hoặc thiếu sản phẩm so với xác nhận đơn hàng.</li>
+    </ul>
+    <p><strong>Điều kiện tiếp nhận hàng đổi trả:</strong></p>
+    <ul>
+      <li>Sản phẩm còn nguyên hiện trạng ban đầu, chưa qua sử dụng.</li>
+      <li>Có đầy đủ bao bì, phụ kiện, quà tặng kèm theo (nếu có).</li>
+      <li>Có chứng từ mua hàng hoặc căn cứ xác định giao dịch với Long Hưng.</li>
+    </ul>
+    <p><strong>Các trường hợp không áp dụng đổi trả:</strong></p>
+    <ul>
+      <li>Sản phẩm đã qua sử dụng.</li>
+      <li>Sản phẩm không còn lỗi tại thời điểm kiểm tra.</li>
+      <li>Sản phẩm hư hỏng do bảo quản hoặc sử dụng không đúng cách.</li>
+      <li>Sản phẩm bị tác động bởi yếu tố bên ngoài sau khi giao hàng.</li>
+      <li>Khách hàng thay đổi nhu cầu sử dụng sau khi nhận hàng, trừ khi Long Hưng có chương trình hoặc thỏa thuận hỗ trợ riêng.</li>
+    </ul>
+  </section>
+
+  <section id="quy-trinh-yeu-cau-doi-tra">
+    <h2>4. Quy trình yêu cầu đổi trả</h2>
+    <ol>
+      <li>
+        Khách hàng gửi yêu cầu qua <a href="mailto:kinhdoanh@vpplonghung.com">kinhdoanh@vpplonghung.com</a>, <a href="mailto:hotro@vpplonghung.com">hotro@vpplonghung.com</a>, biểu mẫu liên hệ trên website, Zalo, fanpage chính thức hoặc kênh Long Hưng công bố.
+      </li>
+      <li>
+        Cung cấp tên khách hàng, số điện thoại, mã đơn hàng/hợp đồng/chứng từ giao dịch, mô tả tình trạng sản phẩm, hình ảnh hoặc video (nếu có).
+      </li>
+      <li>
+        Long Hưng phản hồi ban đầu trong vòng 24 giờ làm việc kể từ khi nhận đủ thông tin cần thiết.
+      </li>
+      <li>
+        Hai bên thống nhất phương án và thực hiện đổi trả, bù hàng, khấu trừ công nợ, hoàn tiền hoặc biện pháp phù hợp khác.
+      </li>
+    </ol>
+  </section>
+
+  <section id="hoan-tien">
+    <h2>5. Hoàn tiền</h2>
+    <p>
+      Long Hưng thực hiện hoàn tiền khi không còn hàng để đổi, không thể khắc phục lỗi, hai bên thống nhất hoàn tiền hoặc trong trường hợp khác phù hợp với hồ sơ giao dịch.
+    </p>
+    <p>
+      Hoàn tiền có thể thực hiện qua chuyển khoản ngân hàng, khấu trừ công nợ, bù trừ vào đơn tiếp theo hoặc hình thức khác theo thỏa thuận.
+      Thời gian xử lý thông thường từ 03 đến 15 ngày làm việc kể từ khi hồ sơ được xác nhận hợp lệ, tùy phương thức thanh toán, ngân hàng và đơn vị trung gian thanh toán.
+    </p>
+  </section>
+
+  <section id="quyen-tu-choi">
+    <h2>6. Quyền từ chối yêu cầu</h2>
+    <p>
+      Long Hưng có quyền từ chối yêu cầu đổi trả khi thông tin cung cấp không trung thực; không chứng minh được nguồn gốc sản phẩm từ Long Hưng; hàng hóa hư hỏng do lỗi khách hàng; hoặc yêu cầu vượt quá thời hạn/không đáp ứng điều kiện nêu trong chính sách này.
+    </p>
+  </section>
+</PolicyPage>

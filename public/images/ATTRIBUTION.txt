@@ -1,0 +1,13 @@
+Long Hưng website icon package
+
+Font Awesome Free 6.7.2 by Fonticons, Inc.
+https://fontawesome.com
+Icons: CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/
+
+Changes to Font Awesome source icons: recoloured, placed on transparent 1024 × 1024 canvases, and converted to lossless WebP.
+
+Zalo source: Simple Icons (project CC0 1.0), selected from its online Zalo source page at:
+https://superdevpro.com/brands/zalo
+Changes: recoloured, placed on transparent 1024 × 1024 canvas, and converted to lossless WebP.
+
+Brand names and marks are trademarks of their respective owners. Check the individual platform brand guidelines where applicable.

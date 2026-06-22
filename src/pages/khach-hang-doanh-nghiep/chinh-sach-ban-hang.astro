@@ -1,0 +1,94 @@
+---
+import PolicyPage from '../../components/PolicyPage.astro';
+
+const tocLinks = [
+  { title: 'Đối tượng áp dụng', href: '#doi-tuong-ap-dung' },
+  { title: 'Chính sách giá', href: '#chinh-sach-gia' },
+  { title: 'Hợp đồng nguyên tắc', href: '#hop-dong-nguyen-tac' },
+  { title: 'Giao hàng', href: '#giao-hang' },
+  { title: 'Đổi trả', href: '#doi-tra' },
+  { title: 'Công nợ', href: '#cong-no' },
+  { title: 'Cam kết dịch vụ', href: '#cam-ket-dich-vu' }
+];
+---
+
+<PolicyPage
+  title="Chính sách bán hàng với khách hàng doanh nghiệp"
+  pageTitle="Chính sách bán hàng với khách hàng doanh nghiệp"
+  description="Các điều kiện giá, giao hàng, đổi trả và công nợ dành cho khách hàng doanh nghiệp của Long Hưng."
+  currentPage="/khach-hang-doanh-nghiep/chinh-sach-ban-hang"
+  tocLinks={tocLinks}
+>
+  <section id="doi-tuong-ap-dung">
+    <h2>1. Đối tượng áp dụng</h2>
+    <p>
+      Chính sách này áp dụng cho các tổ chức/doanh nghiệp có nhu cầu mua sắm văn phòng phẩm, giấy in, dụng cụ học sinh, thiết bị văn phòng, vật tư tiêu hao và sản phẩm liên quan, bao gồm công ty, tổ chức, trường học, cơ quan nhà nước, đơn vị hành chính sự nghiệp, nhà máy, khu công nghiệp và tổ chức tương đương.
+    </p>
+  </section>
+
+  <section id="chinh-sach-gia">
+    <h2>2. Chính sách giá</h2>
+    <p>
+      Giá bán được xây dựng dựa trên số lượng đặt hàng, tần suất mua hàng, nhóm sản phẩm, hình thức thanh toán, thời hạn công nợ, điều kiện giao hàng, chi phí vận chuyển và thỏa thuận cụ thể.
+    </p>
+    <p>
+      Khách hàng doanh nghiệp có thể hưởng chính sách giá riêng theo nhóm khách hàng, hợp đồng nguyên tắc, chương trình bán hàng hoặc thỏa thuận với bộ phận kinh doanh của Long Hưng.
+    </p>
+  </section>
+
+  <section id="hop-dong-nguyen-tac">
+    <h2>3. Hợp đồng nguyên tắc</h2>
+    <p>
+      Long Hưng khuyến khích khách hàng doanh nghiệp ký hợp đồng nguyên tắc để được xem xét các lợi ích như ổn định giá bán trong phạm vi thỏa thuận, bảo đảm nguồn cung, rút ngắn thời gian xử lý đơn hàng, xem xét cấp công nợ, và chính sách vận chuyển/chăm sóc khách hàng/ưu đãi riêng theo từng thời điểm.
+    </p>
+  </section>
+
+  <section id="giao-hang">
+    <h2>4. Giao hàng</h2>
+    <p>
+      Khách hàng doanh nghiệp tại Hà Nội và khu vực phục vụ thực tế được ưu tiên giao hàng bằng đội giao vận của Long Hưng hoặc đối tác vận tải được chỉ định.
+    </p>
+    <p>
+      Chính sách miễn phí vận chuyển, hỗ trợ phí vận chuyển và điều kiện áp dụng thực hiện theo Chính sách Vận chuyển và Giao nhận hoặc theo thỏa thuận riêng trong hợp đồng, phụ lục hợp đồng hoặc báo giá đã xác nhận.
+    </p>
+    <p>
+      Nếu có khác biệt giữa chính sách chung và hợp đồng, thứ tự ưu tiên áp dụng là:
+    </p>
+    <ol>
+      <li>Hợp đồng, phụ lục hợp đồng hoặc báo giá được xác nhận.</li>
+      <li>Chương trình ưu đãi riêng do Long Hưng chấp thuận.</li>
+      <li>Chính sách chung đang có hiệu lực.</li>
+    </ol>
+  </section>
+
+  <section id="doi-tra">
+    <h2>5. Đổi trả</h2>
+    <p>
+      Long Hưng áp dụng cơ chế đổi trả linh hoạt cho khách hàng doanh nghiệp để bảo đảm hoạt động vận hành không bị gián đoạn.
+      Các trường hợp đổi trả được xử lý theo Chính sách Đổi trả và Hoàn tiền hoặc thỏa thuận riêng giữa các bên.
+    </p>
+  </section>
+
+  <section id="cong-no">
+    <h2>6. Công nợ</h2>
+    <p>
+      Công nợ chỉ áp dụng khi được Long Hưng phê duyệt bằng văn bản hoặc quy định trong hợp đồng, phụ lục hợp đồng hoặc báo giá đã xác nhận.
+    </p>
+    <p>
+      Hạn mức và thời hạn công nợ được xác định riêng cho từng khách hàng.
+      Long Hưng có thể tạm dừng giao hàng hoặc yêu cầu thanh toán trước nếu phát sinh nợ quá hạn hoặc dấu hiệu rủi ro tín dụng.
+    </p>
+  </section>
+
+  <section id="cam-ket-dich-vu">
+    <h2>7. Cam kết dịch vụ</h2>
+    <ul>
+      <li>Cung cấp hàng hóa có nguồn gốc rõ ràng.</li>
+      <li>Xuất hóa đơn VAT đầy đủ, hợp lệ theo thông tin khách hàng cung cấp.</li>
+      <li>Giao hàng đúng tiến độ đã xác nhận trong điều kiện vận hành bình thường.</li>
+      <li>Hỗ trợ xử lý khiếu nại trong vòng 24–72 giờ làm việc kể từ khi nhận đủ thông tin.</li>
+      <li>Thực hiện đổi trả theo chính sách đã công bố.</li>
+      <li>Đồng hành lâu dài và phát triển bền vững cùng khách hàng doanh nghiệp.</li>
+    </ul>
+  </section>
+</PolicyPage>

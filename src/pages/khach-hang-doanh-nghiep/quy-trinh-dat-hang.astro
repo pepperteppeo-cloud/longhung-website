@@ -1,0 +1,67 @@
+---
+import PolicyPage from '../../components/PolicyPage.astro';
+
+const tocLinks = [
+  { title: 'Gửi yêu cầu', href: '#gui-yeu-cau' },
+  { title: 'Báo giá và xác nhận', href: '#bao-gia-va-xac-nhan' },
+  { title: 'Chuẩn bị hàng hóa', href: '#chuan-bi-hang-hoa' },
+  { title: 'Giao hàng và chứng từ', href: '#giao-hang-va-chung-tu' },
+  { title: 'Thanh toán', href: '#thanh-toan' },
+  { title: 'Lưu ý', href: '#luu-y' }
+];
+---
+
+<PolicyPage
+  title="Quy trình đặt hàng doanh nghiệp"
+  pageTitle="Quy trình đặt hàng doanh nghiệp"
+  description="Hướng dẫn quy trình đặt hàng cho khách hàng doanh nghiệp khi làm việc với Long Hưng."
+  currentPage="/khach-hang-doanh-nghiep/quy-trinh-dat-hang"
+  tocLinks={tocLinks}
+>
+  <section id="gui-yeu-cau">
+    <h2>1. Gửi yêu cầu</h2>
+    <p>
+      Khách hàng gửi nhu cầu mua hàng cho Long Hưng, bao gồm danh mục sản phẩm, số lượng, yêu cầu giao nhận, thông tin xuất hóa đơn và các yêu cầu liên quan.
+    </p>
+  </section>
+
+  <section id="bao-gia-va-xac-nhan">
+    <h2>2. Báo giá và xác nhận</h2>
+    <p>
+      Long Hưng tiếp nhận yêu cầu, lập báo giá/đơn hàng theo nhu cầu thực tế và trao đổi điều chỉnh khi cần.
+      Khách hàng xác nhận nội dung báo giá/đơn hàng và khả năng thanh toán trước khi đơn hàng được chốt.
+    </p>
+  </section>
+
+  <section id="chuan-bi-hang-hoa">
+    <h2>3. Chuẩn bị hàng hóa</h2>
+    <p>
+      Sau khi đơn hàng được xác nhận, Long Hưng kiểm tra tình trạng hàng hóa, chuẩn bị, kiểm đếm, đối chiếu và đóng gói theo nội dung đã thống nhất.
+      Nếu một phần hàng hóa vượt tồn kho, Long Hưng sẽ trao đổi phương án thay thế hoặc thời gian bổ sung hàng.
+    </p>
+  </section>
+
+  <section id="giao-hang-va-chung-tu">
+    <h2>4. Giao hàng và chứng từ</h2>
+    <p>
+      Long Hưng phối hợp giao hàng theo phương án đã xác nhận.
+      Khách hàng kiểm tra hàng và ký nhận theo chứng từ giao nhận.
+      Hóa đơn và các chứng từ liên quan được xử lý theo thỏa thuận/hợp đồng và thông tin hợp lệ do khách hàng cung cấp.
+    </p>
+  </section>
+
+  <section id="thanh-toan">
+    <h2>5. Thanh toán</h2>
+    <p>
+      Khách hàng thanh toán theo thời hạn và phương thức quy định trong báo giá, đơn hàng, hợp đồng hoặc thỏa thuận công nợ đã được phê duyệt.
+    </p>
+  </section>
+
+  <section id="luu-y">
+    <h2>6. Lưu ý</h2>
+    <p>
+      Thời gian xử lý thực tế phụ thuộc vào tình trạng tồn kho, đặc thù đơn hàng, yêu cầu giao nhận, điều kiện vận chuyển và các yếu tố phát sinh hợp lý.
+      Thông tin chính thức cho từng đơn hàng được xác định theo báo giá, đơn đặt hàng, hợp đồng hoặc xác nhận giao dịch.
+    </p>
+  </section>
+</PolicyPage>

@@ -1,0 +1,103 @@
+---
+import PolicyPage from '../components/PolicyPage.astro';
+
+const tocLinks = [
+  { title: 'Phạm vi áp dụng', href: '#pham-vi-ap-dung' },
+  { title: 'Sản phẩm và dịch vụ', href: '#san-pham-va-dich-vu' },
+  { title: 'Xác lập giao dịch', href: '#xac-lap-giao-dich' },
+  { title: 'Giá bán', href: '#gia-ban' },
+  { title: 'Thanh toán, giao hàng, đổi trả, bảo hành và khiếu nại', href: '#thanh-toan-giao-hang-doi-tra-bao-hanh-khieu-nai' },
+  { title: 'Quyền sở hữu trí tuệ', href: '#quyen-so-huu-tri-tue' },
+  { title: 'Bảo mật thông tin', href: '#bao-mat-thong-tin' },
+  { title: 'Giới hạn trách nhiệm', href: '#gioi-han-trach-nhiem' },
+  { title: 'Luật áp dụng và giải quyết tranh chấp', href: '#luat-ap-dung' }
+];
+---
+
+<PolicyPage
+  title="Điều khoản và điều kiện giao dịch"
+  pageTitle="Điều khoản và điều kiện giao dịch"
+  description="Điều kiện sử dụng website, đặt hàng và giao dịch giữa khách hàng với Long Hưng."
+  currentPage="/dieu-khoan-giao-dich"
+  tocLinks={tocLinks}
+>
+  <section id="pham-vi-ap-dung">
+    <h2>1. Phạm vi áp dụng</h2>
+    <p>
+      Điều khoản này điều chỉnh hoạt động truy cập website, tham khảo thông tin, yêu cầu báo giá, đặt hàng, mua hàng, giao nhận, thanh toán và các giao dịch liên quan giữa khách hàng và Long Hưng.
+    </p>
+    <p>
+      Việc tiếp tục sử dụng website, gửi yêu cầu báo giá, xác nhận đơn hàng hoặc thực hiện giao dịch được hiểu là khách hàng đã đọc, hiểu và đồng ý với các điều khoản áp dụng, trừ khi có thỏa thuận riêng bằng văn bản.
+    </p>
+  </section>
+
+  <section id="san-pham-va-dich-vu">
+    <h2>2. Sản phẩm và dịch vụ</h2>
+    <p>
+      Long Hưng cung cấp các nhóm sản phẩm, bao gồm nhưng không giới hạn ở: giấy in văn phòng, văn phòng phẩm, dụng cụ học sinh, thiết bị văn phòng, vật tư tiêu hao, sản phẩm phục vụ giáo dục, sản phẩm phục vụ hành chính văn phòng và sản phẩm liên quan.
+    </p>
+    <p>
+      Thông tin sản phẩm trên website, catalogue hoặc tài liệu bán hàng có tính tham khảo và có thể được cập nhật theo thực tế kinh doanh.
+      Thông tin giao dịch chính thức được xác định theo báo giá, đơn đặt hàng, hợp đồng hoặc xác nhận giao dịch giữa các bên.
+    </p>
+  </section>
+
+  <section id="xac-lap-giao-dich">
+    <h2>3. Xác lập giao dịch</h2>
+    <p>
+      Giao dịch có thể được xác lập qua đơn đặt hàng, báo giá được xác nhận, hợp đồng kinh tế, hợp đồng nguyên tắc, email, tin nhắn, điện thoại, chứng từ giao dịch hoặc hình thức hợp pháp khác.
+    </p>
+    <p>
+      Long Hưng có quyền từ chối hoặc hủy giao dịch khi thông tin khách hàng không chính xác, hàng hóa không còn khả dụng, có dấu hiệu gian lận, khách hàng vi phạm nghĩa vụ thanh toán hoặc xảy ra sự kiện bất khả kháng.
+    </p>
+  </section>
+
+  <section id="gia-ban">
+    <h2>4. Giá bán</h2>
+    <p>
+      Giá bán được xác định theo báo giá chính thức, hợp đồng, đơn đặt hàng đã xác nhận hoặc chính sách bán hàng tại từng thời điểm.
+      Long Hưng có quyền điều chỉnh giá đối với giao dịch chưa được xác nhận mà không cần thông báo trước.
+    </p>
+  </section>
+
+  <section id="thanh-toan-giao-hang-doi-tra-bao-hanh-khieu-nai">
+    <h2>5. Thanh toán, giao hàng, đổi trả, bảo hành và khiếu nại</h2>
+    <p>
+      Các nội dung này được thực hiện theo chính sách tương ứng của Long Hưng được công bố hoặc ban hành tại từng thời điểm.
+      Nếu hợp đồng, phụ lục hợp đồng hoặc thỏa thuận riêng có quy định khác, thỏa thuận riêng được ưu tiên áp dụng nếu không trái pháp luật.
+    </p>
+  </section>
+
+  <section id="quyen-so-huu-tri-tue">
+    <h2>6. Quyền sở hữu trí tuệ</h2>
+    <p>
+      Toàn bộ nội dung trên website và tài liệu của Long Hưng, bao gồm logo, hình ảnh, thiết kế, dữ liệu, tài liệu, bài viết, bố cục và nhãn hiệu, thuộc quyền sở hữu hoặc quyền sử dụng hợp pháp của Long Hưng hoặc bên cấp quyền tương ứng.
+    </p>
+    <p>
+      Không được sao chép, sử dụng, khai thác, sửa đổi, phân phối hoặc thương mại hóa các nội dung trên khi chưa có sự đồng ý bằng văn bản của Long Hưng, trừ trường hợp pháp luật cho phép.
+    </p>
+  </section>
+
+  <section id="bao-mat-thong-tin">
+    <h2>7. Bảo mật thông tin</h2>
+    <p>
+      Việc thu thập, sử dụng, lưu trữ và bảo vệ thông tin cá nhân được thực hiện theo Chính sách Bảo mật Thông tin Cá nhân của Long Hưng và quy định pháp luật hiện hành.
+    </p>
+  </section>
+
+  <section id="gioi-han-trach-nhiem">
+    <h2>8. Giới hạn trách nhiệm</h2>
+    <p>
+      Long Hưng không chịu trách nhiệm cho thiệt hại phát sinh khi khách hàng sử dụng sản phẩm không đúng mục đích/hướng dẫn, lỗi đường truyền internet, gián đoạn kỹ thuật ngoài khả năng kiểm soát, thông tin khách hàng cung cấp không chính xác hoặc sự kiện bất khả kháng.
+    </p>
+  </section>
+
+  <section id="luat-ap-dung">
+    <h2>9. Luật áp dụng và giải quyết tranh chấp</h2>
+    <p>
+      Mọi giao dịch được điều chỉnh bởi pháp luật Việt Nam.
+      Khi có tranh chấp, các bên ưu tiên thương lượng và hòa giải.
+      Nếu không đạt thỏa thuận, tranh chấp được giải quyết tại Tòa án nhân dân có thẩm quyền nơi Long Hưng đặt trụ sở chính, trừ khi pháp luật có quy định khác hoặc có thỏa thuận hợp pháp khác.
+    </p>
+  </section>
+</PolicyPage>

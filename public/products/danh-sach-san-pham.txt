@@ -1,0 +1,1378 @@
+{
+  "filePurpose": "Danh mục sản phẩm Long Hưng có trường danh mục trên từng sản phẩm, dùng để Copilot/VS Code tích hợp và lọc sản phẩm trên website.",
+  "format": "Valid JSON stored in a .txt file. Có thể đổi phần mở rộng thành .json hoặc đưa trực tiếp vào file dữ liệu .ts/.js.",
+  "currency": "VND",
+  "defaultQuantity": 1,
+  "categoryFieldGuide": {
+    "categoryId": "Mã danh mục ổn định để lọc dữ liệu trong code.",
+    "category": "Tên danh mục hiển thị trên giao diện."
+  },
+  "pricingNotes": [
+    "unitPriceVnd và vatPercent được giữ theo dữ liệu nguồn.",
+    "Xác nhận quy ước giá đã bao gồm hay chưa bao gồm VAT trước khi sử dụng cho tính năng giỏ hàng/thanh toán.",
+    "Dòng 100 và dòng 130 cùng tên sản phẩm nhưng có hai mức giá khác nhau; cả hai được giữ nguyên để không làm mất dữ liệu nguồn."
+  ],
+  "totalProducts": 134,
+  "categories": [
+    {
+      "id": "van-phong-pham",
+      "name": "Văn phòng phẩm",
+      "slug": "van-phong-pham",
+      "productCount": 82
+    },
+    {
+      "id": "san-pham-giay",
+      "name": "Sản phẩm giấy",
+      "slug": "san-pham-giay",
+      "productCount": 28
+    },
+    {
+      "id": "bach-hoa-van-phong",
+      "name": "Bách hóa văn phòng",
+      "slug": "bach-hoa-van-phong",
+      "productCount": 24
+    }
+  ],
+  "products": [
+    {
+      "stt": 1,
+      "name": "Băng dính 2 mặt 1 cm (20 cuộn/cây)",
+      "unit": "Cuộn",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 4000,
+      "vatPercent": 8,
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm"
+    },
+    {
+      "stt": 2,
+      "name": "Băng dính 2 mặt 2 cm (15 cuộn/cây)",
+      "unit": "Cuộn",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 5000,
+      "vatPercent": 8,
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm"
+    },
+    {
+      "stt": 3,
+      "name": "Băng dính 2 mặt 5 cm (6 cuộn/cây)",
+      "unit": "Cuộn",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 8500,
+      "vatPercent": 8,
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm"
+    },
+    {
+      "stt": 4,
+      "name": "Băng dính dán gáy Simili 3 cm",
+      "unit": "Cuộn",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 8000,
+      "vatPercent": 8,
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm"
+    },
+    {
+      "stt": 5,
+      "name": "Băng dính dán gáy Simili 5 cm",
+      "unit": "Cuộn",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 10000,
+      "vatPercent": 8,
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm"
+    },
+    {
+      "stt": 6,
+      "name": "Băng dính giấy 1 cm",
+      "unit": "Cuộn",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 4000,
+      "vatPercent": 8,
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm"
+    },
+    {
+      "stt": 7,
+      "name": "Băng dính giấy 2 cm",
+      "unit": "Cuộn",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 6000,
+      "vatPercent": 8,
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm"
+    },
+    {
+      "stt": 8,
+      "name": "Băng dính trong 2 cm",
+      "unit": "Cuộn",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 3500,
+      "vatPercent": 8,
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm"
+    },
+    {
+      "stt": 9,
+      "name": "Băng dính trong 5 cm - 100Y",
+      "unit": "Cuộn",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 16000,
+      "vatPercent": 8,
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm"
+    },
+    {
+      "stt": 10,
+      "name": "Băng dính trong 5 cm - 200Y",
+      "unit": "Cuộn",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 27000,
+      "vatPercent": 8,
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm"
+    },
+    {
+      "stt": 11,
+      "name": "Băng dính trong 5 cm - 60Y",
+      "unit": "Cuộn",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 12000,
+      "vatPercent": 8,
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm"
+    },
+    {
+      "stt": 12,
+      "name": "Băng xóa khô Plus WH 12 mm",
+      "unit": "Chiếc",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 24000,
+      "vatPercent": 8,
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm"
+    },
+    {
+      "stt": 13,
+      "name": "Băng xóa khô Plus WH 7 mm",
+      "unit": "Chiếc",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 16000,
+      "vatPercent": 8,
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm"
+    },
+    {
+      "stt": 14,
+      "name": "Bút bi Double A Tri 0.7",
+      "unit": "Chiếc",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 4500,
+      "vatPercent": 8,
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm"
+    },
+    {
+      "stt": 15,
+      "name": "Bút bi Thiên Long 025 (xanh, đỏ, đen)",
+      "unit": "Chiếc",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 4800,
+      "vatPercent": 8,
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm"
+    },
+    {
+      "stt": 16,
+      "name": "Bút bi Thiên Long 027 (xanh, đen, đỏ)",
+      "unit": "Chiếc",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 4500,
+      "vatPercent": 8,
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm"
+    },
+    {
+      "stt": 17,
+      "name": "Bút bi Thiên Long F024",
+      "unit": "Chiếc",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 4500,
+      "vatPercent": 8,
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm"
+    },
+    {
+      "stt": 18,
+      "name": "Bút chì Deli",
+      "unit": "Chiếc",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 4000,
+      "vatPercent": 8,
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm"
+    },
+    {
+      "stt": 19,
+      "name": "Bút chì Đức Staedtler 134-2B",
+      "unit": "Chiếc",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 4500,
+      "vatPercent": 8,
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm"
+    },
+    {
+      "stt": 20,
+      "name": "Bút dạ dầu Thiên Long PM-09",
+      "unit": "Chiếc",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 9000,
+      "vatPercent": 8,
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm"
+    },
+    {
+      "stt": 21,
+      "name": "Bút dạ kính Thiên Long PM-04",
+      "unit": "Chiếc",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 8000,
+      "vatPercent": 8,
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm"
+    },
+    {
+      "stt": 22,
+      "name": "Bút dạ nét nhỏ 2 đầu",
+      "unit": "Chiếc",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 6000,
+      "vatPercent": 8,
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm"
+    },
+    {
+      "stt": 23,
+      "name": "Bút dính bàn đôi Thiên Long / Bến Nghé",
+      "unit": "Đôi",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 18000,
+      "vatPercent": 8,
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm"
+    },
+    {
+      "stt": 24,
+      "name": "Bút ký BK",
+      "unit": "Chiếc",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 12000,
+      "vatPercent": 8,
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm"
+    },
+    {
+      "stt": 25,
+      "name": "Bút ký Pentel BL57C",
+      "unit": "Chiếc",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 45000,
+      "vatPercent": 8,
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm"
+    },
+    {
+      "stt": 26,
+      "name": "Bút nhớ dòng Leaderart HL101",
+      "unit": "Chiếc",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 8500,
+      "vatPercent": 8,
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm"
+    },
+    {
+      "stt": 27,
+      "name": "Bút nhớ dòng Thiên Long HL-03",
+      "unit": "Chiếc",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 9000,
+      "vatPercent": 8,
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm"
+    },
+    {
+      "stt": 28,
+      "name": "Bút nhớ dòng Today",
+      "unit": "Chiếc",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 9000,
+      "vatPercent": 8,
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm"
+    },
+    {
+      "stt": 29,
+      "name": "Bút viết bảng Thiên Long WB03 (các màu)",
+      "unit": "Chiếc",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 8500,
+      "vatPercent": 8,
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm"
+    },
+    {
+      "stt": 30,
+      "name": "Bút xóa nước Thiên Long CP-02",
+      "unit": "Chiếc",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 23000,
+      "vatPercent": 8,
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm"
+    },
+    {
+      "stt": 31,
+      "name": "Cặp 3 dây giấy 10F",
+      "unit": "Chiếc",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 15000,
+      "vatPercent": 8,
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm"
+    },
+    {
+      "stt": 32,
+      "name": "Cặp 3 dây giấy 15F",
+      "unit": "Chiếc",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 16000,
+      "vatPercent": 8,
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm"
+    },
+    {
+      "stt": 33,
+      "name": "Cặp 3 dây giấy 20F",
+      "unit": "Chiếc",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 17000,
+      "vatPercent": 8,
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm"
+    },
+    {
+      "stt": 34,
+      "name": "Cặp trình ký da",
+      "unit": "Chiếc",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 90000,
+      "vatPercent": 8,
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm"
+    },
+    {
+      "stt": 35,
+      "name": "Cặp trình ký si A4 đơn",
+      "unit": "Chiếc",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 14500,
+      "vatPercent": 8,
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm"
+    },
+    {
+      "stt": 36,
+      "name": "Cắt băng dính nhỏ Deli 811",
+      "unit": "Chiếc",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 28000,
+      "vatPercent": 8,
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm"
+    },
+    {
+      "stt": 37,
+      "name": "Cắt băng dính to",
+      "unit": "Chiếc",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 35000,
+      "vatPercent": 8,
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm"
+    },
+    {
+      "stt": 38,
+      "name": "Chia file 12 màu nhựa TM",
+      "unit": "Tập",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 9000,
+      "vatPercent": 8,
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm"
+    },
+    {
+      "stt": 39,
+      "name": "Chia file giấy nhiều màu (nhỏ)",
+      "unit": "Tập",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 14500,
+      "vatPercent": 8,
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm"
+    },
+    {
+      "stt": 40,
+      "name": "Chia file nhựa nhiều màu Pronoti / DK / SW",
+      "unit": "Tập",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 13000,
+      "vatPercent": 8,
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm"
+    },
+    {
+      "stt": 41,
+      "name": "Chun vòng to 0,5 kg",
+      "unit": "Túi",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 32000,
+      "vatPercent": 8,
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm"
+    },
+    {
+      "stt": 42,
+      "name": "Chuột máy tính không dây",
+      "unit": "Cái",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 190000,
+      "vatPercent": 8,
+      "categoryId": "bach-hoa-van-phong",
+      "category": "Bách hóa văn phòng"
+    },
+    {
+      "stt": 43,
+      "name": "Cốc giấy cỡ nhỏ",
+      "unit": "Chiếc",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 500,
+      "vatPercent": 8,
+      "categoryId": "san-pham-giay",
+      "category": "Sản phẩm giấy"
+    },
+    {
+      "stt": 44,
+      "name": "Cốc giấy cỡ to",
+      "unit": "Chiếc",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 1200,
+      "vatPercent": 8,
+      "categoryId": "san-pham-giay",
+      "category": "Sản phẩm giấy"
+    },
+    {
+      "stt": 45,
+      "name": "Dao chuôi vàng loại 1",
+      "unit": "Chiếc",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 15000,
+      "vatPercent": 8,
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm"
+    },
+    {
+      "stt": 46,
+      "name": "Dao rọc giấy nhỏ SDI 0404",
+      "unit": "Chiếc",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 17000,
+      "vatPercent": 8,
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm"
+    },
+    {
+      "stt": 47,
+      "name": "Dao rọc giấy to SDI 0423",
+      "unit": "Chiếc",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 25000,
+      "vatPercent": 8,
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm"
+    },
+    {
+      "stt": 48,
+      "name": "Dập ghim nhỏ Plus PS 10E",
+      "unit": "Chiếc",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 34000,
+      "vatPercent": 8,
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm"
+    },
+    {
+      "stt": 49,
+      "name": "Dấu tên 853",
+      "unit": "Chiếc",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 105000,
+      "vatPercent": 8,
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm"
+    },
+    {
+      "stt": 50,
+      "name": "Dây đeo thẻ",
+      "unit": "Cái",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 2000,
+      "vatPercent": 8,
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm"
+    },
+    {
+      "stt": 51,
+      "name": "Đục lỗ 15 tờ",
+      "unit": "Cái",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 91500,
+      "vatPercent": 8,
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm"
+    },
+    {
+      "stt": 52,
+      "name": "File càng cua 5 cm / 7 cm TM, EKE",
+      "unit": "Chiếc",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 27000,
+      "vatPercent": 8,
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm"
+    },
+    {
+      "stt": 53,
+      "name": "File càng cua 9 cm KingJim",
+      "unit": "Chiếc",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 64000,
+      "vatPercent": 8,
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm"
+    },
+    {
+      "stt": 54,
+      "name": "File càng cua 9 cm TM, EKE",
+      "unit": "Chiếc",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 35000,
+      "vatPercent": 8,
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm"
+    },
+    {
+      "stt": 55,
+      "name": "File góc A4",
+      "unit": "Chiếc",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 3000,
+      "vatPercent": 8,
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm"
+    },
+    {
+      "stt": 56,
+      "name": "File nan 3 ngăn TCT",
+      "unit": "Chiếc",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 39500,
+      "vatPercent": 8,
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm"
+    },
+    {
+      "stt": 57,
+      "name": "Ghim cài nhỏ C62",
+      "unit": "Hộp",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 3000,
+      "vatPercent": 8,
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm"
+    },
+    {
+      "stt": 58,
+      "name": "Ghim dập nhỏ N10 Plus (màu xanh)",
+      "unit": "Hộp",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 3500,
+      "vatPercent": 8,
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm"
+    },
+    {
+      "stt": 59,
+      "name": "Giấy ăn hộp",
+      "unit": "Gói",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 20000,
+      "vatPercent": 8,
+      "categoryId": "san-pham-giay",
+      "category": "Sản phẩm giấy"
+    },
+    {
+      "stt": 60,
+      "name": "Giấy bìa A4 (xanh, hồng, vàng; 100 tờ/tập)",
+      "unit": "Tập",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 35000,
+      "vatPercent": 8,
+      "categoryId": "san-pham-giay",
+      "category": "Sản phẩm giấy"
+    },
+    {
+      "stt": 61,
+      "name": "Giấy bó tiền",
+      "unit": "Cuộn",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 40000,
+      "vatPercent": 8,
+      "categoryId": "san-pham-giay",
+      "category": "Sản phẩm giấy"
+    },
+    {
+      "stt": 62,
+      "name": "Giấy dính Tomy (6 / 8 / 10 miếng/tập)",
+      "unit": "Tập",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 12000,
+      "vatPercent": 8,
+      "categoryId": "san-pham-giay",
+      "category": "Sản phẩm giấy"
+    },
+    {
+      "stt": 63,
+      "name": "Giấy in Accura Plus",
+      "unit": "Ram",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 67000,
+      "vatPercent": 8,
+      "categoryId": "san-pham-giay",
+      "category": "Sản phẩm giấy"
+    },
+    {
+      "stt": 64,
+      "name": "Giấy in Double A A4 70",
+      "unit": "Ram",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 81000,
+      "vatPercent": 8,
+      "categoryId": "san-pham-giay",
+      "category": "Sản phẩm giấy"
+    },
+    {
+      "stt": 65,
+      "name": "Giấy in Double A A4 80",
+      "unit": "Ram",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 90000,
+      "vatPercent": 8,
+      "categoryId": "san-pham-giay",
+      "category": "Sản phẩm giấy"
+    },
+    {
+      "stt": 66,
+      "name": "Giấy in Double A A5",
+      "unit": "Ram",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 40000,
+      "vatPercent": 8,
+      "categoryId": "san-pham-giay",
+      "category": "Sản phẩm giấy"
+    },
+    {
+      "stt": 67,
+      "name": "Giấy in IK Plus A4",
+      "unit": "Ram",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 75000,
+      "vatPercent": 8,
+      "categoryId": "san-pham-giay",
+      "category": "Sản phẩm giấy"
+    },
+    {
+      "stt": 68,
+      "name": "Giấy in Pagi A4 70",
+      "unit": "Ram",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 62000,
+      "vatPercent": 8,
+      "categoryId": "san-pham-giay",
+      "category": "Sản phẩm giấy"
+    },
+    {
+      "stt": 69,
+      "name": "Giấy in Pagi A5 70",
+      "unit": "Ram",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 31000,
+      "vatPercent": 8,
+      "categoryId": "san-pham-giay",
+      "category": "Sản phẩm giấy"
+    },
+    {
+      "stt": 70,
+      "name": "Giấy in PaperOne A4 70",
+      "unit": "Ram",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 72000,
+      "vatPercent": 8,
+      "categoryId": "san-pham-giay",
+      "category": "Sản phẩm giấy"
+    },
+    {
+      "stt": 71,
+      "name": "Giấy in vi tính A4 1 liên 2 giao Liên Sơn",
+      "unit": "Thùng",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 340000,
+      "vatPercent": 8,
+      "categoryId": "san-pham-giay",
+      "category": "Sản phẩm giấy"
+    },
+    {
+      "stt": 72,
+      "name": "Giấy in vi tính A4 3 liên 2 giao Liên Sơn",
+      "unit": "Thùng",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 450000,
+      "vatPercent": 8,
+      "categoryId": "san-pham-giay",
+      "category": "Sản phẩm giấy"
+    },
+    {
+      "stt": 73,
+      "name": "Giấy lau tay đa năng",
+      "unit": "Túi",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 16000,
+      "vatPercent": 8,
+      "categoryId": "bach-hoa-van-phong",
+      "category": "Bách hóa văn phòng"
+    },
+    {
+      "stt": 74,
+      "name": "Giấy nhắn 2\" x 3\" vàng - Wintex / Pronoti",
+      "unit": "Tập",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 7000,
+      "vatPercent": 8,
+      "categoryId": "san-pham-giay",
+      "category": "Sản phẩm giấy"
+    },
+    {
+      "stt": 75,
+      "name": "Giấy nhắn 3\" x 3\" vàng - Wintex / Pronoti",
+      "unit": "Tập",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 8000,
+      "vatPercent": 8,
+      "categoryId": "san-pham-giay",
+      "category": "Sản phẩm giấy"
+    },
+    {
+      "stt": 76,
+      "name": "Giấy nhắn 3\" x 4\" vàng - Wintex / Pronoti",
+      "unit": "Tập",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 9000,
+      "vatPercent": 8,
+      "categoryId": "san-pham-giay",
+      "category": "Sản phẩm giấy"
+    },
+    {
+      "stt": 77,
+      "name": "Giấy nhắn 3\" x 5\" vàng - Wintex / Pronoti",
+      "unit": "Tập",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 10000,
+      "vatPercent": 8,
+      "categoryId": "san-pham-giay",
+      "category": "Sản phẩm giấy"
+    },
+    {
+      "stt": 78,
+      "name": "Giấy than (100 tờ/tập)",
+      "unit": "Tập",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 75000,
+      "vatPercent": 8,
+      "categoryId": "san-pham-giay",
+      "category": "Sản phẩm giấy"
+    },
+    {
+      "stt": 79,
+      "name": "Giấy vệ sinh Posy 4 lớp",
+      "unit": "Bịch",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 75000,
+      "vatPercent": 8,
+      "categoryId": "bach-hoa-van-phong",
+      "category": "Bách hóa văn phòng"
+    },
+    {
+      "stt": 80,
+      "name": "Gọt chì Deli",
+      "unit": "Chiếc",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 4500,
+      "vatPercent": 8,
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm"
+    },
+    {
+      "stt": 81,
+      "name": "Hồ dán khô Deli",
+      "unit": "Thỏi",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 5000,
+      "vatPercent": 8,
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm"
+    },
+    {
+      "stt": 82,
+      "name": "Hồ khô Staedtler 8 g",
+      "unit": "Lọ",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 14000,
+      "vatPercent": 8,
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm"
+    },
+    {
+      "stt": 83,
+      "name": "Hồ nước Thiên Long",
+      "unit": "Lọ",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 4000,
+      "vatPercent": 8,
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm"
+    },
+    {
+      "stt": 84,
+      "name": "Kéo văn phòng F200 (210 mm)",
+      "unit": "Chiếc",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 18000,
+      "vatPercent": 8,
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm"
+    },
+    {
+      "stt": 85,
+      "name": "Kéo văn phòng S008 (180 mm)",
+      "unit": "Chiếc",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 14000,
+      "vatPercent": 8,
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm"
+    },
+    {
+      "stt": 86,
+      "name": "Kẹp sắt đen 15 mm (12 cái/hộp)",
+      "unit": "Hộp",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 4200,
+      "vatPercent": 8,
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm"
+    },
+    {
+      "stt": 87,
+      "name": "Kẹp sắt đen 19 mm (12 cái/hộp)",
+      "unit": "Hộp",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 4500,
+      "vatPercent": 8,
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm"
+    },
+    {
+      "stt": 88,
+      "name": "Kẹp sắt đen 25 mm (12 cái/hộp)",
+      "unit": "Hộp",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 7000,
+      "vatPercent": 8,
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm"
+    },
+    {
+      "stt": 89,
+      "name": "Kẹp sắt đen 32 mm (12 cái/hộp)",
+      "unit": "Hộp",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 10000,
+      "vatPercent": 8,
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm"
+    },
+    {
+      "stt": 90,
+      "name": "Kẹp sắt đen 41 mm (12 cái/hộp)",
+      "unit": "Hộp",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 15000,
+      "vatPercent": 8,
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm"
+    },
+    {
+      "stt": 91,
+      "name": "Kẹp sắt đen 51 mm (12 cái/hộp)",
+      "unit": "Hộp",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 23500,
+      "vatPercent": 8,
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm"
+    },
+    {
+      "stt": 92,
+      "name": "Khay cắm bút xoay",
+      "unit": "Chiếc",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 39000,
+      "vatPercent": 8,
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm"
+    },
+    {
+      "stt": 93,
+      "name": "Khay tài liệu 3 tầng nhựa Deli",
+      "unit": "Chiếc",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 175000,
+      "vatPercent": 8,
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm"
+    },
+    {
+      "stt": 94,
+      "name": "Khay tài liệu 3 tầng nhựa TCT",
+      "unit": "Chiếc",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 95000,
+      "vatPercent": 8,
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm"
+    },
+    {
+      "stt": 95,
+      "name": "Mặt thẻ",
+      "unit": "Cái",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 2500,
+      "vatPercent": 8,
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm"
+    },
+    {
+      "stt": 96,
+      "name": "Miếng kê chuột",
+      "unit": "Chiếc",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 15000,
+      "vatPercent": 8,
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm"
+    },
+    {
+      "stt": 97,
+      "name": "Mực dấu Shinny (xanh, đỏ)",
+      "unit": "Hộp",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 44000,
+      "vatPercent": 8,
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm"
+    },
+    {
+      "stt": 98,
+      "name": "Mực dấu Trodat",
+      "unit": "Hộp",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 62000,
+      "vatPercent": 8,
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm"
+    },
+    {
+      "stt": 99,
+      "name": "Nhổ ghim nhỏ Sunwood",
+      "unit": "Chiếc",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 9000,
+      "vatPercent": 8,
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm"
+    },
+    {
+      "stt": 100,
+      "name": "Nước lau sàn Gift 1000 ml",
+      "unit": "Chai",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 35000,
+      "vatPercent": 8,
+      "categoryId": "bach-hoa-van-phong",
+      "category": "Bách hóa văn phòng"
+    },
+    {
+      "stt": 101,
+      "name": "Nước rửa tay Lifebuoy 180 ml",
+      "unit": "Chai",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 31500,
+      "vatPercent": 8,
+      "categoryId": "bach-hoa-van-phong",
+      "category": "Bách hóa văn phòng"
+    },
+    {
+      "stt": 102,
+      "name": "Nước rửa tay Lifebuoy 4000 ml",
+      "unit": "Can",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 300000,
+      "vatPercent": 8,
+      "categoryId": "bach-hoa-van-phong",
+      "category": "Bách hóa văn phòng"
+    },
+    {
+      "stt": 103,
+      "name": "Nước rửa tay Lifebuoy 450 ml",
+      "unit": "Chai",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 68000,
+      "vatPercent": 8,
+      "categoryId": "bach-hoa-van-phong",
+      "category": "Bách hóa văn phòng"
+    },
+    {
+      "stt": 104,
+      "name": "Pin tiểu Con Thỏ",
+      "unit": "Vỉ",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 8000,
+      "vatPercent": 8,
+      "categoryId": "bach-hoa-van-phong",
+      "category": "Bách hóa văn phòng"
+    },
+    {
+      "stt": 105,
+      "name": "Pin tiểu Maxell",
+      "unit": "Đôi",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 27000,
+      "vatPercent": 8,
+      "categoryId": "bach-hoa-van-phong",
+      "category": "Bách hóa văn phòng"
+    },
+    {
+      "stt": 106,
+      "name": "Sáp đếm tiền",
+      "unit": "Chiếc",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 8000,
+      "vatPercent": 8,
+      "categoryId": "bach-hoa-van-phong",
+      "category": "Bách hóa văn phòng"
+    },
+    {
+      "stt": 107,
+      "name": "Sổ A4 bìa bóng - bằng đầu 240T HT, BK",
+      "unit": "Quyển",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 46000,
+      "vatPercent": 8,
+      "categoryId": "san-pham-giay",
+      "category": "Sản phẩm giấy"
+    },
+    {
+      "stt": 108,
+      "name": "Sổ A4 bìa bóng - thừa đầu 240T HT, BK",
+      "unit": "Quyển",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 48000,
+      "vatPercent": 8,
+      "categoryId": "san-pham-giay",
+      "category": "Sản phẩm giấy"
+    },
+    {
+      "stt": 109,
+      "name": "Sổ bìa cứng A5 HT",
+      "unit": "Quyển",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 25000,
+      "vatPercent": 8,
+      "categoryId": "san-pham-giay",
+      "category": "Sản phẩm giấy"
+    },
+    {
+      "stt": 110,
+      "name": "Sổ công văn đi / đến A4",
+      "unit": "Quyển",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 36000,
+      "vatPercent": 8,
+      "categoryId": "san-pham-giay",
+      "category": "Sản phẩm giấy"
+    },
+    {
+      "stt": 111,
+      "name": "Sổ lò xo A4 200T HT/BK",
+      "unit": "Quyển",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 30000,
+      "vatPercent": 8,
+      "categoryId": "san-pham-giay",
+      "category": "Sản phẩm giấy"
+    },
+    {
+      "stt": 112,
+      "name": "Sổ lò xo A5 200 trang HT, BK",
+      "unit": "Quyển",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 20000,
+      "vatPercent": 8,
+      "categoryId": "san-pham-giay",
+      "category": "Sản phẩm giấy"
+    },
+    {
+      "stt": 113,
+      "name": "Tẩy chì Deli",
+      "unit": "Viên",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 4000,
+      "vatPercent": 8,
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm"
+    },
+    {
+      "stt": 114,
+      "name": "Thước kẻ mica 30 cm",
+      "unit": "Chiếc",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 4500,
+      "vatPercent": 8,
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm"
+    },
+    {
+      "stt": 115,
+      "name": "Túi 11 lỗ TCT3C (100 cái/tập)",
+      "unit": "Tập",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 36000,
+      "vatPercent": 8,
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm"
+    },
+    {
+      "stt": 116,
+      "name": "Túi 11 lỗ Plus (10 cái/tập)",
+      "unit": "Tập",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 15000,
+      "vatPercent": 8,
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm"
+    },
+    {
+      "stt": 117,
+      "name": "Túi clear bag khổ A4",
+      "unit": "Chiếc",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 2200,
+      "vatPercent": 8,
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm"
+    },
+    {
+      "stt": 118,
+      "name": "Túi clear bag khổ F",
+      "unit": "Chiếc",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 3200,
+      "vatPercent": 8,
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm"
+    },
+    {
+      "stt": 119,
+      "name": "Túi giấy xi măng 5 kg",
+      "unit": "Kg",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 1500,
+      "vatPercent": 8,
+      "categoryId": "san-pham-giay",
+      "category": "Sản phẩm giấy"
+    },
+    {
+      "stt": 120,
+      "name": "Túi nilon đựng rác đen (mỏng)",
+      "unit": "Kg",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 36000,
+      "vatPercent": 8,
+      "categoryId": "bach-hoa-van-phong",
+      "category": "Bách hóa văn phòng"
+    },
+    {
+      "stt": 121,
+      "name": "Túi nilon đựng rác đen (dày)",
+      "unit": "Kg",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 45000,
+      "vatPercent": 8,
+      "categoryId": "bach-hoa-van-phong",
+      "category": "Bách hóa văn phòng"
+    },
+    {
+      "stt": 122,
+      "name": "Ổ LiOA 3 ổ 3 m",
+      "unit": "Chiếc",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 95000,
+      "vatPercent": 8,
+      "categoryId": "bach-hoa-van-phong",
+      "category": "Bách hóa văn phòng"
+    },
+    {
+      "stt": 123,
+      "name": "Ổ LiOA 4 ổ 3 m",
+      "unit": "Chiếc",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 140000,
+      "vatPercent": 8,
+      "categoryId": "bach-hoa-van-phong",
+      "category": "Bách hóa văn phòng"
+    },
+    {
+      "stt": 124,
+      "name": "Ổ LiOA 6 ổ 3 m",
+      "unit": "Chiếc",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 180000,
+      "vatPercent": 8,
+      "categoryId": "bach-hoa-van-phong",
+      "category": "Bách hóa văn phòng"
+    },
+    {
+      "stt": 125,
+      "name": "Sọt rác Hiro 5 L",
+      "unit": "Chiếc",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 30000,
+      "vatPercent": 8,
+      "categoryId": "bach-hoa-van-phong",
+      "category": "Bách hóa văn phòng"
+    },
+    {
+      "stt": 126,
+      "name": "Giấy lau tay Silkwell 280 tờ",
+      "unit": "Gói",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 20000,
+      "vatPercent": 8,
+      "categoryId": "bach-hoa-van-phong",
+      "category": "Bách hóa văn phòng"
+    },
+    {
+      "stt": 127,
+      "name": "Trình ký nhựa 2 mặt",
+      "unit": "Chiếc",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 45000,
+      "vatPercent": 8,
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm"
+    },
+    {
+      "stt": 128,
+      "name": "Nước rửa tay Lifebuoy 450 g",
+      "unit": "Chai",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 69000,
+      "vatPercent": 8,
+      "categoryId": "bach-hoa-van-phong",
+      "category": "Bách hóa văn phòng"
+    },
+    {
+      "stt": 129,
+      "name": "Nước rửa tay Lifebuoy Vitamin 4 kg",
+      "unit": "Can",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 295000,
+      "vatPercent": 8,
+      "categoryId": "bach-hoa-van-phong",
+      "category": "Bách hóa văn phòng"
+    },
+    {
+      "stt": 130,
+      "name": "Nước lau sàn Gift 1000 ml",
+      "unit": "Chai",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 38000,
+      "vatPercent": 8,
+      "categoryId": "bach-hoa-van-phong",
+      "category": "Bách hóa văn phòng"
+    },
+    {
+      "stt": 131,
+      "name": "Nước lau sàn Gift 3,8 kg",
+      "unit": "Can",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 88000,
+      "vatPercent": 8,
+      "categoryId": "bach-hoa-van-phong",
+      "category": "Bách hóa văn phòng"
+    },
+    {
+      "stt": 132,
+      "name": "Tẩy toilet Gift 600 ml",
+      "unit": "Chai",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 30000,
+      "vatPercent": 8,
+      "categoryId": "bach-hoa-van-phong",
+      "category": "Bách hóa văn phòng"
+    },
+    {
+      "stt": 133,
+      "name": "Tẩy toilet Gift 900 ml",
+      "unit": "Chai",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 38000,
+      "vatPercent": 8,
+      "categoryId": "bach-hoa-van-phong",
+      "category": "Bách hóa văn phòng"
+    },
+    {
+      "stt": 134,
+      "name": "Nước rửa chén Sunlight 750 ml",
+      "unit": "Chai",
+      "defaultQuantity": 1,
+      "unitPriceVnd": 35000,
+      "vatPercent": 8,
+      "categoryId": "bach-hoa-van-phong",
+      "category": "Bách hóa văn phòng"
+    }
+  ]
+}

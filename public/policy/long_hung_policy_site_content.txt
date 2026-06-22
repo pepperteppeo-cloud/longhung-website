@@ -1,0 +1,556 @@
+LONG HUNG STATIONERY — POLICY SITE CONTENT
+
+Purpose: Customer-facing website copy extracted and streamlined from the internal “Cẩm nang Chính sách và Quy chế mở rộng”.
+Use this file as the content source for policy pages on vpplonghung.com.
+Language: Vietnamese.
+Last updated: 08/06/2026.
+
+IMPORTANT CONTENT RULES FOR SITE INTEGRATION
+- Show each policy below as its own page, with a table of contents and “Cập nhật lần cuối: 08/06/2026”.
+- Keep the company/contact information consistent across all policy pages.
+- The original administrative cover, document catalogue, issuance decision, signature blocks, internal approval workflow, internal departmental responsibilities, document-retention checklist, and employee commitment form are intentionally excluded.
+- For B2B content, publish only the customer-facing terms. Do not expose internal approval roles, internal turnaround targets, or internal operating procedures.
+
+RECOMMENDED ROUTES
+1. /chinh-sach/bao-mat-thong-tin-ca-nhan
+2. /chinh-sach/thanh-toan
+3. /chinh-sach/van-chuyen-giao-nhan
+4. /chinh-sach/doi-tra-hoan-tien
+5. /chinh-sach/bao-hanh
+6. /dieu-khoan-giao-dich
+7. /ho-tro/khieu-nai
+8. /khach-hang-doanh-nghiep/chinh-sach-ban-hang
+9. /khach-hang-doanh-nghiep/chinh-sach-cong-no
+10. /khach-hang-doanh-nghiep/quy-trinh-dat-hang
+
+============================================================
+COMPANY INFORMATION
+============================================================
+
+Company name: Công ty TNHH Văn phòng phẩm Long Hưng
+Tax code: 0109448311
+Address: Số nhà LK03-07, Khu đô thị thấp tầng Roman Plaza Hải Phát, đường Tố Hữu, phường Đại Mỗ, thành phố Hà Nội
+Legal representative: Ông Đinh Quang Dương — Giám đốc
+Website: https://vpplonghung.com
+Support email: hotro@vpplonghung.com
+Business email: kinhdoanh@vpplonghung.com
+Hotline / Zalo: 0353 839 500
+
+============================================================
+1. CHÍNH SÁCH BẢO MẬT THÔNG TIN CÁ NHÂN
+Route: /chinh-sach/bao-mat-thong-tin-ca-nhan
+============================================================
+
+1. Phạm vi áp dụng
+Chính sách này quy định nguyên tắc thu thập, sử dụng, lưu trữ, bảo vệ và xử lý thông tin cá nhân của khách hàng, đối tác, người liên hệ và người dùng website vpplonghung.com khi giao dịch với Công ty TNHH Văn phòng phẩm Long Hưng (“Long Hưng”).
+
+Chính sách áp dụng cho mọi kênh giao dịch hợp pháp, bao gồm website, email, điện thoại, Zalo, Facebook, giao dịch trực tiếp, báo giá, đơn đặt hàng, hợp đồng và biểu mẫu liên hệ.
+
+2. Thông tin có thể được thu thập
+Đối với khách hàng cá nhân, Long Hưng có thể thu thập:
+- Họ tên, số điện thoại, email và địa chỉ nhận hàng.
+- Nội dung trao đổi, yêu cầu hỗ trợ và thông tin đơn hàng.
+- Thông tin thanh toán do khách hàng cung cấp.
+- Hình ảnh, video hoặc tài liệu cần thiết để xử lý khiếu nại, đổi trả hoặc bảo hành.
+
+Đối với khách hàng doanh nghiệp, Long Hưng có thể thu thập:
+- Tên doanh nghiệp, mã số thuế và địa chỉ trụ sở.
+- Thông tin xuất hóa đơn.
+- Thông tin người liên hệ, người phụ trách mua hàng, kế toán thanh toán và giao nhận.
+- Hồ sơ cần thiết để ký kết và thực hiện hợp đồng.
+
+Khi người dùng truy cập website, Long Hưng có thể ghi nhận thông tin kỹ thuật như địa chỉ IP, loại trình duyệt, thiết bị truy cập, thời gian truy cập, trang được xem, cookies và dữ liệu tương tự.
+
+3. Mục đích xử lý thông tin
+Long Hưng xử lý thông tin để:
+- Tiếp nhận yêu cầu, tư vấn, lập báo giá, xác nhận và thực hiện đơn hàng.
+- Giao hàng, đối chiếu chứng từ, xuất hóa đơn VAT và quản lý công nợ.
+- Chăm sóc khách hàng, xử lý khiếu nại, đổi trả và bảo hành.
+- Quản lý quan hệ khách hàng, đánh giá chất lượng dịch vụ và cải thiện trải nghiệm người dùng.
+- Bảo đảm an toàn hệ thống, bảo mật thông tin và phòng chống gian lận.
+- Thực hiện nghĩa vụ pháp lý hoặc yêu cầu hợp pháp của cơ quan nhà nước có thẩm quyền.
+
+4. Cơ sở xử lý và sự đồng ý
+Khi khách hàng, người liên hệ hoặc người dùng website chủ động cung cấp thông tin cho Long Hưng, điều này được hiểu là đồng ý cho Long Hưng xử lý thông tin trong phạm vi và mục đích nêu tại Chính sách này, trừ trường hợp pháp luật có quy định khác.
+
+Khách hàng có thể rút lại sự đồng ý hoặc yêu cầu hạn chế một số hoạt động xử lý dữ liệu trong phạm vi pháp luật cho phép. Việc này có thể khiến Long Hưng không thể tiếp tục cung cấp một số dịch vụ, thực hiện đơn hàng, xuất hóa đơn, giao hàng hoặc xử lý yêu cầu liên quan.
+
+5. Phạm vi sử dụng và chia sẻ thông tin
+Long Hưng chỉ sử dụng thông tin trong phạm vi cần thiết cho hoạt động kinh doanh hợp pháp, quản trị nội bộ và thực hiện nghĩa vụ theo quy định pháp luật.
+
+Thông tin có thể được chia sẻ, trong phạm vi cần thiết, với:
+- Nhân sự và bộ phận có thẩm quyền của Long Hưng.
+- Đơn vị vận chuyển, đối tác giao nhận, đối tác thanh toán, ngân hàng và nhà cung cấp dịch vụ kỹ thuật phục vụ website, email, lưu trữ dữ liệu, phân tích truy cập hoặc chăm sóc khách hàng.
+- Nhà sản xuất, nhà nhập khẩu hoặc trung tâm bảo hành được ủy quyền khi xử lý bảo hành.
+- Cơ quan nhà nước có thẩm quyền khi có yêu cầu hợp pháp hoặc khi pháp luật quy định.
+
+Long Hưng không mua bán thông tin cá nhân của khách hàng và không chia sẻ dữ liệu cho bên thứ ba vì mục đích quảng cáo độc lập nếu chưa có sự chấp thuận hợp lệ của khách hàng hoặc căn cứ pháp luật phù hợp.
+
+6. Dịch vụ của bên thứ ba và dữ liệu xuyên biên giới
+Long Hưng có thể sử dụng email doanh nghiệp, dịch vụ lưu trữ, công cụ phân tích website, mạng xã hội, dịch vụ vận chuyển, thanh toán hoặc phần mềm quản trị khách hàng. Một số dịch vụ có thể đặt máy chủ hoặc xử lý dữ liệu ngoài lãnh thổ Việt Nam. Long Hưng áp dụng biện pháp lựa chọn, phân quyền và kiểm soát phù hợp, đồng thời yêu cầu nhà cung cấp bảo mật thông tin trong phạm vi thỏa thuận và quy định pháp luật hiện hành.
+
+7. Thời gian lưu trữ
+Thông tin được lưu trữ trong thời gian cần thiết để phục vụ giao dịch, chăm sóc khách hàng, quản lý quan hệ thương mại, xử lý khiếu nại, đối chiếu chứng từ và thực hiện nghĩa vụ pháp lý về kế toán, thuế, hợp đồng hoặc nghĩa vụ khác.
+
+Khi mục đích xử lý không còn hoặc khi có yêu cầu hợp lệ, Long Hưng sẽ xem xét xóa, ẩn danh, hạn chế truy cập hoặc ngừng xử lý dữ liệu trong phạm vi pháp luật cho phép và khả năng kỹ thuật thực tế.
+
+8. Quyền của chủ thể dữ liệu
+Khách hàng có các quyền theo quy định pháp luật hiện hành, bao gồm quyền được biết về hoạt động xử lý dữ liệu; đồng ý hoặc rút lại sự đồng ý; truy cập; chỉnh sửa; yêu cầu xóa; yêu cầu hạn chế xử lý; yêu cầu cung cấp dữ liệu trong phạm vi phù hợp; khiếu nại, tố cáo, khởi kiện hoặc yêu cầu bồi thường khi có căn cứ.
+
+Yêu cầu liên quan đến dữ liệu cá nhân có thể gửi đến hotro@vpplonghung.com hoặc Hotline 0353 839 500.
+
+9. Cam kết bảo mật và ứng phó sự cố
+Long Hưng áp dụng các biện pháp kỹ thuật và quản trị phù hợp để bảo vệ thông tin, gồm giới hạn quyền truy cập theo chức năng, sử dụng hệ thống được phân quyền, rà soát biện pháp bảo mật và yêu cầu nhân sự/đối tác giữ bí mật thông tin trong phạm vi công việc.
+
+Khi xảy ra hoặc có nguy cơ xảy ra sự cố an toàn thông tin, Long Hưng sẽ thực hiện biện pháp cần thiết để hạn chế thiệt hại, thông tin cho các bên liên quan trong phạm vi phù hợp và phối hợp với cơ quan chức năng theo quy định pháp luật.
+
+10. Cookies và công nghệ theo dõi
+Website có thể sử dụng cookies hoặc công nghệ tương tự để ghi nhớ tùy chọn, duy trì chức năng website, phân tích hiệu quả truy cập, cải thiện trải nghiệm người dùng và hỗ trợ hoạt động marketing hợp pháp.
+
+Người dùng có thể từ chối, xóa hoặc giới hạn cookies trong cài đặt trình duyệt. Việc vô hiệu hóa cookies có thể ảnh hưởng đến một số chức năng của website.
+
+11. Hiệu lực và cập nhật
+Chính sách này được công bố trên website và có thể được điều chỉnh, cập nhật để phù hợp với quy định pháp luật và hoạt động thực tế. Nội dung cập nhật có hiệu lực từ thời điểm công bố, trừ khi có quy định khác.
+
+============================================================
+2. CHÍNH SÁCH THANH TOÁN
+Route: /chinh-sach/thanh-toan
+============================================================
+
+1. Phạm vi áp dụng
+Chính sách này quy định nguyên tắc, hình thức, điều kiện và quy trình thanh toán cho các giao dịch mua bán hàng hóa, dịch vụ giữa khách hàng và Long Hưng qua website, email, điện thoại, Zalo, fanpage, đơn đặt hàng, báo giá, hợp đồng, giao dịch trực tiếp hoặc các kênh hợp pháp khác.
+
+Nếu hợp đồng, phụ lục hợp đồng, báo giá đã xác nhận hoặc thỏa thuận riêng có quy định khác, thỏa thuận riêng được ưu tiên áp dụng nếu không trái pháp luật.
+
+2. Nguyên tắc thanh toán
+- Mọi khoản thanh toán phải đúng giá trị, thời hạn, phương thức và thông tin thanh toán do Long Hưng xác nhận.
+- Đồng tiền thanh toán là Việt Nam đồng, trừ trường hợp các bên có thỏa thuận khác bằng văn bản và phù hợp pháp luật.
+- Khách hàng chỉ thanh toán vào tài khoản, phương thức hoặc đầu mối thanh toán chính thức do Long Hưng cung cấp qua báo giá, hợp đồng, đơn đặt hàng, email xác nhận, hóa đơn hoặc chứng từ hợp lệ.
+- Long Hưng không chịu trách nhiệm với khoản thanh toán chuyển sai tài khoản, sai người thụ hưởng, sai nội dung hoặc qua kênh không được Long Hưng xác nhận, trừ trường hợp lỗi do Long Hưng cung cấp thông tin.
+- Giao dịch chỉ được coi là đã thanh toán khi Long Hưng ghi nhận tiền thực nhận hoặc nhận được xác nhận giao dịch thành công từ đơn vị cung cấp dịch vụ thanh toán hợp pháp.
+
+3. Hình thức thanh toán
+3.1. Thanh toán khi nhận hàng (COD)
+Khách hàng thanh toán trực tiếp cho nhân viên giao hàng, người được Long Hưng ủy quyền hoặc đơn vị vận chuyển khi nhận hàng. Khách hàng cần kiểm tra tình trạng bên ngoài của hàng hóa, số lượng kiện hàng, chứng từ giao nhận và giá trị cần thanh toán trước khi ký nhận.
+
+3.2. Thanh toán tiền mặt
+Áp dụng cho giao dịch trực tiếp tại địa điểm kinh doanh, kho hàng, điểm giao nhận hoặc khi được Long Hưng xác nhận. Khoản thanh toán phải có phiếu thu, biên nhận, xác nhận giao dịch hoặc chứng từ hợp lệ do Long Hưng phát hành.
+
+3.3. Chuyển khoản ngân hàng
+Khách hàng chuyển khoản vào tài khoản ngân hàng do Long Hưng chỉ định. Nội dung chuyển khoản nên ghi rõ tên khách hàng, mã đơn hàng, số báo giá, số hợp đồng, số hóa đơn hoặc nội dung theo hướng dẫn của Long Hưng.
+
+Giao dịch được coi là đã thanh toán khi tiền được ghi có vào tài khoản của Long Hưng và được đối soát thành công. Long Hưng có thể yêu cầu chứng từ chuyển khoản nếu nội dung chuyển khoản thiếu, sai hoặc không xác định được chủ thể thanh toán.
+
+3.4. Thẻ, cổng thanh toán hoặc ví điện tử
+Chỉ áp dụng khi Long Hưng hỗ trợ tại từng thời điểm. Giao dịch được xử lý bởi ngân hàng, tổ chức trung gian thanh toán hoặc nhà cung cấp dịch vụ hợp pháp. Long Hưng không trực tiếp lưu trữ thông tin thẻ của khách hàng.
+
+3.5. Công nợ khách hàng doanh nghiệp
+Chỉ áp dụng cho khách hàng doanh nghiệp được Long Hưng phê duyệt bằng văn bản hoặc có thỏa thuận công nợ hợp lệ. Hạn mức, thời hạn, điều kiện giao hàng và biện pháp xử lý nợ quá hạn được xác định theo hợp đồng, phụ lục hợp đồng, báo giá được xác nhận hoặc chính sách công nợ hiện hành.
+
+Long Hưng có quyền tạm dừng giao hàng, tạm dừng cấp công nợ, điều chỉnh hạn mức, yêu cầu thanh toán trước hoặc áp dụng biện pháp thu hồi nợ phù hợp khi khách hàng nợ quá hạn, thanh toán chậm nhiều lần hoặc có dấu hiệu rủi ro tín dụng.
+
+3.6. Đặt cọc hoặc thanh toán trước
+Long Hưng có thể yêu cầu đặt cọc hoặc thanh toán trước một phần/toàn bộ giá trị đơn hàng đối với đơn hàng giá trị lớn, hàng đặt riêng, hàng không sẵn, hàng nhập theo yêu cầu, đơn hàng cần giữ tồn kho hoặc khách hàng chưa có lịch sử giao dịch. Tỷ lệ đặt cọc và điều kiện xử lý được xác định trong báo giá, đơn đặt hàng, hợp đồng hoặc thỏa thuận riêng.
+
+4. Xác nhận đơn hàng và thanh toán
+Việc khách hàng gửi yêu cầu mua hàng, đặt hàng hoặc chuyển khoản không mặc nhiên làm phát sinh nghĩa vụ giao hàng nếu đơn hàng chưa được Long Hưng xác nhận.
+
+Đơn hàng hợp lệ khi Long Hưng đã xác nhận sản phẩm, số lượng, đơn giá, thuế, phí vận chuyển (nếu có), phương thức thanh toán, thời gian giao hàng dự kiến và thông tin giao nhận.
+
+Long Hưng có thể tạm ngừng xử lý đơn hàng nếu chưa xác nhận được thanh toán, thông tin thanh toán không khớp, chứng từ thanh toán chưa hợp lệ hoặc có dấu hiệu bất thường.
+
+5. Giá bán, thuế và hóa đơn
+Giá bán được xác định theo báo giá chính thức, hợp đồng, đơn đặt hàng đã được xác nhận, hóa đơn hoặc chính sách bán hàng tại từng thời điểm.
+
+Giá có thể bao gồm hoặc chưa bao gồm VAT, phí vận chuyển, phí bốc xếp, phí giao hàng hỏa tốc hoặc chi phí khác, tùy nội dung báo giá/thỏa thuận. Long Hưng sẽ thông báo phí phát sinh (nếu có) trước khi xác nhận đơn hàng hoặc thực hiện dịch vụ phát sinh.
+
+Khách hàng cần cung cấp đầy đủ, chính xác và kịp thời thông tin xuất hóa đơn trước khi Long Hưng lập hóa đơn, gồm tên đơn vị, mã số thuế, địa chỉ, email nhận hóa đơn điện tử và người liên hệ khi cần thiết. Long Hưng không chịu trách nhiệm cho sai sót phát sinh do khách hàng cung cấp sai, thiếu hoặc chậm thông tin.
+
+6. Thanh toán không thành công, chậm thanh toán hoặc giao dịch bất thường
+Long Hưng có quyền hủy hoặc tạm ngừng xử lý đơn hàng, tạm dừng giao hàng, yêu cầu thanh toán trước hoặc áp dụng biện pháp kiểm soát rủi ro khi:
+- Không xác nhận được thanh toán.
+- Thanh toán thiếu, sai nội dung, sai tài khoản hoặc sai thông tin người thụ hưởng.
+- Khách hàng không cung cấp được chứng từ thanh toán hợp lệ khi được yêu cầu.
+- Giao dịch có dấu hiệu gian lận, giả mạo, tranh chấp hoặc bất thường.
+- Khách hàng vi phạm nghĩa vụ thanh toán trong giao dịch trước đó.
+- Khách hàng phát sinh công nợ quá hạn hoặc vượt hạn mức đã được phê duyệt.
+- Ngân hàng, tổ chức trung gian thanh toán, ví điện tử hoặc cơ quan có thẩm quyền yêu cầu tạm dừng, xác minh hoặc phong tỏa giao dịch.
+
+7. Hoàn tiền
+Long Hưng thực hiện hoàn tiền khi đơn hàng bị hủy và khách hàng đã thanh toán trước; Long Hưng không thể cung cấp hàng hóa/dịch vụ theo thỏa thuận; hàng hóa được trả lại và đủ điều kiện hoàn tiền; khách hàng thanh toán thừa; hoặc trong các trường hợp khác theo thỏa thuận/pháp luật.
+
+Hoàn tiền được thực hiện qua phương thức phù hợp với hình thức thanh toán ban đầu hoặc theo thỏa thuận. Thời gian xử lý thông thường là từ 03 đến 15 ngày làm việc kể từ khi hồ sơ hoàn tiền được xác nhận hợp lệ. Thời gian tiền thực tế về tài khoản có thể phụ thuộc vào ngân hàng, ví điện tử, tổ chức trung gian thanh toán hoặc bên thứ ba.
+
+Long Hưng có thể yêu cầu thông tin khách hàng, chứng từ thanh toán, thông tin tài khoản nhận hoàn tiền, biên bản hủy đơn/trả hàng/đối soát công nợ hoặc tài liệu liên quan. Long Hưng có quyền tạm hoãn hoàn tiền khi giao dịch đang tranh chấp, có dấu hiệu gian lận, chưa thu hồi hàng cần hoàn trả hoặc chưa đủ hồ sơ xác minh.
+
+8. Đối soát, bảo mật và khiếu nại thanh toán
+Khi phát sinh sai sót, khách hàng cần thông báo sớm và cung cấp chứng từ liên quan. Long Hưng kiểm tra thông tin trong phạm vi dữ liệu/chứng từ do mình quản lý và phối hợp hỗ trợ đối với lỗi thuộc ngân hàng, ví điện tử, cổng thanh toán, đơn vị vận chuyển hoặc bên thứ ba trong phạm vi hợp lý.
+
+Long Hưng bảo mật thông tin thanh toán và không mua bán, trao đổi hoặc chia sẻ trái phép thông tin thanh toán. Thông tin chỉ được sử dụng trong phạm vi cần thiết để xử lý giao dịch, đối soát, giao hàng, xuất hóa đơn, chăm sóc khách hàng, giải quyết khiếu nại, thực hiện nghĩa vụ kế toán - thuế hoặc cung cấp theo yêu cầu hợp pháp của cơ quan nhà nước có thẩm quyền.
+
+Khiếu nại thanh toán có thể được gửi qua email, hotline, biểu mẫu liên hệ trên website hoặc các kênh tiếp nhận chính thức. Khách hàng cần cung cấp thông tin giao dịch, chứng từ thanh toán, nội dung khiếu nại và tài liệu liên quan. Long Hưng phản hồi ban đầu trong tối đa 24 giờ làm việc kể từ khi tiếp nhận thông tin.
+
+9. Hiệu lực và cập nhật
+Chính sách có hiệu lực khi được công bố trên website, báo giá, hợp đồng hoặc kênh giao dịch phù hợp. Long Hưng có quyền sửa đổi, bổ sung để phù hợp với hoạt động kinh doanh và quy định pháp luật; nội dung cập nhật có hiệu lực từ thời điểm công bố, trừ khi có quy định khác.
+
+============================================================
+3. CHÍNH SÁCH VẬN CHUYỂN VÀ GIAO NHẬN
+Route: /chinh-sach/van-chuyen-giao-nhan
+============================================================
+
+1. Phạm vi áp dụng
+Chính sách áp dụng cho hoạt động giao nhận hàng hóa giữa Long Hưng với khách hàng cá nhân và khách hàng doanh nghiệp trên lãnh thổ Việt Nam, trừ trường hợp có thỏa thuận riêng bằng văn bản.
+
+2. Phạm vi giao hàng
+- Khách hàng cá nhân: Long Hưng hỗ trợ giao hàng toàn quốc qua các đơn vị vận chuyển hợp tác hoặc phương án phù hợp theo từng đơn hàng.
+- Khách hàng doanh nghiệp: Long Hưng ưu tiên giao trực tiếp tại Hà Nội và khu vực phục vụ thực tế bằng đội giao vận của công ty hoặc đối tác vận tải. Với đơn hàng ngoài phạm vi phục vụ, các bên thống nhất phương án vận chuyển trước khi giao.
+
+3. Đơn vị vận chuyển
+- Khách hàng cá nhân: Giao Hàng Tiết Kiệm (GHTK), Viettel Post hoặc đơn vị phù hợp khác tùy khu vực, thời điểm và tính chất hàng hóa.
+- Khách hàng doanh nghiệp: Đội giao nhận của Long Hưng hoặc đơn vị vận tải được chỉ định theo đơn hàng, báo giá, hợp đồng hoặc thỏa thuận.
+
+4. Thời gian giao hàng dự kiến
+- Nội thành Hà Nội: trong vòng 24 giờ làm việc kể từ khi đơn hàng được xác nhận và sẵn sàng giao, trừ khi có thỏa thuận khác.
+- Ngoại thành Hà Nội, tỉnh lân cận và khu vực khác: từ 01 đến 03 ngày làm việc, tùy địa điểm, phương án vận chuyển, tình trạng hàng hóa và đơn vị vận chuyển.
+- Khách hàng doanh nghiệp: thời gian giao hàng được xác nhận cụ thể trong báo giá, đơn đặt hàng, hợp đồng hoặc lịch giao nhận đã thống nhất.
+
+Thời gian giao hàng thực tế có thể thay đổi do bất khả kháng, hạn chế lưu thông, thời tiết, tai nạn giao thông, sự cố kỹ thuật, thiếu hàng tạm thời hoặc sự kiện ngoài khả năng kiểm soát hợp lý của Long Hưng.
+
+5. Phí vận chuyển
+Phí vận chuyển được xác định theo địa điểm giao hàng, khoảng cách, khối lượng, kích thước hàng hóa, giá trị đơn hàng, phương án giao hàng và chính sách bán hàng tại từng thời điểm. Phí cụ thể sẽ được thông báo trước khi xác nhận đơn hàng. Nếu hợp đồng hoặc phụ lục có quy định riêng, thỏa thuận riêng được ưu tiên áp dụng.
+
+BẢNG PHÍ THAM KHẢO DÀNH CHO KHÁCH HÀNG DOANH NGHIỆP
+
+- Nội thành Hà Nội, bán kính dưới 15 km; đơn từ 2.000.000 đồng trở lên:
+  Miễn phí vận chuyển tiêu chuẩn. Dự kiến trong vòng 24 giờ làm việc.
+
+- Nội thành Hà Nội, bán kính dưới 15 km; đơn dưới 2.000.000 đồng:
+  Phí từ 30.000 đến 50.000 đồng hoặc theo thực tế. Dự kiến trong vòng 24 giờ làm việc.
+
+- Đơn hàng hỏa tốc; mọi giá trị:
+  Thu theo biểu phí thực tế của đơn vị vận chuyển hoặc theo thỏa thuận. Có thể giao ngay, dự kiến 1–2 giờ nếu điều kiện cho phép.
+
+- Ngoại thành Hà Nội / tỉnh lân cận, bán kính 15–30 km; đơn dưới 2.000.000 đồng:
+  Thu theo biểu phí thực tế. Giao theo lịch vận chuyển.
+
+- Ngoại thành Hà Nội / tỉnh lân cận, bán kính 15–30 km; đơn từ 2.000.000 đến dưới 5.000.000 đồng:
+  Hỗ trợ 50% phí vận chuyển tiêu chuẩn. Giao theo lịch vận chuyển.
+
+- Ngoại thành Hà Nội / tỉnh lân cận, bán kính 15–30 km; đơn từ 5.000.000 đồng trở lên:
+  Miễn phí vận chuyển tiêu chuẩn. Giao theo lịch vận chuyển.
+
+- Khu vực trên 30 km hoặc đơn hàng đặc thù; mọi giá trị:
+  Chi phí theo hợp đồng, phụ lục hoặc báo giá. Giao theo lịch vận chuyển.
+
+Long Hưng có thể hỗ trợ miễn phí vận chuyển ra bến xe nội thành cho đơn hàng từ 1.000.000 đồng trở lên, tùy điều kiện thực tế và thỏa thuận trước. Chuyển phát nhanh có thể áp dụng mức đồng giá 30.000 đồng/đơn với đơn hàng từ 800.000 đồng, dưới 5 kg, khi điều kiện vận chuyển cho phép.
+
+6. Miễn phí vận chuyển
+Chính sách miễn phí vận chuyển áp dụng theo bảng phí trên hoặc chương trình bán hàng được Long Hưng công bố tại từng thời điểm. Khách hàng doanh nghiệp có hợp đồng nguyên tắc có thể được hưởng ưu đãi khác theo hợp đồng, phụ lục, báo giá hoặc thỏa thuận riêng.
+
+7. Kiểm tra hàng hóa khi nhận
+Khách hàng có quyền kiểm tra tình trạng bên ngoài của hàng hóa trước khi ký nhận, gồm số lượng kiện hàng, tình trạng bao bì/niêm phong và dấu hiệu hư hỏng, móp méo hoặc bất thường trong quá trình vận chuyển.
+
+Nếu phát hiện bất thường, khách hàng cần thông báo ngay cho nhân viên giao hàng hoặc Long Hưng; ghi nhận hiện trạng và chụp ảnh/video để phối hợp xử lý.
+
+Việc ký nhận xác nhận khách hàng đã nhận đủ số lượng kiện hàng theo chứng từ giao nhận, trừ lỗi tiềm ẩn không thể phát hiện bằng kiểm tra thông thường.
+
+8. Trách nhiệm của Long Hưng
+Long Hưng có trách nhiệm chuẩn bị đúng chủng loại, số lượng và quy cách đã xác nhận; đóng gói phù hợp với sản phẩm; bàn giao đúng địa chỉ khách hàng cung cấp; và hỗ trợ xử lý vấn đề phát sinh trong phạm vi trách nhiệm của Long Hưng.
+
+9. Trách nhiệm của khách hàng
+Khách hàng cần cung cấp thông tin giao nhận chính xác, bố trí người nhận hàng, thanh toán theo thỏa thuận, kiểm tra hàng khi nhận và phối hợp xử lý phát sinh. Chi phí phát sinh do sai thông tin giao hàng, không liên hệ được người nhận hoặc thay đổi địa điểm/thời gian giao hàng ngoài thỏa thuận ban đầu có thể do khách hàng chịu.
+
+10. Trường hợp giao hàng không thành công
+Long Hưng có quyền từ chối hoặc tạm ngừng giao hàng khi không liên hệ được người nhận; địa chỉ không chính xác; khách hàng từ chối nhận hàng không có lý do chính đáng; có dấu hiệu gian lận hoặc vi phạm nghĩa vụ thanh toán; hoặc có yếu tố ảnh hưởng đến an toàn của nhân viên giao nhận/hàng hóa.
+
+============================================================
+4. CHÍNH SÁCH ĐỔI TRẢ VÀ HOÀN TIỀN
+Route: /chinh-sach/doi-tra-hoan-tien
+============================================================
+
+1. Nguyên tắc chung
+Long Hưng cam kết cung cấp sản phẩm đúng chủng loại, quy cách, số lượng, chất lượng và tiêu chuẩn công bố của nhà sản xuất hoặc thỏa thuận giữa các bên. Các yêu cầu đổi trả được xem xét dựa trên chứng từ giao dịch, tình trạng sản phẩm, lỗi thực tế và chính sách đã công bố.
+
+2. Đổi trả đối với khách hàng doanh nghiệp (B2B)
+Các trường hợp được hỗ trợ:
+- Giao sai sản phẩm, sai quy cách hoặc thông số kỹ thuật đã xác nhận.
+- Giao thiếu số lượng so với chứng từ giao nhận.
+- Hàng hóa hư hỏng hoặc bao bì biến dạng trong quá trình vận chuyển, ảnh hưởng đến chất lượng sản phẩm.
+- Sản phẩm có lỗi từ nhà sản xuất.
+- Sản phẩm không đáp ứng tiêu chuẩn chất lượng đã được hai bên thống nhất bằng văn bản.
+
+Thời hạn thông báo đổi trả tính từ ngày nhận hàng:
+- 03 ngày làm việc đối với sai sót về số lượng hoặc chủng loại.
+- 07 ngày làm việc đối với lỗi chất lượng hoặc lỗi sản xuất.
+
+Sau thời hạn trên, Long Hưng có thể xem xét hỗ trợ tùy trường hợp nhưng không mặc nhiên có nghĩa vụ chấp thuận.
+
+Phương án xử lý có thể là đổi sản phẩm tương đương, bù hàng trong đơn tiếp theo, thu hồi hàng, hoàn tiền một phần/toàn bộ, khấu trừ công nợ hoặc phương án khác theo thỏa thuận.
+
+Khi lỗi được Long Hưng xác nhận là do Long Hưng, nhà sản xuất hoặc quá trình vận chuyển thuộc trách nhiệm của Long Hưng, Long Hưng chịu chi phí vận chuyển đổi trả hợp lý. Chi phí phát sinh do lỗi khách hàng hoặc thay đổi nhu cầu sử dụng do khách hàng chịu, trừ khi có thỏa thuận khác.
+
+3. Đổi trả đối với khách hàng cá nhân (B2C)
+Điều kiện đổi trả:
+- Sản phẩm có lỗi từ nhà sản xuất.
+- Sản phẩm hư hỏng do vận chuyển.
+- Giao sai hoặc thiếu sản phẩm so với xác nhận đơn hàng.
+
+Điều kiện tiếp nhận hàng đổi trả:
+- Sản phẩm còn nguyên hiện trạng ban đầu, chưa qua sử dụng.
+- Có đầy đủ bao bì, phụ kiện, quà tặng kèm theo (nếu có).
+- Có chứng từ mua hàng hoặc căn cứ xác định giao dịch với Long Hưng.
+
+Các trường hợp không áp dụng đổi trả:
+- Sản phẩm đã qua sử dụng.
+- Sản phẩm không còn lỗi tại thời điểm kiểm tra.
+- Sản phẩm hư hỏng do bảo quản hoặc sử dụng không đúng cách.
+- Sản phẩm bị tác động bởi yếu tố bên ngoài sau khi giao hàng.
+- Khách hàng thay đổi nhu cầu sử dụng sau khi nhận hàng, trừ khi Long Hưng có chương trình hoặc thỏa thuận hỗ trợ riêng.
+
+4. Quy trình yêu cầu đổi trả
+Bước 1: Khách hàng gửi yêu cầu qua kinhdoanh@vpplonghung.com, hotro@vpplonghung.com, biểu mẫu liên hệ trên website, Zalo, fanpage chính thức hoặc kênh Long Hưng công bố.
+
+Bước 2: Cung cấp tên khách hàng, số điện thoại, mã đơn hàng/hợp đồng/chứng từ giao dịch, mô tả tình trạng sản phẩm, hình ảnh hoặc video (nếu có).
+
+Bước 3: Long Hưng phản hồi ban đầu trong vòng 24 giờ làm việc kể từ khi nhận đủ thông tin cần thiết.
+
+Bước 4: Hai bên thống nhất phương án và thực hiện đổi trả, bù hàng, khấu trừ công nợ, hoàn tiền hoặc biện pháp phù hợp khác.
+
+5. Hoàn tiền
+Long Hưng thực hiện hoàn tiền khi không còn hàng để đổi, không thể khắc phục lỗi, hai bên thống nhất hoàn tiền hoặc trong trường hợp khác phù hợp với hồ sơ giao dịch.
+
+Hoàn tiền có thể thực hiện qua chuyển khoản ngân hàng, khấu trừ công nợ, bù trừ vào đơn tiếp theo hoặc hình thức khác theo thỏa thuận. Thời gian xử lý thông thường từ 03 đến 15 ngày làm việc kể từ khi hồ sơ được xác nhận hợp lệ, tùy phương thức thanh toán, ngân hàng và đơn vị trung gian thanh toán.
+
+6. Quyền từ chối yêu cầu
+Long Hưng có quyền từ chối yêu cầu đổi trả khi thông tin cung cấp không trung thực; không chứng minh được nguồn gốc sản phẩm từ Long Hưng; hàng hóa hư hỏng do lỗi khách hàng; hoặc yêu cầu vượt quá thời hạn/không đáp ứng điều kiện nêu trong chính sách này.
+
+============================================================
+5. CHÍNH SÁCH BẢO HÀNH
+Route: /chinh-sach/bao-hanh
+============================================================
+
+1. Phạm vi áp dụng
+Chính sách quy định nguyên tắc, điều kiện và quy trình hỗ trợ bảo hành đối với sản phẩm do Long Hưng phân phối hoặc cung cấp.
+
+Long Hưng là đơn vị phân phối/cung ứng và không trực tiếp sản xuất phần lớn hàng hóa kinh doanh. Các sản phẩm có bảo hành áp dụng theo chính sách chính thức của nhà sản xuất, nhà nhập khẩu hoặc đơn vị bảo hành được ủy quyền.
+
+Long Hưng tiếp nhận yêu cầu, hỗ trợ kiểm tra thông tin sản phẩm, kết nối với đơn vị bảo hành và hỗ trợ gửi/nhận sản phẩm trong phạm vi khả năng của công ty và điều kiện từng đơn hàng.
+
+2. Sản phẩm thuộc diện bảo hành
+Chính sách bảo hành áp dụng với sản phẩm có quy định bảo hành từ nhà sản xuất, nhà nhập khẩu hoặc đơn vị bảo hành được ủy quyền.
+
+Các sản phẩm tiêu dùng thông thường như giấy in, bút viết, sổ tay, hồ sơ lưu trữ, dụng cụ học sinh và vật tư tiêu hao không thuộc diện bảo hành; các sản phẩm này áp dụng theo Chính sách Đổi trả và Hoàn tiền.
+
+3. Điều kiện được xem xét bảo hành
+Sản phẩm được xem xét bảo hành khi đồng thời đáp ứng các điều kiện:
+- Còn trong thời hạn bảo hành.
+- Có lỗi kỹ thuật phát sinh từ quá trình sản xuất.
+- Có căn cứ xác định sản phẩm do Long Hưng cung cấp.
+- Không thuộc trường hợp từ chối bảo hành của nhà sản xuất hoặc đơn vị bảo hành.
+
+4. Trường hợp không thuộc phạm vi bảo hành
+Không bảo hành trong các trường hợp:
+- Hết thời hạn bảo hành.
+- Hư hỏng do sử dụng không đúng hướng dẫn.
+- Hư hỏng do va đập, rơi vỡ, tác động cơ học hoặc bảo quản không đúng điều kiện.
+- Hư hỏng do thiên tai, hỏa hoạn hoặc nguyên nhân khách quan khác.
+- Sản phẩm đã được sửa chữa/can thiệp bởi đơn vị không được nhà sản xuất cho phép.
+- Hao mòn tự nhiên trong quá trình sử dụng.
+- Tem bảo hành, số serial hoặc dấu hiệu nhận diện bị mất, rách, tẩy xóa hoặc không thể xác minh.
+
+5. Quy trình tiếp nhận bảo hành
+Bước 1: Khách hàng liên hệ qua hotro@vpplonghung.com, biểu mẫu website, Zalo, fanpage chính thức hoặc kênh Long Hưng công bố.
+
+Bước 2: Cung cấp tên khách hàng/doanh nghiệp, số điện thoại, hóa đơn hoặc chứng từ mua hàng, thông tin sản phẩm, mô tả lỗi, hình ảnh/video liên quan.
+
+Bước 3: Long Hưng tiếp nhận, kiểm tra và phản hồi trong vòng 24 giờ làm việc kể từ khi nhận đủ thông tin cần thiết.
+
+Bước 4: Sản phẩm được gửi đến trung tâm bảo hành, nhà sản xuất, nhà nhập khẩu hoặc đơn vị được chỉ định để kiểm tra và xử lý.
+
+6. Thời gian và chi phí bảo hành
+Thời gian bảo hành được xác định theo quy định của nhà sản xuất, điều kiện bảo hành đi kèm sản phẩm và chính sách của nhà nhập khẩu/đơn vị bảo hành được ủy quyền. Long Hưng không cam kết thời gian xử lý cụ thể cho từng sản phẩm vì phụ thuộc quy trình của đơn vị bảo hành.
+
+Nếu thuộc phạm vi bảo hành, chi phí sửa chữa/thay thế linh kiện thực hiện theo chính sách của nhà sản xuất; các chi phí khác áp dụng theo quy định của đơn vị bảo hành. Nếu ngoài phạm vi bảo hành, khách hàng chịu các chi phí liên quan theo báo giá hoặc thỏa thuận.
+
+7. Giới hạn trách nhiệm
+Long Hưng không chịu trách nhiệm cho thiệt hại gián tiếp phát sinh từ việc sử dụng sản phẩm, tổn thất dữ liệu, lợi nhuận hoặc cơ hội kinh doanh, hay nghĩa vụ vượt quá phạm vi bảo hành của nhà sản xuất. Trong mọi trường hợp, mức trách nhiệm tối đa của Long Hưng (nếu phát sinh) không vượt quá giá trị thực tế của sản phẩm đã được cung cấp và thanh toán.
+
+============================================================
+6. ĐIỀU KHOẢN VÀ ĐIỀU KIỆN GIAO DỊCH
+Route: /dieu-khoan-giao-dich
+============================================================
+
+1. Phạm vi áp dụng
+Điều khoản này điều chỉnh hoạt động truy cập website, tham khảo thông tin, yêu cầu báo giá, đặt hàng, mua hàng, giao nhận, thanh toán và các giao dịch liên quan giữa khách hàng và Long Hưng.
+
+Việc tiếp tục sử dụng website, gửi yêu cầu báo giá, xác nhận đơn hàng hoặc thực hiện giao dịch được hiểu là khách hàng đã đọc, hiểu và đồng ý với các điều khoản áp dụng, trừ khi có thỏa thuận riêng bằng văn bản.
+
+2. Sản phẩm và dịch vụ
+Long Hưng cung cấp các nhóm sản phẩm, bao gồm nhưng không giới hạn ở: giấy in văn phòng, văn phòng phẩm, dụng cụ học sinh, thiết bị văn phòng, vật tư tiêu hao, sản phẩm phục vụ giáo dục, sản phẩm phục vụ hành chính văn phòng và sản phẩm liên quan.
+
+Thông tin sản phẩm trên website, catalogue hoặc tài liệu bán hàng có tính tham khảo và có thể được cập nhật theo thực tế kinh doanh. Thông tin giao dịch chính thức được xác định theo báo giá, đơn đặt hàng, hợp đồng hoặc xác nhận giao dịch giữa các bên.
+
+3. Xác lập giao dịch
+Giao dịch có thể được xác lập qua đơn đặt hàng, báo giá được xác nhận, hợp đồng kinh tế, hợp đồng nguyên tắc, email, tin nhắn, điện thoại, chứng từ giao dịch hoặc hình thức hợp pháp khác.
+
+Long Hưng có quyền từ chối hoặc hủy giao dịch khi thông tin khách hàng không chính xác, hàng hóa không còn khả dụng, có dấu hiệu gian lận, khách hàng vi phạm nghĩa vụ thanh toán hoặc xảy ra sự kiện bất khả kháng.
+
+4. Giá bán
+Giá bán được xác định theo báo giá chính thức, hợp đồng, đơn đặt hàng đã xác nhận hoặc chính sách bán hàng tại từng thời điểm. Long Hưng có quyền điều chỉnh giá đối với giao dịch chưa được xác nhận mà không cần thông báo trước.
+
+5. Thanh toán, giao hàng, đổi trả, bảo hành và khiếu nại
+Các nội dung này được thực hiện theo chính sách tương ứng của Long Hưng được công bố hoặc ban hành tại từng thời điểm. Nếu hợp đồng, phụ lục hợp đồng hoặc thỏa thuận riêng có quy định khác, thỏa thuận riêng được ưu tiên áp dụng nếu không trái pháp luật.
+
+6. Quyền sở hữu trí tuệ
+Toàn bộ nội dung trên website và tài liệu của Long Hưng, bao gồm logo, hình ảnh, thiết kế, dữ liệu, tài liệu, bài viết, bố cục và nhãn hiệu, thuộc quyền sở hữu hoặc quyền sử dụng hợp pháp của Long Hưng hoặc bên cấp quyền tương ứng.
+
+Không được sao chép, sử dụng, khai thác, sửa đổi, phân phối hoặc thương mại hóa các nội dung trên khi chưa có sự đồng ý bằng văn bản của Long Hưng, trừ trường hợp pháp luật cho phép.
+
+7. Bảo mật thông tin
+Việc thu thập, sử dụng, lưu trữ và bảo vệ thông tin cá nhân được thực hiện theo Chính sách Bảo mật Thông tin Cá nhân của Long Hưng và quy định pháp luật hiện hành.
+
+8. Giới hạn trách nhiệm
+Long Hưng không chịu trách nhiệm cho thiệt hại phát sinh khi khách hàng sử dụng sản phẩm không đúng mục đích/hướng dẫn, lỗi đường truyền internet, gián đoạn kỹ thuật ngoài khả năng kiểm soát, thông tin khách hàng cung cấp không chính xác hoặc sự kiện bất khả kháng.
+
+9. Luật áp dụng và giải quyết tranh chấp
+Mọi giao dịch được điều chỉnh bởi pháp luật Việt Nam. Khi có tranh chấp, các bên ưu tiên thương lượng và hòa giải. Nếu không đạt thỏa thuận, tranh chấp được giải quyết tại Tòa án nhân dân có thẩm quyền nơi Long Hưng đặt trụ sở chính, trừ khi pháp luật có quy định khác hoặc có thỏa thuận hợp pháp khác.
+
+============================================================
+7. QUY TRÌNH TIẾP NHẬN VÀ GIẢI QUYẾT KHIẾU NẠI
+Route: /ho-tro/khieu-nai
+============================================================
+
+1. Phạm vi và nội dung tiếp nhận
+Long Hưng tiếp nhận phản ánh/khiếu nại từ khách hàng cá nhân, khách hàng doanh nghiệp, đối tác mua hàng và các tổ chức/cá nhân có giao dịch với Long Hưng.
+
+Nội dung có thể liên quan đến chất lượng sản phẩm, số lượng hàng hóa, sai chủng loại/quy cách, giao hàng chậm, thái độ phục vụ, thanh toán, chính sách bán hàng, bảo hành, đổi trả, bảo mật thông tin, công nợ, chứng từ và các vấn đề khác phát sinh trong giao dịch.
+
+2. Kênh tiếp nhận
+- Email: hotro@vpplonghung.com
+- Hotline / Zalo: 0353 839 500
+- Zalo: Văn phòng phẩm Long Hưng
+- Facebook/Fanpage: Long Hưng Bookstore hoặc fanpage chính thức do Long Hưng công bố
+- Biểu mẫu liên hệ tại vpplonghung.com
+- Phản ánh trực tiếp hoặc văn bản gửi đến trụ sở/địa điểm giao dịch của Long Hưng
+
+3. Thông tin cần cung cấp
+Khách hàng vui lòng cung cấp họ tên/tên doanh nghiệp, số điện thoại, email, mã đơn hàng/hợp đồng/chứng từ giao dịch (nếu có), nội dung khiếu nại, yêu cầu xử lý và hình ảnh/video/tài liệu liên quan (nếu có).
+
+4. Quy trình xử lý
+Bước 1 — Tiếp nhận: Long Hưng ghi nhận thông tin. Nếu hồ sơ chưa đủ, Long Hưng có thể yêu cầu bổ sung để xác minh.
+
+Bước 2 — Xác minh: Long Hưng kiểm tra hồ sơ giao dịch, đối chiếu chứng từ và làm việc với bên liên quan (nếu cần) để thu thập thông tin.
+
+Bước 3 — Đề xuất phương án: Tùy trường hợp, Long Hưng có thể giải thích/làm rõ thông tin, bổ sung hoặc đổi sản phẩm, thu hồi sản phẩm, hoàn tiền, khấu trừ công nợ, hỗ trợ kỹ thuật hoặc áp dụng biện pháp khắc phục phù hợp khác.
+
+Bước 4 — Thông báo kết quả: Kết quả được thông báo qua email, điện thoại, văn bản hoặc phương thức liên hệ đã đăng ký.
+
+Bước 5 — Hoàn tất: Khi các bên thống nhất phương án hoặc Long Hưng đã hoàn thành nghĩa vụ phản hồi theo quy trình, vụ việc được ghi nhận hoàn tất.
+
+5. Thời gian xử lý
+- Phản hồi ban đầu: không quá 24 giờ làm việc kể từ khi tiếp nhận đủ thông tin.
+- Thời gian xử lý thông thường: từ 24 đến 72 giờ làm việc tiếp theo.
+- Với vụ việc phức tạp cần phối hợp với nhà sản xuất, đơn vị vận chuyển, đơn vị bảo hành hoặc cơ quan chức năng, thời gian có thể kéo dài hơn. Long Hưng cập nhật tiến độ trong phạm vi phù hợp.
+
+6. Giải quyết tranh chấp
+Long Hưng ưu tiên giải quyết tranh chấp trên cơ sở hợp tác, thiện chí và tôn trọng quyền/lợi ích hợp pháp của các bên. Nếu không thể giải quyết bằng thương lượng, tranh chấp được xử lý theo pháp luật Việt Nam tại cơ quan nhà nước hoặc Tòa án nhân dân có thẩm quyền.
+
+============================================================
+8. CHÍNH SÁCH BÁN HÀNG VỚI KHÁCH HÀNG DOANH NGHIỆP
+Route: /khach-hang-doanh-nghiep/chinh-sach-ban-hang
+============================================================
+
+1. Đối tượng áp dụng
+Chính sách này áp dụng cho các tổ chức/doanh nghiệp có nhu cầu mua sắm văn phòng phẩm, giấy in, dụng cụ học sinh, thiết bị văn phòng, vật tư tiêu hao và sản phẩm liên quan, bao gồm công ty, tổ chức, trường học, cơ quan nhà nước, đơn vị hành chính sự nghiệp, nhà máy, khu công nghiệp và tổ chức tương đương.
+
+2. Chính sách giá
+Giá bán được xây dựng dựa trên số lượng đặt hàng, tần suất mua hàng, nhóm sản phẩm, hình thức thanh toán, thời hạn công nợ, điều kiện giao hàng, chi phí vận chuyển và thỏa thuận cụ thể.
+
+Khách hàng doanh nghiệp có thể hưởng chính sách giá riêng theo nhóm khách hàng, hợp đồng nguyên tắc, chương trình bán hàng hoặc thỏa thuận với bộ phận kinh doanh của Long Hưng.
+
+3. Hợp đồng nguyên tắc
+Long Hưng khuyến khích khách hàng doanh nghiệp ký hợp đồng nguyên tắc để được xem xét các lợi ích như ổn định giá bán trong phạm vi thỏa thuận, bảo đảm nguồn cung, rút ngắn thời gian xử lý đơn hàng, xem xét cấp công nợ, và chính sách vận chuyển/chăm sóc khách hàng/ưu đãi riêng theo từng thời điểm.
+
+4. Giao hàng
+Khách hàng doanh nghiệp tại Hà Nội và khu vực phục vụ thực tế được ưu tiên giao hàng bằng đội giao vận của Long Hưng hoặc đối tác vận tải được chỉ định.
+
+Chính sách miễn phí vận chuyển, hỗ trợ phí vận chuyển và điều kiện áp dụng thực hiện theo Chính sách Vận chuyển và Giao nhận hoặc theo thỏa thuận riêng trong hợp đồng, phụ lục hợp đồng hoặc báo giá đã xác nhận.
+
+Nếu có khác biệt giữa chính sách chung và hợp đồng, thứ tự ưu tiên áp dụng là:
+1) Hợp đồng, phụ lục hợp đồng hoặc báo giá được xác nhận.
+2) Chương trình ưu đãi riêng do Long Hưng chấp thuận.
+3) Chính sách chung đang có hiệu lực.
+
+5. Đổi trả
+Long Hưng áp dụng cơ chế đổi trả linh hoạt cho khách hàng doanh nghiệp để bảo đảm hoạt động vận hành không bị gián đoạn. Các trường hợp đổi trả được xử lý theo Chính sách Đổi trả và Hoàn tiền hoặc thỏa thuận riêng giữa các bên.
+
+6. Công nợ
+Công nợ chỉ áp dụng khi được Long Hưng phê duyệt bằng văn bản hoặc quy định trong hợp đồng, phụ lục hợp đồng hoặc báo giá đã xác nhận.
+
+Hạn mức và thời hạn công nợ được xác định riêng cho từng khách hàng. Long Hưng có thể tạm dừng giao hàng hoặc yêu cầu thanh toán trước nếu phát sinh nợ quá hạn hoặc dấu hiệu rủi ro tín dụng.
+
+7. Cam kết dịch vụ
+Long Hưng cam kết:
+- Cung cấp hàng hóa có nguồn gốc rõ ràng.
+- Xuất hóa đơn VAT đầy đủ, hợp lệ theo thông tin khách hàng cung cấp.
+- Giao hàng đúng tiến độ đã xác nhận trong điều kiện vận hành bình thường.
+- Hỗ trợ xử lý khiếu nại trong vòng 24–72 giờ làm việc kể từ khi nhận đủ thông tin.
+- Thực hiện đổi trả theo chính sách đã công bố.
+- Đồng hành lâu dài và phát triển bền vững cùng khách hàng doanh nghiệp.
+
+============================================================
+9. CHÍNH SÁCH CÔNG NỢ KHÁCH HÀNG DOANH NGHIỆP
+Route: /khach-hang-doanh-nghiep/chinh-sach-cong-no
+============================================================
+
+1. Điều kiện xem xét cấp công nợ
+Khách hàng doanh nghiệp được xem xét cấp công nợ khi có giấy chứng nhận đăng ký doanh nghiệp hợp lệ và mã số thuế đang hoạt động; có địa chỉ kinh doanh rõ ràng; có người đại diện/người được ủy quyền hợp pháp; có nhu cầu mua hàng thường xuyên hoặc giá trị giao dịch phù hợp; và được Long Hưng phê duyệt bằng văn bản.
+
+2. Hồ sơ cần cung cấp
+Khách hàng có thể được yêu cầu cung cấp giấy chứng nhận đăng ký doanh nghiệp, thông tin xuất hóa đơn, thông tin người phụ trách mua hàng, kế toán thanh toán, thông tin giao nhận, hợp đồng nguyên tắc hoặc tài liệu khác cần thiết để đánh giá năng lực thanh toán, lịch sử giao dịch và rủi ro tín dụng.
+
+3. Hạn mức và thời hạn thanh toán
+Hạn mức công nợ được xác định dựa trên quy mô doanh nghiệp, tần suất mua hàng, lịch sử thanh toán, giá trị giao dịch dự kiến, thời hạn hợp tác, tình hình công nợ hiện tại và đánh giá rủi ro tín dụng.
+
+Thời hạn thanh toán được xác định theo hợp đồng, phụ lục, báo giá đã xác nhận hoặc thỏa thuận bằng văn bản. Thông thường, thời hạn công nợ không quá 30 ngày kể từ ngày giao hàng hoặc ngày xuất hóa đơn, trừ trường hợp được phê duyệt riêng.
+
+4. Công nợ quá hạn
+Khi công nợ quá hạn, Long Hưng có quyền tạm dừng giao hàng hoặc ưu đãi, thu hồi/giảm hạn mức công nợ, yêu cầu thanh toán trước cho đơn tiếp theo, thực hiện đối chiếu công nợ bắt buộc, gửi thông báo nhắc nợ và áp dụng biện pháp thu hồi nợ phù hợp theo pháp luật.
+
+5. Chấm dứt chế độ công nợ
+Long Hưng có quyền chấm dứt chế độ công nợ khi khách hàng thanh toán chậm nhiều lần, cung cấp thông tin không chính xác, có dấu hiệu mất khả năng thanh toán, vi phạm nghĩa vụ hợp đồng, phát sinh tranh chấp nghiêm trọng hoặc có rủi ro tín dụng.
+
+============================================================
+10. QUY TRÌNH ĐẶT HÀNG DOANH NGHIỆP
+Route: /khach-hang-doanh-nghiep/quy-trinh-dat-hang
+============================================================
+
+1. Gửi yêu cầu
+Khách hàng gửi nhu cầu mua hàng cho Long Hưng, bao gồm danh mục sản phẩm, số lượng, yêu cầu giao nhận, thông tin xuất hóa đơn và các yêu cầu liên quan.
+
+2. Báo giá và xác nhận
+Long Hưng tiếp nhận yêu cầu, lập báo giá/đơn hàng theo nhu cầu thực tế và trao đổi điều chỉnh khi cần. Khách hàng xác nhận nội dung báo giá/đơn hàng và khả năng thanh toán trước khi đơn hàng được chốt.
+
+3. Chuẩn bị hàng hóa
+Sau khi đơn hàng được xác nhận, Long Hưng kiểm tra tình trạng hàng hóa, chuẩn bị, kiểm đếm, đối chiếu và đóng gói theo nội dung đã thống nhất. Nếu một phần hàng hóa vượt tồn kho, Long Hưng sẽ trao đổi phương án thay thế hoặc thời gian bổ sung hàng.
+
+4. Giao hàng và chứng từ
+Long Hưng phối hợp giao hàng theo phương án đã xác nhận. Khách hàng kiểm tra hàng và ký nhận theo chứng từ giao nhận. Hóa đơn và các chứng từ liên quan được xử lý theo thỏa thuận/hợp đồng và thông tin hợp lệ do khách hàng cung cấp.
+
+5. Thanh toán
+Khách hàng thanh toán theo thời hạn và phương thức quy định trong báo giá, đơn hàng, hợp đồng hoặc thỏa thuận công nợ đã được phê duyệt.
+
+6. Lưu ý
+Thời gian xử lý thực tế phụ thuộc vào tình trạng tồn kho, đặc thù đơn hàng, yêu cầu giao nhận, điều kiện vận chuyển và các yếu tố phát sinh hợp lý. Thông tin chính thức cho từng đơn hàng được xác định theo báo giá, đơn đặt hàng, hợp đồng hoặc xác nhận giao dịch.
+
+============================================================
+FOOTER CONTACT BLOCK (USE ON ALL POLICY PAGES)
+============================================================
+
+Công ty TNHH Văn phòng phẩm Long Hưng
+MST: 0109448311
+Địa chỉ: Số nhà LK03-07, Khu đô thị thấp tầng Roman Plaza Hải Phát, đường Tố Hữu, phường Đại Mỗ, thành phố Hà Nội
+Email: hotro@vpplonghung.com
+Hotline / Zalo: 0353 839 500
+Website: https://vpplonghung.com
+

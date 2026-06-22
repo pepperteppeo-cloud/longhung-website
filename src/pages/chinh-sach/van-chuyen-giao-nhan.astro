@@ -1,0 +1,134 @@
+---
+import PolicyPage from '../../components/PolicyPage.astro';
+
+const tocLinks = [
+  { title: 'Phạm vi áp dụng', href: '#pham-vi-ap-dung' },
+  { title: 'Phạm vi giao hàng', href: '#pham-vi-giao-hang' },
+  { title: 'Đơn vị vận chuyển', href: '#don-vi-van-chuyen' },
+  { title: 'Thời gian giao hàng dự kiến', href: '#thoi-gian-giao-hang-du-kien' },
+  { title: 'Phí vận chuyển', href: '#phi-van-chuyen' },
+  { title: 'Miễn phí vận chuyển', href: '#mien-phi-van-chuyen' },
+  { title: 'Kiểm tra hàng hóa khi nhận', href: '#kiem-tra-hang-hoa-khi-nhan' },
+  { title: 'Trách nhiệm của Long Hưng', href: '#trach-nhiem-cua-long-hung' },
+  { title: 'Trách nhiệm của khách hàng', href: '#trach-nhiem-cua-khach-hang' },
+  { title: 'Trường hợp giao hàng không thành công', href: '#truong-hop-khong-thanh-cong' }
+];
+---
+
+<PolicyPage
+  title="Chính sách vận chuyển và giao nhận"
+  pageTitle="Chính sách vận chuyển và giao nhận"
+  description="Quy định giao nhận, phí vận chuyển và trách nhiệm trong quá trình vận chuyển hàng hóa."
+  currentPage="/chinh-sach/van-chuyen-giao-nhan"
+  tocLinks={tocLinks}
+>
+  <section id="pham-vi-ap-dung">
+    <h2>1. Phạm vi áp dụng</h2>
+    <p>
+      Chính sách áp dụng cho hoạt động giao nhận hàng hóa giữa Long Hưng với khách hàng cá nhân và khách hàng doanh nghiệp trên lãnh thổ Việt Nam, trừ trường hợp có thỏa thuận riêng bằng văn bản.
+    </p>
+  </section>
+
+  <section id="pham-vi-giao-hang">
+    <h2>2. Phạm vi giao hàng</h2>
+    <ul>
+      <li>
+        <strong>Khách hàng cá nhân:</strong> Long Hưng hỗ trợ giao hàng toàn quốc qua các đơn vị vận chuyển hợp tác hoặc phương án phù hợp theo từng đơn hàng.
+      </li>
+      <li>
+        <strong>Khách hàng doanh nghiệp:</strong> Long Hưng ưu tiên giao trực tiếp tại Hà Nội và khu vực phục vụ thực tế bằng đội giao vận của công ty hoặc đối tác vận tải.
+        Với đơn hàng ngoài phạm vi phục vụ, các bên thống nhất phương án vận chuyển trước khi giao.
+      </li>
+    </ul>
+  </section>
+
+  <section id="don-vi-van-chuyen">
+    <h2>3. Đơn vị vận chuyển</h2>
+    <ul>
+      <li>
+        <strong>Khách hàng cá nhân:</strong> Giao Hàng Tiết Kiệm (GHTK), Viettel Post hoặc đơn vị phù hợp khác tùy khu vực, thời điểm và tính chất hàng hóa.
+      </li>
+      <li>
+        <strong>Khách hàng doanh nghiệp:</strong> Đội giao nhận của Long Hưng hoặc đơn vị vận tải được chỉ định theo đơn hàng, báo giá, hợp đồng hoặc thỏa thuận.
+      </li>
+    </ul>
+  </section>
+
+  <section id="thoi-gian-giao-hang-du-kien">
+    <h2>4. Thời gian giao hàng dự kiến</h2>
+    <ul>
+      <li>Nội thành Hà Nội: trong vòng 24 giờ làm việc kể từ khi đơn hàng được xác nhận và sẵn sàng giao, trừ khi có thỏa thuận khác.</li>
+      <li>Ngoại thành Hà Nội, tỉnh lân cận và khu vực khác: từ 01 đến 03 ngày làm việc, tùy địa điểm, phương án vận chuyển, tình trạng hàng hóa và đơn vị vận chuyển.</li>
+      <li>Khách hàng doanh nghiệp: thời gian giao hàng được xác nhận cụ thể trong báo giá, đơn đặt hàng, hợp đồng hoặc lịch giao nhận đã thống nhất.</li>
+    </ul>
+    <p>
+      Thời gian giao hàng thực tế có thể thay đổi do bất khả kháng, hạn chế lưu thông, thời tiết, tai nạn giao thông, sự cố kỹ thuật, thiếu hàng tạm thời hoặc sự kiện ngoài khả năng kiểm soát hợp lý của Long Hưng.
+    </p>
+  </section>
+
+  <section id="phi-van-chuyen">
+    <h2>5. Phí vận chuyển</h2>
+    <p>
+      Phí vận chuyển được xác định theo địa điểm giao hàng, khoảng cách, khối lượng, kích thước hàng hóa, giá trị đơn hàng, phương án giao hàng và chính sách bán hàng tại từng thời điểm.
+      Phí cụ thể sẽ được thông báo trước khi xác nhận đơn hàng.
+      Nếu hợp đồng hoặc phụ lục có quy định riêng, thỏa thuận riêng được ưu tiên áp dụng.
+    </p>
+    <p><strong>BẢNG PHÍ THAM KHẢO DÀNH CHO KHÁCH HÀNG DOANH NGHIỆP</strong></p>
+    <ul>
+      <li>Nội thành Hà Nội, bán kính dưới 15 km; đơn từ 2.000.000 đồng trở lên: miễn phí vận chuyển tiêu chuẩn. Dự kiến trong vòng 24 giờ làm việc.</li>
+      <li>Nội thành Hà Nội, bán kính dưới 15 km; đơn dưới 2.000.000 đồng: phí từ 30.000 đến 50.000 đồng hoặc theo thực tế. Dự kiến trong vòng 24 giờ làm việc.</li>
+      <li>Đơn hàng hỏa tốc; mọi giá trị: thu theo biểu phí thực tế của đơn vị vận chuyển hoặc theo thỏa thuận. Có thể giao ngay, dự kiến 1–2 giờ nếu điều kiện cho phép.</li>
+      <li>Ngoại thành Hà Nội / tỉnh lân cận, bán kính 15–30 km; đơn dưới 2.000.000 đồng: thu theo biểu phí thực tế. Giao theo lịch vận chuyển.</li>
+      <li>Ngoại thành Hà Nội / tỉnh lân cận, bán kính 15–30 km; đơn từ 2.000.000 đến dưới 5.000.000 đồng: hỗ trợ 50% phí vận chuyển tiêu chuẩn. Giao theo lịch vận chuyển.</li>
+      <li>Ngoại thành Hà Nội / tỉnh lân cận, bán kính 15–30 km; đơn từ 5.000.000 đồng trở lên: miễn phí vận chuyển tiêu chuẩn. Giao theo lịch vận chuyển.</li>
+      <li>Khu vực trên 30 km hoặc đơn hàng đặc thù; mọi giá trị: chi phí theo hợp đồng, phụ lục hoặc báo giá. Giao theo lịch vận chuyển.</li>
+    </ul>
+    <p>
+      Long Hưng có thể hỗ trợ miễn phí vận chuyển ra bến xe nội thành cho đơn hàng từ 1.000.000 đồng trở lên, tùy điều kiện thực tế và thỏa thuận trước.
+      Chuyển phát nhanh có thể áp dụng mức đồng giá 30.000 đồng/đơn với đơn hàng từ 800.000 đồng, dưới 5 kg, khi điều kiện vận chuyển cho phép.
+    </p>
+  </section>
+
+  <section id="mien-phi-van-chuyen">
+    <h2>6. Miễn phí vận chuyển</h2>
+    <p>
+      Chính sách miễn phí vận chuyển áp dụng theo bảng phí trên hoặc chương trình bán hàng được Long Hưng công bố tại từng thời điểm.
+      Khách hàng doanh nghiệp có hợp đồng nguyên tắc có thể được hưởng ưu đãi khác theo hợp đồng, phụ lục, báo giá hoặc thỏa thuận riêng.
+    </p>
+  </section>
+
+  <section id="kiem-tra-hang-hoa-khi-nhan">
+    <h2>7. Kiểm tra hàng hóa khi nhận</h2>
+    <p>
+      Khách hàng có quyền kiểm tra tình trạng bên ngoài của hàng hóa trước khi ký nhận, gồm số lượng kiện hàng, tình trạng bao bì/niêm phong và dấu hiệu hư hỏng, móp méo hoặc bất thường trong quá trình vận chuyển.
+    </p>
+    <p>
+      Nếu phát hiện bất thường, khách hàng cần thông báo ngay cho nhân viên giao hàng hoặc Long Hưng; ghi nhận hiện trạng và chụp ảnh/video để phối hợp xử lý.
+    </p>
+    <p>
+      Việc ký nhận xác nhận khách hàng đã nhận đủ số lượng kiện hàng theo chứng từ giao nhận, trừ lỗi tiềm ẩn không thể phát hiện bằng kiểm tra thông thường.
+    </p>
+  </section>
+
+  <section id="trach-nhiem-cua-long-hung">
+    <h2>8. Trách nhiệm của Long Hưng</h2>
+    <p>
+      Long Hưng có trách nhiệm chuẩn bị đúng chủng loại, số lượng và quy cách đã xác nhận; đóng gói phù hợp với sản phẩm; bàn giao đúng địa chỉ khách hàng cung cấp; và hỗ trợ xử lý vấn đề phát sinh trong phạm vi trách nhiệm của Long Hưng.
+    </p>
+  </section>
+
+  <section id="trach-nhiem-cua-khach-hang">
+    <h2>9. Trách nhiệm của khách hàng</h2>
+    <p>
+      Khách hàng cần cung cấp thông tin giao nhận chính xác, bố trí người nhận hàng, thanh toán theo thỏa thuận, kiểm tra hàng khi nhận và phối hợp xử lý phát sinh.
+      Chi phí phát sinh do sai thông tin giao hàng, không liên hệ được người nhận hoặc thay đổi địa điểm/thời gian giao hàng ngoài thỏa thuận ban đầu có thể do khách hàng chịu.
+    </p>
+  </section>
+
+  <section id="truong-hop-khong-thanh-cong">
+    <h2>10. Trường hợp giao hàng không thành công</h2>
+    <p>
+      Long Hưng có quyền từ chối hoặc tạm ngừng giao hàng khi không liên hệ được người nhận; địa chỉ không chính xác; khách hàng từ chối nhận hàng không có lý do chính đáng; có dấu hiệu gian lận hoặc vi phạm nghĩa vụ thanh toán; hoặc có yếu tố ảnh hưởng đến an toàn của nhân viên giao nhận/hàng hóa.
+    </p>
+  </section>
+</PolicyPage>

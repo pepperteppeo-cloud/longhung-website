@@ -4,14 +4,80 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import ContactForm from '../components/ContactForm.astro';
+
+const stats = [
+  {
+    number: '100+',
+    label: 'Khách Hàng'
+  },
+  {
+    number: '5+',
+    label: 'Năm Kinh Nghiệm'
+  },
+  {
+    number: '300+',
+    label: 'Sản Phẩm'
+  },
+  {
+    number: '24/7',
+    label: 'Hỗ Trợ'
+  }
+];
+
+const services = [
+  {
+    icon: '/images/icon-service-b2b.webp',
+    title: 'Cung Ứng B2B',
+    text: 'Giải pháp văn phòng phẩm toàn diện cho doanh nghiệp, công ty và tổ chức.'
+  },
+  {
+    icon: '/images/icon-service-retail.webp',
+    title: 'Bán Lẻ',
+    text: 'Nhà sách Long Hưng cung cấp sản phẩm chất lượng cho khách hàng cá nhân và gia đình.'
+  },
+  {
+    icon: '/images/icon-service-delivery.webp',
+    title: 'Giao Hàng',
+    text: 'Vận chuyển an toàn, linh hoạt và phù hợp với nhu cầu sử dụng thực tế.'
+  }
+];
+
+const values = [
+  {
+    title: 'Chất Lượng',
+    text: 'Mỗi sản phẩm được lựa chọn và kiểm tra kỹ để đảm bảo trải nghiệm sử dụng ổn định.'
+  },
+  {
+    title: 'Minh Bạch',
+    text: 'Báo giá rõ ràng, quy trình đơn giản và giao dịch công bằng với mọi khách hàng.'
+  },
+  {
+    title: 'Phục Vụ Tận Tâm',
+    text: 'Đội ngũ Long Hưng luôn sẵn sàng hỗ trợ, lắng nghe và xử lý nhu cầu của khách hàng.'
+  }
+];
 ---
 
-<Layout title="Về Chúng Tôi — Văng Phòng Phẩm Long Hưng" description="Về Văng Phòng Phẩm Long Hưng - Câu chuyện, sứ mệnh, và dịch vụ của chúng tôi.">
+<Layout
+  title="Về Chúng Tôi — Văn Phòng Phẩm Long Hưng"
+  description="Về Văn Phòng Phẩm Long Hưng - Câu chuyện, sứ mệnh, giá trị và dịch vụ của chúng tôi."
+>
   <Header currentPage="/ve-chung-toi" />
 
   <!-- Hero Section -->
-  <section class="hero" style="background-image: url('/images/about-bg.png')">
-
+  <section
+    class="hero hero-page hero-about"
+    style="background-image: url('/images/hero-vpp.webp')"
+  >
+    <div class="hero-inner">
+      <div class="page-hero-content">
+        <p class="eyebrow">Về Long Hưng</p>
+        <h1>Một đối tác văn phòng phẩm đáng tin cậy</h1>
+        <p class="page-hero-description">
+          Long Hưng được xây dựng với tinh thần phục vụ bền bỉ:
+          rõ ràng trong báo giá, tận tâm trong tư vấn và trách nhiệm trong từng đơn hàng.
+        </p>
+      </div>
     </div>
   </section>
 
@@ -19,78 +85,79 @@ import ContactForm from '../components/ContactForm.astro';
   <section class="about-section">
     <div class="container">
       <div class="about-grid">
-        <div class="about-text">
-          <h2 class="section-title">Câu Chuyện Long Hưng</h2>
+        <div class="about-text" data-reveal>
+          <p class="section-subtitle">Câu chuyện Long Hưng</p>
+          <h2 class="section-title">Từ nhu cầu văn phòng đến giải pháp cung ứng</h2>
+
           <p>
-            Văng Phòng Phẩm Long Hưng được thành lập với mục đích cung cấp giải pháp văn phòng phẩm toàn diện cho
-            doanh nghiệp và người tiêu dùng tại Hà Nội và các vùng lân cận.
+            Văn Phòng Phẩm Long Hưng được thành lập với mục tiêu cung cấp giải pháp
+            văn phòng phẩm toàn diện cho doanh nghiệp và người tiêu dùng tại Hà Nội
+            cùng các khu vực lân cận.
           </p>
+
           <p>
-            Chúng tôi tin rằng chất lượng, minh bạch, và phục vụ tận tâm là chìa khóa để xây dựng các mối quan hệ lâu dài
-            với khách hàng.
+            Chúng tôi tin rằng chất lượng, minh bạch và phục vụ tận tâm là nền tảng
+            để xây dựng mối quan hệ lâu dài với khách hàng.
           </p>
+
           <p>
-            Hôm nay, Long Hưng đã trở thành một trong những nhà cung cấp văn phòng phẩm đáng tin cậy tại thành phố.
+            Hôm nay, Long Hưng tiếp tục phát triển theo hướng chuyên nghiệp hơn,
+            tối ưu hơn và gần gũi hơn với nhu cầu thực tế của từng khách hàng.
           </p>
         </div>
-        <div class="about-stats">
-          <div class="stat-card">
-            <div class="stat-number">500+</div>
-            <div class="stat-label">Khách Hàng</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number">10+</div>
-            <div class="stat-label">Năm Kinh Nghiệm</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number">1000+</div>
-            <div class="stat-label">Sản Phẩm</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number">24/7</div>
-            <div class="stat-label">Hỗ Trợ</div>
-          </div>
+
+        <div class="about-stats reveal-stagger">
+          {stats.map((stat) => (
+            <div class="stat-card">
+              <div class="stat-number">{stat.number}</div>
+              <div class="stat-label">{stat.label}</div>
+            </div>
+          ))}
         </div>
       </div>
     </div>
-    
   </section>
 
-<section class="client-section">
+  <!-- Client Strip -->
+  <section class="client-section">
     <div class="container">
       <h2 class="section-title text-center mb-4">Khách Hàng Tiêu Biểu</h2>
       <div class="client-strip">
-        <img src="/images/client-strip.png" alt="Khách hàng tiêu biểu" class="client-image" />
+        <img
+          src="/images/client-strip.webp"
+          alt="Khách hàng tiêu biểu của Long Hưng"
+          class="client-image"
+        />
       </div>
     </div>
-
   </section>
+
   <!-- Services Section -->
   <section class="services-section">
     <div class="container">
-      <h2 class="section-title text-center mb-4">Dịch Vụ Của Chúng Tôi</h2>
-      <div class="grid grid-3">
-        <div class="service-card">
-          <div class="service-icon">🏢</div>
-          <h3>Cung Ứng B2B</h3>
-          <p>
-            Giải pháp văn phòng phẩm toàn diện cho các doanh nghiệp, công ty, và tổ chức.
-          </p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">🛍️</div>
-          <h3>Bán Lẻ</h3>
-          <p>
-            Nhà sách Long Hưng cung cấp các sản phẩm chất lượng cao cho người tiêu dùng cá nhân.
-          </p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">🚚</div>
-          <h3>Giao Hàng</h3>
-          <p>
-            Vận chuyển an toàn, nhanh chóng đến tận nhà, với giá cạnh tranh.
-          </p>
-        </div>
+      <div class="section-heading text-center" data-reveal>
+        <p class="section-subtitle">Dịch vụ</p>
+        <h2 class="section-title">Dịch Vụ Của Chúng Tôi</h2>
+      </div>
+
+      <div class="grid grid-3 reveal-stagger">
+        {services.map((service) => (
+          <div class="service-card service-card--illustrated">
+            <img
+              src={service.icon}
+              alt=""
+              class="card-bg-photo"
+              style="position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover;object-position:center;transform:scale(1.08);opacity:0.9;pointer-events:none;z-index:0;"
+              loading="lazy"
+              decoding="async"
+              aria-hidden="true"
+            />
+            <div class="card-copy" style="position:relative;z-index:1;">
+              <h3>{service.title}</h3>
+              <p>{service.text}</p>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   </section>
@@ -98,179 +165,29 @@ import ContactForm from '../components/ContactForm.astro';
   <!-- Values Section -->
   <section class="values-section">
     <div class="container">
-      <h2 class="section-title text-center mb-4">Giá Trị Cốt Lõi</h2>
-      <div class="grid grid-3">
-        <div class="value-card">
-          <h3>Chất Lượng</h3>
-          <p>
-            Mỗi sản phẩm được lựa chọn và kiểm tra kỹ để đảm bảo chất lượng tốt nhất cho khách hàng.
-          </p>
-        </div>
-        <div class="value-card">
-          <h3>Minh Bạch</h3>
-          <p>
-            Chúng tôi cam kết báo giá rõ ràng, không phụ phí ẩn, và giao dịch công bằng với mọi khách hàng.
-          </p>
-        </div>
-        <div class="value-card">
-          <h3>Phục Vụ Tận Tâm</h3>
-          <p>
-            Đội ngũ chúng tôi luôn sẵn sàng hỗ trợ bạn 24/7 để giải quyết mọi nhu cầu và câu hỏi.
-          </p>
-        </div>
+      <div class="section-heading text-center" data-reveal>
+        <p class="section-subtitle">Giá trị</p>
+        <h2 class="section-title">Giá Trị Cốt Lõi</h2>
+      </div>
+
+      <div class="grid grid-3 reveal-stagger">
+        {values.map((value) => (
+          <div class="value-card">
+            <h3>{value.title}</h3>
+            <p>{value.text}</p>
+          </div>
+        ))}
       </div>
     </div>
   </section>
 
   <!-- Contact Section -->
   <section id="contact-section">
-    <ContactForm title="Liên Hệ Với Chúng Tôi" subtitle="Để biết thêm thông tin về sản phẩm và dịch vụ" />
+    <ContactForm
+      title="Liên Hệ Với Chúng Tôi"
+      subtitle="Để biết thêm thông tin về sản phẩm và dịch vụ"
+    />
   </section>
 
   <Footer />
 </Layout>
-
-<style>
-  .hero-content {
-    max-width: 700px;
-    margin: 0 auto;
-  }
-
-  .hero-subtitle {
-    font-size: 1.5rem;
-    font-family: var(--font-script);
-    color: var(--color-gold-light);
-    margin-bottom: var(--spacing-lg);
-  }
-
-  .about-section {
-    padding: var(--spacing-2xl) 0;
-    background-color: var(--color-bg);
-  }
-
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-2xl);
-    align-items: center;
-  }
-
-  .about-text p {
-    color: var(--color-text);
-    font-size: 1rem;
-    line-height: 1.8;
-    margin-bottom: var(--spacing-lg);
-  }
-
-  .about-stats {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-lg);
-  }
-
-  .stat-card {
-    background-color: var(--color-white);
-    border-radius: var(--radius-lg);
-    padding: var(--spacing-lg);
-    text-align: center;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  }
-
-  .stat-number {
-    font-size: 2rem;
-    font-weight: 900;
-    color: var(--color-primary);
-    margin-bottom: var(--spacing-sm);
-  }
-
-  .stat-label {
-    color: var(--color-brown);
-    font-weight: 600;
-    font-size: 0.9rem;
-  }
-
-  .services-section {
-    padding: var(--spacing-2xl) 0;
-  }
-
-  .service-card {
-    background: linear-gradient(135deg, rgba(102, 0, 17, 0.05) 0%, rgba(171, 106, 36, 0.05) 100%);
-    border-radius: var(--radius-lg);
-    padding: var(--spacing-xl);
-    text-align: center;
-    transition: all var(--transition-normal);
-  }
-
-  .service-card:hover {
-    transform: translateY(-4px);
-    background: linear-gradient(135deg, rgba(102, 0, 17, 0.1) 0%, rgba(171, 106, 36, 0.1) 100%);
-  }
-
-  .service-icon {
-    font-size: 2.5rem;
-    margin-bottom: var(--spacing-md);
-  }
-
-  .service-card h3 {
-    color: var(--color-brown);
-    margin-bottom: var(--spacing-md);
-  }
-
-  .service-card p {
-    color: var(--color-text);
-    font-size: 0.95rem;
-    line-height: 1.6;
-    margin: 0;
-  }
-
-  .values-section {
-    background-color: var(--color-bg);
-    padding: var(--spacing-2xl) 0;
-  }
-
-  .value-card {
-    background-color: var(--color-white);
-    border-radius: var(--radius-lg);
-    padding: var(--spacing-xl);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    border-top: 4px solid var(--color-gold);
-  }
-
-  .value-card h3 {
-    color: var(--color-brown);
-    margin-bottom: var(--spacing-md);
-  }
-
-  .value-card p {
-    color: var(--color-gray);
-    font-size: 0.95rem;
-    line-height: 1.6;
-    margin: 0;
-  }
-
-  @media (max-width: 768px) {
-    .about-grid {
-      grid-template-columns: 1fr;
-      gap: var(--spacing-lg);
-    }
-
-    .about-stats {
-      grid-template-columns: 1fr 1fr;
-      gap: var(--spacing-md);
-    }
-
-    .stat-card {
-      padding: var(--spacing-md);
-    }
-
-    .stat-number {
-      font-size: 1.5rem;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .about-text p {
-      font-size: 0.95rem;
-    }
-  }
-</style>

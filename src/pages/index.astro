@@ -4,56 +4,100 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import ContactForm from '../components/ContactForm.astro';
+
+const features = [
+  {
+    number: '01',
+    title: 'Siêu Tốc',
+    text: 'Giao hàng nhanh chóng, đúng hạn và phù hợp với nhịp vận hành của doanh nghiệp.'
+  },
+  {
+    number: '02',
+    title: 'Minh Bạch',
+    text: 'Báo giá rõ ràng, chứng từ đầy đủ, quy trình làm việc dễ kiểm soát.'
+  },
+  {
+    number: '03',
+    title: 'Tối Ưu',
+    text: 'Tối ưu chi phí mua sắm văn phòng phẩm mà vẫn đảm bảo chất lượng sử dụng.'
+  },
+  {
+    number: '04',
+    title: 'An Toàn',
+    text: 'Sản phẩm chính hãng, giao dịch rõ ràng và hỗ trợ sau bán tận tâm.'
+  }
+];
+
+const commitments = [
+  {
+    number: '01',
+    title: 'Nhanh Chóng',
+    text: 'Xử lý đơn hàng trong 24 giờ, hỗ trợ giao hàng linh hoạt theo nhu cầu.'
+  },
+  {
+    number: '02',
+    title: 'Chất Lượng',
+    text: 'Hàng hóa được chọn lọc và kiểm tra kỹ trước khi bàn giao.'
+  },
+  {
+    number: '03',
+    title: 'Tận Tâm',
+    text: 'Tư vấn miễn phí, hỗ trợ khách hàng trong quá trình đặt hàng và sử dụng.'
+  },
+  {
+    number: '04',
+    title: 'Chuyên Nghiệp',
+    text: 'Đội ngũ có kinh nghiệm, quy trình rõ ràng, làm việc đúng cam kết.'
+  }
+];
+
+const mapEmbedSrc =
+  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4457.595646593065!2d105.7779734!3d20.9857244!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313453a56e4f1e1b%3A0xc8a647e05f3fabd7!2zSGnhu4d1IHPDoWNoIExvbmcgSMawbmc!5e1!3m2!1svi!2s!4v1780030444520!5m2!1svi!2s";
 ---
 
-<Layout title="Văn Phòng Phẩm Long Hưng — Cung ứng VPP B2B" description="Cung ứng văn phòng phẩm chuyên nghiệp, minh bạch, tối ưu, an toàn cho doanh nghiệp.">
+<Layout
+  title="Văn Phòng Phẩm Long Hưng — Cung ứng VPP B2B"
+  description="Cung ứng văn phòng phẩm chuyên nghiệp, minh bạch, tối ưu, an toàn cho doanh nghiệp."
+>
   <Header currentPage="/" />
 
   <!-- Hero Section -->
-  <section class="hero" style="background-image: url('/images/hero-vpp.png')">
-    <div class="hero-subtitle">
-      <h1>Open the Door <br> Open the Books <br> Open the Mind <br> Open the Heart</h1>
-  
+  <section class="hero hero-home" style="background-image: url('/images/hero-vpp.webp')">
+    <div class="hero-inner hero-inner--home">
+      <div class="brand-slogan hero-layer">
+        <h1>
+          Open the Door<br />
+          Open the Books<br />
+          Open the Mind<br />
+          Open the Heart
+        </h1>
+      </div>
     </div>
-  
   </section>
+
   <!-- Feature Strip -->
-  <section class="feature-strip">
+  <section class="feature-strip reveal" data-reveal>
     <div class="container">
-      <div class="grid grid-4">
-        <div class="feature-item">
-          <div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#000000"><path d="M207.04-212.73q-29.88-32.73-26.42-77.89H86L95.92-336h101.23q12.31-22.23 34.97-35.81 22.65-13.58 50.57-13.58 27.93 0 50.58 13.58T368.62-336H567l91.62-398.61H206l1.85-7.62q3.84-16.77 16.57-27.27t29.89-10.5h461.23l-36.31 157.31h106.15l109.77 146.61-36.69 185.46h-63.08q3.47 45.16-26.73 77.89Q738.46-180 692.69-180q-45.77 0-75.65-32.73-29.89-32.73-26.42-77.89H385.39q3.46 45.16-26.74 77.89Q328.46-180 282.69-180q-45.77 0-75.65-32.73ZM634-427.69h205.77l6.77-37.23-83.85-112.39h-94.38L634-427.69Zm13.69-261.46 10.93-45.46L567-336l10.31-44.85 32.85-142.92 37.53-165.38ZM45.08-440.85l11.15-45.38h199.62l-11.16 45.38H45.08Zm80-142.92 11.15-45.38h239.62l-11.16 45.38H125.08Zm157.61 358.38q24.08 0 40.7-17.11Q340-259.62 340-282.69q0-24.08-16.61-40.7Q306.77-340 282.69-340q-23.07 0-40.19 16.61-17.11 16.62-17.11 40.7 0 23.07 17.11 40.19 17.12 17.11 40.19 17.11Zm410 0q24.08 0 40.7-17.11Q750-259.62 750-282.69q0-24.08-16.61-40.7Q716.77-340 692.69-340q-23.07 0-40.19 16.61-17.12 16.62-17.12 40.7 0 23.07 17.12 40.19 17.12 17.11 40.19 17.11Z"/></svg></div>
-          <h3>Siêu Tốc</h3>
-          <p>Giao hàng nhanh chóng, đúng hạn</p>
-        </div>
-        <div class="feature-item">
-          <div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#000000"><path d="M238.93-251.39v-343.23h45.38v343.23h-45.38Zm221.22 0v-343.23h45.39v343.23h-45.39ZM110.77-660v-37.23L480-898.31l369.23 201.08V-660H110.77Zm109.77-45.39h519.31L480-846.23 220.54-705.39ZM110.77-140.62V-186h476.15q1.23 10.92 2.54 21.77 1.31 10.84 5.39 23.61H110.77Zm564.92-255.99v-198.01h45.38v175.31l-45.38 22.7ZM800-15.39q-64-15.84-105.85-73.34-41.84-57.5-41.84-127.73v-94.31L800-384.61l147.69 73.84v94.31q0 70.23-41.84 127.73Q864-31.23 800-15.39Zm-23.31-113.07 132.39-132.39-23-23.38-109.39 109.38-53.61-53.61-23 23 76.61 77ZM220.54-705.39h519.31-519.31Z"/></svg></div>
-          <h3>Minh Bạch</h3>
-          <p>Báo giá rõ ràng, không phụ phí</p>
-        </div>
-        <div class="feature-item">
-          <div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#000000"><path d="M620-174.39 471.15-323.23l32.62-32.62L620-239.61l236.31-236.31 32.61 32.61L620-174.39Zm200-395.15h-45.39v-192.77q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84h-73.08v82.69H270.77v-82.69h-73.08q-4.61 0-8.46 3.84-3.84 3.85-3.84 8.46v564.62q0 4.61 3.84 8.46 3.85 3.84 8.46 3.84h235.62V-140H197.69q-24.84 0-41.27-16.42Q140-172.85 140-197.69v-564.62q0-24.84 16.42-41.27Q172.85-820 197.69-820h202q5.08-29.23 27.58-48.46T480-887.69q30.42 0 52.83 19.23 22.4 19.23 27.48 48.46h202q24.84 0 41.27 16.42Q820-787.15 820-762.31v192.77ZM505.81-780.35q10.34-10.34 10.34-25.8t-10.34-25.81q-10.35-10.35-25.81-10.35-15.46 0-25.81 10.35-10.34 10.35-10.34 25.81 0 15.46 10.34 25.8Q464.54-770 480-770q15.46 0 25.81-10.35Z"/></svg></div>
-          <h3>Tối Ưu</h3>
-          <p>Giá tốt nhất, dịch vụ tốt nhất</p>
-        </div>
-        <div class="feature-item">
-          <div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#000000"><path d="M436.31-370h87.38l-23.84-138.08q18.84-7.46 30.65-23.42 11.81-15.96 11.81-35.81 0-25.92-18.2-44.11-18.19-18.19-44.11-18.19-25.92 0-44.11 18.19-18.2 18.19-18.2 44.11 0 19.85 11.81 35.81t30.65 23.42L436.31-370ZM480-101.39q-130.38-35.77-215.19-155.19Q180-376 180-521.08v-225.69l300-112.31 300 112.31v225.69q0 145.08-84.81 264.5Q610.38-137.16 480-101.39Zm0-47.38Q591.92-185.23 663.27-289q71.34-103.77 71.34-232.08v-194.07L480-810.85l-254.61 95.7v194.07q0 128.31 71.34 232.08Q368.08-185.23 480-148.77Zm0-330.85Z"/></svg></div>
-          <h3>An Toàn</h3>
-          <p>Hàng chính hãng, bảo hành đầy đủ</p>
-        </div>
+      <div class="grid grid-4 reveal-stagger">
+        {features.map((feature) => (
+          <div class="feature-item" data-number={feature.number}>
+            <h3>{feature.title}</h3>
+            <p>{feature.text}</p>
+          </div>
+        ))}
       </div>
     </div>
   </section>
 
   <!-- Commitment Section -->
-  <section class="commitment-section">
+  <section class="commitment-section reveal" data-reveal>
     <div class="container">
       <div class="commitment-header text-center">
-        <h2 class="section-subtitle">Cam kết và Giải Pháp</h2>
+        <p class="section-subtitle">Cam kết và Giải Pháp</p>
         <h2 class="section-title">Nhanh — Gọn — Đúng — Trúng</h2>
         <p class="commitment-text">
-          Chúng tôi cam kết cung cấp giải pháp văn phòng phẩm toàn diện cho doanh
-          nghiệp của bạn, từ tư vấn, lựa chọn hàng, đến giao hàng và hỗ trợ sau bán.
+          Chúng tôi cung cấp giải pháp văn phòng phẩm toàn diện cho doanh nghiệp:
+          từ tư vấn, lựa chọn hàng, báo giá, giao hàng đến hỗ trợ sau bán.
         </p>
       </div>
     </div>
@@ -62,154 +106,47 @@ import ContactForm from '../components/ContactForm.astro';
   <!-- Four Numbered Cards -->
   <section class="commitment-grid">
     <div class="container">
-      <div class="grid grid-4">
-        <div class="feature-card" data-number="01">
-          <h3>Nhanh Chóng</h3>
-          <p>Xử lý đơn hàng trong 24 giờ, giao hàng trong 3 ngày</p>
-        </div>
-        <div class="feature-card" data-number="02">
-          <h3>Chất Lượng</h3>
-          <p>Hàng hóa chính hãng, kiểm tra kỹ trước khi giao</p>
-        </div>
-        <div class="feature-card" data-number="03">
-          <h3>Tận Tâm</h3>
-          <p>Tư vấn miễn phí, hỗ trợ 24/7 cho khách hàng</p>
-        </div>
-        <div class="feature-card" data-number="04">
-          <h3>Chuyên Nghiệp</h3>
-          <p>Đội ngũ kinh nghiệm, quy trình hoạt động chuyên chuẩn</p>
-        </div>
+      <div class="grid grid-4 reveal-stagger">
+        {commitments.map((item) => (
+          <div class="feature-card" data-number={item.number}>
+            <h3>{item.title}</h3>
+            <p>{item.text}</p>
+          </div>
+        ))}
       </div>
     </div>
   </section>
 
   <!-- Client Strip -->
-  <section class="client-section">
+  <section class="client-section reveal" data-reveal>
     <div class="container">
       <h2 class="section-title text-center mb-4">Khách Hàng Tiêu Biểu</h2>
       <div class="client-strip">
-        <img src="/images/client-strip.png" alt="Khách hàng tiêu biểu" class="client-image" />
+        <img src="/images/client-strip.webp" alt="Khách hàng tiêu biểu của Long Hưng" class="client-image" />
       </div>
     </div>
   </section>
 
-
   <!-- Contact Section -->
-  <section id="contact-section">
+  <section id="contact-section" class="reveal" data-reveal>
     <ContactForm title="Tư vấn Ngay" subtitle="Liên hệ với chúng tôi để nhận tư vấn miễn phí" />
   </section>
 
-  <section class="map-section">
+  <!-- Map Section -->
+  <section class="map-section reveal" data-reveal>
     <div class="map-container">
-      <iframe 
-  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4457.595646593065!2d105.7779734!3d20.9857244!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313453a56e4f1e1b%3A0xc8a647e05f3fabd7!2zSGnhu4d1IHPDoWNoIExvbmcgSMawbmc!5e1!3m2!1svi!2s!4v1780030444520!5m2!1svi!2s" 
-  width="100%" 
-  height="450" 
-  style="border:0;" 
-  allowfullscreen="" 
-  loading="lazy" 
-  referrerpolicy="no-referrer-when-downgrade">
-</iframe>
-
+      <iframe
+        src={mapEmbedSrc}
+        width="100%"
+        height="450"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Bản đồ Nhà sách Long Hưng"
+      ></iframe>
     </div>
+  </section>
+
   <Footer />
 </Layout>
-
-<style>
-  .hero-content {
-    max-width: 700px;
-    margin: 3rem auto;
-  }
-
-  .hero-subtitle {
-    font-size: 1.5rem;
-    font-family: var(--font-script);
-    color: var(--color-gold-light);
-    margin-bottom: var(--spacing-lg);
-  }
-
-  .feature-strip {
-    background-color: var(--color-bg);
-    padding: var(--spacing-2xl) 0;
-  }
-
-  .feature-item {
-    text-align: center;
-    padding: var(--spacing-lg);
-  }
-
-  .feature-icon {
-    font-size: 2.5rem;
-    margin-bottom: var(--spacing-md);
-  }
-
-  .feature-item h3 {
-    color: var(--color-brown);
-    margin-bottom: var(--spacing-sm);
-  }
-
-  .feature-item p {
-    color: var(--color-gray);
-    margin: 0;
-  }
-
-  .commitment-section {
-    background: linear-gradient(135deg, rgba(102, 0, 17, 0.05) 0%, rgba(171, 106, 36, 0.05) 100%);
-    padding: var(--spacing-2xl) 0;
-  }
-
-  .commitment-header {
-    max-width: 600px;
-    margin: 0 auto;
-  }
-
-  .section-subtitle {
-    font-family: var(--font-script);
-    color: var(--color-gold);
-    font-size: 1.5rem;
-    margin-bottom: var(--spacing-md);
-  }
-
-  .commitment-text {
-    color: var(--color-gray);
-    font-size: 1rem;
-    line-height: 1.8;
-  }
-
-  .commitment-grid {
-    padding: var(--spacing-2xl) 0;
-  }
-
-  .clients-section {
-    background-color: var(--color-white);
-    padding: var(--spacing-2xl) 0;
-    border-top: 1px solid var(--color-gray-light);
-  }
-
-  .clients-strip {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--color-bg);
-    border-radius: var(--radius-lg);
-    padding: var(--spacing-2xl);
-    min-height: 200px;
-  }
-
-  .clients-image {
-    max-width: 100%;
-    height: auto;
-    max-height: 150px;
-  }
-
-  @media (max-width: 768px) {
-    .hero-subtitle {
-      font-size: 1.25rem;
-    }
-
-    .clients-strip {
-      padding: var(--spacing-xl);
-      min-height: 150px;
-    }
-  }
-</style>

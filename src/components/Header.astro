@@ -1,6 +1,6 @@
 ---
-// Header.astro - Navigation with 5 links + CTA button
-import { Image } from 'astro:assets';
+// Header.astro - Responsive navigation with hamburger menu
+import SearchBox from './SearchBox.astro';
 
 interface Props {
   currentPage?: string;
@@ -11,49 +11,84 @@ const { currentPage = '/' } = Astro.props;
 const navLinks = [
   { title: 'Trang chủ', href: '/', slug: '/' },
   { title: 'Nhà sách', href: '/nha-sach', slug: '/nha-sach' },
-  { title: 'Khách hàng doanh nghiệp', href: '/khach-hang', slug: '/khach-hang' },
-  { title: 'Về chúng tôi', href: '/ve-chung-toi', slug: '/ve-chung-toi' },
-  { title: 'Liên hệ', href: '/Lien-he', slug: '/Lien-he' },
-  { title: 'Sản phẩm', href: '/san-pham', slug: '/san-pham' }
+  { title: 'Khách hàng doanh nghiệp', href: '/khach-hang', slug: '/khach-hang', hideAt: '768' },
+  { title: 'Sản phẩm', href: '/san-pham', slug: '/san-pham', hideAt: '992' }
 ];
+
+const dropdownLinks = [
+  { title: 'Về chúng tôi', href: '/ve-chung-toi', slug: '/ve-chung-toi', showAt: 'always' },
+  { title: 'Chính sách', href: '/chinh-sach', slug: '/chinh-sach', showAt: 'always' },
+  { title: 'Liên hệ', href: '/lien-he', slug: '/lien-he', showAt: 'always' },
+];
+
+const nationwideOrderUrl = 'https://vpplonghung.mshopkeeper.vn/order-page/';
+
 ---
 
 <header class="header">
   <nav class="navbar">
     <div class="container navbar-container">
-      <!-- Logo -->
       <div class="logo">
         <a href="/">
-          <img src="/images/logo.png" alt="VPP Long Hưng" class="logo-img" />
-         <span class="logo-text">Văn phòng phẩm <br> Long Hưng</span>
-                   
+          <img src="/images/logo.webp" alt="VPP Long Hưng" class="logo-img" />
+          <span class="logo-text">Văn phòng phẩm Long Hưng</span>
         </a>
       </div>
 
-      <!-- Hamburger Menu (Mobile) -->
       <button class="hamburger" id="hamburger" aria-label="Menu">
         <span></span>
         <span></span>
         <span></span>
       </button>
 
-      <!-- Navigation Menu -->
       <ul class="nav-menu" id="navMenu">
         {navLinks.map(link => (
-          <li class="nav-item">
+          <li class={`nav-item ${link.hideAt ? `hide-at-${link.hideAt}` : ''}`} data-nav-item>
             <a
               href={link.href}
-              class={`nav-link ${currentPage === link.slug ? 'active' : ''}`}
+              class={`nav-link ${currentPage === link.slug || (link.slug !== '/' && currentPage.startsWith(link.slug)) ? 'active' : ''}`}
             >
               {link.title}
             </a>
           </li>
         ))}
+
+        <li class="nav-item nav-dropdown" data-dropdown>
+          <button type="button" class="dropdown-toggle" aria-expanded="false" aria-label="Thông tin">
+            <span class="dropdown-icon" aria-hidden="true">
+              <span class="dropdown-icon-line dropdown-icon-line--top"></span>
+              <span class="dropdown-icon-line dropdown-icon-line--middle"></span>
+              <span class="dropdown-icon-line dropdown-icon-line--bottom"></span>
+            </span>
+          </button>
+          <ul class="dropdown-menu">
+            {dropdownLinks.map(link => (
+              <li class={`dropdown-item ${link.showAt !== 'always' ? `show-at-${link.showAt}` : ''}`}>
+                <a
+                  href={link.href}
+                  class={`nav-link ${currentPage === link.slug || (link.slug !== '/' && currentPage.startsWith(link.slug)) ? 'active' : ''}`}
+                >
+                  {link.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </li>
+        
+        <li class="nav-item mobile-cta">
+          <a href={nationwideOrderUrl} class="btn btn-cta btn-order">Đặt hàng toàn quốc</a>
+          <a href="/lien-he" class="btn btn-cta">Tư vấn Ngay</a>
+        </li>
       </ul>
 
-      <!-- CTA Button -->
-      <div class="header-cta">
-        <a href="/lien-he" class="btn btn-cta">Tư vấn Ngay</a>
+      <div class="header-actions">
+        <SearchBox />
+        <div class="header-cta desktop-cta">
+          <a href={nationwideOrderUrl} class="btn btn-cta btn-order">Đặt hàng toàn quốc</a>
+        </div>
+        <div class="header-cta desktop-cta">
+          <a href="/lien-he" class="btn btn-cta">Tư vấn Ngay</a>
+        </div>
       </div>
     </div>
   </nav>
@@ -66,6 +101,11 @@ const navLinks = [
     position: sticky;
     top: 0;
     z-index: 1000;
+    --mobile-nav-offset: 76px;
+  }
+
+  body.nav-open {
+    overflow: hidden;
   }
 
   .navbar {
@@ -74,16 +114,19 @@ const navLinks = [
 
   .navbar-container {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    padding: var(--spacing-md) var(--spacing-lg);
+    padding: 1rem 1.5rem;
+    gap: 1rem;
   }
 
   .logo {
     display: flex;
     align-items: center;
     gap: var(--spacing-sm);
-    flex-shrink: 0;
+    flex: 0 0 auto;
+    min-width: 0;
   }
 
   .logo a {
@@ -95,43 +138,102 @@ const navLinks = [
   }
 
   .logo-img {
-    width: 60px;
-    height: 60px;
+    width: 44px;
+    height: 44px;
     object-fit: contain;
+    flex-shrink: 0;
   }
 
   .logo-text {
     font-family: var(--font-display);
     font-weight: 700;
-    font-size: 1.15rem;
+    font-size: 0.95rem;
     color: var(--color-brown);
+    line-height: 1.2;
+    white-space: normal;
   }
 
   .nav-menu {
     display: flex;
     list-style: none;
-    gap: var(--spacing-lg);
+    gap: 1rem;
     align-items: center;
     margin: 0;
     padding: 0;
-    flex: 1;
-    justify-content: center;
+    flex: 1 1 500px;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    min-width: 0;
+    max-width: 100%;
   }
 
   .nav-item {
     position: relative;
+    white-space: nowrap;
   }
 
-  .nav-link {
+  .nav-link,
+  .dropdown-toggle {
     font-family: var(--font-display);
     font-weight: 500;
     color: var(--color-text);
     text-decoration: none !important;
     transition: color 0.3s ease-in-out;
-    padding: var(--spacing-sm) 0;
+    padding: 0.45rem 0;
     border-bottom: none;
     position: relative;
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .dropdown-toggle {
+    padding: 0.45rem 0;
+  }
+
+  .dropdown-label {
+    display: none;
+  }
+
+  .dropdown-icon {
+    display: inline-flex;
+    position: relative;
+    width: 18px;
+    height: 14px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .dropdown-icon-line {
+    position: absolute;
+    width: 16px;
+    height: 2px;
+    border-radius: 999px;
+    background-color: currentColor;
+    left: 1px;
+    transform-origin: center;
+  }
+
+  .dropdown-icon-line--top {
+    top: 1px;
+  }
+
+  .dropdown-icon-line--middle {
+    top: 6px;
+  }
+
+  .dropdown-icon-line--bottom {
+    top: 11px;
+  }
+
+  .nav-link:hover,
+  .dropdown-toggle:hover,
+  .dropdown-toggle:focus {
+    color: var(--color-primary);
+    text-decoration: none !important;
   }
 
   .nav-link::after {
@@ -145,16 +247,12 @@ const navLinks = [
     transition: width 0.3s ease-in-out;
   }
 
-  .nav-link:hover {
-    color: var(--color-primary);
-    text-decoration: none !important;
-  }
-
   .nav-link:hover::after {
     width: 100%;
   }
 
-  .nav-link.active {
+  .nav-link.active,
+  .dropdown-toggle.active {
     color: var(--color-primary);
     text-decoration: none !important;
   }
@@ -164,15 +262,114 @@ const navLinks = [
     background-color: var(--color-gold);
   }
 
+  .nav-dropdown {
+    position: relative;
+  }
+
+  .dropdown-arrow {
+    transition: transform 0.2s ease;
+  }
+
+  .nav-dropdown.open .dropdown-arrow {
+    transform: rotate(180deg);
+  }
+
+  .dropdown-menu {
+    position: absolute;
+    top: calc(100% + 0.45rem);
+    left: 50%;
+    min-width: 200px;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-gray-light);
+    border-radius: var(--radius-md);
+    padding: 0.5rem 0;
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.12);
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(-50%, 6px);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+    z-index: 200;
+  }
+
+  .nav-dropdown.open .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, 0);
+  }
+
+  .dropdown-menu li {
+    min-width: 100%;
+    display: block;
+  }
+
+  .dropdown-menu a {
+    display: block;
+    padding: 0.75rem 1rem;
+    color: var(--color-text);
+    font-size: 0.95rem;
+    line-height: 1.4;
+    white-space: normal;
+  }
+
+  .dropdown-menu a:hover {
+    color: var(--color-primary);
+    background-color: rgba(102, 0, 17, 0.05);
+  }
+
   .header-cta {
     flex-shrink: 0;
-    margin-left: var(--spacing-lg);
+    margin-left: 0;
+  }
+
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-shrink: 0;
   }
 
   .btn-cta {
-    padding: var(--spacing-sm) var(--spacing-lg);
+    padding: 0.8rem 1.25rem;
     font-size: 0.95rem;
     white-space: nowrap;
+  }
+
+  .btn-order {
+    background-color: #f8dda1;
+    border: 1px solid #dfbe72;
+    color: var(--color-brown);
+  }
+
+  .btn-order:hover {
+    background-color: #fae6b7;
+    color: var(--color-brown);
+  }
+
+  /* Ẩn nút CTA mobile khi đang ở trên PC */
+  .mobile-cta {
+    display: none;
+  }
+
+  .hide-at-992 {
+    display: list-item;
+  }
+
+  .hide-at-768 {
+    display: list-item;
+  }
+
+  .show-at-992,
+  .show-at-768 {
+    display: none;
+  }
+
+  .dropdown-item {
+    display: block;
+  }
+
+  .dropdown-item.show-at-992,
+  .dropdown-item.show-at-768 {
+    display: none;
   }
 
   /* Hamburger Menu (Mobile) */
@@ -190,7 +387,7 @@ const navLinks = [
     width: 24px;
     height: 3px;
     background-color: var(--color-brown);
-    transition: all var(--transition-normal);
+    transition: all var(--transition-normal, 0.3s); /* Thêm fallback 0.3s */
     border-radius: 2px;
   }
 
@@ -206,11 +403,10 @@ const navLinks = [
     transform: rotate(-45deg) translate(7px, -7px);
   }
 
-  /* Mobile Responsive */
+  /* --- GIAO DIỆN MOBILE --- */
   @media (max-width: 768px) {
     .navbar-container {
       padding: var(--spacing-md);
-      gap: var(--spacing-md);
     }
 
     .hamburger {
@@ -218,37 +414,129 @@ const navLinks = [
       order: 2;
     }
 
+    /* Ẩn nút CTA trên thanh ngang để nhường chỗ cho Logo */
+    .desktop-cta {
+      display: none;
+    }
+
     .nav-menu {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      right: 0;
+      position: fixed;
+      inset: 0;
       background-color: var(--color-white);
       flex-direction: column;
-      gap: var(--spacing-md);
-      padding: var(--spacing-lg);
+      gap: 0.25rem;
+      padding: calc(var(--mobile-nav-offset) + 0.85rem) 0.85rem calc(1rem + env(safe-area-inset-bottom));
       justify-content: flex-start;
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height var(--transition-normal);
+      height: 100dvh;
+      max-height: 100dvh;
+      overflow-x: hidden;
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      visibility: hidden;
+      opacity: 0;
+      transition: all 0.4s ease-in-out;
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+      border-radius: 0;
     }
 
     .nav-menu.active {
-      max-height: 400px;
+      max-height: none;
+      padding: calc(var(--mobile-nav-offset) + 0.85rem) 0.85rem calc(1rem + env(safe-area-inset-bottom));
+      visibility: visible;
+      opacity: 1;
     }
 
-    .nav-link {
+    .nav-link,
+    .dropdown-toggle {
       width: 100%;
-      padding: var(--spacing-sm) 0;
+      padding: 0.9rem 0.15rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      text-align: left;
+      gap: 0.75rem;
     }
 
-    .header-cta {
-      margin-left: 0;
+    .nav-dropdown {
       width: 100%;
     }
 
-    .btn-cta {
+    .nav-item {
+      width: 100%;
+      white-space: normal;
+    }
+
+    .nav-menu .hide-at-992,
+    .nav-menu .hide-at-768 {
+      display: block;
+    }
+
+    .nav-menu .show-at-992,
+    .nav-menu .show-at-768 {
+      display: block;
+    }
+
+    .dropdown-toggle {
+      width: 100%;
+      min-height: auto;
+      pointer-events: none;
+      padding-bottom: 0.45rem;
+      border-bottom: 1px solid rgba(81, 33, 11, 0.12);
+    }
+
+    .dropdown-label {
+      display: none;
+    }
+
+    .dropdown-icon {
+      display: inline-flex;
+    }
+
+    .dropdown-menu {
+      display: block;
+      position: static;
+      transform: none;
+      opacity: 1;
+      visibility: visible;
+      max-height: none;
+      overflow: visible;
+      border: none;
+      box-shadow: none;
+      padding: 0.2rem 0 0.1rem 0.95rem;
+      transition: none;
+      width: 100%;
+    }
+
+    .nav-dropdown.open .dropdown-menu {
+      display: block;
+    }
+
+    .dropdown-menu li {
+      width: 100%;
+    }
+
+    .dropdown-menu li + li {
+      border-top: 1px solid rgba(81, 33, 11, 0.08);
+      margin-top: 0.15rem;
+      padding-top: 0.15rem;
+    }
+
+    .dropdown-menu a {
+      padding: 0.7rem 0.35rem 0.7rem 0.75rem;
+      border-radius: 8px;
+    }
+
+    .mobile-cta {
+      display: block;
+      width: 100%;
+      margin-top: var(--spacing-sm);
+      padding-top: var(--spacing-md);
+      border-top: 1px solid #eee;
+      display: grid;
+      gap: 0.6rem;
+    }
+
+    .mobile-cta .btn-cta {
       width: 100%;
       display: block;
       text-align: center;
@@ -261,29 +549,151 @@ const navLinks = [
     }
 
     .nav-menu {
-      gap: var(--spacing-md);
+      gap: 0.75rem;
+    }
+
+    .show-at-992,
+    .show-at-768 {
+      display: block;
+    }
+  }
+
+  @media (max-width: 992px) {
+    .dropdown-item.show-at-992 {
+      display: block;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .dropdown-item.show-at-768 {
+      display: block;
+    }
+  }
+
+  @media (max-width: 992px) {
+    .hide-at-992 {
+      display: none;
+    }
+    .show-at-992 {
+      display: block;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hide-at-768 {
+      display: none;
+    }
+    .show-at-768 {
+      display: block;
     }
   }
 </style>
 
 <script>
-  // Mobile menu toggle
-  const hamburger = document.getElementById('hamburger');
-  const navMenu = document.getElementById('navMenu');
-
-  if (hamburger && navMenu) {
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('active');
-      navMenu.classList.toggle('active');
+  const closeAllDropdowns = () => {
+    document.querySelectorAll('[data-dropdown].open').forEach((item) => {
+      item.classList.remove('open');
+      const toggle = item.querySelector('.dropdown-toggle');
+      toggle?.setAttribute('aria-expanded', 'false');
     });
+  };
 
-    // Close menu when link is clicked
-    const navLinks = navMenu.querySelectorAll('.nav-link');
-    navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
+  const initMenu = () => {
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('navMenu');
+
+    if (hamburger && navMenu) {
+      // 1. Reset trạng thái khi chuyển trang
+      hamburger.classList.remove('active');
+      navMenu.classList.remove('active');
+
+      // 2. Clone node để tránh lỗi dính 2 lần sự kiện click của Astro
+      const newHamburger = hamburger.cloneNode(true);
+      hamburger.parentNode?.replaceChild(newHamburger, hamburger);
+      
+      const btn = document.getElementById('hamburger');
+      
+      // 3. Gắn sự kiện bật/tắt menu
+      btn?.addEventListener('click', () => {
+        btn.classList.toggle('active');
+        navMenu.classList.toggle('active');
+        document.body.classList.toggle('nav-open', navMenu.classList.contains('active'));
+        if (!navMenu.classList.contains('active')) {
+          closeAllDropdowns();
+        }
+      });
+
+      // 4. Đóng menu khi người dùng bấm vào một link bất kỳ
+      const navLinks = navMenu.querySelectorAll('.nav-link, .btn-cta, .btn-order');
+      navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          btn?.classList.remove('active');
+          navMenu.classList.remove('active');
+          document.body.classList.remove('nav-open');
+          closeAllDropdowns();
+        });
+      });
+    }
+  };
+
+  // Chạy lần đầu khi load trang
+  initMenu();
+
+  // Đảm bảo chạy lại sau khi ViewTransitions chuyển trang (nếu có dùng)
+  document.addEventListener('astro:after-swap', initMenu);
+
+  const initDropdowns = () => {
+    const navMenu = document.getElementById('navMenu');
+    const dropdownToggles = document.querySelectorAll('[data-dropdown] .dropdown-toggle');
+
+    dropdownToggles.forEach((toggle) => {
+      if (toggle.dataset.bound === 'true') return;
+      toggle.dataset.bound = 'true';
+
+      const dropdownItem = toggle.closest('[data-dropdown]');
+      const dropdownMenu = dropdownItem?.querySelector('.dropdown-menu');
+
+      if (!dropdownItem || !dropdownMenu) return;
+
+      toggle.addEventListener('click', (event) => {
+        event.stopPropagation();
+        const shouldOpen = !dropdownItem.classList.contains('open');
+        closeAllDropdowns();
+        if (shouldOpen) {
+          dropdownItem.classList.add('open');
+        }
+        const isOpen = dropdownItem.classList.contains('open');
+        toggle.setAttribute('aria-expanded', String(isOpen));
+        if (isOpen) {
+          navMenu?.scrollTo({ top: navMenu.scrollHeight, behavior: 'smooth' });
+        }
+      });
+
+      dropdownMenu.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => {
+          closeAllDropdowns();
+        });
       });
     });
-  }
+
+    if (!document.body.dataset.dropdownBound) {
+      document.body.dataset.dropdownBound = 'true';
+
+      document.addEventListener('click', (event) => {
+        if (!(event.target instanceof Element)) return;
+        if (!event.target.closest('[data-dropdown]')) {
+          closeAllDropdowns();
+        }
+      });
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+          closeAllDropdowns();
+        }
+      });
+    }
+  };
+
+  initDropdowns();
+  document.addEventListener('astro:after-swap', initDropdowns);
 </script>
