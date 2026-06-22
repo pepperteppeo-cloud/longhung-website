@@ -450,6 +450,153 @@ section.hero::before {
   margin: 0;
 }
 
+/* -------- Business Branches Section -------- */
+.branches-section {
+  background-color: var(--color-bg);
+}
+
+.branches-header {
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.branches-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.branch-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(245, 239, 227, 0.6) 100%);
+  border: 1px solid rgba(171, 106, 36, 0.15);
+  border-radius: var(--radius-xl);
+  padding: clamp(1.75rem, 3vw, 2.5rem);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  transition: all var(--transition-normal);
+  overflow: hidden;
+}
+
+.branch-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+  border-color: rgba(171, 106, 36, 0.3);
+}
+
+.branch-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-gold));
+}
+
+.branch-card[data-branch='retail']::before {
+  background: linear-gradient(90deg, var(--color-primary), #ab6a24);
+}
+
+.branch-card[data-branch='b2b']::before {
+  background: linear-gradient(90deg, var(--color-gold), var(--color-blue));
+}
+
+.branch-card-header {
+  margin-bottom: var(--spacing-lg);
+}
+
+.branch-title {
+  color: var(--color-brown);
+  font-size: clamp(1.4rem, 2.2vw, 1.75rem);
+  font-weight: 700;
+  margin-bottom: var(--spacing-xs);
+  line-height: 1.2;
+}
+
+.branch-subtitle {
+  color: var(--color-gold);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.branch-description {
+  color: var(--color-gray-dark);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: var(--spacing-xl);
+  flex-grow: 1;
+}
+
+.branch-advantages {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-xl);
+}
+
+.advantage-item {
+  display: flex;
+  gap: var(--spacing-md);
+  align-items: flex-start;
+}
+
+.advantage-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  min-width: 2.5rem;
+  min-height: 2.5rem;
+  flex-shrink: 0;
+}
+
+.advantage-content h4 {
+  color: var(--color-primary);
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0 0 0.25rem 0;
+}
+
+.advantage-content p {
+  color: var(--color-gray-dark);
+  font-size: 0.95rem;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.btn-branch {
+  align-self: flex-start;
+  padding: 0.85rem 1.8rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-normal);
+}
+
+.branch-card[data-branch='retail'] .btn-branch {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.branch-card[data-branch='retail'] .btn-branch:hover {
+  background-color: var(--color-brown);
+  border-color: var(--color-brown);
+}
+
+.branch-card[data-branch='b2b'] .btn-branch {
+  background-color: var(--color-gold);
+  border-color: var(--color-gold);
+}
+
+.branch-card[data-branch='b2b'] .btn-branch:hover {
+  background-color: var(--color-brown);
+  border-color: var(--color-brown);
+}
+
 .commitment-section {
   background:
     linear-gradient(135deg, rgba(102, 0, 17, 0.05) 0%, rgba(171, 106, 36, 0.06) 100%);
@@ -734,6 +881,10 @@ section.hero::before {
   .grid-2,
   .grid-3,
   .grid-4 {
+    grid-template-columns: 1fr;
+  }
+
+  .branches-grid {
     grid-template-columns: 1fr;
   }
 

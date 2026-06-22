@@ -5,26 +5,56 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import ContactForm from '../components/ContactForm.astro';
 
-const features = [
+const businessBranches = [
   {
-    number: '01',
-    title: 'Siêu Tốc',
-    text: 'Giao hàng nhanh chóng, đúng hạn và phù hợp với nhịp vận hành của doanh nghiệp.'
+    id: 'retail',
+    title: 'Nhà Sách Long Hưng',
+    subtitle: 'Chuỗi bán lẻ',
+    description: 'Phục vụ cư dân các khu đô thị cục bộ với lợi thế ưu tiên về tính tiện lợi, thời gian giao hàng nhanh và độ đầy đủ về mặt hàng hóa.',
+    advantages: [
+      {
+        icon: '📍',
+        title: 'Tiện Lợi',
+        text: 'Các điểm bán lẻ gần gũi, dễ tiếp cận từ khu dân cư'
+      },
+      {
+        icon: '⚡',
+        title: 'Nhanh Chóng',
+        text: 'Giao hàng tận nơi nhanh, phục vụ đúng giờ'
+      },
+      {
+        icon: '📦',
+        title: 'Đầy Đủ',
+        text: 'Hàng hóa đa dạng, luôn có sẵn để phục vụ nhu cầu'
+      }
+    ],
+    cta: 'Khám Phá Nhà Sách',
+    link: '/nha-sach'
   },
   {
-    number: '02',
-    title: 'Minh Bạch',
-    text: 'Báo giá rõ ràng, chứng từ đầy đủ, quy trình làm việc dễ kiểm soát.'
-  },
-  {
-    number: '03',
-    title: 'Tối Ưu',
-    text: 'Tối ưu chi phí mua sắm văn phòng phẩm mà vẫn đảm bảo chất lượng sử dụng.'
-  },
-  {
-    number: '04',
-    title: 'An Toàn',
-    text: 'Sản phẩm chính hãng, giao dịch rõ ràng và hỗ trợ sau bán tận tâm.'
+    id: 'b2b',
+    title: 'Văn Phòng Phẩm Long Hưng',
+    subtitle: 'Giải Pháp B2B',
+    description: 'Cung ứng cho các doanh nghiệp mua hàng văn phòng phẩm thường xuyên với lợi thế tốc độ, quy trình rõ ràng, xuất xứ đảm bảo và cung ứng ổn định.',
+    advantages: [
+      {
+        icon: '🚀',
+        title: 'Tốc Độ',
+        text: 'Xử lý đơn hàng nhanh, hỗ trợ giao hàng linh hoạt'
+      },
+      {
+        icon: '✓',
+        title: 'Quy Trình Rõ Ràng',
+        text: 'Báo giá minh bạch, chứng từ đầy đủ, dễ kiểm soát'
+      },
+      {
+        icon: '🛡️',
+        title: 'Đảm Bảo Chất Lượng',
+        text: 'Sản phẩm chính hãng, xuất xứ rõ ràng, cung ứng ổn định'
+      }
+    ],
+    cta: 'Tư Vấn Ngay',
+    link: '/khach-hang'
   }
 ];
 
@@ -75,14 +105,33 @@ const mapEmbedSrc =
     </div>
   </section>
 
-  <!-- Feature Strip -->
-  <section class="feature-strip reveal" data-reveal>
+  <!-- Business Branches Section -->
+  <section class="branches-section reveal" data-reveal>
     <div class="container">
-      <div class="grid grid-4 reveal-stagger">
-        {features.map((feature) => (
-          <div class="feature-item" data-number={feature.number}>
-            <h3>{feature.title}</h3>
-            <p>{feature.text}</p>
+      <div class="branches-header text-center">
+        <p class="section-subtitle">Công ty TNHH Văn phòng phẩm Long Hưng</p>
+        <h2 class="section-title">Hai Nhánh Kinh Doanh, Một Tinh Thần Phục Vụ</h2>
+      </div>
+      <div class="branches-grid">
+        {businessBranches.map((branch) => (
+          <div class="branch-card" data-branch={branch.id}>
+            <div class="branch-card-header">
+              <h3 class="branch-title">{branch.title}</h3>
+              <p class="branch-subtitle">{branch.subtitle}</p>
+            </div>
+            <p class="branch-description">{branch.description}</p>
+            <div class="branch-advantages">
+              {branch.advantages.map((advantage) => (
+                <div class="advantage-item">
+                  <span class="advantage-icon">{advantage.icon}</span>
+                  <div class="advantage-content">
+                    <h4>{advantage.title}</h4>
+                    <p>{advantage.text}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <a href={branch.link} class="btn btn-branch">{branch.cta}</a>
           </div>
         ))}
       </div>
