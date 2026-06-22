@@ -55,6 +55,8 @@ const commitments = [
     text: 'Sản phẩm được kiểm tra trước khi bàn giao để đảm bảo sự yên tâm khi sử dụng.'
   }
 ];
+
+const nationwideOrderUrl = 'https://vpplonghung.mshopkeeper.vn/order-page/';
 ---
 
 <Layout
@@ -77,6 +79,10 @@ const commitments = [
           Bạn chỉ cần gọi, chúng tôi sẽ giao hàng đến bạn trong vòng 15 phút!
           
         </p>
+
+        <div class="hero-cta-row">
+          <a href={nationwideOrderUrl} class="btn btn-cta hero-order-cta">Đặt hàng toàn quốc</a>
+        </div>
       </div>
     </div>
   </section>
@@ -158,3 +164,22 @@ const commitments = [
 
   <Footer />
 </Layout>
+
+<style>
+  .hero-cta-row {
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .hero-order-cta {
+    background-color: var(--color-light-brown);
+    color: var(--color-brown);
+  }
+
+  .hero-order-cta:hover {
+    background-color: #e2c991;
+    color: var(--color-brown);
+  }
+</style>

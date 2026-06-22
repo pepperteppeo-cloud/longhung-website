@@ -1,0 +1,331 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { products, getProductBySlug, getRelatedProducts, formatPriceVnd } from '../../data/products';
+
+export function getStaticPaths() {
+  return products.map((product) => ({
+    params: { slug: product.slug },
+    props: { productSlug: product.slug }
+  }));
+}
+
+interface Props {
+  productSlug: string;
+}
+
+const { productSlug } = Astro.props as Props;
+const product = getProductBySlug(productSlug);
+
+if (!product) {
+  return Astro.redirect('/san-pham');
+}
+
+const relatedProducts = getRelatedProducts(product, 6);
+
+const orderPageByCategory: Record<string, string> = {
+  'san-pham-giay': 'https://vpplonghung.mshopkeeper.vn/order-page/new/c/san-pham-ve-giay',
+  'van-phong-pham': 'https://vpplonghung.mshopkeeper.vn/order-page/new/c/van-phong-pham---dung-cu-hoc-sinh',
+  'bach-hoa-van-phong': 'https://vpplonghung.mshopkeeper.vn/order-page/new/c/bach-hoa---qua-tang---luu-niem'
+};
+
+const orderPageUrl = orderPageByCategory[product.categoryId] ?? '/san-pham';
+---
+
+<Layout
+  title={`${product.name} | Long Hưng`}
+  description={`${product.name} - ${product.category}. Giá tham khảo ${formatPriceVnd(product.unitPriceVnd)}.`}
+>
+  <Header currentPage="/san-pham" />
+
+  <section class="product-page-hero">
+    <div class="container">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <a href="/">Trang chủ</a>
+        <span>/</span>
+        <a href="/san-pham">Sản phẩm</a>
+        <span>/</span>
+        <strong>{product.name}</strong>
+      </nav>
+
+      <div class="product-layout">
+        <div class="product-visual">
+          <img src={product.image} alt={product.name} loading="lazy" />
+        </div>
+
+        <article class="product-content">
+          <span class="product-category">{product.category}</span>
+          <h1>{product.name}</h1>
+          <p class="product-price">{formatPriceVnd(product.unitPriceVnd)}</p>
+
+          <dl class="product-specs">
+            <div>
+              <dt>Mã sản phẩm</dt>
+              <dd>SP-{String(product.stt).padStart(3, '0')}</dd>
+            </div>
+            <div>
+              <dt>Đơn vị tính</dt>
+              <dd>{product.unit}</dd>
+            </div>
+            <div>
+              <dt>Thuế VAT</dt>
+              <dd>{product.vatPercent}%</dd>
+            </div>
+            <div>
+              <dt>Số lượng mặc định</dt>
+              <dd>{product.defaultQuantity}</dd>
+            </div>
+          </dl>
+
+          <p class="product-note">
+            Bảng giá ưu đãi dành cho khách hàng mua lẻ. Vui lòng liên hệ để đàm phán về mức giá số lượng lớn và thỏa thuận chính sách.
+          </p>
+
+          <div class="product-actions">
+            <a href={orderPageUrl} class="btn">Đặt hàng toàn quốc</a>
+            <a href="/lien-he" class="btn">Đàm phán mức giá</a>
+            <a href="/san-pham" class="btn btn-outline">Quay lại danh mục</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="related-products">
+    <div class="container">
+      <h2>Sản phẩm liên quan</h2>
+      <div class="related-grid">
+        {relatedProducts.map((relatedProduct) => (
+          <a href={`/san-pham/${relatedProduct.slug}`} class="related-card">
+            <img src={relatedProduct.image} alt={relatedProduct.name} loading="lazy" />
+            <div>
+              <span>{relatedProduct.category}</span>
+              <h3>{relatedProduct.name}</h3>
+              <p>{formatPriceVnd(relatedProduct.unitPriceVnd)}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  .product-page-hero {
+    background: linear-gradient(140deg, #241013 0%, #5f2c1a 48%, #1b3a54 100%);
+    padding: 2.4rem 0 3.2rem;
+    color: #fff;
+  }
+
+  .crumbs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    font-size: 0.92rem;
+    margin-bottom: 1.15rem;
+  }
+
+  .crumbs a,
+  .crumbs strong,
+  .crumbs span {
+    color: rgba(255, 255, 255, 0.92);
+  }
+
+  .product-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 470px) minmax(0, 1fr);
+    gap: 1.4rem;
+    align-items: stretch;
+  }
+
+  .product-visual {
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .product-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    min-height: 360px;
+  }
+
+  .product-content {
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(4px);
+    border-radius: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.24);
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .product-category {
+    display: inline-flex;
+    width: fit-content;
+    border-radius: 999px;
+    padding: 0.26rem 0.62rem;
+    background: rgba(255, 255, 255, 0.2);
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+  }
+
+  .product-content h1 {
+    margin: 0;
+    color: #fff;
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    line-height: 1.2;
+  }
+
+  .product-price {
+    margin: 0;
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    color: #ffd88d;
+    font-weight: 800;
+  }
+
+  .product-specs {
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.8rem;
+  }
+
+  .product-specs div {
+    margin: 0;
+    padding: 0.7rem;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .product-specs dt {
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 0.28rem;
+  }
+
+  .product-specs dd {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #fff;
+  }
+
+  .product-note {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .product-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+  }
+
+  .related-products {
+    padding: 2.2rem 0 3rem;
+    background: #f6efe2;
+  }
+
+  .related-products h2 {
+    margin-bottom: 1rem;
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 0.9rem;
+  }
+
+  .related-card {
+    border: 1px solid #e7d7c0;
+    border-radius: 14px;
+    background: #fff;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .related-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(57, 35, 17, 0.14);
+  }
+
+  .related-card img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+  }
+
+  .related-card div {
+    padding: 0.75rem;
+    display: grid;
+    gap: 0.35rem;
+  }
+
+  .related-card span {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #75553f;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .related-card h3 {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.35;
+    color: #2a2118;
+  }
+
+  .related-card p {
+    margin: 0;
+    font-weight: 700;
+    color: #743b12;
+  }
+
+  @media (max-width: 960px) {
+    .product-layout {
+      grid-template-columns: 1fr;
+    }
+
+    .product-visual img {
+      min-height: 250px;
+      max-height: 420px;
+    }
+  }
+
+  @media (max-width: 680px) {
+    .product-page-hero {
+      padding: 1.4rem 0 2.1rem;
+    }
+
+    .product-content {
+      padding: 1rem;
+    }
+
+    .product-specs {
+      grid-template-columns: 1fr;
+    }
+
+    .product-actions {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+
+    .related-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

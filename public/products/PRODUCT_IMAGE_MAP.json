@@ -1,0 +1,943 @@
+{
+  "imageBasePath": "/images/",
+  "products": [
+    {
+      "stt": 1,
+      "name": "Băng dính 2 mặt 1 cm (20 cuộn/cây)",
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm",
+      "image": "/images/Bang-dinh-2-mat-1-cm-(20-cuon-cay).webp"
+    },
+    {
+      "stt": 2,
+      "name": "Băng dính 2 mặt 2 cm (15 cuộn/cây)",
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm",
+      "image": "/images/Bang-dinh-2-mat-2-cm-(15-cuon-cay).webp"
+    },
+    {
+      "stt": 3,
+      "name": "Băng dính 2 mặt 5 cm (6 cuộn/cây)",
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm",
+      "image": "/images/Bang-dinh-2-mat-5-cm-(6-cuon-cay).webp"
+    },
+    {
+      "stt": 4,
+      "name": "Băng dính dán gáy Simili 3 cm",
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm",
+      "image": "/images/Bang-dinh-dan-gay-simili-3-cm.webp"
+    },
+    {
+      "stt": 5,
+      "name": "Băng dính dán gáy Simili 5 cm",
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm",
+      "image": "/images/Bang-dinh-dan-gay-simili-5-cm.webp"
+    },
+    {
+      "stt": 6,
+      "name": "Băng dính giấy 1 cm",
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm",
+      "image": "/images/Bang-dinh-giay-1-cm.webp"
+    },
+    {
+      "stt": 7,
+      "name": "Băng dính giấy 2 cm",
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm",
+      "image": "/images/Bang-dinh-giay-2-cm.webp"
+    },
+    {
+      "stt": 8,
+      "name": "Băng dính trong 2 cm",
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm",
+      "image": "/images/Bang-dinh-trong-2-cm.webp"
+    },
+    {
+      "stt": 9,
+      "name": "Băng dính trong 5 cm - 100Y",
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm",
+      "image": "/images/Bang-dinh-trong-5-cm-100y.webp"
+    },
+    {
+      "stt": 10,
+      "name": "Băng dính trong 5 cm - 200Y",
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm",
+      "image": "/images/Bang-dinh-trong-5-cm-200y.webp"
+    },
+    {
+      "stt": 11,
+      "name": "Băng dính trong 5 cm - 60Y",
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm",
+      "image": "/images/Bang-dinh-trong-5-cm-60y.webp"
+    },
+    {
+      "stt": 12,
+      "name": "Băng xóa khô Plus WH 12 mm",
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm",
+      "image": "/images/Bang-xoa-kho-plus-wh-12-mm.webp"
+    },
+    {
+      "stt": 13,
+      "name": "Băng xóa khô Plus WH 7 mm",
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm",
+      "image": "/images/Bang-xoa-kho-plus-wh-7-mm.webp"
+    },
+    {
+      "stt": 14,
+      "name": "Bút bi Double A Tri 0.7",
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm",
+      "image": "/images/But-bi-double-a-tri-0.7.webp"
+    },
+    {
+      "stt": 15,
+      "name": "Bút bi Thiên Long 025 (xanh, đỏ, đen)",
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm",
+      "image": "/images/But-bi-thien-long-025-(xanh-do-den).webp"
+    },
+    {
+      "stt": 16,
+      "name": "Bút bi Thiên Long 027 (xanh, đen, đỏ)",
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm",
+      "image": "/images/But-bi-thien-long-027-(xanh-den-do).webp"
+    },
+    {
+      "stt": 17,
+      "name": "Bút bi Thiên Long F024",
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm",
+      "image": "/images/But-bi-thien-long-f024.webp"
+    },
+    {
+      "stt": 18,
+      "name": "Bút chì Deli",
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm",
+      "image": "/images/But-chi-deli.webp"
+    },
+    {
+      "stt": 19,
+      "name": "Bút chì Đức Staedtler 134-2B",
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm",
+      "image": "/images/But-chi-duc-staedtler-134-2b.webp"
+    },
+    {
+      "stt": 20,
+      "name": "Bút dạ dầu Thiên Long PM-09",
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm",
+      "image": "/images/But-da-dau-thien-long-pm-09.webp"
+    },
+    {
+      "stt": 21,
+      "name": "Bút dạ kính Thiên Long PM-04",
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm",
+      "image": "/images/But-da-kinh-thien-long-pm-04.webp"
+    },
+    {
+      "stt": 22,
+      "name": "Bút dạ nét nhỏ 2 đầu",
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm",
+      "image": "/images/But-da-net-nho-2-dau.webp"
+    },
+    {
+      "stt": 23,
+      "name": "Bút dính bàn đôi Thiên Long / Bến Nghé",
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm",
+      "image": "/images/But-dinh-ban-doi-thien-long-ben-nghe.webp"
+    },
+    {
+      "stt": 24,
+      "name": "Bút ký BK",
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm",
+      "image": "/images/But-ky-bk.webp"
+    },
+    {
+      "stt": 25,
+      "name": "Bút ký Pentel BL57C",
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm",
+      "image": "/images/But-ky-pentel-bl57c.webp"
+    },
+    {
+      "stt": 26,
+      "name": "Bút nhớ dòng Leaderart HL101",
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm",
+      "image": "/images/But-nho-dong-leaderart-hl101.webp"
+    },
+    {
+      "stt": 27,
+      "name": "Bút nhớ dòng Thiên Long HL-03",
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm",
+      "image": "/images/But-nho-dong-thien-long-hl-03.webp"
+    },
+    {
+      "stt": 28,
+      "name": "Bút nhớ dòng Today",
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm",
+      "image": "/images/But-nho-dong-today.webp"
+    },
+    {
+      "stt": 29,
+      "name": "Bút viết bảng Thiên Long WB03 (các màu)",
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm",
+      "image": "/images/But-viet-bang-thien-long-wb03-(cac-mau).webp"
+    },
+    {
+      "stt": 30,
+      "name": "Bút xóa nước Thiên Long CP-02",
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm",
+      "image": "/images/But-xoa-nuoc-thien-long-cp-02.webp"
+    },
+    {
+      "stt": 31,
+      "name": "Cặp 3 dây giấy 10F",
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm",
+      "image": "/images/Cap-3-day-giay-10f.webp"
+    },
+    {
+      "stt": 32,
+      "name": "Cặp 3 dây giấy 15F",
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm",
+      "image": "/images/Cap-3-day-giay-15f.webp"
+    },
+    {
+      "stt": 33,
+      "name": "Cặp 3 dây giấy 20F",
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm",
+      "image": "/images/Cap-3-day-giay-20f.webp"
+    },
+    {
+      "stt": 34,
+      "name": "Cặp trình ký da",
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm",
+      "image": "/images/Cap-trinh-ky-da.webp"
+    },
+    {
+      "stt": 35,
+      "name": "Cặp trình ký si A4 đơn",
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm",
+      "image": "/images/Cap-trinh-ky-si-a4-don.webp"
+    },
+    {
+      "stt": 36,
+      "name": "Cắt băng dính nhỏ Deli 811",
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm",
+      "image": "/images/Cat-bang-dinh-nho-deli-811.webp"
+    },
+    {
+      "stt": 37,
+      "name": "Cắt băng dính to",
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm",
+      "image": "/images/Cat-bang-dinh-to.webp"
+    },
+    {
+      "stt": 38,
+      "name": "Chia file 12 màu nhựa TM",
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm",
+      "image": "/images/Chia-file-12-mau-nhua-tm.webp"
+    },
+    {
+      "stt": 39,
+      "name": "Chia file giấy nhiều màu (nhỏ)",
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm",
+      "image": "/images/Chia-file-giay-nhieu-mau-(nho).webp"
+    },
+    {
+      "stt": 40,
+      "name": "Chia file nhựa nhiều màu Pronoti / DK / SW",
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm",
+      "image": "/images/Chia-file-nhua-nhieu-mau-pronoti-dk-sw.webp"
+    },
+    {
+      "stt": 41,
+      "name": "Chun vòng to 0,5 kg",
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm",
+      "image": "/images/Chun-vong-to-0-5-kg.webp"
+    },
+    {
+      "stt": 42,
+      "name": "Chuột máy tính không dây",
+      "categoryId": "bach-hoa-van-phong",
+      "category": "Bách hóa văn phòng",
+      "image": "/images/Chuot-may-tinh-khong-day.webp"
+    },
+    {
+      "stt": 43,
+      "name": "Cốc giấy cỡ nhỏ",
+      "categoryId": "san-pham-giay",
+      "category": "Sản phẩm giấy",
+      "image": "/images/Coc-giay-co-nho.webp"
+    },
+    {
+      "stt": 44,
+      "name": "Cốc giấy cỡ to",
+      "categoryId": "san-pham-giay",
+      "category": "Sản phẩm giấy",
+      "image": "/images/Coc-giay-co-to.webp"
+    },
+    {
+      "stt": 45,
+      "name": "Dao chuôi vàng loại 1",
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm",
+      "image": "/images/Dao-chuoi-vang-loai-1.webp"
+    },
+    {
+      "stt": 46,
+      "name": "Dao rọc giấy nhỏ SDI 0404",
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm",
+      "image": "/images/Dao-roc-giay-nho-sdi-0404.webp"
+    },
+    {
+      "stt": 47,
+      "name": "Dao rọc giấy to SDI 0423",
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm",
+      "image": "/images/Dao-roc-giay-to-sdi-0423.webp"
+    },
+    {
+      "stt": 48,
+      "name": "Dập ghim nhỏ Plus PS 10E",
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm",
+      "image": "/images/Dap-ghim-nho-plus-ps-10e.webp"
+    },
+    {
+      "stt": 49,
+      "name": "Dấu tên 853",
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm",
+      "image": "/images/Dau-ten-853.webp"
+    },
+    {
+      "stt": 50,
+      "name": "Dây đeo thẻ",
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm",
+      "image": "/images/Day-deo-the.webp"
+    },
+    {
+      "stt": 51,
+      "name": "Đục lỗ 15 tờ",
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm",
+      "image": "/images/Duc-lo-15-to.webp"
+    },
+    {
+      "stt": 52,
+      "name": "File càng cua 5 cm / 7 cm TM, EKE",
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm",
+      "image": "/images/File-cang-cua-5-cm-7-cm-tm-eke.webp"
+    },
+    {
+      "stt": 53,
+      "name": "File càng cua 9 cm KingJim",
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm",
+      "image": "/images/File-cang-cua-9-cm-kingjim.webp"
+    },
+    {
+      "stt": 54,
+      "name": "File càng cua 9 cm TM, EKE",
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm",
+      "image": "/images/File-cang-cua-9-cm-tm-eke.webp"
+    },
+    {
+      "stt": 55,
+      "name": "File góc A4",
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm",
+      "image": "/images/File-goc-a4.webp"
+    },
+    {
+      "stt": 56,
+      "name": "File nan 3 ngăn TCT",
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm",
+      "image": "/images/File-nan-3-ngan-tct.webp"
+    },
+    {
+      "stt": 57,
+      "name": "Ghim cài nhỏ C62",
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm",
+      "image": "/images/Ghim-cai-nho-c62.webp"
+    },
+    {
+      "stt": 58,
+      "name": "Ghim dập nhỏ N10 Plus (màu xanh)",
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm",
+      "image": "/images/Ghim-dap-nho-n10-plus-(mau-xanh).webp"
+    },
+    {
+      "stt": 59,
+      "name": "Giấy ăn hộp",
+      "categoryId": "san-pham-giay",
+      "category": "Sản phẩm giấy",
+      "image": "/images/Giay-an-hop.webp"
+    },
+    {
+      "stt": 60,
+      "name": "Giấy bìa A4 (xanh, hồng, vàng; 100 tờ/tập)",
+      "categoryId": "san-pham-giay",
+      "category": "Sản phẩm giấy",
+      "image": "/images/Giay-bia-a4-(xanh-hong-vang-100-to-tap).webp"
+    },
+    {
+      "stt": 61,
+      "name": "Giấy bó tiền",
+      "categoryId": "san-pham-giay",
+      "category": "Sản phẩm giấy",
+      "image": "/images/Giay-bo-tien.webp"
+    },
+    {
+      "stt": 62,
+      "name": "Giấy dính Tomy (6 / 8 / 10 miếng/tập)",
+      "categoryId": "san-pham-giay",
+      "category": "Sản phẩm giấy",
+      "image": "/images/Giay-dinh-tomy-(6-8-10-mieng-tap).webp"
+    },
+    {
+      "stt": 63,
+      "name": "Giấy in Accura Plus",
+      "categoryId": "san-pham-giay",
+      "category": "Sản phẩm giấy",
+      "image": "/images/Giay-in-accura-plus.webp"
+    },
+    {
+      "stt": 64,
+      "name": "Giấy in Double A A4 70",
+      "categoryId": "san-pham-giay",
+      "category": "Sản phẩm giấy",
+      "image": "/images/Giay-in-double-a-a4-70.webp"
+    },
+    {
+      "stt": 65,
+      "name": "Giấy in Double A A4 80",
+      "categoryId": "san-pham-giay",
+      "category": "Sản phẩm giấy",
+      "image": "/images/Giay-in-double-a-a4-80.webp"
+    },
+    {
+      "stt": 66,
+      "name": "Giấy in Double A A5",
+      "categoryId": "san-pham-giay",
+      "category": "Sản phẩm giấy",
+      "image": "/images/Giay-in-double-a-a5.webp"
+    },
+    {
+      "stt": 67,
+      "name": "Giấy in IK Plus A4",
+      "categoryId": "san-pham-giay",
+      "category": "Sản phẩm giấy",
+      "image": "/images/Giay-in-ik-plus-a4.webp"
+    },
+    {
+      "stt": 68,
+      "name": "Giấy in Pagi A4 70",
+      "categoryId": "san-pham-giay",
+      "category": "Sản phẩm giấy",
+      "image": "/images/Giay-in-pagi-a4-70.webp"
+    },
+    {
+      "stt": 69,
+      "name": "Giấy in Pagi A5 70",
+      "categoryId": "san-pham-giay",
+      "category": "Sản phẩm giấy",
+      "image": "/images/Giay-in-pagi-a5-70.webp"
+    },
+    {
+      "stt": 70,
+      "name": "Giấy in PaperOne A4 70",
+      "categoryId": "san-pham-giay",
+      "category": "Sản phẩm giấy",
+      "image": "/images/Giay-in-paperone-a4-70.webp"
+    },
+    {
+      "stt": 71,
+      "name": "Giấy in vi tính A4 1 liên 2 giao Liên Sơn",
+      "categoryId": "san-pham-giay",
+      "category": "Sản phẩm giấy",
+      "image": "/images/Giay-in-vi-tinh-a4-1-lien-2-giao-lien-son.webp"
+    },
+    {
+      "stt": 72,
+      "name": "Giấy in vi tính A4 3 liên 2 giao Liên Sơn",
+      "categoryId": "san-pham-giay",
+      "category": "Sản phẩm giấy",
+      "image": "/images/Giay-in-vi-tinh-a4-3-lien-2-giao-lien-son.webp"
+    },
+    {
+      "stt": 73,
+      "name": "Giấy lau tay đa năng",
+      "categoryId": "bach-hoa-van-phong",
+      "category": "Bách hóa văn phòng",
+      "image": "/images/Giay-lau-tay-da-nang.webp"
+    },
+    {
+      "stt": 74,
+      "name": "Giấy nhắn 2\" x 3\" vàng - Wintex / Pronoti",
+      "categoryId": "san-pham-giay",
+      "category": "Sản phẩm giấy",
+      "image": "/images/Giay-nhan-2-x-3-vang-wintex-pronoti.webp"
+    },
+    {
+      "stt": 75,
+      "name": "Giấy nhắn 3\" x 3\" vàng - Wintex / Pronoti",
+      "categoryId": "san-pham-giay",
+      "category": "Sản phẩm giấy",
+      "image": "/images/Giay-nhan-3-x-3-vang-wintex-pronoti.webp"
+    },
+    {
+      "stt": 76,
+      "name": "Giấy nhắn 3\" x 4\" vàng - Wintex / Pronoti",
+      "categoryId": "san-pham-giay",
+      "category": "Sản phẩm giấy",
+      "image": "/images/Giay-nhan-3-x-4-vang-wintex-pronoti.webp"
+    },
+    {
+      "stt": 77,
+      "name": "Giấy nhắn 3\" x 5\" vàng - Wintex / Pronoti",
+      "categoryId": "san-pham-giay",
+      "category": "Sản phẩm giấy",
+      "image": "/images/Giay-nhan-3-x-5-vang-wintex-pronoti.webp"
+    },
+    {
+      "stt": 78,
+      "name": "Giấy than (100 tờ/tập)",
+      "categoryId": "san-pham-giay",
+      "category": "Sản phẩm giấy",
+      "image": "/images/Giay-than-(100-to-tap).webp"
+    },
+    {
+      "stt": 79,
+      "name": "Giấy vệ sinh Posy 4 lớp",
+      "categoryId": "bach-hoa-van-phong",
+      "category": "Bách hóa văn phòng",
+      "image": "/images/Giay-ve-sinh-posy-4-lop.webp"
+    },
+    {
+      "stt": 80,
+      "name": "Gọt chì Deli",
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm",
+      "image": "/images/Got-chi-deli.webp"
+    },
+    {
+      "stt": 81,
+      "name": "Hồ dán khô Deli",
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm",
+      "image": "/images/Ho-dan-kho-deli.webp"
+    },
+    {
+      "stt": 82,
+      "name": "Hồ khô Staedtler 8 g",
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm",
+      "image": "/images/Ho-kho-staedtler-8-g.webp"
+    },
+    {
+      "stt": 83,
+      "name": "Hồ nước Thiên Long",
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm",
+      "image": "/images/Ho-nuoc-thien-long.webp"
+    },
+    {
+      "stt": 84,
+      "name": "Kéo văn phòng F200 (210 mm)",
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm",
+      "image": "/images/Keo-van-phong-f200-(210-mm).webp"
+    },
+    {
+      "stt": 85,
+      "name": "Kéo văn phòng S008 (180 mm)",
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm",
+      "image": "/images/Keo-van-phong-s008-(180-mm).webp"
+    },
+    {
+      "stt": 86,
+      "name": "Kẹp sắt đen 15 mm (12 cái/hộp)",
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm",
+      "image": "/images/Kep-sat-den-15-mm-(12-cai-hop).webp"
+    },
+    {
+      "stt": 87,
+      "name": "Kẹp sắt đen 19 mm (12 cái/hộp)",
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm",
+      "image": "/images/Kep-sat-den-19-mm-(12-cai-hop).webp"
+    },
+    {
+      "stt": 88,
+      "name": "Kẹp sắt đen 25 mm (12 cái/hộp)",
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm",
+      "image": "/images/Kep-sat-den-25-mm-(12-cai-hop).webp"
+    },
+    {
+      "stt": 89,
+      "name": "Kẹp sắt đen 32 mm (12 cái/hộp)",
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm",
+      "image": "/images/Kep-sat-den-32-mm-(12-cai-hop).webp"
+    },
+    {
+      "stt": 90,
+      "name": "Kẹp sắt đen 41 mm (12 cái/hộp)",
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm",
+      "image": "/images/Kep-sat-den-41-mm-(12-cai-hop).webp"
+    },
+    {
+      "stt": 91,
+      "name": "Kẹp sắt đen 51 mm (12 cái/hộp)",
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm",
+      "image": "/images/Kep-sat-den-51-mm-(12-cai-hop).webp"
+    },
+    {
+      "stt": 92,
+      "name": "Khay cắm bút xoay",
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm",
+      "image": "/images/Khay-cam-but-xoay.webp"
+    },
+    {
+      "stt": 93,
+      "name": "Khay tài liệu 3 tầng nhựa Deli",
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm",
+      "image": "/images/Khay-tai-lieu-3-tang-nhua-deli.webp"
+    },
+    {
+      "stt": 94,
+      "name": "Khay tài liệu 3 tầng nhựa TCT",
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm",
+      "image": "/images/Khay-tai-lieu-3-tang-nhua-tct.webp"
+    },
+    {
+      "stt": 95,
+      "name": "Mặt thẻ",
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm",
+      "image": "/images/Mat-the.webp"
+    },
+    {
+      "stt": 96,
+      "name": "Miếng kê chuột",
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm",
+      "image": "/images/Mieng-ke-chuot.webp"
+    },
+    {
+      "stt": 97,
+      "name": "Mực dấu Shinny (xanh, đỏ)",
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm",
+      "image": "/images/Muc-dau-shinny-(xanh-do).webp"
+    },
+    {
+      "stt": 98,
+      "name": "Mực dấu Trodat",
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm",
+      "image": "/images/Muc-dau-trodat.webp"
+    },
+    {
+      "stt": 99,
+      "name": "Nhổ ghim nhỏ Sunwood",
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm",
+      "image": "/images/Nho-ghim-nho-sunwood.webp"
+    },
+    {
+      "stt": 100,
+      "name": "Nước lau sàn Gift 1000 ml",
+      "categoryId": "bach-hoa-van-phong",
+      "category": "Bách hóa văn phòng",
+      "image": "/images/Nuoc-lau-san-gift-1000-ml-STT-100.webp"
+    },
+    {
+      "stt": 101,
+      "name": "Nước rửa tay Lifebuoy 180 ml",
+      "categoryId": "bach-hoa-van-phong",
+      "category": "Bách hóa văn phòng",
+      "image": "/images/Nuoc-rua-tay-lifebuoy-180-ml.webp"
+    },
+    {
+      "stt": 102,
+      "name": "Nước rửa tay Lifebuoy 4000 ml",
+      "categoryId": "bach-hoa-van-phong",
+      "category": "Bách hóa văn phòng",
+      "image": "/images/Nuoc-rua-tay-lifebuoy-4000-ml.webp"
+    },
+    {
+      "stt": 103,
+      "name": "Nước rửa tay Lifebuoy 450 ml",
+      "categoryId": "bach-hoa-van-phong",
+      "category": "Bách hóa văn phòng",
+      "image": "/images/Nuoc-rua-tay-lifebuoy-450-ml.webp"
+    },
+    {
+      "stt": 104,
+      "name": "Pin tiểu Con Thỏ",
+      "categoryId": "bach-hoa-van-phong",
+      "category": "Bách hóa văn phòng",
+      "image": "/images/Pin-tieu-con-tho.webp"
+    },
+    {
+      "stt": 105,
+      "name": "Pin tiểu Maxell",
+      "categoryId": "bach-hoa-van-phong",
+      "category": "Bách hóa văn phòng",
+      "image": "/images/Pin-tieu-maxell.webp"
+    },
+    {
+      "stt": 106,
+      "name": "Sáp đếm tiền",
+      "categoryId": "bach-hoa-van-phong",
+      "category": "Bách hóa văn phòng",
+      "image": "/images/Sap-dem-tien.webp"
+    },
+    {
+      "stt": 107,
+      "name": "Sổ A4 bìa bóng - bằng đầu 240T HT, BK",
+      "categoryId": "san-pham-giay",
+      "category": "Sản phẩm giấy",
+      "image": "/images/So-a4-bia-bong-bang-dau-240t-ht-bk.webp"
+    },
+    {
+      "stt": 108,
+      "name": "Sổ A4 bìa bóng - thừa đầu 240T HT, BK",
+      "categoryId": "san-pham-giay",
+      "category": "Sản phẩm giấy",
+      "image": "/images/So-a4-bia-bong-thua-dau-240t-ht-bk.webp"
+    },
+    {
+      "stt": 109,
+      "name": "Sổ bìa cứng A5 HT",
+      "categoryId": "san-pham-giay",
+      "category": "Sản phẩm giấy",
+      "image": "/images/So-bia-cung-a5-ht.webp"
+    },
+    {
+      "stt": 110,
+      "name": "Sổ công văn đi / đến A4",
+      "categoryId": "san-pham-giay",
+      "category": "Sản phẩm giấy",
+      "image": "/images/So-cong-van-di-den-a4.webp"
+    },
+    {
+      "stt": 111,
+      "name": "Sổ lò xo A4 200T HT/BK",
+      "categoryId": "san-pham-giay",
+      "category": "Sản phẩm giấy",
+      "image": "/images/So-lo-xo-a4-200t-ht-bk.webp"
+    },
+    {
+      "stt": 112,
+      "name": "Sổ lò xo A5 200 trang HT, BK",
+      "categoryId": "san-pham-giay",
+      "category": "Sản phẩm giấy",
+      "image": "/images/So-lo-xo-a5-200-trang-ht-bk.webp"
+    },
+    {
+      "stt": 113,
+      "name": "Tẩy chì Deli",
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm",
+      "image": "/images/Tay-chi-deli.webp"
+    },
+    {
+      "stt": 114,
+      "name": "Thước kẻ mica 30 cm",
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm",
+      "image": "/images/Thuoc-ke-mica-30-cm.webp"
+    },
+    {
+      "stt": 115,
+      "name": "Túi 11 lỗ TCT3C (100 cái/tập)",
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm",
+      "image": "/images/Tui-11-lo-tct3c-(100-cai-tap).webp"
+    },
+    {
+      "stt": 116,
+      "name": "Túi 11 lỗ Plus (10 cái/tập)",
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm",
+      "image": "/images/Tui-11-lo-plus-(10-cai-tap).webp"
+    },
+    {
+      "stt": 117,
+      "name": "Túi clear bag khổ A4",
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm",
+      "image": "/images/Tui-clear-bag-kho-a4.webp"
+    },
+    {
+      "stt": 118,
+      "name": "Túi clear bag khổ F",
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm",
+      "image": "/images/Tui-clear-bag-kho-f.webp"
+    },
+    {
+      "stt": 119,
+      "name": "Túi giấy xi măng 5 kg",
+      "categoryId": "san-pham-giay",
+      "category": "Sản phẩm giấy",
+      "image": "/images/Tui-giay-xi-mang-5-kg.webp"
+    },
+    {
+      "stt": 120,
+      "name": "Túi nilon đựng rác đen (mỏng)",
+      "categoryId": "bach-hoa-van-phong",
+      "category": "Bách hóa văn phòng",
+      "image": "/images/Tui-nilon-dung-rac-den-(mong).webp"
+    },
+    {
+      "stt": 121,
+      "name": "Túi nilon đựng rác đen (dày)",
+      "categoryId": "bach-hoa-van-phong",
+      "category": "Bách hóa văn phòng",
+      "image": "/images/Tui-nilon-dung-rac-den-(day).webp"
+    },
+    {
+      "stt": 122,
+      "name": "Ổ LiOA 3 ổ 3 m",
+      "categoryId": "bach-hoa-van-phong",
+      "category": "Bách hóa văn phòng",
+      "image": "/images/O-lioa-3-o-3-m.webp"
+    },
+    {
+      "stt": 123,
+      "name": "Ổ LiOA 4 ổ 3 m",
+      "categoryId": "bach-hoa-van-phong",
+      "category": "Bách hóa văn phòng",
+      "image": "/images/O-lioa-4-o-3-m.webp"
+    },
+    {
+      "stt": 124,
+      "name": "Ổ LiOA 6 ổ 3 m",
+      "categoryId": "bach-hoa-van-phong",
+      "category": "Bách hóa văn phòng",
+      "image": "/images/O-lioa-6-o-3-m.webp"
+    },
+    {
+      "stt": 125,
+      "name": "Sọt rác Hiro 5 L",
+      "categoryId": "bach-hoa-van-phong",
+      "category": "Bách hóa văn phòng",
+      "image": "/images/Sot-rac-hiro-5-l.webp"
+    },
+    {
+      "stt": 126,
+      "name": "Giấy lau tay Silkwell 280 tờ",
+      "categoryId": "bach-hoa-van-phong",
+      "category": "Bách hóa văn phòng",
+      "image": "/images/Giay-lau-tay-silkwell-280-to.webp"
+    },
+    {
+      "stt": 127,
+      "name": "Trình ký nhựa 2 mặt",
+      "categoryId": "van-phong-pham",
+      "category": "Văn phòng phẩm",
+      "image": "/images/Trinh-ky-nhua-2-mat.webp"
+    },
+    {
+      "stt": 128,
+      "name": "Nước rửa tay Lifebuoy 450 g",
+      "categoryId": "bach-hoa-van-phong",
+      "category": "Bách hóa văn phòng",
+      "image": "/images/Nuoc-rua-tay-lifebuoy-450-g.webp"
+    },
+    {
+      "stt": 129,
+      "name": "Nước rửa tay Lifebuoy Vitamin 4 kg",
+      "categoryId": "bach-hoa-van-phong",
+      "category": "Bách hóa văn phòng",
+      "image": "/images/Nuoc-rua-tay-lifebuoy-vitamin-4-kg.webp"
+    },
+    {
+      "stt": 130,
+      "name": "Nước lau sàn Gift 1000 ml",
+      "categoryId": "bach-hoa-van-phong",
+      "category": "Bách hóa văn phòng",
+      "image": "/images/Nuoc-lau-san-gift-1000-ml-STT-130.webp"
+    },
+    {
+      "stt": 131,
+      "name": "Nước lau sàn Gift 3,8 kg",
+      "categoryId": "bach-hoa-van-phong",
+      "category": "Bách hóa văn phòng",
+      "image": "/images/Nuoc-lau-san-gift-3-8-kg.webp"
+    },
+    {
+      "stt": 132,
+      "name": "Tẩy toilet Gift 600 ml",
+      "categoryId": "bach-hoa-van-phong",
+      "category": "Bách hóa văn phòng",
+      "image": "/images/Tay-toilet-gift-600-ml.webp"
+    },
+    {
+      "stt": 133,
+      "name": "Tẩy toilet Gift 900 ml",
+      "categoryId": "bach-hoa-van-phong",
+      "category": "Bách hóa văn phòng",
+      "image": "/images/Tay-toilet-gift-900-ml.webp"
+    },
+    {
+      "stt": 134,
+      "name": "Nước rửa chén Sunlight 750 ml",
+      "categoryId": "bach-hoa-van-phong",
+      "category": "Bách hóa văn phòng",
+      "image": "/images/Nuoc-rua-chen-sunlight-750-ml.webp"
+    }
+  ]
+}

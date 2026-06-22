@@ -533,7 +533,8 @@ section.hero::before {
 
 /* -------- Contact Page -------- */
 .contact-info-section {
-  background-color: var(--color-bg);
+  background:
+  linear-gradient(135deg, rgba(102, 0, 17, 0.05) 0%, rgba(171, 106, 36, 0.06) 100%);
 }
 
 .contact-grid {

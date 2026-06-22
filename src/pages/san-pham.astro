@@ -2,195 +2,180 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import { productCategories, products, priceRange, formatPriceVnd } from '../data/products';
 
-const products = [
-  { id: 1, name: 'Băng dính 2 mặt 1 cm (20 cuộn/cây)', unit: 'Cuộn', price: 4000, vat: '8%', image: 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=500&h=500&fit=crop' },
-  { id: 2, name: 'Băng dính 2 mặt 2cm (15 cuộn/cây)', unit: 'Cuộn', price: 5000, vat: '8%', image: 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=500&h=500&fit=crop' },
-  { id: 3, name: 'Băng dính 2 mặt 5cm (6 cuộn/cây)', unit: 'Cuộn', price: 8500, vat: '8%', image: 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=500&h=500&fit=crop' },
-  { id: 4, name: 'Băng dính dán gáy Simili 3cm', unit: 'Cuộn', price: 8000, vat: '8%', image: 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=500&h=500&fit=crop' },
-  { id: 5, name: 'Băng dính dán gáy Simili 5cm', unit: 'Cuộn', price: 10000, vat: '8%', image: 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=500&h=500&fit=crop' },
-  { id: 6, name: 'Băng dính giấy 1 cm', unit: 'Cuộn', price: 4000, vat: '8%', image: 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=500&h=500&fit=crop' },
-  { id: 7, name: 'Băng dính giấy 2 cm', unit: 'Cuộn', price: 6000, vat: '8%', image: 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=500&h=500&fit=crop' },
-  { id: 8, name: 'Băng dính trong 2 cm', unit: 'Cuộn', price: 3500, vat: '8%', image: 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=500&h=500&fit=crop' },
-  { id: 9, name: 'Băng dính trong 5cm-100Y', unit: 'Cuộn', price: 16000, vat: '8%', image: 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=500&h=500&fit=crop' },
-  { id: 10, name: 'Băng dính trong 5cm-200Y', unit: 'Cuộn', price: 27000, vat: '8%', image: 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=500&h=500&fit=crop' },
-  { id: 11, name: 'Băng dính trong 5cm-60Y', unit: 'Cuộn', price: 12000, vat: '8%', image: 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=500&h=500&fit=crop' },
-  { id: 12, name: 'Băng xoá khô Plus WH 12mm', unit: 'Chiếc', price: 24000, vat: '8%', image: 'https://images.unsplash.com/photo-1599581423571-bedf4c5db813?w=500&h=500&fit=crop' },
-  { id: 13, name: 'Băng xoá khô Plus WH 7mm', unit: 'Chiếc', price: 16000, vat: '8%', image: 'https://images.unsplash.com/photo-1599581423571-bedf4c5db813?w=500&h=500&fit=crop' },
-  { id: 14, name: 'Bút bi Double A Tri 0.7', unit: 'Chiếc', price: 4500, vat: '8%', image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=500&h=500&fit=crop' },
-  { id: 15, name: 'Bút bi Thiên Long 025 xanh, đỏ, đen', unit: 'Chiếc', price: 4800, vat: '8%', image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=500&h=500&fit=crop' },
-  { id: 16, name: 'Bút bi Thiên Long 027 xanh, đen, đỏ', unit: 'Chiếc', price: 4500, vat: '8%', image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=500&h=500&fit=crop' },
-  { id: 17, name: 'Bút bi Thiên Long F024', unit: 'Chiếc', price: 4500, vat: '8%', image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=500&h=500&fit=crop' },
-  { id: 18, name: 'Bút chì Deli', unit: 'Chiếc', price: 4000, vat: '8%', image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=500&h=500&fit=crop' },
-  { id: 19, name: 'Bút chì Đức Steadler 134-2B', unit: 'Chiếc', price: 4500, vat: '8%', image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=500&h=500&fit=crop' },
-  { id: 20, name: 'Bút dạ dầu TL PM-09', unit: 'Chiếc', price: 9000, vat: '8%', image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=500&h=500&fit=crop' },
-  { id: 21, name: 'Bút dạ kính TL PM-04', unit: 'Chiếc', price: 8000, vat: '8%', image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=500&h=500&fit=crop' },
-  { id: 22, name: 'Bút dạ nét nhỏ 2 đầu', unit: 'Chiếc', price: 6000, vat: '8%', image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=500&h=500&fit=crop' },
-  { id: 23, name: 'Bút dính bàn đôi Thiên Long/ Bến Nghé', unit: 'Đôi', price: 18000, vat: '8%', image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=500&h=500&fit=crop' },
-  { id: 24, name: 'Bút ký BK', unit: 'Chiếc', price: 12000, vat: '8%', image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=500&h=500&fit=crop' },
-  { id: 25, name: 'Bút ký Pentel BL57C', unit: 'Chiếc', price: 45000, vat: '8%', image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=500&h=500&fit=crop' },
-  { id: 26, name: 'Bút nhớ dòng Leaderart HL101', unit: 'Chiếc', price: 8500, vat: '8%', image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=500&h=500&fit=crop' },
-  { id: 27, name: 'Bút nhớ dòng Thiên Long HL-03', unit: 'Chiếc', price: 9000, vat: '8%', image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=500&h=500&fit=crop' },
-  { id: 28, name: 'Bút nhớ dòng Today', unit: 'Chiếc', price: 9000, vat: '8%', image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=500&h=500&fit=crop' },
-  { id: 29, name: 'Bút viết bảng Thiên Long WB03 các màu', unit: 'Chiếc', price: 8500, vat: '8%', image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=500&h=500&fit=crop' },
-  { id: 30, name: 'Bút xoá nước TL CP-02', unit: 'Chiếc', price: 23000, vat: '8%', image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=500&h=500&fit=crop' },
-  { id: 31, name: 'Cặp 3 dây giấy 10F', unit: 'Chiếc', price: 15000, vat: '8%', image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500&h=500&fit=crop' },
-  { id: 32, name: 'Cặp 3 dây giấy 15F', unit: 'Chiếc', price: 16000, vat: '8%', image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500&h=500&fit=crop' },
-  { id: 33, name: 'Cặp 3 dây giấy 20F', unit: 'Chiếc', price: 17000, vat: '8%', image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500&h=500&fit=crop' },
-  { id: 34, name: 'Cặp trình ký da', unit: 'Chiếc', price: 90000, vat: '8%', image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500&h=500&fit=crop' },
-  { id: 35, name: 'Cặp trình ký si A4 đơn', unit: 'Chiếc', price: 14500, vat: '8%', image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500&h=500&fit=crop' },
-  { id: 36, name: 'Cắt băng dính nhỏ Deli 811', unit: 'Chiếc', price: 28000, vat: '8%', image: 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=500&h=500&fit=crop' },
-  { id: 37, name: 'Căt băng dính to', unit: 'Chiếc', price: 35000, vat: '8%', image: 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=500&h=500&fit=crop' },
-  { id: 38, name: 'Chia file 12 màu nhựa TM', unit: 'Tập', price: 9000, vat: '8%', image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500&h=500&fit=crop' },
-  { id: 39, name: 'Chia file giấy nhiều màu (nhỏ)', unit: 'Tập', price: 14500, vat: '8%', image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500&h=500&fit=crop' },
-  { id: 40, name: 'Chia file nhựa nhiều màu Pronoti/DK/SW', unit: 'Tập', price: 13000, vat: '8%', image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500&h=500&fit=crop' },
-  { id: 41, name: 'Chun vòng to 0,5kg', unit: 'Túi', price: 32000, vat: '8%', image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500&h=500&fit=crop' },
-  { id: 42, name: 'Chuột máy tính không dây', unit: 'Cái', price: 190000, vat: '8%', image: 'https://images.unsplash.com/photo-1527814050087-3793815479db?w=500&h=500&fit=crop' },
-  { id: 43, name: 'Cốc giấy cỡ nhỏ', unit: 'Chiếc', price: 500, vat: '8%', image: 'https://images.unsplash.com/photo-1572365992253-3cb3e56dd362?w=500&h=500&fit=crop' },
-  { id: 44, name: 'Cốc giấy cỡ to', unit: 'Chiếc', price: 1200, vat: '8%', image: 'https://images.unsplash.com/photo-1572365992253-3cb3e56dd362?w=500&h=500&fit=crop' },
-  { id: 45, name: 'Dao chuôi vàng loại 1', unit: 'Chiếc', price: 15000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 46, name: 'Dao rọc giấy nhỏ SDI 0404', unit: 'Chiếc', price: 17000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 47, name: 'Dao rọc giấy to SDI 0423', unit: 'Chiếc', price: 25000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 48, name: 'Dập ghim nhỏ Plus PS 10E', unit: 'Chiếc', price: 34000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 49, name: 'Dấu tên 853', unit: 'Chiếc', price: 105000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 50, name: 'Dây đeo thẻ', unit: 'Cái', price: 2000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 51, name: 'Đục lỗ 15 tờ', unit: 'Cái', price: 91500, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 52, name: 'File càng cua 5cm/ 7cm TM, EKE', unit: 'Chiếc', price: 27000, vat: '8%', image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500&h=500&fit=crop' },
-  { id: 53, name: 'File càng cua 9cm KingJim', unit: 'Chiếc', price: 64000, vat: '8%', image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500&h=500&fit=crop' },
-  { id: 54, name: 'File càng cua 9cm TM, EKE', unit: 'Chiếc', price: 35000, vat: '8%', image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500&h=500&fit=crop' },
-  { id: 55, name: 'File góc A4', unit: 'Chiếc', price: 3000, vat: '8%', image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500&h=500&fit=crop' },
-  { id: 56, name: 'File nan 3 ngăn TCT', unit: 'Chiếc', price: 39500, vat: '8%', image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500&h=500&fit=crop' },
-  { id: 57, name: 'Ghim cài nhỏ C62', unit: 'Hộp', price: 3000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 58, name: 'Ghim dập nhỏ N10 Plus (màu xanh)', unit: 'Hộp', price: 3500, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 59, name: 'Giấy ăn Hộp', unit: 'Gói', price: 20000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 60, name: 'Giấy bìa (xanh, hồng, vàng) A4 (100 tờ/tập)', unit: 'Tập', price: 35000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 61, name: 'Giấy bó tiền', unit: 'Cuộn', price: 40000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 62, name: 'Giấy dính Tomy 6-8-10 miếng/ tập', unit: 'Tập', price: 12000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 63, name: 'Giấy in Accura Plus', unit: 'Ram', price: 67000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 64, name: 'Giấy in Double A A4 70', unit: 'Ram', price: 81000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 65, name: 'Giấy in Double A A4 80', unit: 'Ram', price: 90000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 66, name: 'Giấy in Double A A5', unit: 'Ram', price: 40000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 67, name: 'Giấy in IK Plus A4', unit: 'Ram', price: 75000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 68, name: 'Giấy in Pagi A4 70', unit: 'Ram', price: 62000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 69, name: 'Giấy in Pagi A5 70', unit: 'Ram', price: 31000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 70, name: 'Giấy in Paperone A470', unit: 'Ram', price: 72000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 71, name: 'Giấy in vi tính A4 1 liên 2 giao Liên Sơn', unit: 'Thùng', price: 340000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 72, name: 'Giấy in vi tính A4 3 liên 2 giao Liên Sơn', unit: 'Thùng', price: 450000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 73, name: 'Giấy lau tay đa năng', unit: 'Túi', price: 16000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 74, name: 'Giấy nhắn 2"x 3" vàng - Wintex/ Pronoti', unit: 'Tập', price: 7000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 75, name: 'Giấy nhắn 3"x 3" vàng - Wintex/ Pronoti', unit: 'Tập', price: 8000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 76, name: 'Giấy nhắn 3"x 4" vàng - Wintex/ Pronoti', unit: 'Tập', price: 9000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 77, name: 'Giấy nhắn 3"x 5" vàng - Wintex/ Pronoti', unit: 'Tập', price: 10000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 78, name: 'Giấy than (100 tờ/ tập)', unit: 'Tập', price: 75000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 79, name: 'Giấy vệ sinh Posy 4 lớp', unit: 'Bịch', price: 75000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 80, name: 'Gọt chì Deli', unit: 'Chiếc', price: 4500, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 81, name: 'Hồ dán khô Deli', unit: 'Thỏi', price: 5000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 82, name: 'Hồ khô Staedtler 8g', unit: 'Lọ', price: 14000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 83, name: 'Hồ nước Thiên Long', unit: 'Lọ', price: 4000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 84, name: 'Kéo văn phòng F200 (210mm)', unit: 'Chiếc', price: 18000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 85, name: 'Kéo văn phòng S008 (180mm)', unit: 'Chiếc', price: 14000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 86, name: 'Kẹp sắt đen 15mm (12cái/hộp)', unit: 'Hộp', price: 4200, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 87, name: 'Kẹp sắt đen 19mm (12cái/hộp)', unit: 'Hộp', price: 4500, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 88, name: 'Kẹp sắt đen 25mm (12cái/hộp)', unit: 'Hộp', price: 7000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 89, name: 'Kẹp sắt đen 32mm (12cái/hộp)', unit: 'Hộp', price: 10000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 90, name: 'Kẹp sắt đen 41mm (12cái/hộp)', unit: 'Hộp', price: 15000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 91, name: 'Kẹp sắt đen 51mm (12cái/hộp)', unit: 'Hộp', price: 23500, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 92, name: 'Khay cắm bút xoay', unit: 'Chiếc', price: 39000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 93, name: 'Khay tài liệu 3 tầng nhựa Deli', unit: 'Chiếc', price: 175000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 94, name: 'Khay tài liệu 3 tầng nhựa TCT', unit: 'Chiếc', price: 95000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 95, name: 'Mặt thẻ', unit: 'Cái', price: 2500, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 96, name: 'Miếng kê chuột', unit: 'Chiếc', price: 15000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 97, name: 'Mực dấu Shinny (xanh, đỏ)', unit: 'Hộp', price: 44000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 98, name: 'Mực dấu Trodat', unit: 'Hộp', price: 62000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 99, name: 'Nhổ ghim nhỏ Sunwood', unit: 'Chiếc', price: 9000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 100, name: 'Nước lau sàn Gift 1000ml', unit: 'Chai', price: 35000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 101, name: 'Nước rửa tay Lifebouy 180ml', unit: 'Chai', price: 31500, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 102, name: 'Nước rửa tay Lifebouy 4000ml', unit: 'Can', price: 300000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 103, name: 'Nước rửa tay Lifebouy 450ml', unit: 'Chai', price: 68000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 104, name: 'Pin tiểu con thỏ', unit: 'Vỉ', price: 8000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 105, name: 'Pin tiểu Maxel', unit: 'Đôi', price: 27000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 106, name: 'Sáp đếm tiền', unit: 'Chiếc', price: 8000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 107, name: 'Sổ A4 bìa bóng - bằng đầu 240T HT, BK', unit: 'Quyển', price: 46000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 108, name: 'Sổ A4 bìa bóng - thừa đầu 240T HT, BK', unit: 'Quyển', price: 48000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 109, name: 'Sổ bìa cứng A5 HT', unit: 'Quyển', price: 25000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 110, name: 'Sổ công văn đi / đến A4', unit: 'Quyển', price: 36000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 111, name: 'Sổ lò so A4 200 T HT/BK', unit: 'Quyển', price: 30000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 112, name: 'Sổ lò so A5 200 trang HT, BK', unit: 'Quyển', price: 20000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 113, name: 'Tẩy chì Deli', unit: 'Viên', price: 4000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 114, name: 'Thước kẻ mica 30cm', unit: 'Chiếc', price: 4500, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 115, name: 'Túi 11 lỗ TCT3C (100cái/tập)', unit: 'Tập', price: 36000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 116, name: 'Túi 11 lỗ Plus (10cái/tập)', unit: 'Tập', price: 15000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 117, name: 'Túi clear bag khổ A4', unit: 'Chiếc', price: 2200, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 118, name: 'Túi clear bag khổ F', unit: 'Chiếc', price: 3200, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 119, name: 'Túi giấy xi măng 5kg', unit: 'Kg', price: 1500, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 120, name: 'Túi nilon đựng rác đen (mỏng)', unit: 'Kg', price: 36000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 121, name: 'Túi nilon đựng rác đen (dày)', unit: 'Kg', price: 45000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 122, name: 'Ổ lioa 3 ổ 3m', unit: 'Chiếc', price: 95000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 123, name: 'Ổ lioa 4 ổ 3m', unit: 'Chiếc', price: 140000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 124, name: 'Ổ lioa 6 ổ 3m', unit: 'Chiếc', price: 180000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 125, name: 'Sọt rác Hiro 5L', unit: 'Chiếc', price: 30000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 126, name: 'Giấy lau tay Silkwell 280 tờ', unit: 'Gói', price: 20000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 127, name: 'Trình ký nhựa 2 mặt', unit: 'Chiếc', price: 45000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 128, name: 'Nước rửa tay Lifebuoy 450g', unit: 'Chai', price: 69000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 129, name: 'Nước rửa tay Lifebuoy Vitamin 4kg', unit: 'Can', price: 295000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 130, name: 'Lau sàn Gift 1000ml', unit: 'Chai', price: 38000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 131, name: 'Lau sàn Gift 3,8 kg', unit: 'Can', price: 88000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 132, name: 'Tẩy toilet Gift 600ml', unit: 'Chai', price: 30000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 133, name: 'Tẩy toilet Gift 900ml', unit: 'Chai', price: 38000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-  { id: 134, name: 'Nước rửa chén Sunlight 750ml', unit: 'Chai', price: 35000, vat: '8%', image: 'https://images.unsplash.com/photo-1599580611296-f3b073b04b77?w=500&h=500&fit=crop' },
-];
+const productCount = products.length;
+const minPrice = Number.isFinite(priceRange.min) ? priceRange.min : 0;
+const maxPrice = Number.isFinite(priceRange.max) ? priceRange.max : 0;
 
-const productLink = 'https://mily.vn/W7mTGxXM';
+const queryParams = Astro.url.searchParams;
+const initialKeyword = queryParams.get('q')?.trim() ?? '';
+const initialCategory = queryParams.get('category')?.trim() ?? '';
+const initialMinPrice = queryParams.get('minPrice')?.trim() ?? '';
+const initialMaxPrice = queryParams.get('maxPrice')?.trim() ?? '';
+
+const initialMinPriceValue = Number.parseInt(initialMinPrice, 10);
+const initialMaxPriceValue = Number.parseInt(initialMaxPrice, 10);
+
+const hasInitialMinPrice = Number.isFinite(initialMinPriceValue);
+const hasInitialMaxPrice = Number.isFinite(initialMaxPriceValue);
+
+const hasInitialFilters = Boolean(
+  initialKeyword || initialCategory || hasInitialMinPrice || hasInitialMaxPrice
+);
+
+const normalizeVietnameseServer = (value: string): string => {
+  return (value || '')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/đ/g, 'd')
+    .replace(/Đ/g, 'd')
+    .toLowerCase()
+    .trim();
+};
+
+const initialNormalizedKeyword = normalizeVietnameseServer(initialKeyword);
+const initialKeywordTokens = initialNormalizedKeyword
+  ? initialNormalizedKeyword.split(/\s+/).filter(Boolean)
+  : [];
+
+const initialVisibleProductIds = new Set(
+  products
+    .filter((product) => {
+      const normalizedName = normalizeVietnameseServer(product.name);
+      const keywordMatch =
+        !initialKeywordTokens.length ||
+        initialKeywordTokens.every((token) => normalizedName.includes(token));
+
+      const categoryMatch = !initialCategory || initialCategory === product.categoryId;
+      const minPriceMatch = !hasInitialMinPrice || product.unitPriceVnd >= initialMinPriceValue;
+      const maxPriceMatch = !hasInitialMaxPrice || product.unitPriceVnd <= initialMaxPriceValue;
+
+      return keywordMatch && categoryMatch && minPriceMatch && maxPriceMatch;
+    })
+    .map((product) => product.stt)
+);
+
+const initialVisibleCount = hasInitialFilters
+  ? initialVisibleProductIds.size
+  : productCount;
 ---
 
-<Layout title="Sản Phẩm | Long Hưng">
+<Layout title="Sản phẩm | Long Hưng" description="Danh mục sản phẩm đầy đủ của Long Hưng với bộ lọc theo danh mục, khoảng giá và từ khóa.">
   <Header currentPage="/san-pham" />
 
-  <!-- Hero Section -->
-  <section class="products-hero" style="--products-hero-image: url('/images/hero-vpp.webp')">
-  <div class="container products-hero-inner">
-    <div class="products-hero-content">
-      <h1 class="hero-title">Danh Mục Sản Phẩm</h1>
-      <p class="page-hero-description">{products.length} sản phẩm nổi bật nhất</p>
-    </div>
-  </div>
-</section>
-
-  <!-- Products Section -->
-  <section class="products-section">
-    <div class="container">
-      <div class="products-grid">
-        {products.map((product, index) => (
-          <div class="product-card" style={`--card-delay: ${index * 50}ms`}>
-            <div class="product-image-wrapper">
-              <img src={product.image} alt={product.name} loading="lazy" class="product-image" />
-              <div class="image-overlay"></div>
-            </div>
-            <div class="product-info">
-              <h3 class="product-name">{product.name}</h3>
-              <div class="product-details">
-                <div class="detail-row">
-                  <span class="detail-label">Đơn vị:</span>
-                  <span class="detail-value">{product.unit}</span>
-                </div>
-                <div class="detail-row">
-                  <span class="detail-label">Giá:</span>
-                  <span class="price">{product.price.toLocaleString('vi-VN')} đ</span>
-                </div>
-                <div class="detail-row">
-                  <span class="detail-label">VAT:</span>
-                  <span class="detail-value">{product.vat}</span>
-                </div>
-              </div>
-              <a href={productLink} class="btn btn-product" target="_blank" rel="noopener noreferrer">
-                <span class="btn-text">Xem chi tiết</span>
-                <span class="btn-icon" aria-hidden="true">
-                  <img src="/images/icon-arrow-right.webp" alt="" loading="lazy" decoding="async" />
-                </span>
-              </a>
-            </div>
-          </div>
+  <section class="catalog-hero">
+    <div class="container hero-inner">
+      <p class="hero-kicker">Danh mục {productCount} sản phẩm</p>
+      <h1>Kho Sản Phẩm Long Hưng</h1>
+      <p class="hero-description">
+        Tra cứu nhanh theo từ khóa, nhóm hàng và khoảng giá để chọn đúng sản phẩm bạn cần cho văn phòng.
+      </p>
+      <div class="hero-badges">
+        {productCategories.map((category) => (
+          <span class="hero-badge">{category.name}</span>
         ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="catalog-shell">
+    <div class="container">
+      <div class="filter-panel">
+        <form id="product-filter-form" class="filter-grid" autocomplete="off">
+          <label class="filter-field" for="filter-keyword">
+            <span class="filter-label">Từ khóa</span>
+            <input id="filter-keyword" name="q" type="search" placeholder="Ví dụ: bút bi, giấy A4..." value={initialKeyword} />
+          </label>
+
+          <label class="filter-field" for="filter-category">
+            <span class="filter-label">Danh mục</span>
+            <select id="filter-category" name="category">
+              <option value="">Tất cả danh mục</option>
+              {productCategories.map((category) => (
+                <option value={category.id} selected={initialCategory === category.id}>{category.name}</option>
+              ))}
+            </select>
+          </label>
+
+          <label class="filter-field" for="filter-min-price">
+            <span class="filter-label">Giá thấp nhất (VND)</span>
+            <input id="filter-min-price" name="minPrice" type="number" min={minPrice} step="500" placeholder={`${minPrice}`} value={initialMinPrice} />
+          </label>
+
+          <label class="filter-field" for="filter-max-price">
+            <span class="filter-label">Giá cao nhất (VND)</span>
+            <input id="filter-max-price" name="maxPrice" type="number" min={minPrice} step="500" placeholder={`${maxPrice}`} value={initialMaxPrice} />
+          </label>
+
+          <div class="filter-actions">
+            <button type="submit" class="btn btn-filter">Lọc sản phẩm</button>
+            <button type="button" id="reset-filters" class="btn btn-outline">Xóa bộ lọc</button>
+          </div>
+        </form>
+
+        <div class="quick-range" aria-label="Bộ lọc giá nhanh">
+          <button type="button" class="chip" data-price-range="all">Tất cả mức giá</button>
+          <button type="button" class="chip" data-price-range="budget">Dưới 10.000đ</button>
+          <button type="button" class="chip" data-price-range="mid">10.000đ - 50.000đ</button>
+          <button type="button" class="chip" data-price-range="premium">Trên 50.000đ</button>
+        </div>
+      </div>
+
+      <div class="catalog-stats">
+        <p id="filter-summary"><strong>{initialVisibleCount}</strong> sản phẩm đang hiển thị</p>
+      </div>
+
+      <div class="product-grid" id="product-grid">
+        {products.map((product) => (
+          (() => {
+            const isInitiallyVisible = !hasInitialFilters || initialVisibleProductIds.has(product.stt);
+
+            return (
+          <article
+            class="product-card"
+            data-name={product.name}
+            data-category-id={product.categoryId}
+            data-category={product.category}
+            data-price={product.unitPriceVnd}
+            hidden={!isInitiallyVisible}
+            style={!isInitiallyVisible ? 'display: none !important;' : undefined}
+          >
+            <a class="product-thumb" href={`/san-pham/${product.slug}`} aria-label={`Xem sản phẩm ${product.name}`}>
+              <img src={product.image} alt={product.name} loading="lazy" />
+              <span class="thumb-code" style={`--code-accent: ${product.accentColor}`}>{product.shortCode}</span>
+            </a>
+
+            <div class="product-meta">
+              <span class="category-tag">{product.category}</span>
+              <h2>
+                <a href={`/san-pham/${product.slug}`}>{product.name}</a>
+              </h2>
+              <dl class="price-meta">
+                <div>
+                  <dt>Đơn vị</dt>
+                  <dd>{product.unit}</dd>
+                </div>
+                <div>
+                  <dt>Giá</dt>
+                  <dd>{formatPriceVnd(product.unitPriceVnd)}</dd>
+                </div>
+                <div>
+                  <dt>VAT</dt>
+                  <dd>{product.vatPercent}%</dd>
+                </div>
+              </dl>
+              <a href={`/san-pham/${product.slug}`} class="btn btn-card">Xem trang sản phẩm</a>
+            </div>
+          </article>
+            );
+          })()
+        ))}
+      </div>
+
+      <div class="empty-state" id="empty-state" hidden={initialVisibleCount > 0}>
+        <h3>Không tìm thấy sản phẩm phù hợp</h3>
+        <p>Hãy thử đổi từ khóa, nới khoảng giá hoặc chọn danh mục khác.</p>
       </div>
     </div>
   </section>
@@ -198,335 +183,527 @@ const productLink = 'https://mily.vn/W7mTGxXM';
   <Footer />
 </Layout>
 
+<script>
+  const normalizeVietnamese = (value) => {
+    return (value || '')
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .replace(/đ/g, 'd')
+      .replace(/Đ/g, 'd')
+      .toLowerCase()
+      .trim();
+  };
+
+  const toInt = (value) => {
+    const parsed = Number.parseInt(value, 10);
+    return Number.isFinite(parsed) ? parsed : null;
+  };
+
+  const tokenize = (value) => {
+    const normalized = normalizeVietnamese(value);
+    return normalized ? normalized.split(/\s+/).filter(Boolean) : [];
+  };
+
+  const initProductFilters = () => {
+    const form = document.getElementById('product-filter-form');
+    const keywordInput = document.getElementById('filter-keyword');
+    const categoryInput = document.getElementById('filter-category');
+    const minPriceInput = document.getElementById('filter-min-price');
+    const maxPriceInput = document.getElementById('filter-max-price');
+    const resetButton = document.getElementById('reset-filters');
+    const summary = document.getElementById('filter-summary');
+    const emptyState = document.getElementById('empty-state');
+    const chips = Array.from(document.querySelectorAll('.chip'));
+    const allCards = Array.from(document.querySelectorAll('.product-card'));
+
+    if (!form || !keywordInput || !categoryInput || !minPriceInput || !maxPriceInput || !summary || !emptyState) {
+      return;
+    }
+
+    const setActiveChip = (chipName) => {
+      chips.forEach((chip) => {
+        chip.classList.toggle('active', chip.dataset.priceRange === chipName);
+      });
+    };
+
+    const syncUrl = () => {
+      const params = new URLSearchParams();
+
+      const keyword = keywordInput.value.trim();
+      const category = categoryInput.value.trim();
+      const minPrice = minPriceInput.value.trim();
+      const maxPrice = maxPriceInput.value.trim();
+
+      if (keyword) params.set('q', keyword);
+      if (category) params.set('category', category);
+      if (minPrice) params.set('minPrice', minPrice);
+      if (maxPrice) params.set('maxPrice', maxPrice);
+
+      const query = params.toString();
+      const nextUrl = query ? `/san-pham?${query}` : '/san-pham';
+      window.history.replaceState({}, '', nextUrl);
+    };
+
+    const applyFilters = () => {
+      const keywordTokens = tokenize(keywordInput.value);
+      const category = categoryInput.value;
+      const minPrice = toInt(minPriceInput.value);
+      const maxPrice = toInt(maxPriceInput.value);
+
+      let visibleCount = 0;
+
+      allCards.forEach((card) => {
+        const name = normalizeVietnamese(card.dataset.name || '');
+        const cardCategory = card.dataset.categoryId || '';
+        const cardPrice = toInt(card.dataset.price || '') || 0;
+
+        const keywordMatch =
+          !keywordTokens.length ||
+          keywordTokens.every((token) => name.includes(token));
+        const categoryMatch = !category || category === cardCategory;
+        const minMatch = minPrice === null || cardPrice >= minPrice;
+        const maxMatch = maxPrice === null || cardPrice <= maxPrice;
+        const isMatch = keywordMatch && categoryMatch && minMatch && maxMatch;
+
+        if (isMatch) {
+          card.hidden = false;
+          card.style.removeProperty('display');
+        } else {
+          card.hidden = true;
+          card.style.setProperty('display', 'none', 'important');
+        }
+
+        if (isMatch) {
+          visibleCount += 1;
+        }
+      });
+
+      summary.innerHTML = `<strong>${visibleCount}</strong> sản phẩm đang hiển thị`;
+      emptyState.hidden = visibleCount > 0;
+      syncUrl();
+    };
+
+    const hydrateFromQuery = () => {
+      const params = new URLSearchParams(window.location.search);
+
+      keywordInput.value = params.get('q') || '';
+      categoryInput.value = params.get('category') || '';
+      minPriceInput.value = params.get('minPrice') || '';
+      maxPriceInput.value = params.get('maxPrice') || '';
+
+      setActiveChip('all');
+      applyFilters();
+    };
+
+    if (form.dataset.filtersBound !== 'true') {
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        setActiveChip('all');
+        applyFilters();
+      });
+
+      [keywordInput, minPriceInput, maxPriceInput].forEach((field) => {
+        field.addEventListener('input', () => {
+          setActiveChip('all');
+          applyFilters();
+        });
+      });
+
+      categoryInput.addEventListener('change', () => {
+        setActiveChip('all');
+        applyFilters();
+      });
+
+      resetButton?.addEventListener('click', () => {
+        keywordInput.value = '';
+        categoryInput.value = '';
+        minPriceInput.value = '';
+        maxPriceInput.value = '';
+        setActiveChip('all');
+        applyFilters();
+      });
+
+      chips.forEach((chip) => {
+        chip.addEventListener('click', () => {
+          const key = chip.dataset.priceRange || 'all';
+
+          if (key === 'budget') {
+            minPriceInput.value = '';
+            maxPriceInput.value = '10000';
+          } else if (key === 'mid') {
+            minPriceInput.value = '10000';
+            maxPriceInput.value = '50000';
+          } else if (key === 'premium') {
+            minPriceInput.value = '50001';
+            maxPriceInput.value = '';
+          } else {
+            minPriceInput.value = '';
+            maxPriceInput.value = '';
+          }
+
+          setActiveChip(key);
+          applyFilters();
+        });
+      });
+
+      form.dataset.filtersBound = 'true';
+    }
+
+    hydrateFromQuery();
+  };
+
+  if (!window.__lhProductSearchSyncBound) {
+    window.addEventListener('longhung:product-search', () => {
+      initProductFilters();
+    });
+    window.__lhProductSearchSyncBound = true;
+  }
+
+  initProductFilters();
+  document.addEventListener('astro:page-load', initProductFilters);
+  document.addEventListener('astro:after-swap', initProductFilters);
+  window.addEventListener('popstate', initProductFilters);
+</script>
+
 <style>
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  .catalog-hero {
+    position: relative;
+    background:
+      radial-gradient(circle at 12% 20%, rgba(255, 212, 140, 0.6), transparent 44%),
+      radial-gradient(circle at 88% 24%, rgba(107, 177, 220, 0.55), transparent 48%),
+      linear-gradient(120deg, #201014 0%, #4b1f12 48%, #17334a 100%);
+    color: #fff;
+    padding: clamp(3rem, 6vw, 5rem) 0;
+    overflow: hidden;
   }
 
-  @keyframes heroSlideDown {
-    from {
-      opacity: 0;
-      transform: translateY(-20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  .hero-inner {
+    max-width: 760px;
   }
 
-  @keyframes shimmer {
-    0%, 100% {
-      transform: translateX(-100%);
-    }
-    50% {
-      transform: translateX(100%);
-    }
+  .hero-kicker {
+    margin: 0 0 0.75rem;
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.88);
   }
 
-  @keyframes imageZoom {
-    to {
-      transform: scale(1.08);
-    }
+  .catalog-hero h1 {
+    margin-bottom: 0.95rem;
+    color: #fff;
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5.5vw, 3.35rem);
+    line-height: 1.12;
   }
 
-  @keyframes buttonPulse {
-    0%, 100% {
-      box-shadow: 0 4px 12px rgba(102, 0, 17, 0.25);
-    }
-    50% {
-      box-shadow: 0 6px 20px rgba(102, 0, 17, 0.35);
-    }
+  .hero-description {
+    margin: 0;
+    max-width: 62ch;
+    color: rgba(255, 255, 255, 0.94);
   }
 
-  .products-hero {
-  position: relative;
-  width: 100%;
-  min-height: 52svh;
-  height: min(56vh, 620px);
-  padding: 0;
-
-  display: flex;
-  align-items: center;
-
-  background-image:
-    linear-gradient(
-      90deg,
-      rgba(0, 0, 0, 0.34) 0%,
-      rgba(0, 0, 0, 0.16) 42%,
-      rgba(0, 0, 0, 0.04) 78%
-    ),
-    var(--products-hero-image);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center 45%;
-
-  text-align: left;
-  border-bottom: 1px solid var(--color-gray-light);
-  overflow: hidden;
-  isolation: isolate;
-}
-
-.products-hero-inner {
-  position: relative;
-  z-index: 1;
-}
-
-.products-hero-content {
-  max-width: 680px;
-}
-
-.products-hero .hero-title {
-  font-family: var(--font-display);
-  font-size: clamp(2.4rem, 4vw, 4.2rem);
-  color: var(--color-gold-light);
-  margin-bottom: var(--spacing-md);
-  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.38);
-  animation: heroSlideDown 0.8s ease-out;
-}
-
-.products-hero .hero-subtitle {
-  font-family: var(--font-display);
-  font-size: clamp(1rem, 1.4vw, 1.25rem);
-  color: rgba(255, 255, 255, 0.92);
-  margin: 0;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-  animation: heroSlideDown 0.8s ease-out 0.2s both;
-}
-
-  .products-section {
-    padding: var(--spacing-2xl) 0;
-    background-color: var(--color-white);
+  .hero-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+    margin-top: 1.3rem;
   }
 
-  .products-grid {
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.42rem 0.78rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.12);
+    font-size: 0.88rem;
+  }
+
+  .catalog-shell {
+    padding: 2.25rem 0 3.5rem;
+    background: linear-gradient(180deg, #f6f2e8 0%, #fbf7ef 100%);
+  }
+
+  .filter-panel {
+    border-radius: 20px;
+    border: 1px solid #eadcc8;
+    background: #fffdfa;
+    box-shadow: 0 14px 34px rgba(84, 55, 23, 0.1);
+    padding: 1.25rem;
+    margin-bottom: 1.3rem;
+  }
+
+  .filter-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: var(--spacing-xl);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
+    align-items: end;
+  }
+
+  .filter-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.38rem;
+  }
+
+  .filter-label {
+    font-size: 0.86rem;
+    font-weight: 700;
+    color: #5a3116;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .filter-field input,
+  .filter-field select {
+    min-height: 44px;
+    border: 1px solid #d8c6b0;
+    border-radius: 10px;
+    padding: 0.62rem 0.72rem;
+    background: #fff;
+  }
+
+  .filter-field input:focus,
+  .filter-field select:focus {
+    outline: none;
+    border-color: #7a3d10;
+    box-shadow: 0 0 0 3px rgba(122, 61, 16, 0.16);
+  }
+
+  .filter-actions {
+    display: flex;
+    gap: 0.7rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-filter {
+    min-height: 44px;
+    padding: 0.75rem 1.1rem;
+  }
+
+  .quick-range {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+    margin-top: 1rem;
+  }
+
+  .chip {
+    border: 1px solid #cfbca4;
+    background: #fff;
+    color: #5b2b12;
+    border-radius: 999px;
+    padding: 0.44rem 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-weight: 600;
+  }
+
+  .chip:hover,
+  .chip.active {
+    border-color: #7a3d10;
+    background: #7a3d10;
+    color: #fff;
+  }
+
+  .catalog-stats {
+    margin-bottom: 1rem;
+  }
+
+  #filter-summary {
+    margin: 0;
+    font-size: 1rem;
+    color: #3b2415;
+  }
+
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1rem;
+  }
+
+  .product-card[hidden] {
+    display: none !important;
+  }
+
+  /* Keep catalog visible even if animation bootstrap script fails. */
+  .catalog-shell,
+  .catalog-shell[data-lh-reveal],
+  .catalog-shell .filter-panel,
+  .catalog-shell .catalog-stats,
+  .catalog-shell .product-card,
+  .catalog-shell .empty-state {
+    opacity: 1 !important;
+    transform: none !important;
   }
 
   .product-card {
-    border: 1px solid var(--color-gray-light);
-    border-radius: var(--radius-lg);
+    border: 1px solid #ecdcc8;
+    border-radius: 16px;
+    background: #fff;
     overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    transition: all var(--transition-normal);
     display: flex;
     flex-direction: column;
-    height: 100%;
-    background-color: var(--color-white);
-    animation: fadeInUp 0.45s ease-out var(--card-delay);
-    opacity: 1;
-    animation-fill-mode: both;
+    box-shadow: 0 8px 16px rgba(74, 49, 26, 0.08);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
   }
 
   .product-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
+    box-shadow: 0 14px 30px rgba(74, 49, 26, 0.15);
   }
 
-  .product-image-wrapper {
-    width: 100%;
-    height: 200px;
-    overflow: hidden;
-    background-color: var(--color-bg);
+  .product-thumb {
     position: relative;
+    display: block;
+    height: 168px;
+    overflow: hidden;
   }
 
-  .product-image {
+  .product-thumb img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
-    display: block;
+    transition: transform 0.45s ease;
   }
 
-  .image-overlay {
+  .product-card:hover .product-thumb img {
+    transform: scale(1.05);
+  }
+
+  .thumb-code {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    top: 0.6rem;
+    left: 0.6rem;
+    background: var(--code-accent);
+    color: #fff;
+    padding: 0.25rem 0.5rem;
+    border-radius: 7px;
+    font-weight: 800;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
   }
 
-  .product-card:hover .product-image {
-    transform: scale(1.08) rotate(1deg);
-  }
-
-  .product-card:hover .image-overlay {
-    opacity: 1;
-  }
-
-  .product-info {
-    padding: var(--spacing-lg);
+  .product-meta {
     display: flex;
     flex-direction: column;
-    flex-grow: 1;
+    padding: 0.9rem;
+    gap: 0.55rem;
+    height: 100%;
   }
 
-  .product-name {
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--color-brown);
-    margin: 0 0 var(--spacing-md) 0;
-    line-height: 1.5;
-    min-height: auto;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
+  .category-tag {
+    display: inline-flex;
+    width: fit-content;
+    padding: 0.22rem 0.48rem;
+    border-radius: 999px;
+    background: #f3e7d8;
+    color: #633016;
+    font-size: 0.74rem;
+    font-weight: 700;
   }
 
-  .product-details {
-    margin: var(--spacing-md) 0;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-xs);
+  .product-meta h2 {
+    margin: 0;
+    font-size: 1.02rem;
+    line-height: 1.38;
   }
 
-  .detail-row {
+  .product-meta h2 a {
+    color: #2f2518;
+    text-decoration: none;
+  }
+
+  .product-meta h2 a:hover {
+    color: #7a3d10;
+  }
+
+  .price-meta {
+    margin: 0;
+    display: grid;
+    gap: 0.42rem;
+    font-size: 0.9rem;
+  }
+
+  .price-meta div {
     display: flex;
     justify-content: space-between;
-    font-size: 0.9rem;
-    color: var(--color-text);
-    animation: fadeInUp 0.6s ease-out var(--card-delay);
+    align-items: center;
+    gap: 0.8rem;
+    border-bottom: 1px dashed #eadbc7;
+    padding-bottom: 0.3rem;
   }
 
-  .detail-label {
-    color: var(--color-brown);
+  .price-meta dt {
+    color: #67442d;
     font-weight: 600;
   }
 
-  .detail-value {
-    color: var(--color-gray);
-  }
-
-  .price {
-    color: var(--color-primary) !important;
+  .price-meta dd {
+    margin: 0;
+    color: #311f13;
     font-weight: 700;
-    font-size: 1.1rem;
   }
 
-  .btn-product {
+  .btn-card {
     margin-top: auto;
-    padding: var(--spacing-md) var(--spacing-lg);
-    background-color: var(--color-primary);
-    color: var(--color-white);
-    text-decoration: none;
-    border-radius: var(--radius-md);
+    width: 100%;
     text-align: center;
-    transition: all var(--transition-fast);
-    font-weight: 600;
-    font-size: 0.95rem;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
     justify-content: center;
-    gap: var(--spacing-sm);
-    position: relative;
-    overflow: hidden;
   }
 
-  .btn-text {
-    position: relative;
-    z-index: 1;
+  .empty-state {
+    margin-top: 1.5rem;
+    border: 1px dashed #d6c0a5;
+    border-radius: 14px;
+    background: #fffaf1;
+    padding: 1rem;
   }
 
-  .btn-icon {
-    transition: transform 0.3s ease;
-    display: inline-flex;
-    align-items: center;
+  .empty-state h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.06rem;
   }
 
-  .btn-icon img {
-    width: 16px;
-    height: 16px;
-    object-fit: contain;
+  .empty-state p {
+    margin: 0;
   }
 
-  .btn-product:hover {
-    background-color: var(--color-primary-dark);
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(102, 0, 17, 0.35);
-  }
-
-  .btn-product:hover .btn-icon {
-    transform: translateX(4px);
-  }
-
-  .btn-product:active {
-    transform: translateY(-1px);
-  }
-
-  /* Responsive */
-  @media (max-width: 768px) {
-    .hero-title {
-      font-size: 2rem;
-    }
-
-    .products-grid {
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: var(--spacing-lg);
-    }
-
-    .product-name {
-      font-size: 0.95rem;
-    }
-
-    .detail-row {
-      font-size: 0.85rem;
+  @media (max-width: 1080px) {
+    .filter-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
 
- @media (max-width: 480px) {
-  .products-hero {
-    min-height: 420px;
-    height: auto;
-    padding: 0;
-    background-position: 58% center;
-  }
+  @media (max-width: 680px) {
+    .catalog-shell {
+      padding-top: 1.4rem;
+    }
 
-  .hero-title {
-    font-size: 1.75rem;
-  }
+    .filter-panel {
+      border-radius: 14px;
+      padding: 0.95rem;
+    }
 
-  .products-grid {
-    grid-template-columns: 1fr;
-    gap: var(--spacing-md);
-  }
+    .filter-grid {
+      grid-template-columns: 1fr;
+      gap: 0.72rem;
+    }
 
-  .product-image-wrapper {
-    height: 150px;
-  }
+    .filter-actions {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
 
-  .product-info {
-    padding: var(--spacing-md);
-  }
+    .quick-range {
+      margin-top: 0.8rem;
+    }
 
-  .btn-product {
-    padding: var(--spacing-md);
-    font-size: 0.9rem;
+    .product-grid {
+      grid-template-columns: 1fr;
+    }
   }
-}
-
-  /* FINAL SAFETY — never hide product cards because of animation conflict */
-  .products-section .product-card {
-    opacity: 1 !important;
-    visibility: visible !important;
-  }
-
-  .products-section .product-card.is-visible,
-  .products-section .product-card[data-lh-reveal] {
-    opacity: 1 !important;
-  }
-
 </style>

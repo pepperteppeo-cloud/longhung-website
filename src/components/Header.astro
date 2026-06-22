@@ -1,5 +1,7 @@
 ---
 // Header.astro - Responsive navigation with hamburger menu
+import SearchBox from './SearchBox.astro';
+
 interface Props {
   currentPage?: string;
 }
@@ -18,6 +20,8 @@ const dropdownLinks = [
   { title: 'Chính sách', href: '/chinh-sach', slug: '/chinh-sach', showAt: 'always' },
   { title: 'Liên hệ', href: '/lien-he', slug: '/lien-he', showAt: 'always' },
 ];
+
+const nationwideOrderUrl = 'https://vpplonghung.mshopkeeper.vn/order-page/';
 
 ---
 
@@ -51,10 +55,10 @@ const dropdownLinks = [
 
         <li class="nav-item nav-dropdown" data-dropdown>
           <button type="button" class="dropdown-toggle" aria-expanded="false" aria-label="Thông tin">
-            <span class="dropdown-label">Thông tin</span>
             <span class="dropdown-icon" aria-hidden="true">
-              <span class="dropdown-icon-line dropdown-icon-line--left"></span>
-              <span class="dropdown-icon-line dropdown-icon-line--right"></span>
+              <span class="dropdown-icon-line dropdown-icon-line--top"></span>
+              <span class="dropdown-icon-line dropdown-icon-line--middle"></span>
+              <span class="dropdown-icon-line dropdown-icon-line--bottom"></span>
             </span>
           </button>
           <ul class="dropdown-menu">
@@ -72,12 +76,19 @@ const dropdownLinks = [
         </li>
         
         <li class="nav-item mobile-cta">
+          <a href={nationwideOrderUrl} class="btn btn-cta btn-order">Đặt hàng toàn quốc</a>
           <a href="/lien-he" class="btn btn-cta">Tư vấn Ngay</a>
         </li>
       </ul>
 
-      <div class="header-cta desktop-cta">
-        <a href="/lien-he" class="btn btn-cta">Tư vấn Ngay</a>
+      <div class="header-actions">
+        <SearchBox />
+        <div class="header-cta desktop-cta">
+          <a href={nationwideOrderUrl} class="btn btn-cta btn-order">Đặt hàng toàn quốc</a>
+        </div>
+        <div class="header-cta desktop-cta">
+          <a href="/lien-he" class="btn btn-cta">Tư vấn Ngay</a>
+        </div>
       </div>
     </div>
   </nav>
@@ -146,7 +157,7 @@ const dropdownLinks = [
     display: flex;
     list-style: none;
     gap: 1rem;
-    align-items: flex-end;
+    align-items: center;
     margin: 0;
     padding: 0;
     flex: 1 1 500px;
@@ -180,9 +191,7 @@ const dropdownLinks = [
   }
 
   .dropdown-toggle {
-    padding: 0.25rem 0.25rem;
-    min-width: 40px;
-    min-height: 40px;
+    padding: 0.45rem 0;
   }
 
   .dropdown-label {
@@ -193,28 +202,31 @@ const dropdownLinks = [
     display: inline-flex;
     position: relative;
     width: 18px;
-    height: 18px;
+    height: 14px;
     align-items: center;
     justify-content: center;
   }
 
   .dropdown-icon-line {
     position: absolute;
-    width: 8px;
+    width: 16px;
     height: 2px;
     border-radius: 999px;
     background-color: currentColor;
-    top: 50%;
-    left: 50%;
+    left: 1px;
     transform-origin: center;
   }
 
-  .dropdown-icon-line--left {
-    transform: translate(-7px, -1px) rotate(45deg);
+  .dropdown-icon-line--top {
+    top: 1px;
   }
 
-  .dropdown-icon-line--right {
-    transform: translate(-1px, -1px) rotate(-45deg);
+  .dropdown-icon-line--middle {
+    top: 6px;
+  }
+
+  .dropdown-icon-line--bottom {
+    top: 11px;
   }
 
   .nav-link:hover,
@@ -306,13 +318,31 @@ const dropdownLinks = [
 
   .header-cta {
     flex-shrink: 0;
-    margin-left: var(--spacing-lg);
+    margin-left: 0;
+  }
+
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-shrink: 0;
   }
 
   .btn-cta {
     padding: 0.8rem 1.25rem;
     font-size: 0.95rem;
     white-space: nowrap;
+  }
+
+  .btn-order {
+    background-color: #f8dda1;
+    border: 1px solid #dfbe72;
+    color: var(--color-brown);
+  }
+
+  .btn-order:hover {
+    background-color: #fae6b7;
+    color: var(--color-brown);
   }
 
   /* Ẩn nút CTA mobile khi đang ở trên PC */
@@ -455,14 +485,11 @@ const dropdownLinks = [
     }
 
     .dropdown-label {
-      display: inline-flex;
-      align-items: center;
-      font-size: 1rem;
-      font-weight: 600;
+      display: none;
     }
 
     .dropdown-icon {
-      display: none;
+      display: inline-flex;
     }
 
     .dropdown-menu {
@@ -505,6 +532,8 @@ const dropdownLinks = [
       margin-top: var(--spacing-sm);
       padding-top: var(--spacing-md);
       border-top: 1px solid #eee;
+      display: grid;
+      gap: 0.6rem;
     }
 
     .mobile-cta .btn-cta {
@@ -595,7 +624,7 @@ const dropdownLinks = [
       });
 
       // 4. Đóng menu khi người dùng bấm vào một link bất kỳ
-      const navLinks = navMenu.querySelectorAll('.nav-link, .btn-cta');
+      const navLinks = navMenu.querySelectorAll('.nav-link, .btn-cta, .btn-order');
       navLinks.forEach(link => {
         link.addEventListener('click', () => {
           btn?.classList.remove('active');
