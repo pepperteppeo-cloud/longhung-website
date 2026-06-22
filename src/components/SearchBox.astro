@@ -1,0 +1,233 @@
+---
+// SearchBox.astro - Product-only search with redirect to /san-pham
+---
+
+<div class="search-wrapper" data-product-search-box>
+  <button class="search-toggle" data-product-search-toggle aria-label="Tìm kiếm sản phẩm">
+    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+      <circle cx="11" cy="11" r="8"></circle>
+      <path d="m21 21-4.35-4.35"></path>
+    </svg>
+  </button>
+
+  <div class="search-modal" data-product-search-modal aria-hidden="true">
+    <div class="search-content" role="dialog" aria-modal="true" aria-label="Tìm kiếm sản phẩm">
+      <form class="search-form" data-product-search-form action="/san-pham" method="get">
+        <input
+          type="text"
+          data-product-search-input
+          name="q"
+          class="search-input"
+          placeholder="Tìm kiếm sản phẩm / dịch vụ"
+          aria-label="Tìm kiếm sản phẩm / dịch vụ"
+          required
+        />
+
+        <button type="submit" class="search-submit" aria-label="Tìm kiếm">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.35-4.35"></path>
+          </svg>
+        </button>
+
+        <button type="button" class="search-close" data-product-search-close aria-label="Đóng tìm kiếm">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M18 6L6 18M6 6l12 12"></path>
+          </svg>
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+  const initProductSearchBox = () => {
+    const searchBoxes = Array.from(document.querySelectorAll('[data-product-search-box]'));
+
+    searchBoxes.forEach((searchBox) => {
+      if (searchBox.dataset.bound === 'true') {
+        return;
+      }
+
+      const toggle = searchBox.querySelector('[data-product-search-toggle]');
+      const closeBtn = searchBox.querySelector('[data-product-search-close]');
+      const modal = searchBox.querySelector('[data-product-search-modal]');
+      const input = searchBox.querySelector('[data-product-search-input]');
+      const form = searchBox.querySelector('[data-product-search-form]');
+
+      if (!toggle || !closeBtn || !modal || !input || !form) {
+        return;
+      }
+
+      const openSearch = () => {
+        modal.classList.add('open');
+        modal.setAttribute('aria-hidden', 'false');
+        input.focus();
+      };
+
+      const closeSearch = () => {
+        modal.classList.remove('open');
+        modal.setAttribute('aria-hidden', 'true');
+      };
+
+      toggle.addEventListener('click', openSearch);
+      closeBtn.addEventListener('click', closeSearch);
+
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        const query = input.value.trim();
+        if (!query) {
+          input.focus();
+          return;
+        }
+
+        const target = `/san-pham?q=${encodeURIComponent(query)}`;
+        const onProductPage = window.location.pathname === '/san-pham' || window.location.pathname === '/san-pham/';
+
+        if (onProductPage) {
+          window.history.replaceState({}, '', target);
+          window.dispatchEvent(new CustomEvent('longhung:product-search', { detail: { query } }));
+          closeSearch();
+          return;
+        }
+
+        window.location.assign(target);
+      });
+
+      modal.addEventListener('click', (event) => {
+        if (event.target === modal) {
+          closeSearch();
+        }
+      });
+
+      searchBox.dataset.bound = 'true';
+    });
+  };
+
+  if (!window.__lhSearchBoxEscBound) {
+    document.addEventListener('keydown', (event) => {
+      if (event.key !== 'Escape') {
+        return;
+      }
+
+      document.querySelectorAll('[data-product-search-modal].open').forEach((modal) => {
+        modal.classList.remove('open');
+        modal.setAttribute('aria-hidden', 'true');
+      });
+    });
+
+    window.__lhSearchBoxEscBound = true;
+  }
+
+  initProductSearchBox();
+  document.addEventListener('astro:page-load', initProductSearchBox);
+  document.addEventListener('astro:after-swap', initProductSearchBox);
+</script>
+
+<style>
+  .search-wrapper {
+    position: relative;
+  }
+
+  .search-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    background: transparent;
+    color: var(--color-text);
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  .search-toggle:hover,
+  .search-toggle:focus-visible {
+    background-color: rgba(102, 0, 17, 0.08);
+    color: var(--color-primary);
+    outline: none;
+  }
+
+  .search-icon {
+    width: 19px;
+    height: 19px;
+  }
+
+  .search-modal {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 80px 16px 16px;
+    background: rgba(0, 0, 0, 0.45);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+    z-index: 3000;
+  }
+
+  .search-modal.open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .search-content {
+    width: min(820px, 100%);
+    background: var(--color-white);
+    border-radius: 12px;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.2);
+    padding: 12px;
+  }
+
+  .search-form {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .search-input {
+    flex: 1;
+    border: 1px solid var(--color-gray-light);
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 0.98rem;
+    color: var(--color-text);
+  }
+
+  .search-input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(102, 0, 17, 0.14);
+  }
+
+  .search-submit,
+  .search-close {
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 8px;
+    background: #f4f4f4;
+    color: var(--color-text);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  .search-submit:hover,
+  .search-close:hover {
+    background: #e9e9e9;
+    color: var(--color-primary);
+  }
+
+  .search-submit svg,
+  .search-close svg {
+    width: 18px;
+    height: 18px;
+  }
+</style>

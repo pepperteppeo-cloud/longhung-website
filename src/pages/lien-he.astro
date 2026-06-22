@@ -105,6 +105,30 @@ const mapEmbedSrc =
     </div>
   </section>
 
+  <!-- Social Links -->
+  <section class="social-section reveal" data-reveal>
+    <div class="container">
+      <h2 class="section-title text-center mb-4">Theo Dõi Chúng Tôi</h2>
+
+      <div class="social-grid reveal-stagger">
+        {socialLinks.map((social) => (
+          <a
+            href={social.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-card"
+          >
+            <div class="social-icon" aria-hidden="true">
+              <img src={social.icon} alt="" loading="lazy" decoding="async" />
+            </div>
+            <h3>{social.title}</h3>
+            <p>{social.text}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+  
   <!-- Contact Form -->
   <section id="contact-section" class="contact-page-form reveal" data-reveal>
     <ContactForm
@@ -129,29 +153,6 @@ const mapEmbedSrc =
     </div>
   </section>
 
-  <!-- Social Links -->
-  <section class="social-section reveal" data-reveal>
-    <div class="container">
-      <h2 class="section-title text-center mb-4">Theo Dõi Chúng Tôi</h2>
-
-      <div class="social-grid reveal-stagger">
-        {socialLinks.map((social) => (
-          <a
-            href={social.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="social-card"
-          >
-            <div class="social-icon" aria-hidden="true">
-              <img src={social.icon} alt="" loading="lazy" decoding="async" />
-            </div>
-            <h3>{social.title}</h3>
-            <p>{social.text}</p>
-          </a>
-        ))}
-      </div>
-    </div>
-  </section>
 
   <Footer />
 </Layout>
