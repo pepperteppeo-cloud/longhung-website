@@ -1,0 +1,109 @@
+---
+import PolicyPage from '../../components/PolicyPage.astro';
+
+const tocLinks = [
+  { title: 'Phạm vi áp dụng', href: '#pham-vi-ap-dung' },
+  { title: 'Sản phẩm thuộc diện bảo hành', href: '#san-pham-thuoc-dien-bao-hanh' },
+  { title: 'Điều kiện được xem xét bảo hành', href: '#dieu-kien-duoc-xem-xet-bao-hanh' },
+  { title: 'Trường hợp không thuộc phạm vi bảo hành', href: '#truong-hop-khong-thuoc-pham-vi-bao-hanh' },
+  { title: 'Quy trình tiếp nhận bảo hành', href: '#quy-trinh-tiep-nhan-bao-hanh' },
+  { title: 'Thời gian và chi phí bảo hành', href: '#thoi-gian-va-chi-phi-bao-hanh' },
+  { title: 'Giới hạn trách nhiệm', href: '#gioi-han-trach-nhiem' }
+];
+---
+
+<PolicyPage
+  title="Chính sách bảo hành"
+  pageTitle="Chính sách bảo hành"
+  description="Quy định điều kiện và quy trình bảo hành sản phẩm do Long Hưng cung cấp."
+  currentPage="/chinh-sach/bao-hanh"
+  tocLinks={tocLinks}
+>
+  <section id="pham-vi-ap-dung">
+    <h2>1. Phạm vi áp dụng</h2>
+    <p>
+      Chính sách quy định nguyên tắc, điều kiện và quy trình hỗ trợ bảo hành đối với sản phẩm do Long Hưng phân phối hoặc cung cấp.
+    </p>
+    <p>
+      Long Hưng là đơn vị phân phối/cung ứng và không trực tiếp sản xuất phần lớn hàng hóa kinh doanh.
+      Các sản phẩm có bảo hành áp dụng theo chính sách chính thức của nhà sản xuất, nhà nhập khẩu hoặc đơn vị bảo hành được ủy quyền.
+    </p>
+    <p>
+      Long Hưng tiếp nhận yêu cầu, hỗ trợ kiểm tra thông tin sản phẩm, kết nối với đơn vị bảo hành và hỗ trợ gửi/nhận sản phẩm trong phạm vi khả năng của công ty và điều kiện từng đơn hàng.
+    </p>
+  </section>
+
+  <section id="san-pham-thuoc-dien-bao-hanh">
+    <h2>2. Sản phẩm thuộc diện bảo hành</h2>
+    <p>
+      Chính sách bảo hành áp dụng với sản phẩm có quy định bảo hành từ nhà sản xuất, nhà nhập khẩu hoặc đơn vị bảo hành được ủy quyền.
+    </p>
+    <p>
+      Các sản phẩm tiêu dùng thông thường như giấy in, bút viết, sổ tay, hồ sơ lưu trữ, dụng cụ học sinh và vật tư tiêu hao không thuộc diện bảo hành; các sản phẩm này áp dụng theo Chính sách Đổi trả và Hoàn tiền.
+    </p>
+  </section>
+
+  <section id="dieu-kien-duoc-xem-xet-bao-hanh">
+    <h2>3. Điều kiện được xem xét bảo hành</h2>
+    <p>
+      Sản phẩm được xem xét bảo hành khi đồng thời đáp ứng các điều kiện:
+    </p>
+    <ul>
+      <li>Còn trong thời hạn bảo hành.</li>
+      <li>Có lỗi kỹ thuật phát sinh từ quá trình sản xuất.</li>
+      <li>Có căn cứ xác định sản phẩm do Long Hưng cung cấp.</li>
+      <li>Không thuộc trường hợp từ chối bảo hành của nhà sản xuất hoặc đơn vị bảo hành.</li>
+    </ul>
+  </section>
+
+  <section id="truong-hop-khong-thuoc-pham-vi-bao-hanh">
+    <h2>4. Trường hợp không thuộc phạm vi bảo hành</h2>
+    <ul>
+      <li>Hết thời hạn bảo hành.</li>
+      <li>Hư hỏng do sử dụng không đúng hướng dẫn.</li>
+      <li>Hư hỏng do va đập, rơi vỡ, tác động cơ học hoặc bảo quản không đúng điều kiện.</li>
+      <li>Hư hỏng do thiên tai, hỏa hoạn hoặc nguyên nhân khách quan khác.</li>
+      <li>Sản phẩm đã được sửa chữa/can thiệp bởi đơn vị không được nhà sản xuất cho phép.</li>
+      <li>Hao mòn tự nhiên trong quá trình sử dụng.</li>
+      <li>Tem bảo hành, số serial hoặc dấu hiệu nhận diện bị mất, rách, tẩy xóa hoặc không thể xác minh.</li>
+    </ul>
+  </section>
+
+  <section id="quy-trinh-tiep-nhan-bao-hanh">
+    <h2>5. Quy trình tiếp nhận bảo hành</h2>
+    <ol>
+      <li>
+        Khách hàng liên hệ qua <a href="mailto:hotro@vpplonghung.com">hotro@vpplonghung.com</a>, biểu mẫu website, Zalo, fanpage chính thức hoặc kênh Long Hưng công bố.
+      </li>
+      <li>
+        Cung cấp tên khách hàng/doanh nghiệp, số điện thoại, hóa đơn hoặc chứng từ mua hàng, thông tin sản phẩm, mô tả lỗi, hình ảnh/video liên quan.
+      </li>
+      <li>
+        Long Hưng tiếp nhận, kiểm tra và phản hồi trong vòng 24 giờ làm việc kể từ khi nhận đủ thông tin cần thiết.
+      </li>
+      <li>
+        Sản phẩm được gửi đến trung tâm bảo hành, nhà sản xuất, nhà nhập khẩu hoặc đơn vị được chỉ định để kiểm tra và xử lý.
+      </li>
+    </ol>
+  </section>
+
+  <section id="thoi-gian-va-chi-phi-bao-hanh">
+    <h2>6. Thời gian và chi phí bảo hành</h2>
+    <p>
+      Thời gian bảo hành được xác định theo quy định của nhà sản xuất, điều kiện bảo hành đi kèm sản phẩm và chính sách của nhà nhập khẩu/đơn vị bảo hành được ủy quyền.
+      Long Hưng không cam kết thời gian xử lý cụ thể cho từng sản phẩm vì phụ thuộc quy trình của đơn vị bảo hành.
+    </p>
+    <p>
+      Nếu thuộc phạm vi bảo hành, chi phí sửa chữa/thay thế linh kiện thực hiện theo chính sách của nhà sản xuất; các chi phí khác áp dụng theo quy định của đơn vị bảo hành.
+      Nếu ngoài phạm vi bảo hành, khách hàng chịu các chi phí liên quan theo báo giá hoặc thỏa thuận.
+    </p>
+  </section>
+
+  <section id="gioi-han-trach-nhiem">
+    <h2>7. Giới hạn trách nhiệm</h2>
+    <p>
+      Long Hưng không chịu trách nhiệm cho thiệt hại gián tiếp phát sinh từ việc sử dụng sản phẩm, tổn thất dữ liệu, lợi nhuận hoặc cơ hội kinh doanh, hay nghĩa vụ vượt quá phạm vi bảo hành của nhà sản xuất.
+      Trong mọi trường hợp, mức trách nhiệm tối đa của Long Hưng (nếu phát sinh) không vượt quá giá trị thực tế của sản phẩm đã được cung cấp và thanh toán.
+    </p>
+  </section>
+</PolicyPage>

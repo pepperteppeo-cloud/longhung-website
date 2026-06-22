@@ -4,265 +4,150 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import ContactForm from '../components/ContactForm.astro';
+
+const contactCards = [
+  {
+    icon: '📍',
+    title: 'Địa Chỉ',
+    content: 'LK03-07, Roman Plaza, Đại Mỗ, Hà Nội, Việt Nam',
+    href: 'https://maps.app.goo.gl/SiMsFZXzmaTaW9W1A'
+  },
+  {
+    icon: '📞',
+    title: 'Điện Thoại',
+    content: '0389.023.720 — Mr. Huy / 0353.839.500 — Nhà sách',
+    href: 'tel:+84389023720'
+  },
+  {
+    icon: '✉️',
+    title: 'Email',
+    content: 'kinhdoanh@vpplonghung.com / hotro@vpplonghung.com',
+    href: 'mailto:kinhdoanh@vpplonghung.com'
+  },
+  {
+    icon: '🕐',
+    title: 'Giờ Làm Việc',
+    content: 'Thứ 2 - Chủ Nhật: 8:00 - 22:00',
+    href: ''
+  }
+];
+
+const socialLinks = [
+  {
+    icon: 'f',
+    title: 'Facebook',
+    text: 'Theo dõi cập nhật hàng ngày',
+    href: 'https://web.facebook.com/profile.php?id=61580711382370'
+  },
+  {
+    icon: '📷',
+    title: 'Instagram',
+    text: 'Xem ảnh sản phẩm và khuyến mãi',
+    href: 'https://www.instagram.com/longhung.quantri/'
+  },
+  {
+    icon: 'Z',
+    title: 'Zalo',
+    text: 'Liên hệ nhanh qua Zalo',
+    href: 'https://zalo.me/403362719590961487'
+  },
+  {
+    icon: '🎵',
+    title: 'TikTok',
+    text: 'Xem video và hoạt động mới',
+    href: 'https://www.tiktok.com/@nhasachlonglung'
+  }
+];
+
+const mapEmbedSrc =
+  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4457.595646593065!2d105.7779734!3d20.9857244!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313453a56e4f1e1b%3A0xc8a647e05f3fabd7!2zSGnhu4d1IHPDoWNoIExvbmcgSMawbmc!5e1!3m2!1svi!2s!4v1780030444520!5m2!1svi!2s";
 ---
 
-<Layout title="Liên Hệ — Văng Phòng Phẩm Long Hưng" description="Liên hệ với Văng Phòng Phẩm Long Hưng. Địa chỉ, điện thoại, email, bản đồ.">
+<Layout
+  title="Liên Hệ — Văn Phòng Phẩm Long Hưng"
+  description="Liên hệ với Văn Phòng Phẩm Long Hưng. Địa chỉ, điện thoại, email, bản đồ và biểu mẫu tư vấn."
+>
   <Header currentPage="/lien-he" />
 
   <!-- Hero Section -->
-<<<<<<< HEAD
-  <section class="hero hero-map" style="background-image: url('/images/hero-vpp.png')">
-  
-=======
-  <section class="hero hero-map" style="background-image: url('/images/hero-vpp.jpg')">
-    <div class="hero-content page-enter">
-      <h1>Liên Hệ Với Chúng Tôi</h1>
-      <p class="hero-subtitle">Chúng tôi sẵn sàng phục vụ bạn</p>
->>>>>>> ed835e3fcdd563c76e02361f66fb8d326a78d824
+  <!-- Khi có banner riêng cho trang liên hệ, chỉ cần đổi đường dẫn ảnh bên dưới. -->
+  <section class="hero hero-contact hero-page" style="background-image: url('/images/hero-vpp.webp')">
+    <div class="hero-inner">
+      <div class="page-hero-content">
+        <h1>Liên Hệ Với Chúng Tôi</h1>
+        <p>Long Hưng luôn sẵn sàng tư vấn, báo giá và hỗ trợ nhu cầu văn phòng phẩm của bạn.</p>
+      </div>
     </div>
   </section>
 
   <!-- Contact Info Panel -->
   <section class="contact-info-section">
     <div class="container">
-      <div class="grid grid-2 contact-grid">
-        <!-- Address -->
-        <div class="info-card card-enter">
-          <div class="info-icon">📍</div>
-          <h3>Địa Chỉ</h3>
-          <p>
-          <a href="https://maps.app.goo.gl/SiMsFZXzmaTaW9W1A" target="_blank" style="text-decoration: none !important; color: inherit;">
-            LK03-07, Roman Plaza, Đại Mỗ, Hà Nội, Việt Nam
-        </a>
-          </p>
-        </div>
-
-        <!-- Phone -->
-        <div class="info-card card-enter">
-          <div class="info-icon">📞</div>
-          <h3>Điện Thoại</h3>
-          <p>
-            <a href="tel:+84389023720" style="text-decoration: none !important;">0389.023.720</a> (Mr. Huy)
-            <br />
-            <a href="tel:+84353839500" style="text-decoration: none !important;">0353.839.500</a> (Nhà sách)
-          </p>
-        </div>
-
-        <!-- Email -->
-        <div class="info-card card-enter">
-          <div class="info-icon">✉️</div>
-          <h3>Email</h3>
-          <p>
-            <a href="mailto:kinhdoanh@vpplonghung.com" style="text-decoration: none !important;">kinhdoanh@vpplonghung.com</a>
-            <br />
-            <a href="mailto:hotro@vpplonghung.com" style="text-decoration: none !important;">hotro@vpplonghung.com</a>
-          </p> 
-        </div>
-
-        <!-- Hours -->
-        <div class="info-card card-enter">
-          <div class="info-icon">🕐</div>
-          <h3>Giờ Làm Việc</h3>
-          <p>
-            Thứ 2 - Chủ Nhật: 8:00 - 22:00
-       
-          </p>
-        </div>
+      <div class="grid grid-4 contact-grid reveal-stagger">
+        {contactCards.map((card) => (
+          <div class="info-card">
+            <div class="info-icon">{card.icon}</div>
+            <h3>{card.title}</h3>
+            {card.href ? (
+              <p>
+                <a href={card.href} target={card.href.startsWith('http') ? '_blank' : undefined} rel={card.href.startsWith('http') ? 'noopener noreferrer' : undefined}>
+                  {card.content}
+                </a>
+              </p>
+            ) : (
+              <p>{card.content}</p>
+            )}
+          </div>
+        ))}
       </div>
     </div>
   </section>
 
-  <!-- Google Maps -->
-  <section class="map-section">
-    <div class="map-container">
-      <iframe 
-  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4457.595646593065!2d105.7779734!3d20.9857244!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313453a56e4f1e1b%3A0xc8a647e05f3fabd7![...]"
-  width="100%" 
-  height="450" 
-  style="border:0;" 
-  allowfullscreen="" 
-  loading="lazy" 
-  referrerpolicy="no-referrer-when-downgrade">
-</iframe>
+  <!-- Contact Form -->
+  <section id="contact-section" class="contact-page-form reveal" data-reveal>
+    <ContactForm
+      title="Gửi Tin Nhắn"
+      subtitle="Để lại thông tin và chúng tôi sẽ liên hệ lại trong vòng 24 giờ"
+    />
+  </section>
 
+  <!-- Google Maps -->
+  <section class="map-section reveal" data-reveal>
+    <div class="map-container">
+      <iframe
+        src={mapEmbedSrc}
+        width="100%"
+        height="450"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Bản đồ Nhà sách Long Hưng"
+      ></iframe>
     </div>
   </section>
 
-  <!-- Contact Form -->
-  <section id="contact-section" class="section-enter">
-    <ContactForm title="Gửi Tin Nhắn" subtitle="Để lại tin nhắn và chúng tôi sẽ liên hệ lại bạn trong 24 giờ" />
-  </section>
-
   <!-- Social Links -->
-  <section class="social-section">
+  <section class="social-section reveal" data-reveal>
     <div class="container">
       <h2 class="section-title text-center mb-4">Theo Dõi Chúng Tôi</h2>
-      <div class="social-grid">
-        <a href="https://web.facebook.com/profile.php?id=61580711382370" target="_blank" rel="noopener noreferrer" class="social-card card-enter">
-          <div class="social-icon">f</div>
-          <h3>Facebook</h3>
-          <p>Theo dõi cập nhật hàng ngày</p>
-        </a>
-        <a href="https://www.instagram.com/longhung.quantri/" target="_blank" rel="noopener noreferrer" class="social-card card-enter">
-          <div class="social-icon">📷</div>
-          <h3>Instagram</h3>
-          <p>Xem ảnh sản phẩm và khuyến mãi</p>
-        </a>
-        <a href="https://zalo.me/403362719590961487" target="_blank" rel="noopener noreferrer" class="social-card card-enter">
-          <div class="social-icon">Z</div>
-          <h3>Zalo</h3>
-          <p>Liên hệ qua Zalo</p>
-        </a>
-        <a href="https://www.tiktok.com/@nhasachlonglung" target="_blank" rel="noopener noreferrer" class="social-card card-enter">
-          <div class="social-icon">🎵</div>
-          <h3>TikTok</h3>
-          <p>Xem video hàng ngày</p>
-        </a>
+
+      <div class="social-grid reveal-stagger">
+        {socialLinks.map((social) => (
+          <a
+            href={social.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-card"
+          >
+            <div class="social-icon">{social.icon}</div>
+            <h3>{social.title}</h3>
+            <p>{social.text}</p>
+          </a>
+        ))}
       </div>
     </div>
   </section>
 
   <Footer />
 </Layout>
-
-<style>
-  .hero-content {
-    max-width: 700px;
-    margin: 0 auto;
-  }
-
-  .hero-subtitle {
-    font-size: 1.5rem;
-    font-family: var(--font-script);
-    color: var(--color-gold-light);
-    margin-bottom: var(--spacing-lg);
-  }
-
-  .contact-info-section {
-    background-color: var(--color-bg);
-    padding: var(--spacing-2xl) 0;
-  }
-
-  .contact-grid {
-    gap: var(--spacing-xl);
-  }
-
-  .info-card {
-    background-color: var(--color-white);
-    border-radius: var(--radius-lg);
-    padding: var(--spacing-xl);
-    text-align: center;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    transition: all var(--transition-normal);
-  }
-
-  .info-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-  }
-
-  .info-icon {
-    font-size: 2rem;
-    margin-bottom: var(--spacing-md);
-  }
-
-  .info-card h3 {
-    color: var(--color-brown);
-    margin-bottom: var(--spacing-md);
-  }
-
-  .info-card p {
-    color: var(--color-gray);
-    font-size: 0.95rem;
-    line-height: 1.7;
-    margin: 0;
-  }
-
-  .info-card a {
-    color: var(--color-primary);
-    text-decoration: none !important;
-    font-weight: 600;
-  }
-
-  .info-card a:hover {
-    color: var(--color-gold);
-  }
-
-  .map-section {
-    width: 100%;
-    padding: var(--spacing-xl) 0;
-    background-color: var(--color-white);
-  }
-
-  .map-container {
-    max-width: 100%;
-    margin: 0 auto;
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-  }
-
-  .google-maps-iframe {
-    display: block;
-    border: none;
-  }
-
-  .social-section {
-    padding: var(--spacing-2xl) 0;
-  }
-
-  .social-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: var(--spacing-lg);
-  }
-
-  .social-card {
-    background: linear-gradient(135deg, var(--color-primary) 0%, rgba(102, 0, 17, 0.8) 100%);
-    border-radius: var(--radius-lg);
-    padding: var(--spacing-xl);
-    text-align: center;
-    color: var(--color-white);
-    text-decoration: none !important;
-    transition: all var(--transition-normal);
-    display: block;
-  }
-
-  .social-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 32px rgba(102, 0, 17, 0.3);
-  }
-
-  .social-icon {
-    font-size: 2rem;
-    margin-bottom: var(--spacing-md);
-    font-weight: 700;
-  }
-
-  .social-card h3 {
-    color: var(--color-white);
-    margin-bottom: var(--spacing-sm);
-  }
-
-  .social-card p {
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 0.9rem;
-    margin: 0;
-  }
-
-  @media (max-width: 768px) {
-    .map-container {
-      margin: 0 var(--spacing-lg);
-    }
-
-    .contact-grid {
-      gap: var(--spacing-lg);
-    }
-  }
-
-  @media (max-width: 480px) {
-    .google-maps-iframe {
-      height: 350px !important;
-    }
-  }
-</style>

@@ -1,0 +1,58 @@
+---
+import PolicyPage from '../../components/PolicyPage.astro';
+
+const tocLinks = [
+  { title: 'Điều kiện xem xét cấp công nợ', href: '#dieu-kien-xem-xet-cap-cong-no' },
+  { title: 'Hồ sơ cần cung cấp', href: '#ho-so-can-cung-cap' },
+  { title: 'Hạn mức và thời hạn thanh toán', href: '#han-muc-va-thoi-han-thanh-toan' },
+  { title: 'Công nợ quá hạn', href: '#cong-no-qua-han' },
+  { title: 'Chấm dứt chế độ công nợ', href: '#cham-dut-che-do-cong-no' }
+];
+---
+
+<PolicyPage
+  title="Chính sách công nợ khách hàng doanh nghiệp"
+  pageTitle="Chính sách công nợ khách hàng doanh nghiệp"
+  description="Quy định cấp công nợ và quản lý công nợ cho khách hàng doanh nghiệp của Long Hưng."
+  currentPage="/khach-hang-doanh-nghiep/chinh-sach-cong-no"
+  tocLinks={tocLinks}
+>
+  <section id="dieu-kien-xem-xet-cap-cong-no">
+    <h2>1. Điều kiện xem xét cấp công nợ</h2>
+    <p>
+      Khách hàng doanh nghiệp được xem xét cấp công nợ khi có giấy chứng nhận đăng ký doanh nghiệp hợp lệ và mã số thuế đang hoạt động; có địa chỉ kinh doanh rõ ràng; có người đại diện/người được ủy quyền hợp pháp; có nhu cầu mua hàng thường xuyên hoặc giá trị giao dịch phù hợp; và được Long Hưng phê duyệt bằng văn bản.
+    </p>
+  </section>
+
+  <section id="ho-so-can-cung-cap">
+    <h2>2. Hồ sơ cần cung cấp</h2>
+    <p>
+      Khách hàng có thể được yêu cầu cung cấp giấy chứng nhận đăng ký doanh nghiệp, thông tin xuất hóa đơn, thông tin người phụ trách mua hàng, kế toán thanh toán, thông tin giao nhận, hợp đồng nguyên tắc hoặc tài liệu khác cần thiết để đánh giá năng lực thanh toán, lịch sử giao dịch và rủi ro tín dụng.
+    </p>
+  </section>
+
+  <section id="han-muc-va-thoi-han-thanh-toan">
+    <h2>3. Hạn mức và thời hạn thanh toán</h2>
+    <p>
+      Hạn mức công nợ được xác định dựa trên quy mô doanh nghiệp, tần suất mua hàng, lịch sử thanh toán, giá trị giao dịch dự kiến, thời hạn hợp tác, tình hình công nợ hiện tại và đánh giá rủi ro tín dụng.
+    </p>
+    <p>
+      Thời hạn thanh toán được xác định theo hợp đồng, phụ lục, báo giá đã xác nhận hoặc thỏa thuận bằng văn bản.
+      Thông thường, thời hạn công nợ không quá 30 ngày kể từ ngày giao hàng hoặc ngày xuất hóa đơn, trừ trường hợp được phê duyệt riêng.
+    </p>
+  </section>
+
+  <section id="cong-no-qua-han">
+    <h2>4. Công nợ quá hạn</h2>
+    <p>
+      Khi công nợ quá hạn, Long Hưng có quyền tạm dừng giao hàng hoặc ưu đãi, thu hồi/giảm hạn mức công nợ, yêu cầu thanh toán trước cho đơn tiếp theo, thực hiện đối chiếu công nợ bắt buộc, gửi thông báo nhắc nợ và áp dụng biện pháp thu hồi nợ phù hợp theo pháp luật.
+    </p>
+  </section>
+
+  <section id="cham-dut-che-do-cong-no">
+    <h2>5. Chấm dứt chế độ công nợ</h2>
+    <p>
+      Long Hưng có quyền chấm dứt chế độ công nợ khi khách hàng thanh toán chậm nhiều lần, cung cấp thông tin không chính xác, có dấu hiệu mất khả năng thanh toán, vi phạm nghĩa vụ hợp đồng, phát sinh tranh chấp nghiêm trọng hoặc có rủi ro tín dụng.
+    </p>
+  </section>
+</PolicyPage>

@@ -1,5 +1,5 @@
 ---
-// Header.astro - Navigation with 5 links + CTA button
+// Header.astro - Responsive navigation with hamburger menu
 import { Image } from 'astro:assets';
 
 interface Props {
@@ -8,14 +8,21 @@ interface Props {
 
 const { currentPage = '/' } = Astro.props;
 
-const navLinks = [
+const primaryNavLinks = [
   { title: 'Trang chủ', href: '/', slug: '/' },
   { title: 'Nhà sách', href: '/nha-sach', slug: '/nha-sach' },
   { title: 'Khách hàng doanh nghiệp', href: '/khach-hang', slug: '/khach-hang' },
-  { title: 'Về chúng tôi', href: '/ve-chung-toi', slug: '/ve-chung-toi' },
-  { title: 'Liên hệ', href: '/lien-he', slug: '/lien-he' },
   { title: 'Sản phẩm', href: '/san-pham', slug: '/san-pham' }
 ];
+
+const secondaryNavLinks = [
+  { title: 'Về chúng tôi', href: '/ve-chung-toi', slug: '/ve-chung-toi' },
+  { title: 'Chính sách', href: '/chinh-sach', slug: '/chinh-sach' },
+  { title: 'Liên hệ', href: '/lien-he', slug: '/lien-he' }
+];
+
+const allNavLinks = [...primaryNavLinks, ...secondaryNavLinks];
+
 ---
 
 <header class="header">
@@ -24,7 +31,7 @@ const navLinks = [
       <div class="logo">
         <a href="/">
           <img src="/images/logo.webp" alt="VPP Long Hưng" class="logo-img" />
-          <span class="logo-text">Văn phòng phẩm <br> Long Hưng</span>
+          <span class="logo-text">Văn phòng phẩm Long Hưng</span>
         </a>
       </div>
 
@@ -35,11 +42,11 @@ const navLinks = [
       </button>
 
       <ul class="nav-menu" id="navMenu">
-        {navLinks.map(link => (
-          <li class="nav-item">
+        {allNavLinks.map(link => (
+          <li class="nav-item" data-nav-item>
             <a
               href={link.href}
-              class={`nav-link ${currentPage === link.slug ? 'active' : ''}`}
+              class={`nav-link ${currentPage === link.slug || (link.slug !== '/' && currentPage.startsWith(link.slug)) ? 'active' : ''}`}
             >
               {link.title}
             </a>
@@ -73,16 +80,19 @@ const navLinks = [
 
   .navbar-container {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     padding: var(--spacing-md) var(--spacing-lg);
+    gap: var(--spacing-lg);
   }
 
   .logo {
     display: flex;
     align-items: center;
     gap: var(--spacing-sm);
-    flex-shrink: 0;
+    flex: 0 0 auto;
+    min-width: 0;
   }
 
   .logo a {
@@ -97,6 +107,7 @@ const navLinks = [
     width: 60px;
     height: 60px;
     object-fit: contain;
+    flex-shrink: 0;
   }
 
   .logo-text {
@@ -104,24 +115,31 @@ const navLinks = [
     font-weight: 700;
     font-size: 1.15rem;
     color: var(--color-brown);
+    line-height: 1.2;
+    white-space: normal;
   }
 
   .nav-menu {
     display: flex;
     list-style: none;
-    gap: var(--spacing-lg);
+    gap: 1rem;
     align-items: center;
     margin: 0;
     padding: 0;
-    flex: 1;
+    flex: 1 1 500px;
     justify-content: center;
+    flex-wrap: wrap;
+    min-width: 0;
+    max-width: 100%;
   }
 
   .nav-item {
     position: relative;
+    white-space: nowrap;
   }
 
-  .nav-link {
+  .nav-link,
+  .dropdown-toggle {
     font-family: var(--font-display);
     font-weight: 500;
     color: var(--color-text);
@@ -130,7 +148,23 @@ const navLinks = [
     padding: var(--spacing-sm) 0;
     border-bottom: none;
     position: relative;
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .dropdown-toggle {
+    padding: var(--spacing-sm) 0;
+  }
+
+  .nav-link:hover,
+  .dropdown-toggle:hover,
+  .dropdown-toggle:focus {
+    color: var(--color-primary);
+    text-decoration: none !important;
   }
 
   .nav-link::after {
@@ -144,16 +178,12 @@ const navLinks = [
     transition: width 0.3s ease-in-out;
   }
 
-  .nav-link:hover {
-    color: var(--color-primary);
-    text-decoration: none !important;
-  }
-
   .nav-link:hover::after {
     width: 100%;
   }
 
-  .nav-link.active {
+  .nav-link.active,
+  .dropdown-toggle.active {
     color: var(--color-primary);
     text-decoration: none !important;
   }
@@ -161,6 +191,58 @@ const navLinks = [
   .nav-link.active::after {
     width: 100%;
     background-color: var(--color-gold);
+  }
+
+  .nav-dropdown {
+    position: relative;
+  }
+
+  .dropdown-arrow {
+    transition: transform 0.2s ease;
+  }
+
+  .nav-dropdown.open .dropdown-arrow {
+    transform: rotate(180deg);
+  }
+
+  .dropdown-menu {
+    position: absolute;
+    top: calc(100% + 0.45rem);
+    left: 0;
+    min-width: 200px;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-gray-light);
+    border-radius: var(--radius-md);
+    padding: 0.5rem 0;
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.12);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(6px);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+    z-index: 200;
+  }
+
+  .nav-dropdown.open .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .dropdown-menu li {
+    min-width: 100%;
+  }
+
+  .dropdown-menu a {
+    display: block;
+    padding: 0.75rem 1rem;
+    color: var(--color-text);
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }
+
+  .dropdown-menu a:hover {
+    color: var(--color-primary);
+    background-color: rgba(102, 0, 17, 0.05);
   }
 
   .header-cta {
@@ -240,24 +322,52 @@ const navLinks = [
       overflow: hidden;
       visibility: hidden;
       opacity: 0;
-      transition: all 0.4s ease-in-out; /* Mượt hơn khi xổ xuống */
+      transition: all 0.4s ease-in-out;
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
     }
 
     .nav-menu.active {
-      max-height: 100vh; /* Tăng max-height đảm bảo không bị kẹt */
+      max-height: 100vh;
       padding: var(--spacing-lg);
       visibility: visible;
       opacity: 1;
     }
 
-    .nav-link {
+    .nav-link,
+    .dropdown-toggle {
       width: 100%;
       padding: var(--spacing-sm) 0;
       display: block;
+      text-align: left;
     }
 
-    /* Hiển thị nút CTA bên trong Menu xổ xuống */
+    .nav-dropdown {
+      width: 100%;
+    }
+
+    .dropdown-menu {
+      position: static;
+      transform: none;
+      opacity: 0;
+      visibility: hidden;
+      max-height: 0;
+      overflow: hidden;
+      border: none;
+      box-shadow: none;
+      padding: 0;
+      transition: opacity 0.2s ease, max-height 0.2s ease, visibility 0.2s ease;
+    }
+
+    .nav-dropdown.open .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      max-height: 400px;
+    }
+
+    .dropdown-menu a {
+      padding-left: 1rem;
+    }
+
     .mobile-cta {
       display: block;
       width: 100%;
@@ -322,4 +432,22 @@ const navLinks = [
 
   // Đảm bảo chạy lại sau khi ViewTransitions chuyển trang (nếu có dùng)
   document.addEventListener('astro:after-swap', initMenu);
+
+  const initDropdowns = () => {
+    const dropdownToggles = document.querySelectorAll('[data-dropdown] .dropdown-toggle');
+
+    dropdownToggles.forEach((toggle) => {
+      const dropdownItem = toggle.closest('[data-dropdown]');
+      const dropdownMenu = dropdownItem?.querySelector('.dropdown-menu');
+
+      if (!dropdownItem || !dropdownMenu) return;
+
+      toggle.addEventListener('click', () => {
+        const isOpen = dropdownItem.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', String(isOpen));
+      });
+    });
+  };
+
+  initDropdowns();
 </script>

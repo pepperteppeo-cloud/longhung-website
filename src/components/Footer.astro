@@ -23,7 +23,21 @@
           <li><a href="/nha-sach">Nhà sách</a></li>
           <li><a href="/khach-hang">Khách hàng</a></li>
           <li><a href="/ve-chung-toi">Về chúng tôi</a></li>
+          <li><a href="/chinh-sach">Chính sách</a></li>
           <li><a href="/lien-he">Liên hệ</a></li>
+        </ul>
+      </div>
+
+      <!-- Policy Links -->
+      <div class="footer-section footer-section--policy">
+        <p class="footer-title">Chính sách</p>
+        <ul class="footer-links footer-links--compact">
+          <li><a href="/chinh-sach/bao-mat-thong-tin-ca-nhan">Bảo mật thông tin</a></li>
+          <li><a href="/chinh-sach/thanh-toan">Thanh toán</a></li>
+          <li><a href="/chinh-sach/van-chuyen-giao-nhan">Vận chuyển</a></li>
+          <li><a href="/chinh-sach/doi-tra-hoan-tien">Đổi trả</a></li>
+          <li><a href="/chinh-sach/bao-hanh">Bảo hành</a></li>
+          <li><a href="/dieu-khoan-giao-dich">Điều khoản</a></li>
         </ul>
       </div>
 
@@ -163,6 +177,17 @@
     gap: var(--spacing-sm);
   }
 
+  .footer-links.footer-links--compact {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.5rem 1rem;
+    font-size: 0.92rem;
+  }
+
+  .footer-links.footer-links--compact li {
+    margin: 0;
+  }
+
   .footer-links a {
     color: rgba(255, 255, 255, 0.85);
     text-decoration: none;
@@ -264,6 +289,10 @@
       gap: var(--spacing-lg);
     }
 
+    .footer-links.footer-links--compact {
+      grid-template-columns: 1fr;
+    }
+
     .footer-bottom {
       grid-template-columns: 1fr;
       gap: var(--spacing-md);
@@ -281,6 +310,10 @@
 
     .footer-title {
       font-size: 1rem;
+    }
+
+    .footer-links.footer-links--compact {
+      gap: 0.5rem 0;
     }
 
     .text-small {

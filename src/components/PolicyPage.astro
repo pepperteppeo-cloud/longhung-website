@@ -1,0 +1,195 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from './Header.astro';
+import Footer from './Footer.astro';
+
+interface TocLink {
+  title: string;
+  href: string;
+}
+
+const {
+  title = 'Chính sách Long Hưng',
+  description = '',
+  pageTitle = title,
+  lastUpdated = '08/06/2026',
+  currentPage = '/chinh-sach',
+  tocLinks = [] as TocLink[]
+} = Astro.props;
+---
+
+<Layout title={title} description={description}>
+  <Header currentPage={currentPage} />
+
+  <main class="policy-page">
+    <section class="hero policy-hero">
+      <div class="container">
+        <p class="section-subtitle">Chính sách</p>
+        <h1 class="section-title">{pageTitle}</h1>
+        {description ? <p class="policy-summary">{description}</p> : null}
+        <p class="policy-updated">Cập nhật lần cuối: {lastUpdated}</p>
+      </div>
+    </section>
+
+    <section class="policy-wrapper">
+      <div class="container policy-content">
+        <aside class="policy-toc">
+          <div class="policy-toc-card">
+            <h2>Danh mục nội dung</h2>
+            <ul>
+              {tocLinks.map((item) => (
+                <li>
+                  <a href={item.href}>{item.title}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </aside>
+
+        <article class="policy-body">
+          <slot />
+
+          <section class="policy-contact">
+            <h2>Liên hệ hỗ trợ</h2>
+            <p><strong>Công ty TNHH Văn phòng phẩm Long Hưng</strong></p>
+            <p>MST: 0109448311</p>
+            <p>Địa chỉ: Số nhà LK03-07, Khu đô thị thấp tầng Roman Plaza Hải Phát, đường Tố Hữu, phường Đại Mỗ, thành phố Hà Nội</p>
+            <p>Email: <a href="mailto:hotro@vpplonghung.com">hotro@vpplonghung.com</a></p>
+            <p>Hotline / Zalo: <a href="tel:+84353839500">0353 839 500</a></p>
+            <p>Website: <a href="https://vpplonghung.com">vpplonghung.com</a></p>
+          </section>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .policy-page {
+    background-color: var(--color-white);
+  }
+
+  .policy-hero {
+    background-color: #fbf5ea;
+    padding: var(--spacing-3xl) 0;
+  }
+
+  .policy-summary {
+    max-width: 760px;
+    margin: 0 auto var(--spacing-md);
+    color: var(--color-gray-dark);
+    font-size: 1rem;
+    line-height: 1.9;
+  }
+
+  .policy-updated {
+    color: var(--color-gray);
+    font-size: 0.95rem;
+  }
+
+  .policy-wrapper {
+    padding: var(--spacing-2xl) 0 var(--spacing-3xl);
+  }
+
+  .policy-content {
+    display: grid;
+    grid-template-columns: 280px minmax(0, 1fr);
+    gap: var(--spacing-2xl);
+  }
+
+  .policy-toc {
+    position: sticky;
+    top: calc(var(--spacing-lg) + 1rem);
+    align-self: start;
+  }
+
+  .policy-toc-card {
+    border: 1px solid var(--color-gray-light);
+    border-radius: var(--radius-lg);
+    background: #fff;
+    padding: var(--spacing-lg);
+  }
+
+  .policy-toc-card h2 {
+    margin: 0 0 var(--spacing-md);
+    font-size: 1.05rem;
+  }
+
+  .policy-toc-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 0.75rem;
+  }
+
+  .policy-toc-card a {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  .policy-toc-card a:hover {
+    color: var(--color-brown);
+  }
+
+  .policy-body {
+    display: grid;
+    gap: var(--spacing-2xl);
+  }
+
+  .policy-body h2,
+  .policy-body h3 {
+    margin-top: 0;
+  }
+
+  .policy-body p,
+  .policy-body li {
+    color: var(--color-gray-dark);
+    line-height: 1.8;
+  }
+
+  .policy-body ul,
+  .policy-body ol {
+    margin: var(--spacing-sm) 0 var(--spacing-md) 1.3rem;
+  }
+
+  .policy-body li {
+    margin-bottom: 0.6rem;
+  }
+
+  .policy-contact {
+    border-top: 1px solid var(--color-gray-light);
+    padding-top: var(--spacing-2xl);
+  }
+
+  .policy-contact h2 {
+    margin-bottom: var(--spacing-md);
+  }
+
+  .policy-contact a {
+    color: var(--color-primary);
+  }
+
+  @media (max-width: 960px) {
+    .policy-content {
+      grid-template-columns: 1fr;
+    }
+
+    .policy-toc {
+      position: static;
+      top: auto;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .policy-hero {
+      padding: var(--spacing-2xl) 0;
+    }
+
+    .policy-toc-card {
+      padding: var(--spacing-md);
+    }
+  }
+</style>

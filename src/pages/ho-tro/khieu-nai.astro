@@ -1,0 +1,90 @@
+---
+import PolicyPage from '../../components/PolicyPage.astro';
+
+const tocLinks = [
+  { title: 'Phạm vi tiếp nhận', href: '#pham-vi-va-noi-dung-tiep-nhan' },
+  { title: 'Kênh tiếp nhận', href: '#kenh-tiep-nhan' },
+  { title: 'Thông tin cần cung cấp', href: '#thong-tin-can-cung-cap' },
+  { title: 'Quy trình xử lý', href: '#quy-trinh-xu-ly' },
+  { title: 'Thời gian xử lý', href: '#thoi-gian-xu-ly' },
+  { title: 'Giải quyết tranh chấp', href: '#giai-quyet-tranh-chap' }
+];
+---
+
+<PolicyPage
+  title="Quy trình tiếp nhận và giải quyết khiếu nại"
+  pageTitle="Quy trình tiếp nhận và giải quyết khiếu nại"
+  description="Hướng dẫn tiếp nhận, xác minh và xử lý khiếu nại của khách hàng tại Long Hưng."
+  currentPage="/ho-tro/khieu-nai"
+  tocLinks={tocLinks}
+>
+  <section id="pham-vi-va-noi-dung-tiep-nhan">
+    <h2>1. Phạm vi và nội dung tiếp nhận</h2>
+    <p>
+      Long Hưng tiếp nhận phản ánh/khiếu nại từ khách hàng cá nhân, khách hàng doanh nghiệp, đối tác mua hàng và các tổ chức/cá nhân có giao dịch với Long Hưng.
+    </p>
+    <p>
+      Nội dung có thể liên quan đến chất lượng sản phẩm, số lượng hàng hóa, sai chủng loại/quy cách, giao hàng chậm, thái độ phục vụ, thanh toán, chính sách bán hàng, bảo hành, đổi trả, bảo mật thông tin, công nợ, chứng từ và các vấn đề khác phát sinh trong giao dịch.
+    </p>
+  </section>
+
+  <section id="kenh-tiep-nhan">
+    <h2>2. Kênh tiếp nhận</h2>
+    <ul>
+      <li>Email: <a href="mailto:hotro@vpplonghung.com">hotro@vpplonghung.com</a></li>
+      <li>Hotline / Zalo: 0353 839 500</li>
+      <li>Zalo: Văn phòng phẩm Long Hưng</li>
+      <li>Facebook/Fanpage: Long Hưng Bookstore hoặc fanpage chính thức do Long Hưng công bố</li>
+      <li>Biểu mẫu liên hệ tại vpplonghung.com</li>
+      <li>Phản ánh trực tiếp hoặc văn bản gửi đến trụ sở/địa điểm giao dịch của Long Hưng</li>
+    </ul>
+  </section>
+
+  <section id="thong-tin-can-cung-cap">
+    <h2>3. Thông tin cần cung cấp</h2>
+    <p>
+      Khách hàng vui lòng cung cấp họ tên/tên doanh nghiệp, số điện thoại, email, mã đơn hàng/hợp đồng/chứng từ giao dịch (nếu có), nội dung khiếu nại, yêu cầu xử lý và hình ảnh/video/tài liệu liên quan (nếu có).
+    </p>
+  </section>
+
+  <section id="quy-trinh-xu-ly">
+    <h2>4. Quy trình xử lý</h2>
+    <ol>
+      <li>
+        <strong>Bước 1 — Tiếp nhận:</strong> Long Hưng ghi nhận thông tin. Nếu hồ sơ chưa đủ, Long Hưng có thể yêu cầu bổ sung để xác minh.
+      </li>
+      <li>
+        <strong>Bước 2 — Xác minh:</strong> Long Hưng kiểm tra hồ sơ giao dịch, đối chiếu chứng từ và làm việc với bên liên quan (nếu cần) để thu thập thông tin.
+      </li>
+      <li>
+        <strong>Bước 3 — Đề xuất phương án:</strong> Tùy trường hợp, Long Hưng có thể giải thích/làm rõ thông tin, bổ sung hoặc đổi sản phẩm, thu hồi sản phẩm, hoàn tiền, khấu trừ công nợ, hỗ trợ kỹ thuật hoặc áp dụng biện pháp khắc phục phù hợp khác.
+      </li>
+      <li>
+        <strong>Bước 4 — Thông báo kết quả:</strong> Kết quả được thông báo qua email, điện thoại, văn bản hoặc phương thức liên hệ đã đăng ký.
+      </li>
+      <li>
+        <strong>Bước 5 — Hoàn tất:</strong> Khi các bên thống nhất phương án hoặc Long Hưng đã hoàn thành nghĩa vụ phản hồi theo quy trình, vụ việc được ghi nhận hoàn tất.
+      </li>
+    </ol>
+  </section>
+
+  <section id="thoi-gian-xu-ly">
+    <h2>5. Thời gian xử lý</h2>
+    <ul>
+      <li>Phản hồi ban đầu: không quá 24 giờ làm việc kể từ khi tiếp nhận đủ thông tin.</li>
+      <li>Thời gian xử lý thông thường: từ 24 đến 72 giờ làm việc tiếp theo.</li>
+      <li>Với vụ việc phức tạp cần phối hợp với nhà sản xuất, đơn vị vận chuyển, đơn vị bảo hành hoặc cơ quan chức năng, thời gian có thể kéo dài hơn.</li>
+    </ul>
+    <p>
+      Long Hưng cập nhật tiến độ trong phạm vi phù hợp.
+    </p>
+  </section>
+
+  <section id="giai-quyet-tranh-chap">
+    <h2>6. Giải quyết tranh chấp</h2>
+    <p>
+      Long Hưng ưu tiên giải quyết tranh chấp trên cơ sở hợp tác, thiện chí và tôn trọng quyền/lợi ích hợp pháp của các bên.
+      Nếu không thể giải quyết bằng thương lượng, tranh chấp được xử lý theo pháp luật Việt Nam tại cơ quan nhà nước hoặc Tòa án nhân dân có thẩm quyền.
+    </p>
+  </section>
+</PolicyPage>

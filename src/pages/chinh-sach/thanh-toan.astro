@@ -1,0 +1,177 @@
+---
+import PolicyPage from '../../components/PolicyPage.astro';
+
+const tocLinks = [
+  { title: 'Phạm vi áp dụng', href: '#pham-vi-ap-dung' },
+  { title: 'Nguyên tắc thanh toán', href: '#nguyen-tac-thanh-toan' },
+  { title: 'Hình thức thanh toán', href: '#hinh-thuc-thanh-toan' },
+  { title: 'Xác nhận đơn hàng và thanh toán', href: '#xac-nhan-don-hang-va-thanh-toan' },
+  { title: 'Giá bán, thuế và hóa đơn', href: '#gia-ban-thue-va-hoa-don' },
+  { title: 'Thanh toán không thành công, chậm thanh toán hoặc giao dịch bất thường', href: '#thanh-toan-khong-thanh-cong' },
+  { title: 'Hoàn tiền', href: '#hoan-tien' },
+  { title: 'Đối soát, bảo mật và khiếu nại thanh toán', href: '#doi-soat-bao-mat' },
+  { title: 'Hiệu lực và cập nhật', href: '#hieu-luc-va-cap-nhat' }
+];
+---
+
+<PolicyPage
+  title="Chính sách thanh toán"
+  pageTitle="Chính sách thanh toán"
+  description="Quy định thanh toán cho giao dịch mua bán hàng giữa khách hàng và Long Hưng."
+  currentPage="/chinh-sach/thanh-toan"
+  tocLinks={tocLinks}
+>
+  <section id="pham-vi-ap-dung">
+    <h2>1. Phạm vi áp dụng</h2>
+    <p>
+      Chính sách này quy định nguyên tắc, hình thức, điều kiện và quy trình thanh toán cho các giao dịch mua bán hàng hóa, dịch vụ giữa khách hàng và Long Hưng qua website, email, điện thoại, Zalo, fanpage, đơn đặt hàng, báo giá, hợp đồng, giao dịch trực tiếp hoặc các kênh hợp pháp khác.
+    </p>
+    <p>
+      Nếu hợp đồng, phụ lục hợp đồng, báo giá đã xác nhận hoặc thỏa thuận riêng có quy định khác, thỏa thuận riêng được ưu tiên áp dụng nếu không trái pháp luật.
+    </p>
+  </section>
+
+  <section id="nguyen-tac-thanh-toan">
+    <h2>2. Nguyên tắc thanh toán</h2>
+    <ul>
+      <li>Mọi khoản thanh toán phải đúng giá trị, thời hạn, phương thức và thông tin thanh toán do Long Hưng xác nhận.</li>
+      <li>Đồng tiền thanh toán là Việt Nam đồng, trừ trường hợp các bên có thỏa thuận khác bằng văn bản và phù hợp pháp luật.</li>
+      <li>Khách hàng chỉ thanh toán vào tài khoản, phương thức hoặc đầu mối thanh toán chính thức do Long Hưng cung cấp qua báo giá, hợp đồng, đơn đặt hàng, email xác nhận, hóa đơn hoặc chứng từ hợp lệ.</li>
+      <li>Long Hưng không chịu trách nhiệm với khoản thanh toán chuyển sai tài khoản, sai người thụ hưởng, sai nội dung hoặc qua kênh không được Long Hưng xác nhận, trừ trường hợp lỗi do Long Hưng cung cấp thông tin.</li>
+      <li>Giao dịch chỉ được coi là đã thanh toán khi Long Hưng ghi nhận tiền thực nhận hoặc nhận được xác nhận giao dịch thành công từ đơn vị cung cấp dịch vụ thanh toán hợp pháp.</li>
+    </ul>
+  </section>
+
+  <section id="hinh-thuc-thanh-toan">
+    <h2>3. Hình thức thanh toán</h2>
+    <h3>3.1. Thanh toán khi nhận hàng (COD)</h3>
+    <p>
+      Khách hàng thanh toán trực tiếp cho nhân viên giao hàng, người được Long Hưng ủy quyền hoặc đơn vị vận chuyển khi nhận hàng.
+      Khách hàng cần kiểm tra tình trạng bên ngoài của hàng hóa, số lượng kiện hàng, chứng từ giao nhận và giá trị cần thanh toán trước khi ký nhận.
+    </p>
+
+    <h3>3.2. Thanh toán tiền mặt</h3>
+    <p>
+      Áp dụng cho giao dịch trực tiếp tại địa điểm kinh doanh, kho hàng, điểm giao nhận hoặc khi được Long Hưng xác nhận.
+      Khoản thanh toán phải có phiếu thu, biên nhận, xác nhận giao dịch hoặc chứng từ hợp lệ do Long Hưng phát hành.
+    </p>
+
+    <h3>3.3. Chuyển khoản ngân hàng</h3>
+    <p>
+      Khách hàng chuyển khoản vào tài khoản ngân hàng do Long Hưng chỉ định.
+      Nội dung chuyển khoản nên ghi rõ tên khách hàng, mã đơn hàng, số báo giá, số hợp đồng, số hóa đơn hoặc nội dung theo hướng dẫn của Long Hưng.
+    </p>
+    <p>
+      Giao dịch được coi là đã thanh toán khi tiền được ghi có vào tài khoản của Long Hưng và được đối soát thành công.
+      Long Hưng có thể yêu cầu chứng từ chuyển khoản nếu nội dung chuyển khoản thiếu, sai hoặc không xác định được chủ thể thanh toán.
+    </p>
+
+    <h3>3.4. Thẻ, cổng thanh toán hoặc ví điện tử</h3>
+    <p>
+      Chỉ áp dụng khi Long Hưng hỗ trợ tại từng thời điểm.
+      Giao dịch được xử lý bởi ngân hàng, tổ chức trung gian thanh toán hoặc nhà cung cấp dịch vụ hợp pháp.
+      Long Hưng không trực tiếp lưu trữ thông tin thẻ của khách hàng.
+    </p>
+
+    <h3>3.5. Công nợ khách hàng doanh nghiệp</h3>
+    <p>
+      Chỉ áp dụng cho khách hàng doanh nghiệp được Long Hưng phê duyệt bằng văn bản hoặc có thỏa thuận công nợ hợp lệ.
+      Hạn mức, thời hạn, điều kiện giao hàng và biện pháp xử lý nợ quá hạn được xác định theo hợp đồng, phụ lục hợp đồng, báo giá được xác nhận hoặc chính sách công nợ hiện hành.
+    </p>
+    <p>
+      Long Hưng có quyền tạm dừng giao hàng, tạm dừng cấp công nợ, điều chỉnh hạn mức, yêu cầu thanh toán trước hoặc áp dụng biện pháp thu hồi nợ phù hợp khi khách hàng nợ quá hạn, thanh toán chậm nhiều lần hoặc có dấu hiệu rủi ro tín dụng.
+    </p>
+
+    <h3>3.6. Đặt cọc hoặc thanh toán trước</h3>
+    <p>
+      Long Hưng có thể yêu cầu đặt cọc hoặc thanh toán trước một phần/toàn bộ giá trị đơn hàng đối với đơn hàng giá trị lớn, hàng đặt riêng, hàng không sẵn, hàng nhập theo yêu cầu, đơn hàng cần giữ tồn kho hoặc khách hàng chưa có lịch sử giao dịch.
+      Tỷ lệ đặt cọc và điều kiện xử lý được xác định trong báo giá, đơn đặt hàng, hợp đồng hoặc thỏa thuận riêng.
+    </p>
+  </section>
+
+  <section id="xac-nhan-don-hang-va-thanh-toan">
+    <h2>4. Xác nhận đơn hàng và thanh toán</h2>
+    <p>
+      Việc khách hàng gửi yêu cầu mua hàng, đặt hàng hoặc chuyển khoản không mặc nhiên làm phát sinh nghĩa vụ giao hàng nếu đơn hàng chưa được Long Hưng xác nhận.
+    </p>
+    <p>
+      Đơn hàng hợp lệ khi Long Hưng đã xác nhận sản phẩm, số lượng, đơn giá, thuế, phí vận chuyển (nếu có), phương thức thanh toán, thời gian giao hàng dự kiến và thông tin giao nhận.
+    </p>
+    <p>
+      Long Hưng có thể tạm ngừng xử lý đơn hàng nếu chưa xác nhận được thanh toán, thông tin thanh toán không khớp, chứng từ thanh toán chưa hợp lệ hoặc có dấu hiệu bất thường.
+    </p>
+  </section>
+
+  <section id="gia-ban-thue-va-hoa-don">
+    <h2>5. Giá bán, thuế và hóa đơn</h2>
+    <p>
+      Giá bán được xác định theo báo giá chính thức, hợp đồng, đơn đặt hàng đã được xác nhận, hóa đơn hoặc chính sách bán hàng tại từng thời điểm.
+      Long Hưng có quyền điều chỉnh giá đối với giao dịch chưa được xác nhận mà không cần thông báo trước.
+    </p>
+    <p>
+      Giá có thể bao gồm hoặc chưa bao gồm VAT, phí vận chuyển, phí bốc xếp, phí giao hàng hỏa tốc hoặc chi phí khác, tùy nội dung báo giá/thỏa thuận.
+      Long Hưng sẽ thông báo phí phát sinh (nếu có) trước khi xác nhận đơn hàng hoặc thực hiện dịch vụ phát sinh.
+    </p>
+    <p>
+      Khách hàng cần cung cấp đầy đủ, chính xác và kịp thời thông tin xuất hóa đơn trước khi Long Hưng lập hóa đơn, gồm tên đơn vị, mã số thuế, địa chỉ, email nhận hóa đơn điện tử và người liên hệ khi cần thiết.
+      Long Hưng không chịu trách nhiệm cho sai sót phát sinh do khách hàng cung cấp sai, thiếu hoặc chậm thông tin.
+    </p>
+  </section>
+
+  <section id="thanh-toan-khong-thanh-cong">
+    <h2>6. Thanh toán không thành công, chậm thanh toán hoặc giao dịch bất thường</h2>
+    <p>
+      Long Hưng có quyền hủy hoặc tạm ngừng xử lý đơn hàng, tạm dừng giao hàng, yêu cầu thanh toán trước hoặc áp dụng biện pháp kiểm soát rủi ro khi:
+    </p>
+    <ul>
+      <li>Không xác nhận được thanh toán.</li>
+      <li>Thanh toán thiếu, sai nội dung, sai tài khoản hoặc sai thông tin người thụ hưởng.</li>
+      <li>Khách hàng không cung cấp được chứng từ thanh toán hợp lệ khi được yêu cầu.</li>
+      <li>Giao dịch có dấu hiệu gian lận, giả mạo, tranh chấp hoặc bất thường.</li>
+      <li>Khách hàng vi phạm nghĩa vụ thanh toán trong giao dịch trước đó.</li>
+      <li>Khách hàng phát sinh công nợ quá hạn hoặc vượt hạn mức đã được phê duyệt.</li>
+      <li>Ngân hàng, tổ chức trung gian thanh toán, ví điện tử hoặc cơ quan có thẩm quyền yêu cầu tạm dừng, xác minh hoặc phong tỏa giao dịch.</li>
+    </ul>
+  </section>
+
+  <section id="hoan-tien">
+    <h2>7. Hoàn tiền</h2>
+    <p>
+      Long Hưng thực hiện hoàn tiền khi đơn hàng bị hủy và khách hàng đã thanh toán trước; Long Hưng không thể cung cấp hàng hóa/dịch vụ theo thỏa thuận; hàng hóa được trả lại và đủ điều kiện hoàn tiền; khách hàng thanh toán thừa; hoặc trong các trường hợp khác theo thỏa thuận/pháp luật.
+    </p>
+    <p>
+      Hoàn tiền được thực hiện qua phương thức phù hợp với hình thức thanh toán ban đầu hoặc theo thỏa thuận.
+      Thời gian xử lý thông thường là từ 03 đến 15 ngày làm việc kể từ khi hồ sơ hoàn tiền được xác nhận hợp lệ.
+      Thời gian tiền thực tế về tài khoản có thể phụ thuộc vào ngân hàng, ví điện tử, tổ chức trung gian thanh toán hoặc bên thứ ba.
+    </p>
+    <p>
+      Long Hưng có thể yêu cầu thông tin khách hàng, chứng từ thanh toán, thông tin tài khoản nhận hoàn tiền, biên bản hủy đơn/trả hàng/đối soát công nợ hoặc tài liệu liên quan.
+      Long Hưng có quyền tạm hoãn hoàn tiền khi giao dịch đang tranh chấp, có dấu hiệu gian lận, chưa thu hồi hàng cần hoàn trả hoặc chưa đủ hồ sơ xác minh.
+    </p>
+  </section>
+
+  <section id="doi-soat-bao-mat">
+    <h2>8. Đối soát, bảo mật và khiếu nại thanh toán</h2>
+    <p>
+      Khi phát sinh sai sót, khách hàng cần thông báo sớm và cung cấp chứng từ liên quan.
+      Long Hưng kiểm tra thông tin trong phạm vi dữ liệu/chứng từ do mình quản lý và phối hợp hỗ trợ đối với lỗi thuộc ngân hàng, ví điện tử, cổng thanh toán, đơn vị vận chuyển hoặc bên thứ ba trong phạm vi hợp lý.
+    </p>
+    <p>
+      Long Hưng bảo mật thông tin thanh toán và không mua bán, trao đổi hoặc chia sẻ trái phép thông tin thanh toán.
+      Thông tin chỉ được sử dụng trong phạm vi cần thiết để xử lý giao dịch, đối soát, giao hàng, xuất hóa đơn, chăm sóc khách hàng, giải quyết khiếu nại, thực hiện nghĩa vụ kế toán - thuế hoặc cung cấp theo yêu cầu hợp pháp của cơ quan nhà nước có thẩm quyền.
+    </p>
+    <p>
+      Khiếu nại thanh toán có thể được gửi qua email, hotline, biểu mẫu liên hệ trên website hoặc các kênh tiếp nhận chính thức.
+      Khách hàng cần cung cấp thông tin giao dịch, chứng từ thanh toán, nội dung khiếu nại và tài liệu liên quan.
+      Long Hưng phản hồi ban đầu trong tối đa 24 giờ làm việc kể từ khi tiếp nhận thông tin.
+    </p>
+  </section>
+
+  <section id="hieu-luc-va-cap-nhat">
+    <h2>9. Hiệu lực và cập nhật</h2>
+    <p>
+      Chính sách có hiệu lực khi được công bố trên website, báo giá, hợp đồng hoặc kênh giao dịch phù hợp.
+      Long Hưng có quyền sửa đổi, bổ sung để phù hợp với hoạt động kinh doanh và quy định pháp luật; nội dung cập nhật có hiệu lực từ thời điểm công bố, trừ khi có quy định khác.
+    </p>
+  </section>
+</PolicyPage>

@@ -1,0 +1,123 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const policyGroups = [
+  {
+    title: 'Chính sách chung',
+    items: [
+      { title: 'Bảo mật thông tin cá nhân', href: '/chinh-sach/bao-mat-thong-tin-ca-nhan' },
+      { title: 'Thanh toán', href: '/chinh-sach/thanh-toan' },
+      { title: 'Vận chuyển và giao nhận', href: '/chinh-sach/van-chuyen-giao-nhan' },
+      { title: 'Đổi trả và hoàn tiền', href: '/chinh-sach/doi-tra-hoan-tien' },
+      { title: 'Bảo hành', href: '/chinh-sach/bao-hanh' },
+      { title: 'Điều khoản giao dịch', href: '/dieu-khoan-giao-dich' }
+    ]
+  },
+  {
+    title: 'Hỗ trợ khách hàng',
+    items: [
+      { title: 'Quy trình tiếp nhận khiếu nại', href: '/ho-tro/khieu-nai' }
+    ]
+  },
+  {
+    title: 'Khách hàng doanh nghiệp',
+    items: [
+      { title: 'Chính sách bán hàng doanh nghiệp', href: '/khach-hang-doanh-nghiep/chinh-sach-ban-hang' },
+      { title: 'Chính sách công nợ doanh nghiệp', href: '/khach-hang-doanh-nghiep/chinh-sach-cong-no' },
+      { title: 'Quy trình đặt hàng doanh nghiệp', href: '/khach-hang-doanh-nghiep/quy-trinh-dat-hang' }
+    ]
+  }
+];
+---
+
+<Layout
+  title="Chính sách Long Hưng — Tổng hợp chính sách và điều khoản"
+  description="Tổng hợp chính sách bảo mật, thanh toán, vận chuyển, bảo hành, đổi trả và điều khoản giao dịch của Long Hưng."
+>
+  <Header currentPage="/chinh-sach" />
+
+  <main class="policy-hub-page">
+    <section class="hero hero-policy-hub" style="background-color: #faf7ef; padding: var(--spacing-3xl) 0;">
+      <div class="container">
+        <p class="section-subtitle">Chính sách</p>
+        <h1 class="section-title">Bảng điều hướng chính sách</h1>
+        <p class="policy-hub-summary">
+          Tất cả chính sách khách hàng của Công ty TNHH Văn phòng phẩm Long Hưng được tổ chức thành các trang riêng để bạn dễ tra cứu.
+          Mỗi trang tương ứng một chủ đề cụ thể và được cập nhật lần cuối vào 08/06/2026.
+        </p>
+      </div>
+    </section>
+
+    <section class="policy-hub-list">
+      <div class="container">
+        {policyGroups.map((group) => (
+          <div class="policy-group">
+            <h2>{group.title}</h2>
+            <ul>
+              {group.items.map((item) => (
+                <li>
+                  <a href={item.href}>{item.title}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .policy-hub-page {
+    background-color: var(--color-white);
+  }
+
+  .hero-policy-hub {
+    text-align: center;
+  }
+
+  .policy-hub-summary {
+    max-width: 760px;
+    margin: 0 auto;
+    color: var(--color-gray-dark);
+    line-height: 1.9;
+  }
+
+  .policy-hub-list {
+    padding: var(--spacing-2xl) 0 var(--spacing-3xl);
+  }
+
+  .policy-group {
+    margin-bottom: var(--spacing-2xl);
+    border: 1px solid var(--color-gray-light);
+    border-radius: var(--radius-lg);
+    background: #fff;
+    padding: var(--spacing-lg);
+  }
+
+  .policy-group h2 {
+    margin-top: 0;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .policy-group ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 0.75rem;
+  }
+
+  .policy-group a {
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+
+  .policy-group a:hover {
+    color: var(--color-brown);
+  }
+</style>
