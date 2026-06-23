@@ -2,27 +2,19 @@
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
-import { products, getProductBySlug, getRelatedProducts, formatPriceVnd } from '../../data/products';
+import { loadProductCatalog } from '../../data/catalog';
 
-export function getStaticPaths() {
-  return products.map((product) => ({
-    params: { slug: product.slug },
-    props: { productSlug: product.slug }
-  }));
-}
+export const prerender = false;
 
-interface Props {
-  productSlug: string;
-}
-
-const { productSlug } = Astro.props as Props;
-const product = getProductBySlug(productSlug);
+const productSlug = String(Astro.params.slug || '').trim();
+const catalog = await loadProductCatalog();
+const product = catalog.getProductBySlug(productSlug);
 
 if (!product) {
   return Astro.redirect('/san-pham');
 }
 
-const relatedProducts = getRelatedProducts(product, 6);
+const relatedProducts = catalog.getRelatedProducts(product, 6);
 
 const orderPageByCategory: Record<string, string> = {
   'san-pham-giay': 'https://vpplonghung.mshopkeeper.vn/order-page/new/c/san-pham-ve-giay',
@@ -35,7 +27,7 @@ const orderPageUrl = orderPageByCategory[product.categoryId] ?? '/san-pham';
 
 <Layout
   title={`${product.name} | Long Hưng`}
-  description={`${product.name} - ${product.category}. Giá tham khảo ${formatPriceVnd(product.unitPriceVnd)}.`}
+  description={`${product.name} - ${product.category}. Giá tham khảo ${catalog.formatPriceVnd(product.unitPriceVnd)}.`}
 >
   <Header currentPage="/san-pham" />
 
@@ -57,7 +49,7 @@ const orderPageUrl = orderPageByCategory[product.categoryId] ?? '/san-pham';
         <article class="product-content">
           <span class="product-category">{product.category}</span>
           <h1>{product.name}</h1>
-          <p class="product-price">{formatPriceVnd(product.unitPriceVnd)}</p>
+          <p class="product-price">{catalog.formatPriceVnd(product.unitPriceVnd)}</p>
 
           <dl class="product-specs">
             <div>
@@ -102,7 +94,7 @@ const orderPageUrl = orderPageByCategory[product.categoryId] ?? '/san-pham';
             <div>
               <span>{relatedProduct.category}</span>
               <h3>{relatedProduct.name}</h3>
-              <p>{formatPriceVnd(relatedProduct.unitPriceVnd)}</p>
+              <p>{catalog.formatPriceVnd(relatedProduct.unitPriceVnd)}</p>
             </div>
           </a>
         ))}

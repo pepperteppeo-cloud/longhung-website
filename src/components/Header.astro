@@ -16,6 +16,7 @@ const navLinks = [
 ];
 
 const dropdownLinks = [
+  { title: 'Tin tức', href: '/tin-tuc', slug: '/tin-tuc', showAt: 'always' },
   { title: 'Về chúng tôi', href: '/ve-chung-toi', slug: '/ve-chung-toi', showAt: 'always' },
   { title: 'Chính sách', href: '/chinh-sach', slug: '/chinh-sach', showAt: 'always' },
   { title: 'Liên hệ', href: '/lien-he', slug: '/lien-he', showAt: 'always' },
@@ -88,6 +89,9 @@ const nationwideOrderUrl = 'https://vpplonghung.mshopkeeper.vn/order-page/';
         </div>
         <div class="header-cta desktop-cta">
           <a href="/lien-he" class="btn btn-cta">Tư vấn Ngay</a>
+        </div>
+        <div class="header-admin">
+          <a href="/admin-login" class="admin-link" title="Đăng nhập Quản trị viên">⚙️</a>
         </div>
       </div>
     </div>
@@ -587,6 +591,33 @@ const nationwideOrderUrl = 'https://vpplonghung.mshopkeeper.vn/order-page/';
       display: block;
     }
   }
+
+  /* Admin Link */
+  .header-admin {
+    flex-shrink: 0;
+    margin-left: 0.5rem;
+  }
+
+  .admin-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: #f0f0f0;
+    color: #333;
+    font-size: 18px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .admin-link:hover {
+    background-color: #3498db;
+    color: white;
+    transform: scale(1.1);
+  }
 </style>
 
 <script>
@@ -644,7 +675,7 @@ const nationwideOrderUrl = 'https://vpplonghung.mshopkeeper.vn/order-page/';
 
   const initDropdowns = () => {
     const navMenu = document.getElementById('navMenu');
-    const dropdownToggles = document.querySelectorAll('[data-dropdown] .dropdown-toggle');
+    const dropdownToggles = document.querySelectorAll<HTMLElement>('[data-dropdown] .dropdown-toggle');
 
     dropdownToggles.forEach((toggle) => {
       if (toggle.dataset.bound === 'true') return;
@@ -669,7 +700,7 @@ const nationwideOrderUrl = 'https://vpplonghung.mshopkeeper.vn/order-page/';
         }
       });
 
-      dropdownMenu.querySelectorAll('a').forEach((link) => {
+      dropdownMenu.querySelectorAll<HTMLAnchorElement>('a').forEach((link) => {
         link.addEventListener('click', () => {
           closeAllDropdowns();
         });

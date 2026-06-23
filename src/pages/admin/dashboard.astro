@@ -1,0 +1,1755 @@
+﻿---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Admin Dashboard - Long Hung">
+  <div class="admin-dashboard">
+    <nav class="admin-nav">
+      <div class="nav-header">
+        <h2>Administrator</h2>
+        <button id="logoutBtn" class="btn-logout">Logout</button>
+      </div>
+      
+      <ul class="nav-menu">
+        <li><a href="#dashboard" class="nav-link active" data-tab="dashboard">Dashboard</a></li>
+        <li><a href="#products" class="nav-link" data-tab="products">Product Management</a></li>
+        <li><a href="#articles" class="nav-link" data-tab="articles">Article Management</a></li>
+        <li><a href="#categories" class="nav-link" data-tab="categories">Category Management</a></li>
+        <li><a href="#orders" class="nav-link" data-tab="orders">Order Management</a></li>
+      </ul>
+    </nav>
+
+    <main class="admin-content">
+      <!-- Dashboard Tab -->
+      <div id="dashboard" class="tab-content active">
+        <h1>Dashboard</h1>
+        <div class="dashboard-stats">
+          <div class="stat-card">
+            <h3>Products</h3>
+            <p id="productCount" class="stat-number">-</p>
+          </div>
+          <div class="stat-card">
+            <h3>Articles</h3>
+            <p id="articleCount" class="stat-number">-</p>
+          </div>
+          <div class="stat-card">
+            <h3>Orders</h3>
+            <p id="orderCount" class="stat-number">-</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Products Tab -->
+      <div id="products" class="tab-content">
+        <div class="content-header">
+          <h1>Product Management</h1>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;">
+            <a class="btn-secondary" href="http://localhost:5000/Nhap-khau-hang-hoa-website.xlsx" target="_blank" rel="noopener" style="text-decoration:none;display:inline-flex;align-items:center;">Download Import Template</a>
+            <button id="addProductBtn" class="btn-primary">+ Add Product</button>
+          </div>
+        </div>
+        <div class="product-toolbar">
+          <input id="productSearchInput" type="search" placeholder="Search by name or description" />
+          <select id="productCategoryFilter">
+            <option value="">All categories</option>
+          </select>
+          <select id="productStatusFilter">
+            <option value="">All visibility</option>
+            <option value="true">Visible</option>
+            <option value="false">Hidden</option>
+          </select>
+          <select id="productFeaturedFilter">
+            <option value="">All feature states</option>
+            <option value="true">Featured only</option>
+            <option value="false">Non-featured only</option>
+          </select>
+          <button id="productFilterApplyBtn" class="btn-secondary" type="button">Apply</button>
+          <button id="productFilterResetBtn" class="btn-secondary" type="button">Reset</button>
+        </div>
+        <div class="product-toolbar product-toolbar--actions">
+          <button id="productSelectAllBtn" class="btn-secondary" type="button">Select page</button>
+          <button id="productClearSelectionBtn" class="btn-secondary" type="button">Clear selection</button>
+          <button id="productBulkDeleteBtn" class="btn-danger" type="button">Delete selected</button>
+          <label class="btn-secondary file-trigger" for="productImportFile">Choose import file</label>
+          <input id="productImportFile" type="file" accept=".xlsx,.xls,.csv" />
+          <button id="productImportPreviewBtn" class="btn-secondary" type="button">Preview</button>
+          <button id="productImportRunBtn" class="btn-primary" type="button">Import now</button>
+          <label class="inline-check">
+            <input id="productImportOverwrite" type="checkbox" /> Overwrite existing
+          </label>
+          <span id="productImportFileName" class="product-meta">No file selected</span>
+          <span id="productSelectionMeta" class="product-meta">0 selected</span>
+          <span id="productImportMeta" class="product-meta"></span>
+        </div>
+        <div id="productsList" class="items-list"></div>
+      </div>
+
+      <!-- Articles Tab -->
+      <div id="articles" class="tab-content">
+        <div class="content-header">
+          <h1>Article Management</h1>
+          <button id="addArticleBtn" class="btn-primary">+ Add Article</button>
+        </div>
+        <div id="articlesList" class="items-list"></div>
+      </div>
+
+      <!-- Categories Tab -->
+      <div id="categories" class="tab-content">
+        <div class="content-header">
+          <h1>Category Management</h1>
+          <button id="addCategoryBtn" class="btn-primary">+ Add Category</button>
+        </div>
+        <div id="categoriesList" class="items-list"></div>
+      </div>
+
+      <!-- Orders Tab -->
+      <div id="orders" class="tab-content">
+        <h1>Order Management</h1>
+        <div id="ordersList" class="items-list"></div>
+      </div>
+    </main>
+
+    <!-- Modal for adding/editing -->
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2 id="modalTitle">Add Product</h2>
+        <form id="itemForm">
+          <div id="formFields"></div>
+          <div class="modal-actions">
+            <button type="button" id="cancelBtn" class="btn-secondary">Cancel</button>
+            <button type="submit" class="btn-primary">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .admin-dashboard {
+    display: flex;
+    min-height: 100vh;
+    background-color: #f5f5f5;
+  }
+
+  .admin-nav {
+    width: 250px;
+    background-color: #2c3e50;
+    color: white;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .nav-header h2 {
+    margin: 0;
+    font-size: 20px;
+  }
+
+  .btn-logout {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background-color 0.3s;
+  }
+
+  .btn-logout:hover {
+    background-color: #c0392b;
+  }
+
+  .nav-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .nav-menu li {
+    margin-bottom: 10px;
+  }
+
+  .nav-link {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  .nav-link:hover,
+  .nav-link.active {
+    background-color: #3498db;
+    color: white;
+  }
+
+  .admin-content {
+    flex: 1;
+    padding: 30px;
+    overflow-y: auto;
+  }
+
+  .tab-content {
+    display: none;
+    animation: fadeIn 0.3s ease-in;
+  }
+
+  .tab-content.active {
+    display: block;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+
+  .content-header h1 {
+    margin: 0;
+    color: #2c3e50;
+  }
+
+  .btn-primary {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: background-color 0.3s;
+  }
+
+  .btn-primary:hover {
+    background-color: #2980b9;
+  }
+
+  .dashboard-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+  }
+
+  .stat-card {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .stat-card h3 {
+    margin: 0 0 10px 0;
+    color: #666;
+    font-size: 14px;
+  }
+
+  .stat-number {
+    font-size: 32px;
+    font-weight: bold;
+    color: #3498db;
+    margin: 0;
+  }
+
+  .items-list {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+
+  .item-row {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 14px;
+    transition: background-color 0.2s ease;
+  }
+
+  .item-row:hover {
+    background: #fafcff;
+  }
+
+  .item-row:last-child {
+    border-bottom: none;
+  }
+
+  .item-info h4 {
+    margin: 0 0 5px 0;
+    color: #2c3e50;
+  }
+
+  .item-info p {
+    margin: 0;
+    color: #666;
+    font-size: 13px;
+  }
+
+  .item-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .btn-sm {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: all 0.3s;
+  }
+
+  .btn-edit {
+    background-color: #3498db;
+    color: white;
+  }
+
+  .btn-edit:hover {
+    background-color: #2980b9;
+  }
+
+  .btn-delete {
+    background-color: #e74c3c;
+    color: white;
+  }
+
+  .btn-delete:hover {
+    background-color: #c0392b;
+  }
+
+  .btn-publish {
+    background-color: #27ae60;
+    color: white;
+  }
+
+  .btn-publish:hover {
+    background-color: #229954;
+  }
+
+  /* Modal Styles */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    overflow-y: auto;
+  }
+
+  .modal.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .modal-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 1;
+  }
+
+  .close:hover {
+    color: #000;
+  }
+
+  #modalTitle {
+    margin-top: 0;
+    color: #2c3e50;
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+  }
+
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #2c3e50;
+    font-weight: 500;
+    font-size: 14px;
+  }
+
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: inherit;
+  }
+
+  .form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus,
+  .form-group select:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+  }
+
+  .form-hint {
+    font-size: 12px;
+    color: #6b7280;
+    margin-top: 4px;
+  }
+
+  .upload-preview {
+    margin-top: 8px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+    max-width: 280px;
+    background: #f8fafc;
+  }
+
+  .upload-preview img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .editor-shell {
+    border: 1px solid #dbe4f0;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #fff;
+  }
+
+  .editor-toolbar {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    padding: 10px;
+    border-bottom: 1px solid #e5e7eb;
+    background: #f8fbff;
+  }
+
+  .editor-toolbar button,
+  .editor-toolbar select {
+    border: 1px solid #d0d8e3;
+    background: white;
+    border-radius: 8px;
+    padding: 6px 10px;
+    font-size: 12px;
+    cursor: pointer;
+  }
+
+  .editor-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 280px;
+  }
+
+  .editor-layout textarea {
+    min-height: 280px;
+    border: 0;
+    border-radius: 0;
+    border-right: 1px solid #e5e7eb;
+    margin: 0;
+    resize: vertical;
+  }
+
+  .editor-preview {
+    padding: 14px;
+    overflow-y: auto;
+    background: #fcfcfd;
+    color: #253243;
+    line-height: 1.6;
+  }
+
+  .editor-preview p {
+    margin: 0 0 10px;
+  }
+
+  .editor-preview h2,
+  .editor-preview h3 {
+    margin: 12px 0 8px;
+  }
+
+  .editor-preview blockquote {
+    margin: 10px 0;
+    padding: 8px 12px;
+    border-left: 3px solid #2563eb;
+    background: #eef4ff;
+  }
+
+  .editor-preview img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin: 10px 0;
+    border: 1px solid #e5e7eb;
+  }
+
+  .editor-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 8px;
+    font-size: 12px;
+    color: #475569;
+  }
+
+  .editor-save-status {
+    color: #0f766e;
+    font-weight: 600;
+  }
+
+  .modal-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    margin-top: 20px;
+  }
+
+  .btn-secondary {
+    background: #e5e7eb;
+    color: #111827;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .btn-secondary:hover {
+    background: #d1d5db;
+  }
+
+  .btn-danger {
+    background: #dc2626;
+    color: #fff;
+    border: none;
+    padding: 10px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  .btn-danger:hover {
+    background: #b91c1c;
+  }
+
+  .product-toolbar {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+
+  .product-toolbar input[type="search"],
+  .product-toolbar select {
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    padding: 9px 10px;
+    font-size: 13px;
+    min-width: 170px;
+    background: #fff;
+  }
+
+  .product-toolbar--actions {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 10px;
+  }
+
+  #productImportFile {
+    width: 0;
+    height: 0;
+    opacity: 0;
+    position: absolute;
+    pointer-events: none;
+  }
+
+  .file-trigger {
+    cursor: pointer;
+  }
+
+  .inline-check {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #334155;
+    font-size: 13px;
+  }
+
+  .product-meta {
+    color: #475569;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .product-row-check {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 10px;
+  }
+
+  .product-row-check input {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+  }
+
+  @media (max-width: 768px) {
+    .admin-dashboard {
+      flex-direction: column;
+    }
+
+    .admin-nav {
+      width: 100%;
+      max-height: 200px;
+      overflow-y: auto;
+    }
+
+    .content-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 15px;
+    }
+
+    .product-toolbar input[type="search"],
+    .product-toolbar select {
+      width: 100%;
+    }
+
+    .item-row {
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .editor-layout {
+      grid-template-columns: 1fr;
+    }
+
+    .editor-layout textarea {
+      border-right: 0;
+      border-bottom: 1px solid #e5e7eb;
+    }
+  }
+</style>
+
+<script is:inline type="module" define:vars={{ PUBLIC_API_URL: import.meta.env.PUBLIC_API_URL }}>
+  const API_URL = PUBLIC_API_URL || 'http://localhost:5000';
+
+  // Check authentication
+  function checkAuth() {
+    const token = localStorage.getItem('admin_token');
+    if (!token) {
+      window.location.href = '/admin-login';
+      return null;
+    }
+    return token;
+  }
+
+  const token = checkAuth();
+
+  const authHeaders = () => ({
+    'Content-Type': 'application/json',
+    Authorization: `Bearer ${token}`
+  });
+
+  const requestJson = async (path, options = {}) => {
+    const response = await fetch(`${API_URL}${path}`, {
+      ...options,
+      headers: {
+        ...authHeaders(),
+        ...(options.headers || {})
+      }
+    });
+
+    const data = await response.json().catch(() => ({}));
+    if (!response.ok) {
+      throw new Error(data.message || `Request failed with status ${response.status}`);
+    }
+    return data;
+  };
+
+  const requestForm = async (path, method, formData) => {
+    const response = await fetch(`${API_URL}${path}`, {
+      method,
+      headers: {
+        Authorization: `Bearer ${token}`
+      },
+      body: formData
+    });
+
+    const data = await response.json().catch(() => ({}));
+    if (!response.ok || data?.success === false) {
+      throw new Error(data.message || `Request failed with status ${response.status}`);
+    }
+
+    return data;
+  };
+
+  const productAPI = {
+    getAll: (page = 1, limit = 12, search = '', category = '', isActive = '', featured = '', includeInactive = true) =>
+      requestJson(`/api/products?page=${page}&limit=${limit}&search=${encodeURIComponent(search)}&category=${encodeURIComponent(category)}&is_active=${encodeURIComponent(isActive)}&featured=${encodeURIComponent(featured)}&include_inactive=${includeInactive ? 'true' : 'false'}`),
+    getBySlug: (slug) => requestJson(`/api/products/${slug}`),
+    create: (data, imageFile = null) => {
+      const formData = new FormData();
+      Object.entries(data).forEach(([key, value]) => {
+        if (value !== undefined && value !== null && value !== '') {
+          formData.append(key, String(value));
+        }
+      });
+
+      if (imageFile) {
+        formData.append('image', imageFile);
+      }
+
+      return requestForm('/api/products', 'POST', formData);
+    },
+    update: (id, data, imageFile = null) => {
+      const formData = new FormData();
+      Object.entries(data).forEach(([key, value]) => {
+        if (value !== undefined && value !== null && value !== '') {
+          formData.append(key, String(value));
+        }
+      });
+
+      if (imageFile) {
+        formData.append('image', imageFile);
+      }
+
+      return requestForm(`/api/products/${id}`, 'PUT', formData);
+    },
+    delete: (id) => requestJson(`/api/products/${id}`, { method: 'DELETE' }),
+    bulkDelete: (ids = []) => requestJson('/api/products/bulk-delete', {
+      method: 'POST',
+      body: JSON.stringify({ ids })
+    }),
+    importFile: (file, overwriteExisting = false, previewOnly = false) => {
+      const formData = new FormData();
+      formData.append('file', file);
+      formData.append('overwrite_existing', overwriteExisting ? 'true' : 'false');
+      formData.append('preview_only', previewOnly ? 'true' : 'false');
+      return requestForm('/api/products/import', 'POST', formData);
+    }
+  };
+
+  const articleAPI = {
+    getAllAdmin: (page = 1, limit = 20, search = '', published = '') =>
+      requestJson(`/api/articles/admin/list?page=${page}&limit=${limit}&search=${encodeURIComponent(search)}&published=${encodeURIComponent(published)}`),
+    create: (data, imageFile = null) => {
+      const formData = new FormData();
+      Object.entries(data).forEach(([key, value]) => {
+        if (value !== undefined && value !== null && value !== '') {
+          formData.append(key, String(value));
+        }
+      });
+
+      if (imageFile) {
+        formData.append('image', imageFile);
+      }
+
+      return requestForm('/api/articles', 'POST', formData);
+    },
+    update: (id, data, imageFile = null) => {
+      const formData = new FormData();
+      Object.entries(data).forEach(([key, value]) => {
+        if (value !== undefined && value !== null && value !== '') {
+          formData.append(key, String(value));
+        }
+      });
+
+      if (imageFile) {
+        formData.append('image', imageFile);
+      }
+
+      return requestForm(`/api/articles/${id}`, 'PUT', formData);
+    },
+    uploadContentImage: (imageFile) => {
+      const formData = new FormData();
+      formData.append('image', imageFile);
+      return requestForm('/api/articles/upload-image', 'POST', formData);
+    },
+    togglePublish: (id, isPublished) => requestJson(`/api/articles/${id}/publish`, {
+      method: 'PATCH',
+      body: JSON.stringify({ is_published: isPublished })
+    }),
+    delete: (id) => requestJson(`/api/articles/${id}`, { method: 'DELETE' })
+  };
+
+  const categoryAPI = {
+    getAll: () => requestJson('/api/categories', { method: 'GET' }),
+    create: (name, slug, description, displayOrder = 0) => requestJson('/api/categories', {
+      method: 'POST',
+      body: JSON.stringify({ name, slug, description, display_order: displayOrder })
+    }),
+    update: (id, name, slug, description, displayOrder = 0, isActive = true) => requestJson(`/api/categories/${id}`, {
+      method: 'PUT',
+      body: JSON.stringify({ name, slug, description, display_order: displayOrder, is_active: isActive })
+    }),
+    delete: (id) => requestJson(`/api/categories/${id}`, { method: 'DELETE' })
+  };
+
+  const orderAPI = {
+    getAll: (page = 1, limit = 20, status = '') => requestJson(`/api/orders?page=${page}&limit=${limit}&status=${encodeURIComponent(status)}`),
+    getById: (id) => requestJson(`/api/orders/${id}`),
+    updateStatus: (id, status, notes = '') => requestJson(`/api/orders/${id}/status`, {
+      method: 'PATCH',
+      body: JSON.stringify({ status, notes })
+    })
+  };
+
+  // Tab switching
+  const navLinks = document.querySelectorAll('.nav-link');
+  const tabContents = document.querySelectorAll('.tab-content');
+  const modal = document.getElementById('modal');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalClose = document.querySelector('.close');
+  const cancelBtn = document.getElementById('cancelBtn');
+  const itemForm = document.getElementById('itemForm');
+  const formFields = document.getElementById('formFields');
+  const productSearchInput = document.getElementById('productSearchInput');
+  const productCategoryFilter = document.getElementById('productCategoryFilter');
+  const productStatusFilter = document.getElementById('productStatusFilter');
+  const productFeaturedFilter = document.getElementById('productFeaturedFilter');
+  const productFilterApplyBtn = document.getElementById('productFilterApplyBtn');
+  const productFilterResetBtn = document.getElementById('productFilterResetBtn');
+  const productSelectAllBtn = document.getElementById('productSelectAllBtn');
+  const productClearSelectionBtn = document.getElementById('productClearSelectionBtn');
+  const productBulkDeleteBtn = document.getElementById('productBulkDeleteBtn');
+  const productImportFile = document.getElementById('productImportFile');
+  const productImportPreviewBtn = document.getElementById('productImportPreviewBtn');
+  const productImportRunBtn = document.getElementById('productImportRunBtn');
+  const productImportOverwrite = document.getElementById('productImportOverwrite');
+  const productImportFileName = document.getElementById('productImportFileName');
+  const productSelectionMeta = document.getElementById('productSelectionMeta');
+  const productImportMeta = document.getElementById('productImportMeta');
+
+  const state = {
+    mode: null,
+    entity: null,
+    id: null,
+    data: null,
+    categories: [],
+    productFilters: {
+      search: '',
+      category: '',
+      isActive: '',
+      featured: ''
+    },
+    selectedProductIds: new Set(),
+    productRows: [],
+    selectedImportFile: null
+  };
+
+  const escapeHtml = (value) => String(value ?? '')
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+    .replaceAll("'", '&#39;');
+
+  const updateProductSelectionMeta = () => {
+    if (productSelectionMeta) {
+      productSelectionMeta.textContent = `${state.selectedProductIds.size} selected`;
+    }
+  };
+
+  const refreshCategoryFilterOptions = async () => {
+    if (!productCategoryFilter) return;
+
+    const categories = await ensureCategories();
+    const options = ['<option value="">All categories</option>']
+      .concat(categories.map((category) => `<option value="${category.id}">#${category.id} - ${escapeHtml(category.name)}</option>`));
+
+    productCategoryFilter.innerHTML = options.join('');
+    productCategoryFilter.value = state.productFilters.category || '';
+  };
+
+  const field = (id, label, value = '', type = 'text', extra = '') => `
+    <div class="form-group">
+      <label for="${id}">${label}</label>
+      <input id="${id}" name="${id}" type="${type}" value="${escapeHtml(value)}" ${extra} />
+    </div>`;
+
+  const textareaField = (id, label, value = '', hint = '') => `
+    <div class="form-group">
+      <label for="${id}">${label}</label>
+      <textarea id="${id}" name="${id}">${escapeHtml(value)}</textarea>
+      ${hint ? `<div class="form-hint">${hint}</div>` : ''}
+    </div>`;
+
+  const checkboxField = (id, label, checked = false) => `
+    <div class="form-group" style="display:flex;align-items:center;gap:10px;">
+      <input id="${id}" name="${id}" type="checkbox" ${checked ? 'checked' : ''} />
+      <label for="${id}" style="margin:0;">${label}</label>
+    </div>`;
+
+  const selectField = (id, label, optionsHtml) => `
+    <div class="form-group">
+      <label for="${id}">${label}</label>
+      <select id="${id}" name="${id}">${optionsHtml}</select>
+    </div>`;
+
+  const slugifyText = (text) => String(text || '')
+    .normalize('NFD')
+    .replace(/[\x00-\x1F]/g, '')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9\s-]/g, '')
+    .trim()
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-');
+
+  async function ensureCategories() {
+    if (state.categories.length > 0) {
+      return state.categories;
+    }
+
+    const data = await categoryAPI.getAll();
+    state.categories = data?.success && Array.isArray(data.data) ? data.data : [];
+    return state.categories;
+  }
+
+  const articleTemplates = {
+    howto: `## Problem\nDescribe the common customer problem in 2-3 lines.\n\n## Recommended Solution\n- Step 1\n- Step 2\n- Step 3\n\n## Conclusion\nSummarize the value and include a clear CTA.`,
+    announcement: `## Announcement\nState the update clearly and directly.\n\n## Effective Date\n- Start:\n- End:\n\n## Contact\nProvide support contact details.`,
+    insight: `## Expert Insight\nState the main idea.\n\n## Key Data Points\n- Point 1\n- Point 2\n\n## Practical Recommendation\nSuggest concrete next actions.`
+  };
+
+  const markdownToHtml = (markdownText) => {
+    const escaped = escapeHtml(markdownText || '');
+    const withBlocks = escaped
+      .replace(/^###\s+(.*)$/gm, '<h3>$1</h3>')
+      .replace(/^##\s+(.*)$/gm, '<h2>$1</h2>')
+      .replace(/^>\s+(.*)$/gm, '<blockquote>$1</blockquote>')
+      .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+      .replace(/\*(.*?)\*/g, '<em>$1</em>')
+      .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1" />')
+      .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
+
+    return withBlocks
+      .split(/\n\n+/)
+      .map((paragraph) => {
+        if (paragraph.startsWith('<h2>') || paragraph.startsWith('<h3>') || paragraph.startsWith('<blockquote>') || paragraph.startsWith('<img')) {
+          return paragraph;
+        }
+        return `<p>${paragraph.replace(/\n/g, '<br />')}</p>`;
+      })
+      .join('');
+  };
+
+  function insertAtCursor(textarea, textToInsert, fallbackSelection = '') {
+    const start = textarea.selectionStart ?? textarea.value.length;
+    const end = textarea.selectionEnd ?? textarea.value.length;
+    const selectedText = textarea.value.slice(start, end) || fallbackSelection;
+    const outputText = textToInsert.replaceAll('{text}', selectedText);
+
+    textarea.value = `${textarea.value.slice(0, start)}${outputText}${textarea.value.slice(end)}`;
+    const nextPos = start + outputText.length;
+    textarea.focus();
+    textarea.setSelectionRange(nextPos, nextPos);
+    textarea.dispatchEvent(new Event('input'));
+  }
+
+  function bindImagePreview(fileInputId, previewImgId) {
+    const fileInput = document.getElementById(fileInputId);
+    const previewImg = document.getElementById(previewImgId);
+    if (!fileInput || !previewImg) return;
+
+    fileInput.addEventListener('change', () => {
+      const file = fileInput.files?.[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = () => {
+        previewImg.src = String(reader.result || '');
+      };
+      reader.readAsDataURL(file);
+    });
+  }
+
+  function setupArticleEditor() {
+    const contentTextarea = document.getElementById('content');
+    const preview = document.getElementById('contentPreview');
+    const toolbarButtons = document.querySelectorAll('[data-md-action]');
+    const templateSelect = document.getElementById('articleTemplateSelect');
+    const applyTemplateBtn = document.getElementById('applyArticleTemplateBtn');
+    const inlineImageInput = document.getElementById('articleInlineImage');
+    const inlineImageUploadBtn = document.getElementById('uploadInlineImageBtn');
+    const metricsEl = document.getElementById('articleEditorMetrics');
+    const saveStatusEl = document.getElementById('articleEditorSaveStatus');
+
+    const draftKey = state.id
+      ? `admin_article_draft_${state.id}`
+      : 'admin_article_draft_new';
+
+    if (!contentTextarea || !preview) {
+      return;
+    }
+
+    // Restore unsaved draft if available.
+    const cached = localStorage.getItem(draftKey);
+    if (cached && (!contentTextarea.value.trim() || cached !== contentTextarea.value)) {
+      contentTextarea.value = cached;
+      if (saveStatusEl) {
+        saveStatusEl.textContent = 'Draft restored';
+      }
+    }
+
+    const refreshPreview = () => {
+      preview.innerHTML = markdownToHtml(contentTextarea.value);
+
+      const textOnly = contentTextarea.value
+        .replace(/```[\s\S]*?```/g, ' ')
+        .replace(/`[^`]*`/g, ' ')
+        .replace(/!\[[^\]]*\]\([^)]+\)/g, ' ')
+        .replace(/\[[^\]]*\]\([^)]+\)/g, ' ')
+        .replace(/[#>*_\-\n]/g, ' ')
+        .replace(/\s+/g, ' ')
+        .trim();
+
+      const words = textOnly ? textOnly.split(' ').filter(Boolean).length : 0;
+      const readTime = Math.max(1, Math.ceil(words / 200));
+      if (metricsEl) {
+        metricsEl.textContent = `${words} words • ~${readTime} min read`;
+      }
+    };
+
+    contentTextarea.addEventListener('input', refreshPreview);
+    refreshPreview();
+
+    toolbarButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const action = button.dataset.mdAction;
+
+        if (action === 'bold') insertAtCursor(contentTextarea, '**{text}**', 'Bold text');
+        if (action === 'italic') insertAtCursor(contentTextarea, '*{text}*', 'Italic text');
+        if (action === 'heading') insertAtCursor(contentTextarea, '\n## {text}\n', 'Section heading');
+        if (action === 'list') insertAtCursor(contentTextarea, '\n- {text}\n', 'List item');
+        if (action === 'quote') insertAtCursor(contentTextarea, '\n> {text}\n', 'Quote');
+        if (action === 'link') insertAtCursor(contentTextarea, '[{text}](https://example.com)', 'Link text');
+      });
+    });
+
+    applyTemplateBtn?.addEventListener('click', () => {
+      const key = templateSelect?.value;
+      if (!key || !articleTemplates[key]) return;
+      const content = contentTextarea.value.trim();
+      contentTextarea.value = content ? `${content}\n\n${articleTemplates[key]}` : articleTemplates[key];
+      contentTextarea.dispatchEvent(new Event('input'));
+    });
+
+    inlineImageUploadBtn?.addEventListener('click', () => inlineImageInput?.click());
+
+    inlineImageInput?.addEventListener('change', async () => {
+      const file = inlineImageInput.files?.[0];
+      if (!file) return;
+
+      try {
+        inlineImageUploadBtn.disabled = true;
+        inlineImageUploadBtn.textContent = 'Uploading image...';
+        const uploaded = await articleAPI.uploadContentImage(file);
+        const imageUrl = uploaded?.data?.image_url;
+        if (imageUrl) {
+          insertAtCursor(contentTextarea, `\n![${file.name}](${imageUrl})\n`);
+        }
+      } catch (error) {
+        alert(error.message || 'Unable to upload content image');
+      } finally {
+        inlineImageUploadBtn.disabled = false;
+        inlineImageUploadBtn.textContent = 'Upload inline image';
+        inlineImageInput.value = '';
+      }
+    });
+
+    let saveTimer = null;
+    contentTextarea.addEventListener('input', () => {
+      if (saveStatusEl) {
+        saveStatusEl.textContent = 'Saving draft...';
+      }
+
+      if (saveTimer) {
+        clearTimeout(saveTimer);
+      }
+
+      saveTimer = setTimeout(() => {
+        localStorage.setItem(draftKey, contentTextarea.value);
+        if (saveStatusEl) {
+          saveStatusEl.textContent = 'Draft saved';
+        }
+      }, 500);
+    });
+  }
+
+  function getArticleDraftKey() {
+    return state.id ? `admin_article_draft_${state.id}` : 'admin_article_draft_new';
+  }
+
+  const closeModal = () => {
+    modal.classList.remove('show');
+    state.mode = null;
+    state.entity = null;
+    state.id = null;
+    state.data = null;
+    itemForm.reset();
+    formFields.innerHTML = '';
+  };
+
+  const openModal = async (entity, mode, data = {}) => {
+    state.entity = entity;
+    state.mode = mode;
+    state.id = data.id || null;
+    state.data = data;
+
+    const isEdit = mode === 'edit';
+    const titleMap = {
+      product: isEdit ? 'Edit Product' : 'Add Product',
+      article: isEdit ? 'Edit Article' : 'Add Article',
+      category: isEdit ? 'Edit Category' : 'Add Category',
+      order: 'Update Order'
+    };
+
+    modalTitle.textContent = titleMap[entity] || 'Update';
+
+    if (entity === 'product') {
+      const categories = await ensureCategories();
+      const categoryOptions = categories.map((category) => `
+        <option value="${category.id}" ${Number(data.category_id) === Number(category.id) ? 'selected' : ''}>#${category.id} - ${escapeHtml(category.name)}</option>
+      `).join('');
+
+      formFields.innerHTML = `
+        ${field('name', 'Product name', data.name || '')}
+        ${textareaField('description', 'Description', data.description || '')}
+        ${field('price', 'Price (VND)', data.price || '', 'number', 'step="1000" min="0"')}
+        ${field('stock', 'Stock', data.stock ?? 0, 'number', 'min="0"')}
+        ${field('unit', 'Unit', data.unit || 'Piece')}
+        ${field('vat_percent', 'VAT (%)', data.vat_percent ?? 0, 'number', 'min="0" max="100"')}
+        ${selectField('category_id', 'Product category', `<option value="">-- Select category --</option>${categoryOptions}`)}
+        ${field('image_url', 'Image URL', data.image_url || '')}
+        <div class="form-group">
+          <label for="product_image_file">Upload image from computer</label>
+          <input id="product_image_file" name="product_image_file" type="file" accept="image/*" />
+          <div class="form-hint">If a file is selected, uploaded image will override Image URL.</div>
+          <div class="upload-preview"><img id="productImagePreview" src="${escapeHtml(data.image_url || '')}" alt="Product image preview" /></div>
+        </div>
+        ${checkboxField('is_featured', 'Featured product', Boolean(data.is_featured))}
+        ${checkboxField('is_active', 'Visible', data.is_active !== false)}
+      `;
+
+      bindImagePreview('product_image_file', 'productImagePreview');
+    }
+
+    if (entity === 'article') {
+      formFields.innerHTML = `
+        ${field('title', 'Title', data.title || '')}
+        ${textareaField('excerpt', 'Summary', data.excerpt || '')}
+        ${field('featured_image', 'Cover image URL', data.featured_image || '')}
+        <div class="form-group">
+          <label for="article_cover_file">Upload cover image from computer</label>
+          <input id="article_cover_file" name="article_cover_file" type="file" accept="image/*" />
+          <div class="form-hint">Uploaded cover image will override Cover image URL.</div>
+          <div class="upload-preview"><img id="articleCoverPreview" src="${escapeHtml(data.featured_image || '')}" alt="Cover preview" /></div>
+        </div>
+        <div class="form-group">
+          <label for="content">Article content (Markdown)</label>
+          <div class="editor-shell">
+            <div class="editor-toolbar">
+              <button type="button" data-md-action="bold"><b>B</b></button>
+              <button type="button" data-md-action="italic"><i>I</i></button>
+              <button type="button" data-md-action="heading">H2</button>
+              <button type="button" data-md-action="list">List</button>
+              <button type="button" data-md-action="quote">Quote</button>
+              <button type="button" data-md-action="link">Link</button>
+              <select id="articleTemplateSelect">
+                <option value="">Quick template</option>
+                <option value="howto">How-to guide</option>
+                <option value="announcement">Official announcement</option>
+                <option value="insight">Insight article</option>
+              </select>
+              <button type="button" id="applyArticleTemplateBtn">Insert template</button>
+              <button type="button" id="uploadInlineImageBtn">Upload inline image</button>
+              <input id="articleInlineImage" type="file" accept="image/*" style="display:none;" />
+            </div>
+            <div class="editor-layout">
+              <textarea id="content" name="content">${escapeHtml(data.content || '')}</textarea>
+              <div id="contentPreview" class="editor-preview"></div>
+            </div>
+          </div>
+          <div class="editor-meta">
+            <span id="articleEditorMetrics">0 words • ~1 min read</span>
+            <span id="articleEditorSaveStatus" class="editor-save-status">Draft not saved</span>
+          </div>
+          <div class="form-hint">Type normally in markdown. Preview, metrics, and draft autosave update in real time.</div>
+        </div>
+        ${checkboxField('is_published', 'Publish now', Boolean(data.is_published))}
+      `;
+
+      bindImagePreview('article_cover_file', 'articleCoverPreview');
+      setupArticleEditor();
+    }
+
+    if (entity === 'category') {
+      formFields.innerHTML = `
+        ${field('id', 'Category ID', data.id || '(Auto)', 'text', 'readonly')}
+        ${field('name', 'Category name', data.name || '')}
+        ${field('slug', 'Slug / Identifier', data.slug || slugifyText(data.name || ''))}
+        ${textareaField('description', 'Description', data.description || '')}
+        ${field('display_order', 'Display order', data.display_order ?? 0, 'number', 'min="0"')}
+        ${checkboxField('is_active', 'Visible', data.is_active !== false)}
+      `;
+
+      const nameInput = document.getElementById('name');
+      const slugInput = document.getElementById('slug');
+      nameInput?.addEventListener('input', () => {
+        if (!slugInput?.dataset.edited) {
+          slugInput.value = slugifyText(nameInput.value);
+        }
+      });
+      slugInput?.addEventListener('input', () => {
+        slugInput.dataset.edited = 'true';
+      });
+    }
+
+    if (entity === 'order') {
+      const currentStatus = data.status || 'pending';
+      formFields.innerHTML = `
+        <div class="form-group">
+          <label for="status">Status</label>
+          <select id="status" name="status">
+            <option value="pending" ${currentStatus === 'pending' ? 'selected' : ''}>pending</option>
+            <option value="processing" ${currentStatus === 'processing' ? 'selected' : ''}>processing</option>
+            <option value="shipped" ${currentStatus === 'shipped' ? 'selected' : ''}>shipped</option>
+            <option value="delivered" ${currentStatus === 'delivered' ? 'selected' : ''}>delivered</option>
+            <option value="cancelled" ${currentStatus === 'cancelled' ? 'selected' : ''}>cancelled</option>
+          </select>
+        </div>
+        ${textareaField('notes', 'Notes', data.notes || '')}
+      `;
+    }
+
+    modal.classList.add('show');
+  };
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const tabName = link.dataset.tab;
+      
+      // Remove active class from all
+      navLinks.forEach(l => l.classList.remove('active'));
+      tabContents.forEach(t => t.classList.remove('active'));
+      
+      // Add active class to clicked
+      link.classList.add('active');
+      document.getElementById(tabName).classList.add('active');
+      
+      // Load data for tab
+      loadTabData(tabName);
+    });
+  });
+
+  // Logout
+  document.getElementById('logoutBtn').addEventListener('click', () => {
+    localStorage.removeItem('admin_token');
+    localStorage.removeItem('admin_user');
+    window.location.href = '/admin-login';
+  });
+
+  // Load tab data
+  async function loadTabData(tabName) {
+    try {
+      switch(tabName) {
+        case 'products':
+          await loadProducts();
+          break;
+        case 'articles':
+          await loadArticles();
+          break;
+        case 'categories':
+          await loadCategories();
+          break;
+        case 'orders':
+          await loadOrders();
+          break;
+        case 'dashboard':
+          await loadDashboard();
+          break;
+      }
+    } catch (error) {
+      console.error('Error loading tab data:', error);
+    }
+  }
+
+  async function loadDashboard() {
+    try {
+      const [products, articles, orders] = await Promise.all([
+        productAPI.getAll(1, 1),
+        articleAPI.getAllAdmin(1, 1),
+        orderAPI.getAll(1, 1)
+      ]);
+
+      document.getElementById('productCount').textContent = products.total || 0;
+      document.getElementById('articleCount').textContent = articles.total || 0;
+      document.getElementById('orderCount').textContent = orders.total || 0;
+    } catch (error) {
+      console.error('Error loading dashboard:', error);
+    }
+  }
+
+  async function loadProducts() {
+    await refreshCategoryFilterOptions();
+
+    const data = await productAPI.getAll(
+      1,
+      100,
+      state.productFilters.search,
+      state.productFilters.category,
+      state.productFilters.isActive,
+      state.productFilters.featured,
+      true
+    );
+    const list = document.getElementById('productsList');
+
+    state.productRows = data.data || [];
+    const rowIds = new Set(state.productRows.map((product) => product.id));
+    state.selectedProductIds = new Set([...state.selectedProductIds].filter((id) => rowIds.has(id)));
+    updateProductSelectionMeta();
+    
+    if (data.success && data.data.length > 0) {
+      list.innerHTML = data.data.map(product => `
+        <div class="item-row">
+          <div class="item-info">
+            <h4>
+              <label class="product-row-check">
+                <input type="checkbox" class="product-row-selector" data-product-id="${product.id}" ${state.selectedProductIds.has(product.id) ? 'checked' : ''} />
+              </label>
+              ${product.name}
+            </h4>
+            <p>Price: ${Number(product.price).toLocaleString('vi-VN')} VND | Stock: ${product.stock} | VAT: ${product.vat_percent ?? 0}%</p>
+            <p>Category: #${product.category_id ?? '-'} ${product.Category?.name ? `(${product.Category.name})` : ''} | Featured: ${product.is_featured ? 'Yes' : 'No'} | Visible: ${product.is_active ? 'Yes' : 'No'}</p>
+          </div>
+          <div class="item-actions">
+            <button class="btn-sm btn-edit" onclick="editProduct(${product.id})">Edit</button>
+            <button class="btn-sm btn-delete" onclick="deleteProduct(${product.id})">Delete</button>
+          </div>
+        </div>
+      `).join('');
+
+      list.querySelectorAll('.product-row-selector').forEach((checkbox) => {
+        checkbox.addEventListener('change', () => {
+          const id = Number(checkbox.dataset.productId);
+          if (checkbox.checked) {
+            state.selectedProductIds.add(id);
+          } else {
+            state.selectedProductIds.delete(id);
+          }
+          updateProductSelectionMeta();
+        });
+      });
+    } else {
+      list.innerHTML = '<p style="padding: 20px; text-align: center;">No products found</p>';
+    }
+
+    updateProductSelectionMeta();
+  }
+
+  async function loadArticles() {
+    const data = await articleAPI.getAllAdmin(1, 100);
+    const list = document.getElementById('articlesList');
+    
+    if (data.success && data.data.length > 0) {
+      list.innerHTML = data.data.map(article => `
+        <div class="item-row">
+          <div class="item-info">
+            <h4>${article.title}</h4>
+            <p>Author: ${article.User?.name} | Status: ${article.is_published ? 'Published' : 'Draft'}</p>
+          </div>
+          <div class="item-actions">
+            <a class="btn-sm btn-edit" style="text-decoration:none;display:inline-block;" href="/tin-tuc/${article.slug}" target="_blank" rel="noopener">Read</a>
+            <button class="btn-sm btn-edit" onclick="editArticle(${article.id})">Edit</button>
+            <button class="btn-sm btn-publish" onclick="toggleArticlePublish(${article.id}, ${!article.is_published})">${article.is_published ? 'Unpublish' : 'Publish'}</button>
+            <button class="btn-sm btn-delete" onclick="deleteArticle(${article.id})">Delete</button>
+          </div>
+        </div>
+      `).join('');
+    } else {
+      list.innerHTML = '<p style="padding: 20px; text-align: center;">No articles found</p>';
+    }
+  }
+
+  async function loadCategories() {
+    const data = await categoryAPI.getAll();
+    const list = document.getElementById('categoriesList');
+    
+    if (data.success && data.data.length > 0) {
+      list.innerHTML = data.data.map(category => `
+        <div class="item-row">
+          <div class="item-info">
+            <h4>${category.name}</h4>
+            <p>ID: <strong>#${category.id}</strong> | Slug: <code>${category.slug}</code> | Order: ${category.display_order ?? 0}</p>
+            <p>${category.description || 'No description'}</p>
+          </div>
+          <div class="item-actions">
+            <button class="btn-sm btn-edit" onclick="editCategory(${category.id})">Edit</button>
+            <button class="btn-sm btn-delete" onclick="deleteCategory(${category.id})">Delete</button>
+          </div>
+        </div>
+      `).join('');
+    } else {
+      list.innerHTML = '<p style="padding: 20px; text-align: center;">No categories found</p>';
+    }
+  }
+
+  async function loadOrders() {
+    const data = await orderAPI.getAll(1, 100);
+    const list = document.getElementById('ordersList');
+    
+    if (data.success && data.data.length > 0) {
+      list.innerHTML = data.data.map(order => `
+        <div class="item-row">
+          <div class="item-info">
+            <h4>${order.order_number}</h4>
+            <p>Customer: ${order.customer_name} | Total: ${order.total_amount.toLocaleString('vi-VN')} VND | Status: ${order.status}</p>
+          </div>
+          <div class="item-actions">
+            <button class="btn-sm btn-edit" onclick="editOrder(${order.id})">Update</button>
+          </div>
+        </div>
+      `).join('');
+    } else {
+      list.innerHTML = '<p style="padding: 20px; text-align: center;">No orders found</p>';
+    }
+  }
+
+  async function saveCurrentEntity() {
+    const formData = new FormData(itemForm);
+
+    if (state.entity === 'product') {
+      const imageFile = document.getElementById('product_image_file')?.files?.[0] || null;
+      const payload = {
+        name: formData.get('name'),
+        description: formData.get('description'),
+        price: formData.get('price'),
+        stock: formData.get('stock'),
+        unit: formData.get('unit'),
+        vat_percent: formData.get('vat_percent'),
+        category_id: formData.get('category_id'),
+        is_featured: formData.get('is_featured') === 'on',
+        is_active: formData.get('is_active') === 'on',
+        image_url: formData.get('image_url')
+      };
+
+      if (state.mode === 'create') {
+        await productAPI.create(payload, imageFile);
+      } else {
+        await productAPI.update(state.id, payload, imageFile);
+      }
+
+      await loadProducts();
+      await loadDashboard();
+    }
+
+    if (state.entity === 'article') {
+      const coverImageFile = document.getElementById('article_cover_file')?.files?.[0] || null;
+      const payload = {
+        title: formData.get('title'),
+        content: formData.get('content'),
+        excerpt: formData.get('excerpt'),
+        is_published: formData.get('is_published') === 'on',
+        featured_image: formData.get('featured_image')
+      };
+
+      if (state.mode === 'create') {
+        await articleAPI.create(payload, coverImageFile);
+      } else {
+        await articleAPI.update(state.id, payload, coverImageFile);
+      }
+
+      localStorage.removeItem(getArticleDraftKey());
+
+      await loadArticles();
+      await loadDashboard();
+    }
+
+    if (state.entity === 'category') {
+      const payload = {
+        name: formData.get('name'),
+        slug: formData.get('slug'),
+        description: formData.get('description'),
+        display_order: formData.get('display_order'),
+        is_active: formData.get('is_active') === 'on'
+      };
+
+      if (state.mode === 'create') {
+        await categoryAPI.create(payload.name, payload.slug, payload.description, payload.display_order);
+      } else {
+        await categoryAPI.update(state.id, payload.name, payload.slug, payload.description, payload.display_order, payload.is_active);
+      }
+
+      state.categories = [];
+      await loadCategories();
+    }
+
+    if (state.entity === 'order') {
+      const payload = {
+        status: formData.get('status'),
+        notes: formData.get('notes')
+      };
+
+      await orderAPI.updateStatus(state.id, payload.status, payload.notes);
+      await loadOrders();
+      await loadDashboard();
+    }
+
+    closeModal();
+  }
+
+  async function confirmAndDelete(message, action) {
+    if (!confirm(message)) return;
+    await action();
+    await loadDashboard();
+  }
+
+  window.editProduct = async (id) => {
+    const data = await productAPI.getAll(1, 500, '', '', '', '', true);
+    const product = data.data.find((item) => item.id === id);
+    if (product) await openModal('product', 'edit', product);
+  };
+
+  window.deleteProduct = async (id) => {
+    await confirmAndDelete('Delete this product?', async () => {
+      await productAPI.delete(id);
+      await loadProducts();
+    });
+  };
+
+  window.editArticle = async (id) => {
+    const data = await articleAPI.getAllAdmin(1, 500);
+    const article = data.data.find((item) => item.id === id);
+    if (article) await openModal('article', 'edit', article);
+  };
+
+  window.toggleArticlePublish = async (id, publish) => {
+    await articleAPI.togglePublish(id, publish);
+    await loadArticles();
+    await loadDashboard();
+  };
+
+  window.deleteArticle = async (id) => {
+    await confirmAndDelete('Delete this article?', async () => {
+      await articleAPI.delete(id);
+      await loadArticles();
+    });
+  };
+
+  window.editCategory = async (id) => {
+    const data = await categoryAPI.getAll();
+    const category = data.data.find((item) => item.id === id);
+    if (category) await openModal('category', 'edit', category);
+  };
+
+  window.deleteCategory = async (id) => {
+    await confirmAndDelete('Delete this category?', async () => {
+      await categoryAPI.delete(id);
+      state.categories = [];
+      await loadCategories();
+    });
+  };
+
+  window.editOrder = async (id) => {
+    const order = await orderAPI.getById(id);
+    if (order?.success && order.data) await openModal('order', 'edit', order.data);
+  };
+
+  document.getElementById('addProductBtn').addEventListener('click', async () => await openModal('product', 'create', {}));
+  document.getElementById('addArticleBtn').addEventListener('click', async () => await openModal('article', 'create', {}));
+  document.getElementById('addCategoryBtn').addEventListener('click', async () => await openModal('category', 'create', {}));
+
+  productFilterApplyBtn?.addEventListener('click', async () => {
+    state.productFilters.search = productSearchInput?.value.trim() || '';
+    state.productFilters.category = productCategoryFilter?.value || '';
+    state.productFilters.isActive = productStatusFilter?.value || '';
+    state.productFilters.featured = productFeaturedFilter?.value || '';
+    await loadProducts();
+  });
+
+  productFilterResetBtn?.addEventListener('click', async () => {
+    state.productFilters = { search: '', category: '', isActive: '', featured: '' };
+    if (productSearchInput) productSearchInput.value = '';
+    if (productCategoryFilter) productCategoryFilter.value = '';
+    if (productStatusFilter) productStatusFilter.value = '';
+    if (productFeaturedFilter) productFeaturedFilter.value = '';
+    state.selectedProductIds.clear();
+    await loadProducts();
+  });
+
+  productSearchInput?.addEventListener('keydown', async (event) => {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      state.productFilters.search = productSearchInput.value.trim();
+      await loadProducts();
+    }
+  });
+
+  productSelectAllBtn?.addEventListener('click', () => {
+    state.productRows.forEach((product) => state.selectedProductIds.add(product.id));
+    document.querySelectorAll('.product-row-selector').forEach((checkbox) => {
+      checkbox.checked = true;
+    });
+    updateProductSelectionMeta();
+  });
+
+  productClearSelectionBtn?.addEventListener('click', () => {
+    state.selectedProductIds.clear();
+    document.querySelectorAll('.product-row-selector').forEach((checkbox) => {
+      checkbox.checked = false;
+    });
+    updateProductSelectionMeta();
+  });
+
+  productBulkDeleteBtn?.addEventListener('click', async () => {
+    if (state.selectedProductIds.size === 0) {
+      alert('Please select at least one product.');
+      return;
+    }
+
+    if (!confirm(`Delete ${state.selectedProductIds.size} selected products?`)) {
+      return;
+    }
+
+    const ids = Array.from(state.selectedProductIds);
+    await productAPI.bulkDelete(ids);
+
+    state.selectedProductIds.clear();
+    await loadProducts();
+    await loadDashboard();
+  });
+
+  const runProductImport = async (previewOnly = false) => {
+    const file = state.selectedImportFile;
+    if (!file) {
+      alert('Please choose an import file first.');
+      return;
+    }
+
+    try {
+      if (productImportMeta) {
+        productImportMeta.textContent = previewOnly ? 'Running preview...' : 'Importing products...';
+      }
+
+      const result = await productAPI.importFile(file, Boolean(productImportOverwrite?.checked), previewOnly);
+      const summary = result?.data;
+      if (productImportMeta && summary) {
+        if (previewOnly) {
+          productImportMeta.textContent = `Preview: ${summary.would_create} to create, ${summary.would_update} to update, ${summary.skipped} skipped, ${summary.failed} failed`;
+        } else {
+          productImportMeta.textContent = `Imported: ${summary.created} created, ${summary.updated} updated, ${summary.skipped} skipped, ${summary.failed} failed`;
+        }
+      }
+
+      if (summary?.errors?.length) {
+        alert(`${previewOnly ? 'Preview' : 'Import'} completed with warnings:\n${summary.errors.slice(0, 8).join('\n')}`);
+      }
+
+      if (!previewOnly) {
+        await loadProducts();
+        await loadDashboard();
+      }
+    } catch (error) {
+      if (productImportMeta) {
+        productImportMeta.textContent = previewOnly ? 'Preview failed' : 'Import failed';
+      }
+      alert(error.message || (previewOnly ? 'Preview failed' : 'Import failed'));
+    }
+  };
+
+  productImportFile?.addEventListener('change', () => {
+    const file = productImportFile.files?.[0] || null;
+    state.selectedImportFile = file;
+    if (productImportFileName) {
+      productImportFileName.textContent = file ? file.name : 'No file selected';
+    }
+  });
+
+  productImportPreviewBtn?.addEventListener('click', async () => {
+    await runProductImport(true);
+  });
+
+  productImportRunBtn?.addEventListener('click', async () => {
+    await runProductImport(false);
+    state.selectedImportFile = null;
+    if (productImportFile) {
+      productImportFile.value = '';
+    }
+    if (productImportFileName) {
+      productImportFileName.textContent = 'No file selected';
+    }
+  });
+
+  modalClose?.addEventListener('click', closeModal);
+  cancelBtn?.addEventListener('click', closeModal);
+  modal?.addEventListener('click', (event) => {
+    if (event.target === modal) closeModal();
+  });
+
+  itemForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    try {
+      await saveCurrentEntity();
+    } catch (error) {
+      alert(error.message || 'Failed to save data');
+    }
+  });
+
+  // Load dashboard on page load
+  await loadDashboard();
+</script>
+

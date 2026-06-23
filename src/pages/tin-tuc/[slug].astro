@@ -1,0 +1,108 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+export const prerender = true;
+
+const API_URL = import.meta.env.PUBLIC_API_URL || 'http://localhost:5000';
+const { slug } = Astro.params;
+
+export async function getStaticPaths() {
+  const apiUrl = import.meta.env.PUBLIC_API_URL || 'http://localhost:5000';
+
+  try {
+    const response = await fetch(`${apiUrl}/api/articles?limit=100`);
+    const data = await response.json();
+    const articles = data?.success && Array.isArray(data.data) ? data.data : [];
+
+    return articles.map((article: any) => ({
+      params: { slug: article.slug }
+    }));
+  } catch {
+    return [];
+  }
+}
+
+let article = null;
+
+try {
+  const response = await fetch(`${API_URL}/api/articles/${slug}`);
+  if (!response.ok) {
+    article = null;
+  } else {
+    const data = await response.json();
+    article = data?.success ? data.data : null;
+  }
+} catch {
+  article = null;
+}
+
+if (!article) {
+  return Astro.redirect('/tin-tuc');
+}
+---
+
+<Layout title={`${article.title} | Long Hưng`} description={article.excerpt || article.title}>
+  <Header currentPage="/tin-tuc" />
+
+  <article class="news-detail">
+    <div class="container">
+      <a href="/tin-tuc" class="back-link">← Quay lại tin tức</a>
+      <h1>{article.title}</h1>
+      <p class="meta">
+        {article.User?.name ? `Bởi ${article.User.name} · ` : ''}
+        {article.published_at ? new Date(article.published_at).toLocaleDateString('vi-VN') : ''}
+        {typeof article.view_count === 'number' ? ` · ${article.view_count} lượt xem` : ''}
+      </p>
+
+      {article.featured_image && <img src={article.featured_image} alt={article.title} class="hero-image" />}
+
+      <div class="content" set:html={(article.content || '').replace(/\n/g, '<br />')} />
+    </div>
+  </article>
+
+  <Footer />
+</Layout>
+
+<style>
+  .news-detail {
+    padding: 2.5rem 0 3rem;
+    background: linear-gradient(180deg, #fffaf4 0%, #f5ebdd 100%);
+  }
+
+  .back-link {
+    display: inline-flex;
+    margin-bottom: 1rem;
+    color: #7a3d10;
+    text-decoration: none;
+    font-weight: 700;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    line-height: 1.2;
+    margin: 0 0 0.65rem;
+  }
+
+  .meta {
+    margin: 0 0 1rem;
+    color: #866446;
+  }
+
+  .hero-image {
+    width: 100%;
+    border-radius: 18px;
+    margin-bottom: 1.2rem;
+    box-shadow: 0 14px 30px rgba(68, 43, 18, 0.14);
+  }
+
+  .content {
+    background: #fff;
+    border: 1px solid #eadcc8;
+    border-radius: 18px;
+    padding: 1.2rem;
+    line-height: 1.8;
+    color: #3d2c1d;
+  }
+</style>

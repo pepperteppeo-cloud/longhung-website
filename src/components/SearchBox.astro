@@ -41,19 +41,25 @@
 </div>
 
 <script>
+  declare global {
+    interface Window {
+      __lhSearchBoxEscBound?: boolean;
+    }
+  }
+
   const initProductSearchBox = () => {
-    const searchBoxes = Array.from(document.querySelectorAll('[data-product-search-box]'));
+    const searchBoxes = Array.from(document.querySelectorAll<HTMLElement>('[data-product-search-box]'));
 
     searchBoxes.forEach((searchBox) => {
       if (searchBox.dataset.bound === 'true') {
         return;
       }
 
-      const toggle = searchBox.querySelector('[data-product-search-toggle]');
-      const closeBtn = searchBox.querySelector('[data-product-search-close]');
-      const modal = searchBox.querySelector('[data-product-search-modal]');
-      const input = searchBox.querySelector('[data-product-search-input]');
-      const form = searchBox.querySelector('[data-product-search-form]');
+      const toggle = searchBox.querySelector<HTMLButtonElement>('[data-product-search-toggle]');
+      const closeBtn = searchBox.querySelector<HTMLButtonElement>('[data-product-search-close]');
+      const modal = searchBox.querySelector<HTMLElement>('[data-product-search-modal]');
+      const input = searchBox.querySelector<HTMLInputElement>('[data-product-search-input]');
+      const form = searchBox.querySelector<HTMLFormElement>('[data-product-search-form]');
 
       if (!toggle || !closeBtn || !modal || !input || !form) {
         return;
@@ -111,7 +117,7 @@
         return;
       }
 
-      document.querySelectorAll('[data-product-search-modal].open').forEach((modal) => {
+      document.querySelectorAll<HTMLElement>('[data-product-search-modal].open').forEach((modal) => {
         modal.classList.remove('open');
         modal.setAttribute('aria-hidden', 'true');
       });

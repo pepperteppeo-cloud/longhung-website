@@ -278,7 +278,7 @@ const FORMSPREE_ENDPOINT = "https://formspree.io/f/xeednnap";
   const successMessage = document.getElementById("successMessage");
 
   if (form && successMessage) {
-    form.addEventListener("submit", function (e) {
+    form.addEventListener("submit", function () {
       // Formspree will handle submission, but we can add custom behavior here
       setTimeout(() => {
         // This will be called after Formspree redirects/handles
