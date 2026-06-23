@@ -3,26 +3,10 @@ import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 
-export const prerender = true;
+export const prerender = false;
 
 const API_URL = import.meta.env.PUBLIC_API_URL || 'http://localhost:5000';
 const { slug } = Astro.params;
-
-export async function getStaticPaths() {
-  const apiUrl = import.meta.env.PUBLIC_API_URL || 'http://localhost:5000';
-
-  try {
-    const response = await fetch(`${apiUrl}/api/articles?limit=100`);
-    const data = await response.json();
-    const articles = data?.success && Array.isArray(data.data) ? data.data : [];
-
-    return articles.map((article: any) => ({
-      params: { slug: article.slug }
-    }));
-  } catch {
-    return [];
-  }
-}
 
 let article = null;
 

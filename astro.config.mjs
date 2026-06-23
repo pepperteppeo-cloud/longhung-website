@@ -1,10 +1,12 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
+import cloudflare from '@astrojs/cloudflare';
 
 export default defineConfig({
   site: 'https://vpplonghung.com',
   integrations: [sitemap()],
-  output: 'static',
+  adapter: cloudflare(),
+  output: 'server',
 
   prefetch: false,
 });
