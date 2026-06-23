@@ -70,7 +70,7 @@ export const productAPI = {
   getBySlug: (slug) =>
     apiFetch(`/api/products/${slug}`),
 
-  create: (data, imageFile = null) => {
+  create: async (data, imageFile = null) => {
     const formData = new FormData();
     formData.append('name', data.name);
     formData.append('description', data.description);
@@ -84,14 +84,16 @@ export const productAPI = {
     if (data.image_url) formData.append('image_url', data.image_url);
     if (imageFile) formData.append('image', imageFile);
 
-    return fetch(`${API_URL}/api/products`, {
+    const response = await fetch(`${API_URL}/api/products`, {
       method: 'POST',
       body: formData,
       headers: getAuthHeader(),
-    }).then(r => r.json());
+    });
+
+    return response.json();
   },
 
-  update: (id, data, imageFile = null) => {
+  update: async (id, data, imageFile = null) => {
     const formData = new FormData();
     if (data.name) formData.append('name', data.name);
     if (data.description) formData.append('description', data.description);
@@ -105,11 +107,13 @@ export const productAPI = {
     if (data.image_url) formData.append('image_url', data.image_url);
     if (imageFile) formData.append('image', imageFile);
 
-    return fetch(`${API_URL}/api/products/${id}`, {
+    const response = await fetch(`${API_URL}/api/products/${id}`, {
       method: 'PUT',
       body: formData,
       headers: getAuthHeader(),
-    }).then(r => r.json());
+    });
+
+    return response.json();
   },
 
   delete: (id) =>
@@ -162,7 +166,7 @@ export const articleAPI = {
       headers: getAuthHeader(),
     }),
 
-  create: (data, imageFile = null) => {
+  create: async (data, imageFile = null) => {
     const formData = new FormData();
     formData.append('title', data.title);
     formData.append('content', data.content);
@@ -171,14 +175,16 @@ export const articleAPI = {
     if (data.featured_image) formData.append('featured_image', data.featured_image);
     if (imageFile) formData.append('image', imageFile);
 
-    return fetch(`${API_URL}/api/articles`, {
+    const response = await fetch(`${API_URL}/api/articles`, {
       method: 'POST',
       body: formData,
       headers: getAuthHeader(),
-    }).then(r => r.json());
+    });
+
+    return response.json();
   },
 
-  update: (id, data, imageFile = null) => {
+  update: async (id, data, imageFile = null) => {
     const formData = new FormData();
     if (data.title) formData.append('title', data.title);
     if (data.content) formData.append('content', data.content);
@@ -187,11 +193,13 @@ export const articleAPI = {
     if (data.featured_image) formData.append('featured_image', data.featured_image);
     if (imageFile) formData.append('image', imageFile);
 
-    return fetch(`${API_URL}/api/articles/${id}`, {
+    const response = await fetch(`${API_URL}/api/articles/${id}`, {
       method: 'PUT',
       body: formData,
       headers: getAuthHeader(),
-    }).then(r => r.json());
+    });
+
+    return response.json();
   },
 
   togglePublish: (id, isPublished) =>

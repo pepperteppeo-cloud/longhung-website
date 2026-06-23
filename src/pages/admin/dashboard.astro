@@ -683,7 +683,7 @@ import Layout from '../../layouts/Layout.astro';
   }
 </style>
 
-<script type="module" define:vars={{ PUBLIC_API_URL: import.meta.env.PUBLIC_API_URL }}>
+<script is:inline type="module" define:vars={{ PUBLIC_API_URL: import.meta.env.PUBLIC_API_URL }}>
   const API_URL = PUBLIC_API_URL || 'http://localhost:5000';
 
   // Check authentication

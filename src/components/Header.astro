@@ -675,7 +675,7 @@ const nationwideOrderUrl = 'https://vpplonghung.mshopkeeper.vn/order-page/';
 
   const initDropdowns = () => {
     const navMenu = document.getElementById('navMenu');
-    const dropdownToggles = document.querySelectorAll('[data-dropdown] .dropdown-toggle');
+    const dropdownToggles = document.querySelectorAll<HTMLElement>('[data-dropdown] .dropdown-toggle');
 
     dropdownToggles.forEach((toggle) => {
       if (toggle.dataset.bound === 'true') return;
@@ -700,7 +700,7 @@ const nationwideOrderUrl = 'https://vpplonghung.mshopkeeper.vn/order-page/';
         }
       });
 
-      dropdownMenu.querySelectorAll('a').forEach((link) => {
+      dropdownMenu.querySelectorAll<HTMLAnchorElement>('a').forEach((link) => {
         link.addEventListener('click', () => {
           closeAllDropdowns();
         });

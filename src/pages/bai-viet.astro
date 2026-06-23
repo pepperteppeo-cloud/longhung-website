@@ -18,7 +18,7 @@ const articles = articlesData.success ? articlesData.data : [];
 
       {articles.length > 0 ? (
         <div class="articles-grid">
-          {articles.map((article) => (
+          {articles.map((article: any) => (
             <article class="article-card">
               {article.featured_image && (
                 <div class="article-image">

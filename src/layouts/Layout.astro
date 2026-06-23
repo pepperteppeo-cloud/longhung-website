@@ -40,8 +40,8 @@ const websiteStructuredData = {
 <html lang="vi">
   <head>
     <script src="https://cdn.cookiehub.eu/c2/b251dc2a.js"></script>
-<script type="text/javascript">
-document.addEventListener("DOMContentLoaded", function(event) {
+<script is:inline type="text/javascript">
+document.addEventListener("DOMContentLoaded", function() {
 var cpm = {};
 window.cookiehub.load(cpm);
 });
@@ -73,6 +73,7 @@ window.cookiehub.load(cpm);
 <meta name="theme-color" content="#660011" />
 
 <script
+  is:inline
   type="application/ld+json"
   set:html={JSON.stringify(websiteStructuredData)}
 />

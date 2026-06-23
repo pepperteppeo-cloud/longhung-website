@@ -39,7 +39,7 @@ const {
           <div class="policy-toc-card">
             <h2>Danh mục nội dung</h2>
             <ul>
-              {tocLinks.map((item) => (
+              {tocLinks.map((item: TocLink) => (
                 <li>
                   <a href={item.href}>{item.title}</a>
                 </li>

@@ -163,16 +163,20 @@ import Layout from '../layouts/Layout.astro';
 <script>
   const API_URL = import.meta.env.PUBLIC_API_URL || 'http://localhost:5000';
 
-  const loginForm = document.getElementById('loginForm');
-  const errorMessage = document.getElementById('errorMessage');
-  const successMessage = document.getElementById('successMessage');
+  const loginForm = document.getElementById('loginForm') as HTMLFormElement | null;
+  const errorMessage = document.getElementById('errorMessage') as HTMLElement | null;
+  const successMessage = document.getElementById('successMessage') as HTMLElement | null;
 
-  if (loginForm) {
+  if (loginForm && errorMessage && successMessage) {
     loginForm.addEventListener('submit', async (e) => {
       e.preventDefault();
 
-      const email = document.getElementById('email').value;
-      const password = document.getElementById('password').value;
+      const emailInput = document.getElementById('email') as HTMLInputElement | null;
+      const passwordInput = document.getElementById('password') as HTMLInputElement | null;
+      if (!emailInput || !passwordInput) return;
+
+      const email = emailInput.value;
+      const password = passwordInput.value;
 
       // Clear messages
       errorMessage.classList.remove('show');

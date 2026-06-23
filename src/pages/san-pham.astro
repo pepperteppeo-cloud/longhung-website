@@ -186,7 +186,13 @@ const initialVisibleCount = hasInitialFilters
 </Layout>
 
 <script>
-  const normalizeVietnamese = (value) => {
+  declare global {
+    interface Window {
+      __lhProductSearchSyncBound?: boolean;
+    }
+  }
+
+  const normalizeVietnamese = (value: string) => {
     return (value || '')
       .normalize('NFD')
       .replace(/[\u0300-\u036f]/g, '')
@@ -196,33 +202,33 @@ const initialVisibleCount = hasInitialFilters
       .trim();
   };
 
-  const toInt = (value) => {
+  const toInt = (value: string) => {
     const parsed = Number.parseInt(value, 10);
     return Number.isFinite(parsed) ? parsed : null;
   };
 
-  const tokenize = (value) => {
+  const tokenize = (value: string) => {
     const normalized = normalizeVietnamese(value);
     return normalized ? normalized.split(/\s+/).filter(Boolean) : [];
   };
 
   const initProductFilters = () => {
-    const form = document.getElementById('product-filter-form');
-    const keywordInput = document.getElementById('filter-keyword');
-    const categoryInput = document.getElementById('filter-category');
-    const minPriceInput = document.getElementById('filter-min-price');
-    const maxPriceInput = document.getElementById('filter-max-price');
-    const resetButton = document.getElementById('reset-filters');
-    const summary = document.getElementById('filter-summary');
-    const emptyState = document.getElementById('empty-state');
-    const chips = Array.from(document.querySelectorAll('.chip'));
-    const allCards = Array.from(document.querySelectorAll('.product-card'));
+    const form = document.getElementById('product-filter-form') as HTMLFormElement | null;
+    const keywordInput = document.getElementById('filter-keyword') as HTMLInputElement | null;
+    const categoryInput = document.getElementById('filter-category') as HTMLSelectElement | null;
+    const minPriceInput = document.getElementById('filter-min-price') as HTMLInputElement | null;
+    const maxPriceInput = document.getElementById('filter-max-price') as HTMLInputElement | null;
+    const resetButton = document.getElementById('reset-filters') as HTMLButtonElement | null;
+    const summary = document.getElementById('filter-summary') as HTMLElement | null;
+    const emptyState = document.getElementById('empty-state') as HTMLElement | null;
+    const chips = Array.from(document.querySelectorAll<HTMLElement>('.chip'));
+    const allCards = Array.from(document.querySelectorAll<HTMLElement>('.product-card'));
 
     if (!form || !keywordInput || !categoryInput || !minPriceInput || !maxPriceInput || !summary || !emptyState) {
       return;
     }
 
-    const setActiveChip = (chipName) => {
+    const setActiveChip = (chipName: string) => {
       chips.forEach((chip) => {
         chip.classList.toggle('active', chip.dataset.priceRange === chipName);
       });
@@ -261,7 +267,7 @@ const initialVisibleCount = hasInitialFilters
 
         const keywordMatch =
           !keywordTokens.length ||
-          keywordTokens.every((token) => name.includes(token));
+          keywordTokens.every((token: string) => name.includes(token));
         const categoryMatch = !category || category === cardCategory;
         const minMatch = minPrice === null || cardPrice >= minPrice;
         const maxMatch = maxPrice === null || cardPrice <= maxPrice;
