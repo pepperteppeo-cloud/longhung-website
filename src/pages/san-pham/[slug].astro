@@ -4,7 +4,14 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import { loadProductCatalog } from '../../data/catalog';
 
-export const prerender = false;
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const catalog = await loadProductCatalog();
+  return catalog.products.map((product) => ({
+    params: { slug: product.slug }
+  }));
+}
 
 const productSlug = String(Astro.params.slug || '').trim();
 const catalog = await loadProductCatalog();
