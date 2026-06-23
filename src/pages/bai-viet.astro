@@ -4,10 +4,17 @@ import Layout from '../layouts/Layout.astro';
 
 const API_URL = import.meta.env.PUBLIC_API_URL || 'http://localhost:5000';
 
-// Fetch articles from API
-const response = await fetch(`${API_URL}/api/articles?page=1&limit=12`);
-const articlesData = await response.json();
-const articles = articlesData.success ? articlesData.data : [];
+// Fetch articles from API with error handling
+let articles = [];
+
+try {
+  const response = await fetch(`${API_URL}/api/articles?page=1&limit=12`);
+  const articlesData = await response.json();
+  articles = articlesData.success ? articlesData.data : [];
+} catch (error) {
+  console.warn('Failed to fetch articles:', error);
+  articles = [];
+}
 ---
 
 <Layout title="Bài viết - Long Hưng">
