@@ -1,46 +1,56 @@
-# Astro Starter Kit: Basics
+# Long Hưng Website
 
-```sh
-npm create astro@latest -- --template basics
+Astro 6 site for Long Hưng with a Cloudflare Workers runtime.
+
+## What this repo does
+
+- Public pages render on Cloudflare Workers so product and article data can stay fresh.
+- Admin login uses the Railway backend API.
+- Frontend environment variables use `PUBLIC_` prefixes.
+
+## Important deployment note
+
+- Deploy this frontend to **Cloudflare Workers**, not Cloudflare Pages.
+- Cloudflare Pages is static-only and will not run the SSR routes used here.
+
+## Setup
+
+```bash
+npm install
+npm run build
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Local development
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+```bash
+npm run dev
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## Preview production runtime locally
 
-## 🧞 Commands
+```bash
+npm run preview
+```
 
-All commands are run from the root of the project, from a terminal:
+## Environment variables
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+Create a `.env` file for local development:
 
-## 👀 Want to learn more?
+```env
+PUBLIC_API_URL=https://longhung-website-backend-production.up.railway.app
+PUBLIC_API_TIMEOUT=30000
+```
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## Cloudflare config
+
+- `astro.config.mjs` uses the Cloudflare adapter.
+- `wrangler.jsonc` enables `nodejs_compat` because the catalog layer uses `node:fs` and `node:path`.
+
+## Key routes
+
+- `/admin-login` - Admin authentication
+- `/admin/dashboard` - Admin management UI
+- `/san-pham` - Public product catalog
+- `/san-pham/[slug]` - Public product detail
+- `/tin-tuc` - Public article list
+- `/tin-tuc/[slug]` - Public article detail

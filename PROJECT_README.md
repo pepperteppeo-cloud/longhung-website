@@ -355,23 +355,27 @@ longhung-website-dev/
 
 ## 🚀 Deployment
 
+### Frontend runtime
+- Deploy the Astro frontend to **Cloudflare Workers**.
+- Do **not** use Cloudflare Pages for this SSR build.
+- The site uses `nodejs_compat` in `wrangler.jsonc` because the product catalog reads `node:fs` and `node:path`.
+
 ### Production Build
 ```bash
 npm run build
-npm run preview
+npm run deploy
 ```
 
 ### Deployment Checklist
 - [ ] Set `NODE_ENV=production`
-- [ ] Update `CORS_ORIGIN` to include production domain
+- [ ] Update `CORS_ORIGIN` to include the production domain
+- [ ] Configure `PUBLIC_API_URL` for the Railway backend
 - [ ] Configure PostgreSQL for production
 - [ ] Set strong `JWT_SECRET`
 - [ ] Enable HTTPS
 - [ ] Set up SSL certificate
-- [ ] Configure email for notifications
-- [ ] Set up backup strategy
 - [ ] Monitor error logs
-- [ ] Configure CDN for images
+- [ ] Verify Cloudflare Workers deployment
 
 ---
 
