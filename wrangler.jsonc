@@ -8,6 +8,10 @@
       "id": "e955f9f35477453abcf721ab01b545c8"
     }
   ],
+  "vars": {
+    "PUBLIC_API_URL": "https://longhung-website-backend-production.up.railway.app",
+    "PUBLIC_API_TIMEOUT": "30000"
+  },
   "routes": [
     {
       "pattern": "vpplonghung.com/*",
