@@ -1,0 +1,136 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const API_URL = import.meta.env.PUBLIC_API_URL || 'http://localhost:5000';
+let articles = [];
+
+try {
+  const response = await fetch(`${API_URL}/api/articles?limit=12`);
+  const data = await response.json();
+  articles = data?.success && Array.isArray(data.data) ? data.data : [];
+} catch {
+  articles = [];
+}
+---
+
+<Layout title="Tin tức | Long Hưng" description="Tin tức, kiến thức và cập nhật mới nhất từ Long Hưng.">
+  <Header currentPage="/tin-tuc" />
+
+  <section class="news-hero">
+    <div class="container">
+      <p class="kicker">Long Hưng News</p>
+      <h1>Tin tức và cập nhật mới</h1>
+      <p class="lead">Theo dõi bài viết, mẹo sử dụng và thông tin nổi bật từ Long Hưng.</p>
+    </div>
+  </section>
+
+  <section class="news-listing">
+    <div class="container">
+      {articles.length > 0 ? (
+        <div class="news-grid">
+          {articles.map((article) => (
+            <article class="news-card">
+              {article.featured_image && <img src={article.featured_image} alt={article.title} class="news-image" />}
+              <div class="news-body">
+                <p class="news-meta">
+                  {article.User?.name ? `Bởi ${article.User.name} · ` : ''}
+                  {article.published_at ? new Date(article.published_at).toLocaleDateString('vi-VN') : ''}
+                </p>
+                <h2>{article.title}</h2>
+                <p>{article.excerpt || article.content?.slice(0, 160)}</p>
+                <a href={`/tin-tuc/${article.slug}`} class="btn btn-outline">Đọc bài</a>
+              </div>
+            </article>
+          ))}
+        </div>
+      ) : (
+        <div class="empty-state">
+          <p>Chưa có tin tức nào được đăng.</p>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  .news-hero {
+    padding: 4rem 0 2.5rem;
+    background: linear-gradient(135deg, #241013 0%, #5f2c1a 50%, #174e74 100%);
+    color: #fff;
+  }
+
+  .kicker {
+    margin: 0 0 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(255, 216, 141, 0.92);
+    font-weight: 700;
+  }
+
+  .news-hero h1 {
+    margin: 0;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+  }
+
+  .lead {
+    max-width: 60ch;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .news-listing {
+    padding: 2rem 0 3rem;
+    background: #f7f1e5;
+  }
+
+  .news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.1rem;
+  }
+
+  .news-card {
+    background: #fff;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 12px 28px rgba(73, 46, 19, 0.1);
+    border: 1px solid #eadcc8;
+  }
+
+  .news-image {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+  }
+
+  .news-body {
+    padding: 1rem;
+  }
+
+  .news-meta {
+    margin: 0 0 0.4rem;
+    color: #866446;
+    font-size: 0.88rem;
+  }
+
+  .news-body h2 {
+    margin: 0 0 0.6rem;
+    font-size: 1.15rem;
+    line-height: 1.35;
+  }
+
+  .news-body p {
+    color: #5f4a38;
+    line-height: 1.6;
+  }
+
+  .empty-state {
+    border: 1px dashed #d8c2a8;
+    background: #fff;
+    border-radius: 16px;
+    padding: 1rem;
+  }
+</style>

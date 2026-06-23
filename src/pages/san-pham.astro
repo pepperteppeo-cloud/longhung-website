@@ -2,7 +2,10 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { productCategories, products, priceRange, formatPriceVnd } from '../data/products';
+import { loadProductCatalog } from '../data/catalog';
+
+const catalog = await loadProductCatalog();
+const { productCategories, products, priceRange, formatPriceVnd } = catalog;
 
 const productCount = products.length;
 const minPrice = Number.isFinite(priceRange.min) ? priceRange.min : 0;

@@ -1,9 +1,12 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
+import node from '@astrojs/node';
 
 export default defineConfig({
   site: 'https://vpplonghung.com',
   integrations: [sitemap()],
+  output: 'server',
+  adapter: node({ mode: 'standalone' }),
 
   prefetch: false,
 });

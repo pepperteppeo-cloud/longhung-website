@@ -5,6 +5,17 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import ContactForm from '../components/ContactForm.astro';
 
+const API_URL = import.meta.env.PUBLIC_API_URL || 'http://localhost:5000';
+let featuredArticles = [];
+
+try {
+  const response = await fetch(`${API_URL}/api/articles?limit=3`);
+  const data = await response.json();
+  featuredArticles = data?.success && Array.isArray(data.data) ? data.data.slice(0, 3) : [];
+} catch {
+  featuredArticles = [];
+}
+
 const businessBranches = [
   {
     id: 'retail',
@@ -176,6 +187,38 @@ const mapEmbedSrc =
     </div>
   </section>
 
+  <!-- Featured News Section -->
+  <section class="news-preview reveal" data-reveal>
+    <div class="container">
+      <div class="news-preview-header">
+        <div>
+          <p class="section-subtitle">Tin tức nổi bật</p>
+          <h2 class="section-title">Cập nhật nhanh từ Long Hưng</h2>
+        </div>
+        <a href="/tin-tuc" class="btn btn-outline news-link">Xem tất cả tin tức</a>
+      </div>
+
+      {featuredArticles.length > 0 ? (
+        <div class="news-grid">
+          {featuredArticles.map((article) => (
+            <article class="news-card">
+              <div class="news-card-body">
+                <span class="news-pill">Tin mới</span>
+                <h3>{article.title}</h3>
+                <p>{article.excerpt || article.content?.slice(0, 120)}</p>
+                <a href={`/tin-tuc/${article.slug}`} class="news-read-more">Đọc tiếp →</a>
+              </div>
+            </article>
+          ))}
+        </div>
+      ) : (
+        <div class="news-empty">
+          <p>Chưa có tin tức mới được đăng. Hãy quay lại sớm nhé.</p>
+        </div>
+      )}
+    </div>
+  </section>
+
   <!-- Contact Section -->
   <section id="contact-section" class="reveal" data-reveal>
     <ContactForm title="Tư vấn Ngay" subtitle="Liên hệ với chúng tôi để nhận tư vấn miễn phí" />
@@ -196,6 +239,89 @@ const mapEmbedSrc =
       ></iframe>
     </div>
   </section>
+
+  <style>
+    .news-preview {
+      padding: 1rem 0 2rem;
+      background: linear-gradient(180deg, #f6efe2 0%, #fffaf3 100%);
+    }
+
+    .news-preview-header {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+    }
+
+    .news-card {
+      border: 1px solid #ead7c1;
+      border-radius: 18px;
+      background: linear-gradient(180deg, #fff 0%, #fffaf4 100%);
+      box-shadow: 0 12px 24px rgba(68, 43, 18, 0.08);
+      overflow: hidden;
+    }
+
+    .news-card-body {
+      padding: 1rem;
+    }
+
+    .news-pill {
+      display: inline-flex;
+      padding: 0.2rem 0.5rem;
+      border-radius: 999px;
+      background: #7a3d10;
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      margin-bottom: 0.7rem;
+    }
+
+    .news-card h3 {
+      margin: 0 0 0.5rem;
+      font-size: 1.05rem;
+      color: #2f2518;
+      line-height: 1.35;
+    }
+
+    .news-card p {
+      margin: 0 0 0.85rem;
+      color: #5d4a39;
+      line-height: 1.55;
+    }
+
+    .news-read-more {
+      color: #7a3d10;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .news-empty {
+      border: 1px dashed #d8c2a8;
+      border-radius: 16px;
+      padding: 1rem;
+      background: #fff;
+    }
+
+    @media (max-width: 1080px) {
+      .news-preview-header {
+        align-items: start;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .news-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 
   <Footer />
 </Layout>

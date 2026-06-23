@@ -1,0 +1,23 @@
+---
+// Redirect legacy article URL to canonical /tin-tuc route
+
+export async function getStaticPaths() {
+  const apiUrl = import.meta.env.PUBLIC_API_URL || 'http://localhost:5000';
+
+  try {
+    const response = await fetch(`${apiUrl}/api/articles?limit=100`);
+    const data = await response.json();
+    const articles = data?.success && Array.isArray(data.data) ? data.data : [];
+
+    return articles.map((article) => ({
+      params: { slug: article.slug }
+    }));
+  } catch {
+    return [];
+  }
+}
+
+const { slug } = Astro.params;
+
+return Astro.redirect(`/tin-tuc/${slug}`);
+---
