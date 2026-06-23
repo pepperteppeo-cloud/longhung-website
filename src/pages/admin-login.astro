@@ -191,12 +191,16 @@ import Layout from '../layouts/Layout.astro';
           body: JSON.stringify({ email, password })
         });
 
-        const data = await response.json();
+        const data = await response.json().catch(() => ({}));
+        const token = data?.data?.token || data?.token || null;
+        const user = data?.data?.user || data?.user || null;
 
-        if (response.ok && data.success) {
+        if (response.ok && token) {
           // Save token to localStorage
-          localStorage.setItem('admin_token', data.data.token);
-          localStorage.setItem('admin_user', JSON.stringify(data.data.user));
+          localStorage.setItem('admin_token', token);
+          if (user) {
+            localStorage.setItem('admin_user', JSON.stringify(user));
+          }
 
           successMessage.textContent = 'Đăng nhập thành công! Đang chuyển hướng...';
           successMessage.classList.add('show');
@@ -206,7 +210,7 @@ import Layout from '../layouts/Layout.astro';
             window.location.href = '/admin/dashboard';
           }, 1500);
         } else {
-          errorMessage.textContent = data.message || 'Đăng nhập thất bại. Vui lòng kiểm tra email và mật khẩu.';
+          errorMessage.textContent = data?.message || data?.error || 'Đăng nhập thất bại. Vui lòng kiểm tra email và mật khẩu.';
           errorMessage.classList.add('show');
         }
       } catch (error) {
