@@ -1377,7 +1377,7 @@ const apiUrl = PRODUCTION_API_URL;
             </h4>
             <p>Price: ${Number(product.price).toLocaleString('vi-VN')} VND | Stock: ${product.stock} | VAT: ${product.vat_percent ?? 0}%</p>
             <p>Category: #${product.category_id ?? '-'} ${product.Category?.name ? `(${product.Category.name})` : ''} | Featured: ${product.is_featured ? 'Yes' : 'No'} | Visible: ${product.is_active ? 'Yes' : 'No'}</p>
-            <p>Product link: ${(product.product_link || product.order_url || product.product_url) ? `<a href="${escapeHtml(product.product_link || product.order_url || product.product_url)}" target="_blank" rel="noopener">${escapeHtml(product.product_link || product.order_url || product.product_url)}</a>` : 'Not set'}</p>
+            <p>Product link: Not implemented in this version</p>
           </div>
           <div class="item-actions">
             <button class="btn-sm btn-edit" onclick="editProduct(${product.id})">Edit</button>

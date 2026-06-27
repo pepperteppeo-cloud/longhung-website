@@ -198,7 +198,7 @@ function buildBackendCatalog(rows: Array<any>): ProductCatalog {
       categoryId: category.slug || String(row.category_id || 'other'),
       category: category.name || 'Sản phẩm',
       image: resolveBackendImageUrl(row.image_url),
-      productLink: row.product_link ?? row.order_url ?? row.product_url ?? row.link_url ?? row.link ?? ''
+      productLink: ''
     };
   });
 
@@ -293,7 +293,7 @@ async function getCanonicalLocalCatalog(): Promise<ProductCatalog | null> {
       categoryId: product.categoryId,
       category: product.category,
       image: imageByStt.get(Number(product.stt)) || '',
-      productLink: product.productLink ?? product.product_link ?? product.order_url ?? ''
+      productLink: product.productLink ?? ''
     }));
 
     const sourceCategories = (parsedCatalog.categories || []).map((category) => ({
