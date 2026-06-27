@@ -1488,7 +1488,8 @@ const apiUrl = PRODUCTION_API_URL;
         category_id: formData.get('category_id'),
         is_featured: formData.get('is_featured') === 'on',
         is_active: formData.get('is_active') === 'on',
-        image_url: formData.get('image_url')
+        image_url: formData.get('image_url'),
+        product_link: formData.get('product_link')
       };
 
       if (state.mode === 'create') {
