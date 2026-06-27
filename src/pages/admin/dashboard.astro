@@ -1175,7 +1175,6 @@ const apiUrl = PRODUCTION_API_URL;
         ${field('unit', 'Unit', data.unit || 'Piece')}
         ${field('vat_percent', 'VAT (%)', data.vat_percent ?? 0, 'number', 'min="0" max="100"')}
         ${selectField('category_id', 'Product category', `<option value="">-- Select category --</option>${categoryOptions}`)}
-        ${field('product_link', 'Product link / Order link', data.product_link || data.order_url || data.product_url || '', 'url', 'placeholder="https://..."')}
         ${field('image_url', 'Image URL', data.image_url || '')}
         <div class="form-group">
           <label for="product_image_file">Upload image from computer</label>
@@ -1478,7 +1477,6 @@ const apiUrl = PRODUCTION_API_URL;
 
     if (state.entity === 'product') {
       const imageFile = document.getElementById('product_image_file')?.files?.[0] || null;
-      const productLink = formData.get('product_link')?.trim() || '';
       const payload = {
         name: formData.get('name'),
         description: formData.get('description'),
@@ -1487,23 +1485,17 @@ const apiUrl = PRODUCTION_API_URL;
         unit: formData.get('unit'),
         vat_percent: formData.get('vat_percent'),
         category_id: formData.get('category_id'),
-        order_url: productLink,
-        product_link: productLink,
-        product_url: productLink,
         is_featured: formData.get('is_featured') === 'on',
         is_active: formData.get('is_active') === 'on',
         image_url: formData.get('image_url')
       };
 
-      console.log('Saving product:', payload);
-      
       if (state.mode === 'create') {
         await productAPI.create(payload, imageFile);
       } else {
         await productAPI.update(state.id, payload, imageFile);
       }
 
-      console.log('Product saved successfully');
       await loadProducts();
       await loadDashboard();
     }
