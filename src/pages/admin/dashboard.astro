@@ -1,8 +1,7 @@
 ﻿---
 import Layout from '../../layouts/Layout.astro';
 const PRODUCTION_API_URL = 'https://longhung-website-backend-production.up.railway.app';
-const runtimeEnv = (Astro.locals as any)?.runtime?.env;
-const apiUrl = (runtimeEnv?.PUBLIC_API_URL?.trim?.() ?? import.meta.env.PUBLIC_API_URL?.trim?.() ?? '').trim() || PRODUCTION_API_URL;
+const apiUrl = PRODUCTION_API_URL;
 ---
 
 <Layout title="Admin Dashboard - Long Hung">
