@@ -1181,7 +1181,7 @@ const apiUrl = PRODUCTION_API_URL;
           <label for="product_image_file">Upload image from computer</label>
           <input id="product_image_file" name="product_image_file" type="file" accept="image/*" />
           <div class="form-hint">If a file is selected, uploaded image will override Image URL.</div>
-          <div class="upload-preview"><img id="productImagePreview" src="${escapeHtml(data.image_url || '')}" alt="Product image preview" /></div>
+          <div class="upload-preview"><img id="productImagePreview" src="${escapeHtml(data.image_url || '')}" alt="Product image preview" onerror="this.style.display='none'" /></div>
         </div>
         ${checkboxField('is_featured', 'Featured product', Boolean(data.is_featured))}
         ${checkboxField('is_active', 'Visible', data.is_active !== false)}
@@ -1478,6 +1478,7 @@ const apiUrl = PRODUCTION_API_URL;
 
     if (state.entity === 'product') {
       const imageFile = document.getElementById('product_image_file')?.files?.[0] || null;
+      const productLink = formData.get('product_link')?.trim() || '';
       const payload = {
         name: formData.get('name'),
         description: formData.get('description'),
@@ -1486,18 +1487,23 @@ const apiUrl = PRODUCTION_API_URL;
         unit: formData.get('unit'),
         vat_percent: formData.get('vat_percent'),
         category_id: formData.get('category_id'),
-        product_link: formData.get('product_link'),
+        order_url: productLink,
+        product_link: productLink,
+        product_url: productLink,
         is_featured: formData.get('is_featured') === 'on',
         is_active: formData.get('is_active') === 'on',
         image_url: formData.get('image_url')
       };
 
+      console.log('Saving product:', payload);
+      
       if (state.mode === 'create') {
         await productAPI.create(payload, imageFile);
       } else {
         await productAPI.update(state.id, payload, imageFile);
       }
 
+      console.log('Product saved successfully');
       await loadProducts();
       await loadDashboard();
     }
