@@ -1,5 +1,8 @@
 ﻿---
 import Layout from '../../layouts/Layout.astro';
+const PRODUCTION_API_URL = 'https://longhung-website-backend-production.up.railway.app';
+const runtimeEnv = (Astro.locals as any).runtime?.env;
+const apiUrl = (runtimeEnv?.PUBLIC_API_URL ?? import.meta.env.PUBLIC_API_URL ?? '').trim() || PRODUCTION_API_URL;
 ---
 
 <Layout title="Admin Dashboard - Long Hung">
@@ -44,7 +47,7 @@ import Layout from '../../layouts/Layout.astro';
         <div class="content-header">
           <h1>Product Management</h1>
           <div style="display:flex;gap:10px;flex-wrap:wrap;">
-            <a class="btn-secondary" href="http://localhost:5000/Nhap-khau-hang-hoa-website.xlsx" target="_blank" rel="noopener" style="text-decoration:none;display:inline-flex;align-items:center;">Download Import Template</a>
+            <a class="btn-secondary" href={`${apiUrl}/Nhap-khau-hang-hoa-website.xlsx`} target="_blank" rel="noopener" style="text-decoration:none;display:inline-flex;align-items:center;">Download Import Template</a>
             <button id="addProductBtn" class="btn-primary">+ Add Product</button>
           </div>
         </div>
@@ -683,8 +686,8 @@ import Layout from '../../layouts/Layout.astro';
   }
 </style>
 
-<script is:inline type="module" define:vars={{ PUBLIC_API_URL: import.meta.env.PUBLIC_API_URL }}>
-  const API_URL = PUBLIC_API_URL || 'http://localhost:5000';
+<script is:inline type="module" define:vars={{ PUBLIC_API_URL: apiUrl }}>
+  const API_URL = PUBLIC_API_URL;
 
   // Check authentication
   function checkAuth() {
