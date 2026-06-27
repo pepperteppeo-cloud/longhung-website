@@ -34,7 +34,8 @@ export interface ProductCatalog {
   getRelatedProducts: (currentProduct: CatalogProduct, size?: number) => CatalogProduct[];
 }
 
-const API_URL = import.meta.env.PUBLIC_API_URL || 'http://localhost:5000';
+const PRODUCTION_API_URL = 'https://longhung-website-backend-production.up.railway.app';
+const API_URL = (import.meta.env.PUBLIC_API_URL || '').trim() || PRODUCTION_API_URL;
 const API_BASE = API_URL.replace(/\/+$/, '');
 
 const categoryTheme: Record<string, { color: string; image: string }> = {

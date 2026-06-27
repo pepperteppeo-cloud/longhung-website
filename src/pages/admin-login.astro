@@ -1,5 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
+const PRODUCTION_API_URL = 'https://longhung-website-backend-production.up.railway.app';
+const apiUrl = import.meta.env.PUBLIC_API_URL?.trim() || PRODUCTION_API_URL;
 ---
 
 <Layout title="Đăng nhập Quản trị viên - Long Hưng">
@@ -160,19 +162,18 @@ import Layout from '../layouts/Layout.astro';
   }
 </style>
 
-<script>
-  const API_URL = import.meta.env.PUBLIC_API_URL || 'http://localhost:5000';
+<script is:inline type="module" define:vars={{ API_URL: apiUrl }}>
 
-  const loginForm = document.getElementById('loginForm') as HTMLFormElement | null;
-  const errorMessage = document.getElementById('errorMessage') as HTMLElement | null;
-  const successMessage = document.getElementById('successMessage') as HTMLElement | null;
+  const loginForm = document.getElementById('loginForm');
+  const errorMessage = document.getElementById('errorMessage');
+  const successMessage = document.getElementById('successMessage');
 
   if (loginForm && errorMessage && successMessage) {
     loginForm.addEventListener('submit', async (e) => {
       e.preventDefault();
 
-      const emailInput = document.getElementById('email') as HTMLInputElement | null;
-      const passwordInput = document.getElementById('password') as HTMLInputElement | null;
+      const emailInput = document.getElementById('email');
+      const passwordInput = document.getElementById('password');
       if (!emailInput || !passwordInput) return;
 
       const email = emailInput.value;
