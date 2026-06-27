@@ -1175,6 +1175,7 @@ const apiUrl = PRODUCTION_API_URL;
         ${field('unit', 'Unit', data.unit || 'Piece')}
         ${field('vat_percent', 'VAT (%)', data.vat_percent ?? 0, 'number', 'min="0" max="100"')}
         ${selectField('category_id', 'Product category', `<option value="">-- Select category --</option>${categoryOptions}`)}
+        ${field('product_link', 'Product link (URL)', data.product_link || '', 'url')}
         ${field('image_url', 'Image URL', data.image_url || '')}
         <div class="form-group">
           <label for="product_image_file">Upload image from computer</label>
@@ -1377,7 +1378,7 @@ const apiUrl = PRODUCTION_API_URL;
             </h4>
             <p>Price: ${Number(product.price).toLocaleString('vi-VN')} VND | Stock: ${product.stock} | VAT: ${product.vat_percent ?? 0}%</p>
             <p>Category: #${product.category_id ?? '-'} ${product.Category?.name ? `(${product.Category.name})` : ''} | Featured: ${product.is_featured ? 'Yes' : 'No'} | Visible: ${product.is_active ? 'Yes' : 'No'}</p>
-            <p>Product link: Not implemented in this version</p>
+            <p>Product link: ${product.product_link ? `<a href="${escapeHtml(product.product_link)}" target="_blank" rel="noopener">${escapeHtml(product.product_link)}</a>` : 'Not set'}</p>
           </div>
           <div class="item-actions">
             <button class="btn-sm btn-edit" onclick="editProduct(${product.id})">Edit</button>
