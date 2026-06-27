@@ -22,7 +22,10 @@ const orderPageByCategory: Record<string, string> = {
   'bach-hoa-van-phong': 'https://vpplonghung.mshopkeeper.vn/order-page/new/c/bach-hoa---qua-tang---luu-niem'
 };
 
-const orderPageUrl = orderPageByCategory[product.categoryId] ?? '/san-pham';
+const nationwideOrderUrl = 'https://vpplonghung.mshopkeeper.vn/order-page/';
+const customProductLink = typeof product.productLink === 'string' ? product.productLink.trim() : '';
+const orderPageUrl = customProductLink || orderPageByCategory[product.categoryId] || nationwideOrderUrl;
+const isExternalOrderUrl = /^https?:\/\//i.test(orderPageUrl);
 ---
 
 <Layout
@@ -75,7 +78,7 @@ const orderPageUrl = orderPageByCategory[product.categoryId] ?? '/san-pham';
           </p>
 
           <div class="product-actions">
-            <a href={orderPageUrl} class="btn">Đặt hàng toàn quốc</a>
+            <a href={orderPageUrl} class="btn" target={isExternalOrderUrl ? '_blank' : undefined} rel={isExternalOrderUrl ? 'noopener noreferrer' : undefined}>Đặt hàng toàn quốc</a>
             <a href="/lien-he" class="btn">Đàm phán mức giá</a>
             <a href="/san-pham" class="btn btn-outline">Quay lại danh mục</a>
           </div>

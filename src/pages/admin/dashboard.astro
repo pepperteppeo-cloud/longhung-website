@@ -1173,6 +1173,7 @@ import Layout from '../../layouts/Layout.astro';
         ${field('unit', 'Unit', data.unit || 'Piece')}
         ${field('vat_percent', 'VAT (%)', data.vat_percent ?? 0, 'number', 'min="0" max="100"')}
         ${selectField('category_id', 'Product category', `<option value="">-- Select category --</option>${categoryOptions}`)}
+        ${field('product_link', 'Product link / Order link', data.product_link || data.order_url || data.product_url || '', 'url', 'placeholder="https://..."')}
         ${field('image_url', 'Image URL', data.image_url || '')}
         <div class="form-group">
           <label for="product_image_file">Upload image from computer</label>
@@ -1375,6 +1376,7 @@ import Layout from '../../layouts/Layout.astro';
             </h4>
             <p>Price: ${Number(product.price).toLocaleString('vi-VN')} VND | Stock: ${product.stock} | VAT: ${product.vat_percent ?? 0}%</p>
             <p>Category: #${product.category_id ?? '-'} ${product.Category?.name ? `(${product.Category.name})` : ''} | Featured: ${product.is_featured ? 'Yes' : 'No'} | Visible: ${product.is_active ? 'Yes' : 'No'}</p>
+            <p>Product link: ${(product.product_link || product.order_url || product.product_url) ? `<a href="${escapeHtml(product.product_link || product.order_url || product.product_url)}" target="_blank" rel="noopener">${escapeHtml(product.product_link || product.order_url || product.product_url)}</a>` : 'Not set'}</p>
           </div>
           <div class="item-actions">
             <button class="btn-sm btn-edit" onclick="editProduct(${product.id})">Edit</button>
@@ -1482,6 +1484,7 @@ import Layout from '../../layouts/Layout.astro';
         unit: formData.get('unit'),
         vat_percent: formData.get('vat_percent'),
         category_id: formData.get('category_id'),
+        product_link: formData.get('product_link'),
         is_featured: formData.get('is_featured') === 'on',
         is_active: formData.get('is_active') === 'on',
         image_url: formData.get('image_url')

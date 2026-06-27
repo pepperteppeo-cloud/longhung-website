@@ -22,6 +22,7 @@ export interface CatalogProduct {
   shortCode: string;
   accentColor: string;
   image: string;
+  productLink?: string;
 }
 
 export interface ProductCatalog {
@@ -126,6 +127,7 @@ function buildCatalog(
     category: string;
     image?: string;
     slug?: string;
+    productLink?: string;
   }>,
   sourceCategories: Array<{ id: string; name: string; slug: string; productCount?: number }>
 ): ProductCatalog {
@@ -145,7 +147,8 @@ function buildCatalog(
       category: product.category,
       shortCode: makeShortCode(product.name),
       accentColor: theme.color,
-      image: product.image || theme.image
+      image: product.image || theme.image,
+      productLink: typeof product.productLink === 'string' ? product.productLink.trim() : ''
     };
   });
 
@@ -193,7 +196,8 @@ function buildBackendCatalog(rows: Array<any>): ProductCatalog {
       vatPercent: Number(row.vat_percent ?? row.vatPercent ?? 0) || 0,
       categoryId: category.slug || String(row.category_id || 'other'),
       category: category.name || 'Sản phẩm',
-      image: resolveBackendImageUrl(row.image_url)
+      image: resolveBackendImageUrl(row.image_url),
+      productLink: row.product_link ?? row.order_url ?? row.product_url ?? row.link_url ?? row.link ?? ''
     };
   });
 
@@ -287,7 +291,8 @@ async function getCanonicalLocalCatalog(): Promise<ProductCatalog | null> {
       vatPercent: Number(product.vatPercent ?? 0),
       categoryId: product.categoryId,
       category: product.category,
-      image: imageByStt.get(Number(product.stt)) || ''
+      image: imageByStt.get(Number(product.stt)) || '',
+      productLink: product.productLink ?? product.product_link ?? product.order_url ?? ''
     }));
 
     const sourceCategories = (parsedCatalog.categories || []).map((category) => ({

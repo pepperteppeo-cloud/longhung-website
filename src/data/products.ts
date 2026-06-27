@@ -17,6 +17,7 @@ interface RawProduct {
   vatPercent: number;
   categoryId: string;
   category: string;
+  productLink?: string;
 }
 
 interface ProductDataFile {
@@ -56,6 +57,7 @@ export interface Product {
   shortCode: string;
   accentColor: string;
   image: string;
+  productLink?: string;
 }
 
 const data = parsedData as ProductDataFile;
@@ -146,7 +148,8 @@ export const products: Product[] = data.products.map((product) => {
     slug: `${slugify(product.name)}-${product.stt}`,
     shortCode: makeShortCode(product.name),
     accentColor: theme.color,
-    image: mappedImage ?? theme.image
+    image: mappedImage ?? theme.image,
+    productLink: typeof product.productLink === 'string' ? product.productLink.trim() : ''
   };
 });
 

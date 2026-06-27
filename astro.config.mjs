@@ -7,6 +7,9 @@ export default defineConfig({
   integrations: [sitemap()],
   adapter: cloudflare(),
   output: 'server',
+  devToolbar: {
+    enabled: false,
+  },
 
   prefetch: false,
 });
